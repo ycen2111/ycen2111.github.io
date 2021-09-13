@@ -28,7 +28,7 @@
 <meta property="og:description" content="插件介绍如果一些功能没有包含在主题内或想使用自己的内容，可以在官网的插件库内下载使用。一些常用的插件会时不时更新在此页面。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-10T02:01:01.000Z">
-<meta property="article:modified_time" content="2021-09-10T02:39:50.199Z">
+<meta property="article:modified_time" content="2021-09-13T01:51:59.331Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Blog">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">插件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">搜索功能插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">插入图片插件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">插件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">搜索功能插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">插入图片插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%AF%86%E7%A0%81%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">文章密码插件</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -293,6 +293,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![ImageDescription](ImageName.npg)</span><br></pre></td></tr></table></figure>
 
 <p>就可以显示图片了。</p>
+<h2 id="文章密码插件"><a href="#文章密码插件" class="headerlink" title="文章密码插件"></a>文章密码插件</h2><p>如果想加密某些文件，可以添加这个插件。</p>
+<p>下载plugin</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-blog-encrypt</span><br></pre></td></tr></table></figure>
+
+<p>在根目录配置文件添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line">encrypt: <span class="comment"># hexo-blog-encrypt</span></span><br><span class="line">  abstract: Here<span class="string">&#x27;s something encrypted, password is required to continue reading.</span></span><br><span class="line"><span class="string">  message: Hey, password is required here.</span></span><br><span class="line"><span class="string">  tags:</span></span><br><span class="line"><span class="string">  - &#123;name: encryptAsDiary, password: passwordA&#125;</span></span><br><span class="line"><span class="string">  - &#123;name: encryptAsTips, password: passwordB&#125;</span></span><br><span class="line"><span class="string">  theme: up</span></span><br><span class="line"><span class="string">  wrong_pass_message: Oh, this is an invalid password. Check and try again, please.</span></span><br><span class="line"><span class="string">  wrong_hash_message: Oh, these decrypted content cannot be verified, but you can still have a look.</span></span><br></pre></td></tr></table></figure>
+
+<p>theme: 密码输入界面样式，可查看<a target="_blank" rel="noopener" href="https://mhexo.github.io/2020/12/23/Theme-Test-Default/">作者实例</a>。</p>
+<p>之后只要在文章配置内加入password</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">date: 2020-03-13 21:12:21</span><br><span class="line">password: hello</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>文章底有encrypt again按钮，可重置密码记忆记录。</p>
 
     </div>
 
