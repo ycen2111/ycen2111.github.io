@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>STM32 串口通信</title>
+      <link href="/STM32/STM32-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1-acd4b44ab8ab/"/>
+      <url>/STM32/STM32-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1-acd4b44ab8ab/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>通过USART和上位或下位机通信。通过schematic diagram可以发现USB转串口接口PA9，PA10正是由USART1控制。这里选择USART1，和上位机电脑进行通信。</p><span id="more"></span><h2 id="非中断通信"><a href="#非中断通信" class="headerlink" title="非中断通信"></a>非中断通信</h2><p>在CUBE MX里选择USART1<br>Mode: Asynchronous<br>Baud Rate: 115200 (只要与接受口一样就行)<br>Word Length: 8 Bits</p><p>生成后只要调用两函数就行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uint8_t aRxBuffer[10];</span><br><span class="line"></span><br><span class="line">HAL_UART_Receive(&amp;huart1, (uint8_t *)aRxBuffer, 10, 0xffff);</span><br><span class="line">HAL_UART_Transmit(&amp;huart1, (uint8_t *)aRxBuffer, sizeof(aRxBuffer), 0xffff);</span><br></pre></td></tr></table></figure><p>就可以接收上位机信息并发回去。但因为会中断其他所有进程，不灵活，所有基本不用。</p><h2 id="中断通信"><a href="#中断通信" class="headerlink" title="中断通信"></a>中断通信</h2><p>生成代码时在NVIC enable通道设置优先级。由于暂不清楚项目中通信的流程顾先放过，之后熟悉了再来完善。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单片机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> stm32 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>STM32 中断</title>
       <link href="/STM32/STM32-%E4%B8%AD%E6%96%AD-b29a1098c278/"/>
       <url>/STM32/STM32-%E4%B8%AD%E6%96%AD-b29a1098c278/</url>
