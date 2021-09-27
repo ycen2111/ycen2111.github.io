@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>STM32 IIC通信</title>
+      <link href="/STM32/STM32-IIC%E9%80%9A%E4%BF%A1-5d220a67daac/"/>
+      <url>/STM32/STM32-IIC%E9%80%9A%E4%BF%A1-5d220a67daac/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>IIC协议是一种通用connection method，通过SCL和SDA双线通讯，可以通过设置地址来实现多主机/从机共用双线通讯，节省端口。但效率不高，遇上大数据量通讯弊端明显。</p><span id="more"></span><h2 id="IIC协议"><a href="#IIC协议" class="headerlink" title="IIC协议"></a>IIC协议</h2><p>IIC时序有如下规律：</p><p>SCL | SDA | Result<br>  H  |    ↓    | Start Signal<br>  H  |    ↑    | Stop Signal<br>  H  |   →   | Read Signal<br>  L   |    X   | Change Signal</p><p><img src="/STM32/STM32-IIC%E9%80%9A%E4%BF%A1-5d220a67daac/20190409113350288.png" alt="20190409113350288.png"></p><p>寻址方面，一般寻址会发送8位数据，前7位为地址，第8位为读/写（1/0）标记。<br>例如主机从从机读数据，可以是1010 0001。</p><p>每次发送一个字节数据后，主机会拉高SDA并等待从机应答。如检测到下拉信号后继续传输。一般一次传输完成后需delay至少5ms再继续传输。</p><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>cubemx connectivity中可选择I2C1或是2。选择standard mode就行，这样内部时钟就是100khz。</p><p>注意：如使用mini板会发现它将EEPROM，24C02芯片连接在PC11和PC12上，而非定义的IIC接口，需要外部自行连接。</p><p>另：在查资料时发现有说法将以下自动生成的代码放置在GPIO enable之前：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__HAL_RCC_I2C2_CLK_ENABLE();</span><br></pre></td></tr></table></figure><p>但尝试后发现并无区别，先在此记录。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="polling"><a href="#polling" class="headerlink" title="polling"></a>polling</h3><p>单纯的读写可使用如下函数：</p><p>HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout)<br>HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout)<br>example：HAL_I2C_Master_Transmit(&amp;hi2c2, 0xA0, Buffer, 8, 1000);</p><p>或：<br>HAL_StatusTypeDef HAL_I2C_Mem_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout)<br>HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef <em>hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t <em>pData, uint16_t Size, uint32_t Timeout)<br>example：HAL_I2C_Mem_Write(&amp;hi2c2, 0xA0,8</em>i,I2C_MEMADD_SIZE_8BIT,Buffer+8</em>i,8, 1000);</p><p>基本上最好选择mem记录和读取，因为可以选择开始储存的地址，灵活。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单片机 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>STM32 红外接收（NEC协议）</title>
       <link href="/STM32/STM32-%E7%BA%A2%E5%A4%96%E6%8E%A5%E6%94%B6%EF%BC%88NEC%E5%8D%8F%E8%AE%AE%EF%BC%89-98b56647d2f6/"/>
       <url>/STM32/STM32-%E7%BA%A2%E5%A4%96%E6%8E%A5%E6%94%B6%EF%BC%88NEC%E5%8D%8F%E8%AE%AE%EF%BC%89-98b56647d2f6/</url>
