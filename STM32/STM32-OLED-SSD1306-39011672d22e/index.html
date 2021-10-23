@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="介绍此运用的硬件是ATK 096 OLED，基于SSD1306的OLED。这里的driver全复制于原子科技的例码。 注意：每次设置完内容后必须加上（OLED_Refresh_Gram();）刷新。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STM32 OLED(SSD1306)">
+<meta property="og:url" content="https://pipirima.top/STM32/STM32-OLED-SSD1306-39011672d22e/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="介绍此运用的硬件是ATK 096 OLED，基于SSD1306的OLED。这里的driver全复制于原子科技的例码。 注意：每次设置完内容后必须加上（OLED_Refresh_Gram();）刷新。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-15T09:33:23.000Z">
+<meta property="article:modified_time" content="2021-09-16T14:05:09.936Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="stm32">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://pipirima.top/STM32/STM32-OLED-SSD1306-39011672d22e/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/STM32/STM32-OLED-SSD1306-39011672d22e/","path":"STM32/STM32-OLED-SSD1306-39011672d22e/","title":"STM32 OLED(SSD1306)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>STM32 OLED(SSD1306) | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oled-c"><span class="nav-number">1.1.</span> <span class="nav-text">oled.c</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oled-h"><span class="nav-number">1.2.</span> <span class="nav-text">oled.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">实例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/STM32/STM32-OLED-SSD1306-39011672d22e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STM32 OLED(SSD1306)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-15 10:33:23" itemprop="dateCreated datePublished" datetime="2021-09-15T10:33:23+01:00">2021-09-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">单片机</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>此运用的硬件是ATK 096 OLED，基于SSD1306的OLED。这里的driver全复制于原子科技的例码。</p>
+<p>注意：每次设置完内容后必须加上（OLED_Refresh_Gram();）刷新。</p>
+<span id="more"></span>
+
+<h3 id="oled-c"><a href="#oled-c" class="headerlink" title="oled.c"></a>oled.c</h3><p>CS：拉低时开始片选oled<br>WR：写入数据<br>RD：读取数据<br>D[7:0]：数据位<br>RST：复位<br>DC：0为命令位，1为数据位</p>
+<p>以写入命令为例：DC（RS）位拉低，CS拉低，WR拉低开始读取D[7:0]数据，然后再全部拉高完成。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &quot;oled.h&quot;</span></span><br><span class="line"><span class="comment">#include &quot;stdlib.h&quot;</span></span><br><span class="line"><span class="comment">#include &quot;delay.h&quot;</span></span><br><span class="line"><span class="comment">#include &quot;oledfont.h&quot;</span></span><br><span class="line"> </span><br><span class="line">//刷新屏幕</span><br><span class="line">void OLED_Refresh_Gram(void)</span><br><span class="line">&#123;</span><br><span class="line">	u8 i,n;		    </span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;8;i++)  </span><br><span class="line">	&#123;  </span><br><span class="line">		OLED_WR_Byte (0xb0+i,OLED_CMD); //页数设置</span><br><span class="line">		OLED_WR_Byte (0x00,OLED_CMD);//低八位</span><br><span class="line">		OLED_WR_Byte (0x10,OLED_CMD);//高八位</span><br><span class="line">		<span class="keyword">for</span>(n=0;n&lt;128;n++)OLED_WR_Byte(OLED_GRAM[n][i],OLED_DATA); </span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#if OLED_MODE==1 //8080模式</span></span><br><span class="line"> </span><br><span class="line">//cmd=1: data mode, 0: <span class="built_in">command</span> mode</span><br><span class="line">//dat: required data</span><br><span class="line">void OLED_WR_Byte(u8 dat,u8 cmd)</span><br><span class="line">&#123;</span><br><span class="line">	DATAOUT(dat);	</span><br><span class="line"> 	OLED_RS=cmd;</span><br><span class="line">	OLED_CS=0;	</span><br><span class="line">	OLED_WR=0;	  </span><br><span class="line">	OLED_WR=1;   </span><br><span class="line">	OLED_CS=1;   </span><br><span class="line">	OLED_RS=1;   </span><br><span class="line">&#125; 	    	    </span><br><span class="line"><span class="comment">#else //ISP mode</span></span><br><span class="line">void OLED_WR_Byte(u8 dat,u8 cmd)</span><br><span class="line">&#123;	</span><br><span class="line">	u8 i;			  </span><br><span class="line">	OLED_RS=cmd;</span><br><span class="line">	OLED_CS=0;		  </span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;8;i++)</span><br><span class="line">	&#123;			  </span><br><span class="line">		OLED_SCLK=0;</span><br><span class="line">		<span class="keyword">if</span>(dat&amp;0x80)OLED_SDIN=1;</span><br><span class="line">		<span class="keyword">else</span> OLED_SDIN=0;</span><br><span class="line">		OLED_SCLK=1;</span><br><span class="line">		dat&lt;&lt;=1;   </span><br><span class="line">	&#125;				 </span><br><span class="line">	OLED_CS=1;		  </span><br><span class="line">	OLED_RS=1;   	  </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line"></span><br><span class="line">//开启显示  	  </span><br><span class="line">void OLED_Display_On(void)</span><br><span class="line">&#123;</span><br><span class="line">	OLED_WR_Byte(0X8D,OLED_CMD); //设置电荷泵</span><br><span class="line">	OLED_WR_Byte(0X14,OLED_CMD); //开启</span><br><span class="line">	OLED_WR_Byte(0XAF,OLED_CMD);//开启显示</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//关闭显示</span><br><span class="line">void OLED_Display_Off(void)</span><br><span class="line">&#123;</span><br><span class="line">	OLED_WR_Byte(0X8D,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0X10,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0XAE,OLED_CMD);</span><br><span class="line">&#125;		   			 </span><br><span class="line"></span><br><span class="line">//清屏  </span><br><span class="line">void OLED_Clear(void)  </span><br><span class="line">&#123;  </span><br><span class="line">	u8 i,n;  </span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;8;i++)<span class="keyword">for</span>(n=0;n&lt;128;n++)OLED_GRAM[n][i]=0X00;  </span><br><span class="line">	OLED_Refresh_Gram();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//画点   </span><br><span class="line">//t=1: fill, t=0: unfill</span><br><span class="line">void OLED_DrawPoint(u8 x,u8 y,u8 t)</span><br><span class="line">&#123;</span><br><span class="line">	u8 pos,bx,temp=0;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;127||y&gt;63)<span class="built_in">return</span>;</span><br><span class="line">	pos=7-y/8;</span><br><span class="line">	bx=y%8;</span><br><span class="line">	temp=1&lt;&lt;(7-bx);</span><br><span class="line">	<span class="keyword">if</span>(t)OLED_GRAM[x][pos]|=temp;</span><br><span class="line">	<span class="keyword">else</span> OLED_GRAM[x][pos]&amp;=~temp;	    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//填块</span><br><span class="line">//t=1: fill, t=0: unfill</span><br><span class="line">void OLED_Fill(u8 x1,u8 y1,u8 x2,u8 y2,u8 dot)  </span><br><span class="line">&#123;  </span><br><span class="line">	u8 x,y;  </span><br><span class="line">	<span class="keyword">for</span>(x=x1;x&lt;=x2;x++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(y=y1;y&lt;=y2;y++)OLED_DrawPoint(x,y,dot);</span><br><span class="line">	&#125;													    </span><br><span class="line">	OLED_Refresh_Gram();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//显示字符</span><br><span class="line">//size=12 or 16 or 24</span><br><span class="line">//mode=1: 正常显示，mode=0: 反向显示</span><br><span class="line">void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode)</span><br><span class="line">&#123;      			    </span><br><span class="line">	u8 temp,t,t1;</span><br><span class="line">	u8 y0=y;</span><br><span class="line">	u8 csize=(size/8+((size%8)?1:0))*(size/2);</span><br><span class="line">	chr=chr-<span class="string">&#x27; &#x27;</span>;	 </span><br><span class="line">    <span class="keyword">for</span>(t=0;t&lt;csize;t++)</span><br><span class="line">    &#123;   </span><br><span class="line">		<span class="keyword">if</span>(size==12)temp=asc2_1206[chr][t];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(size==16)temp=asc2_1608[chr][t];</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(size==24)temp=asc2_2412[chr][t];</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">return</span>;</span><br><span class="line">        <span class="keyword">for</span>(t1=0;t1&lt;8;t1++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(temp&amp;0x80)OLED_DrawPoint(x,y,mode);</span><br><span class="line">			<span class="keyword">else</span> OLED_DrawPoint(x,y,!mode);</span><br><span class="line">			temp&lt;&lt;=1;</span><br><span class="line">			y++;</span><br><span class="line">			<span class="keyword">if</span>((y-y0)==size)</span><br><span class="line">			&#123;</span><br><span class="line">				y=y0;</span><br><span class="line">				x++;</span><br><span class="line">				<span class="built_in">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;  	 </span><br><span class="line">    &#125;          </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">u32 mypow(u8 m,u8 n)</span><br><span class="line">&#123;</span><br><span class="line">	u32 result=1;	 </span><br><span class="line">	<span class="keyword">while</span>(n--)result*=m;    </span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">&#125;				  </span><br><span class="line"></span><br><span class="line">//显示数字</span><br><span class="line">//num: 数字（0-429467295）</span><br><span class="line">//len：位数</span><br><span class="line">void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size)</span><br><span class="line">&#123;         	</span><br><span class="line">	u8 t,temp;</span><br><span class="line">	u8 enshow=0;						   </span><br><span class="line">	<span class="keyword">for</span>(t=0;t&lt;len;t++)</span><br><span class="line">	&#123;</span><br><span class="line">		temp=(num/mypow(10,len-t-1))%10;</span><br><span class="line">		<span class="keyword">if</span>(enshow==0&amp;&amp;t&lt;(len-1))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(temp==0)</span><br><span class="line">			&#123;</span><br><span class="line">				OLED_ShowChar(x+(size/2)*t,y,<span class="string">&#x27; &#x27;</span>,size,1);</span><br><span class="line">				<span class="built_in">continue</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> enshow=1; </span><br><span class="line">		 	 </span><br><span class="line">		&#125;</span><br><span class="line">	 	OLED_ShowChar(x+(size/2)*t,y,temp+<span class="string">&#x27;0&#x27;</span>,size,1); </span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">//打印字符串</span><br><span class="line">void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size)</span><br><span class="line">&#123;	</span><br><span class="line">    <span class="keyword">while</span>((*p&lt;=<span class="string">&#x27;~&#x27;</span>)&amp;&amp;(*p&gt;=<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">    &#123;       </span><br><span class="line">        <span class="keyword">if</span>(x&gt;(128-(size/2)))&#123;x=0;y+=size;&#125;</span><br><span class="line">        <span class="keyword">if</span>(y&gt;(64-size))&#123;y=x=0;OLED_Clear();&#125;</span><br><span class="line">        OLED_ShowChar(x,y,*p,size,1);	 </span><br><span class="line">        x+=size/2;</span><br><span class="line">        p++;</span><br><span class="line">    &#125;  </span><br><span class="line">	</span><br><span class="line">&#125;	</span><br><span class="line">				    </span><br><span class="line">void OLED_Init(void)</span><br><span class="line">&#123; 	 		 </span><br><span class="line">    GPIO_InitTypeDef  GPIO_Initure;</span><br><span class="line">	</span><br><span class="line">    __HAL_RCC_GPIOB_CLK_ENABLE();   </span><br><span class="line">    __HAL_RCC_GPIOC_CLK_ENABLE();  </span><br><span class="line">	</span><br><span class="line"><span class="comment">#if OLED_MODE==1	/8080 mode	</span></span><br><span class="line">	</span><br><span class="line">	//PC6,7,8,9  </span><br><span class="line">    GPIO_Initure.Pin=GPIO_PIN_6|GPIO_PIN_7|\</span><br><span class="line">					 GPIO_PIN_8|GPIO_PIN_9;	 </span><br><span class="line">    GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;</span><br><span class="line">    GPIO_Initure.Pull=GPIO_PULLUP;  </span><br><span class="line">    GPIO_Initure.Speed=GPIO_SPEED_FREQ_HIGH;</span><br><span class="line">    HAL_GPIO_Init(GPIOC,&amp;GPIO_Initure);   </span><br><span class="line">	//PB0-7</span><br><span class="line">    GPIO_Initure.Pin=GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|\</span><br><span class="line">					 GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;        </span><br><span class="line">    HAL_GPIO_Init(GPIOB,&amp;GPIO_Initure);   </span><br><span class="line">	</span><br><span class="line">	__HAL_AFIO_REMAP_SWJ_DISABLE();	</span><br><span class="line">	</span><br><span class="line">	OLED_WR=1;</span><br><span class="line">  	OLED_RD=1; </span><br><span class="line"><span class="comment">#else	</span></span><br><span class="line"> </span><br><span class="line">    GPIO_Initure.Pin=GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_7;</span><br><span class="line">    GPIO_Initure.Mode=GPIO_MODE_OUTPUT_PP;</span><br><span class="line">    GPIO_Initure.Pull=GPIO_PULLUP; </span><br><span class="line">    GPIO_Initure.Speed=GPIO_SPEED_FREQ_HIGH;</span><br><span class="line">    HAL_GPIO_Init(GPIOB,&amp;GPIO_Initure); </span><br><span class="line">	</span><br><span class="line">    GPIO_Initure.Pin=GPIO_PIN_8|GPIO_PIN_9;	</span><br><span class="line">	HAL_GPIO_Init(GPIOC,&amp;GPIO_Initure);</span><br><span class="line">	</span><br><span class="line">	OLED_SDIN=1;</span><br><span class="line">	OLED_SCLK=1;</span><br><span class="line"><span class="comment">#endif</span></span><br><span class="line">	OLED_CS=1;</span><br><span class="line">	OLED_RS=1;	 </span><br><span class="line">					  </span><br><span class="line">	OLED_WR_Byte(0xAE,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0xD5,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(80,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xA8,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0X3F,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xD3,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0X00,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x40,OLED_CMD); 									    </span><br><span class="line">	OLED_WR_Byte(0x8D,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x14,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x20,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x02,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xA1,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xC0,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xDA,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0x12,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x81,OLED_CMD); //亮度</span><br><span class="line">	OLED_WR_Byte(0xEF,OLED_CMD); //1-255</span><br><span class="line">	OLED_WR_Byte(0xD9,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xf1,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xDB,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0x30,OLED_CMD);</span><br><span class="line">	OLED_WR_Byte(0xA4,OLED_CMD); </span><br><span class="line">	OLED_WR_Byte(0xA6,OLED_CMD);     						   </span><br><span class="line">	OLED_WR_Byte(0xAF,OLED_CMD); </span><br><span class="line">	OLED_Clear();</span><br><span class="line">&#125;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="oled-h"><a href="#oled-h" class="headerlink" title="oled.h"></a>oled.h</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ifndef __OLED_H</span></span><br><span class="line"><span class="comment">#define __OLED_H</span></span><br><span class="line"><span class="comment">#include &quot;sys.h&quot;</span></span><br><span class="line"></span><br><span class="line">//0:四线模式</span><br><span class="line">//1:8080模式</span><br><span class="line"><span class="comment">#define OLED_MODE 	1</span></span><br><span class="line">		    						  	</span><br><span class="line"><span class="comment">#define OLED_CS     PCout(9)</span></span><br><span class="line">//<span class="comment">#define OLED_RST  PGout(15)//已有reset位</span></span><br><span class="line"><span class="comment">#define OLED_RS     PCout(8)</span></span><br><span class="line"><span class="comment">#define OLED_WR     PCout(7)</span></span><br><span class="line"><span class="comment">#define OLED_RD     PCout(6)</span></span><br><span class="line"> </span><br><span class="line">//PB0~7,数据线</span><br><span class="line"><span class="comment">#define DATAOUT(x) GPIOB-&gt;ODR=(GPIOB-&gt;ODR&amp;0xff00)|(x&amp;0x00FF); </span></span><br><span class="line"></span><br><span class="line">//SPI通信</span><br><span class="line"><span class="comment">#define OLED_SCLK   PBout(0)</span></span><br><span class="line"><span class="comment">#define OLED_SDIN   PBout(1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define OLED_CMD  	0		//命令位</span></span><br><span class="line"><span class="comment">#define OLED_DATA 	1		//数据位</span></span><br><span class="line"></span><br><span class="line">void OLED_WR_Byte(u8 dat,u8 cmd);	    </span><br><span class="line">void OLED_Display_On(void);</span><br><span class="line">void OLED_Display_Off(void);</span><br><span class="line">void OLED_Refresh_Gram(void);		   </span><br><span class="line">							   		    </span><br><span class="line">void OLED_Init(void);</span><br><span class="line">void OLED_Clear(void);</span><br><span class="line">void OLED_DrawPoint(u8 x,u8 y,u8 t);</span><br><span class="line">void OLED_Fill(u8 x1,u8 y1,u8 x2,u8 y2,u8 dot);</span><br><span class="line">void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode);</span><br><span class="line">void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size);</span><br><span class="line">void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size);</span><br><span class="line"><span class="comment">#endif</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/stm32/" rel="tag"><i class="fa fa-tag"></i> stm32</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/STM32/STM32-%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1-f9e2941ae957/" rel="prev" title="STM32 串口通信">
+                  <i class="fa fa-chevron-left"></i> STM32 串口通信
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/STM32/STM32-ADC-a3f09d1360b4/" rel="next" title="STM32 ADC">
+                  STM32 ADC <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
