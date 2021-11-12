@@ -129,3 +129,126 @@ Combinational Shifter: shift data using multiplexers. B1,2,3 is input and H1,2,3
 
 Barrel Shifter: The circuit rotates its contents left from 0 to 3 positions depending on S
 ![304.PNG](304.PNG)
+
+## Arithmetic Logic Unit
+
+![305.PNG](305.PNG)
+
+![306.PNG](306.PNG)
+
+the logic circuit (bitslice):
+![307.PNG](307.PNG)
+
+|S1|S0|Operation|
+|:----|:----|:----|
+|0|0|AND|
+|0|1|OR|
+|1|0|XOR|
+|1|1|NOT|
+
+arithmetic unit:
+![308.PNG](308.PNG)
+
+|S1|S2|Y|Cin=0|Cin=1|
+|:----|:----|:----|:----|:----|
+|0|0|0|G=A|G=A+1|
+|0|1|B|G=A+B|G=A+B+1|
+|1|0|B'|G=A+B'|G=A+B'+1|
+|1|1|1|G=A-1|G=A|
+
+# week4
+
+pictorial representation of 4-bit unsigned inteder:
+![401.PNG](401.PNG)
+
+2s-complement representation of 4 bits inteder:
+![402.PNG](402.PNG)
+note that h(-5)=b(1011)=-(2)^3+2^1+2^0
+
+fixed-point 2's-complement numbers
+![403.PNG](403.PNG)
+
+## multiplication
+![404.PNG](404.PNG)
+
+## hardware multiplication
+![405.PNG](405.PNG)
+multiplicand will delay 1 bit after each operation like 0000 1101→0001 1010
+multiplier will shift to right after each step like 1011→101.
+product will save results output from adder. but changing process will be cancled if the most right side digital number in multipier is "0".
+
+## combinatorial multiplication
+2-digit number A=(a10+a0) B=(b10+b0)
+A*B=(a1*b1)00+(a1*b0+a0*b1)0+(a0*b0)
+
+## Booth’s Algorithm
+
+the equation cna be writen as
+![406.PNG](406.PNG)
+
+for example the euqation 43*12 can be explained as
+
+``` Bash
+   43 = 00000101011
+* 12 = 00000001100(0)
+---------------------------
+     0 = 00000000000  //multiplier bits 0(0)
++  0 = 0000000000|0  //multiplier bits 00
+- 172=111010101|00  //multiplier bits 10
++  0 = 00000000|000  //multiplier bits 11
++688=0101011|0000  //multiplier bits 01
+----------------------------
+   516=01000000100
+```
+the relationship between multiplier and operation is
+
+|bits|operation|
+|:----|:----|
+|10|subtract|
+|01|add|
+|00/11|nothing|
+
+# Week6
+
+for A%B=C......D,
+A is dividend
+B is divisor
+C is quotient
+D is Remainder
+
+for binary division, comparetion is the only thing need to do
+![601.PNG](601.PNG)
+
+and its implementation is
+![602.PNG](602.PNG)
+
+## non-restoring/restoring division
+
+restoring division: the dividiend will turn into previous value if result is negative
+non-restoring division: don't restoring the value if result is negative
+
+the sign of operation is inversed with divided's signal ("-" if divident is positive and "+" if divident is negative)
+if result if negative, ouput 0; if result is positive, output 1.
+
+example: 456/23 by non-restoring division
+![603.PNG](603.PNG)
+
+## floating point
+
+the value of point numbrt can be explaination as m*2^e, where m is mantissa and e is exponent
+
+The IEEE-753 floating point number can can be formulated as
+![604.PNG](604.PNG)
+with 32 bits and 64 bits these two types
+![605.PNG](605.PNG)
+
+value in exponent will have a bias which bigger (127 in 32 bits and 1023 in 64 bits) than what we expected
+
+example: turn -93.625 into 32 bits
+1. 93.625=1011 101.101 in binary
+2. it = 1.0111 0110 1 *(2^6)
+3. in 32 bits, it have 127 bias. Hence exponent=6+127=133=1000 0101
+4. remove this first "1", get 0.0111 0110 1, hence 0111 0110 1 is fraction
+5. it is a negative number, hence sian bit =1.
+
+therefore, get 1|1000 0101|0111 0110 1000 0000 0000 000 (23 bits)

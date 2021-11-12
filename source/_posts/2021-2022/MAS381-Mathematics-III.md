@@ -79,3 +79,102 @@ for the series have negative powers of (z-z0), equations can be writen like
 Let function f(z) be analytical in annulus R<|z-z0|<ρ, it can be writen as
 ![302.PNG](302.PNG)
 Where R belongs to negative part and ρ belongs to positive part.
+
+really conplex content, remember to work the tutorial out.
+
+# week 4
+
+three most common form to write a complex function:
+ax+by=c, 
+where a,b are real numbers and x,y are variables
+|z-1|=|z-b|
+where a,b are complex numbers 
+z=at+b
+where t is real and a,b are complex quantities
+
+![401.PNG](401.PNG)
+euqation can be
+(x-x0)^2+(y-y0)^2=R^2,
+|z-z0|=R, z0=x0+iy0
+
+z=x+iy=(x0+Rcosφ)+i(y0+Rsinφ)=z0+Re^iφ (0<=φ<2Pi)
+
+## integration and Cauchy's theorem
+
+### Newton-Leibnitz formula
+
+the equation C: z=z(t), a<=t<=b,
+![402.PNG](402.PNG)
+
+example:
+![403.PNG](403.PNG)
+
+### using linear integration
+
+if f(z)=u+iv=2+i, z=x+iy, than x=2t, y=t.
+![404.PNG](404.PNG)
+
+# Week5
+
+##  Cauchy’s theorem
+for two points x1=a1+ia2, x2=b1+ib2,
+z=(1-t)(a1+ia2)+t(b1+ib2) (0<t<1)
+or for circuit center z0=z1+iz2, radius=R,
+z=z1+iz2+R(e^iφ) (0<φ<2Pi)
+![501.PNG](501.PNG)
+
+to Taylor series:
+![502.PNG](502.PNG)
+![503.PNG](503.PNG)
+
+# Week6
+
+## Residue Theorem
+
+Let z=z0 be a singularity of the function f(z), the coefficient a is called residue of the function f(z)
+![601.PNG](601.PNG)
+the single residue (with single power) can be calculated as
+![602.PNG](602.PNG)
+but in multiple power, the function can be changed as
+![603.PNG](603.PNG)
+
+for closed contour C be the boundary of domain D,
+![604.PNG](604.PNG)
+
+for calculating real integrals, the contour C can be drawn as
+![605.PNG](605.PNG)
+which have ignored all results with negative imaginary.
+![606.PNG](606.PNG)
+where first interial is total contour results, second one is the real integrals and third one is the curve covered this domain(most cases equals to 0)
+
+# Week7
+
+## vector calculus
+
+scalar field: f=x+y+z
+vector field: u=(p,q,r)
+
+for scalar field f, its gradient can be written as
+![701.PNG](701.PNG)
+
+the functions of div and curl operators are
+![702.PNG](702.PNG)
+
+grad(f)=∇(f)
+div(f)=∇.f
+curl(f)=∇*f
+
+|initialize type|operator|result type|
+|:----|:----|:----|
+|scalar|gradient|vector|
+|vector|div|scalar|
+|vector|curl|vector|
+
+like the function curl(div(u)) can not be defined cause div(u) is a scalar which can be curl which.
+
+and there have two conditions the result will be 0:
+1. for any scalar f, curl(grad(f))=0
+2. for any vector u, div(curl(u))=0
+
+for function div(grad(f))=∇.(∇(f))=fxx+fyy+fzz=∇^2(f), or called Laplancian (scalar field)
+and curl(grad(f))=curl(fx,fy)=fyx-fxy=0

@@ -150,3 +150,111 @@ But in reality Vbb between them will be changed and Vt increases up on the stack
 ## rise/fall time
 
 ![312.PNG](312.PNG)
+
+# week4
+
+The standard CMOS circuit
+![401.PNG](401.PNG)
+pull-up network→pMOSFET, pull-down netweork→nMOSFET
+
+![402.PNG](402.PNG)
+figure 2 implements an AND and figure 3 shows OR funvtion.
+
+example:
+for nand ligic gate,
+Y=A'+B', Y'=A*B
+![403.PNG](403.PNG)
+
+For XOR gate,
+![404.PNG](404.PNG)
+
+## resistance and capacitance calculation
+CG: capacitance value on the gate
+CD: capacitance value on the drain
+
+A=m1CG+m3CG+m6CG+m8CG
+Z=m5CD+m7CD+m8CD+m9CD+m11CG+m12CG
+
+||PULL-down|PULL-up|
+|:----|:----|:----|
+|X|R0/m3+R0/m4|2R0/m1 or 2R0/m2|
+|Y'|R0/m8+R0/m10|2R0/m5 or 2R0/m6+2R0/m7|
+
+value of pull-down and pull-up need to be same, assume µE/µH=2, get
+m1=m2=2, m3=m4=2
+m8=m10=2, m5=2, m6=m7=4.
+
+hence A=10CG, Z=10CD+3CG
+
+## pass transistors
+
+using transistor as a switch to open and cloce a circuit.
+![405.PNG](405.PNG)
+the output resistance can be R0=5/(β N (VDD −VT ))
+
+## transmission gate
+![406.PNG](406.PNG)
+R0=1/(β (VDD −VT ))
+
+|A|G|Y|
+|:----|:----|:----|
+|0|0|U|
+|0|1|0|
+|1|0|U|
+|1|1|1|
+U: unknowed, Y's state can be decided if both n and p MOSFET are closed
+
+![407.PNG](407.PNG)
+In this case output will never be worried. if G=0, Y=A; if G=1.Y=B.
+
+# Week 5
+
+![501.PNG](501.PNG)
+![502.PNG](502.PNG)
+Flip-Flop and latch block diagram
+
+implementation of ltach
+![503.PNG](503.PNG)
+but if G changed later than inverser, clock diagram will be in mess, hence clock generation is needed for generate some "delay" area
+![504.PNG](504.PNG)
+
+## metastability
+
+problem will happened if D is changing while clk is raising as well. its state will became metastability and influce further functions.
+this issue only happenes on asynchronous system
+
+the property of probability is
+![505.PNG](505.PNG)
+where tr is the time from clk edge to the time that must output something
+tc is constant associated, basically 1/GBW of the sampling circuit
+T0 is constant vlaue, is related to technology and circuit design
+(the T0 and tc should be small for a good design)
+
+and the number of upsets will be
+![506.PNG](506.PNG)
+if upset=288, means every 1/288=3.4ms will cause a problem
+
+in poisson distribution form, the rate of happening k times error in λ seconds is
+![507.PNG](507.PNG)
+λ is rT_MTTF(mean time to fail)
+
+![508.PNG](508.PNG)
+where 1-η=P(k;λ)
+
+or
+![509.PNG](509.PNG)
+
+# Week6
+
+a n-channel MOSFET
+![601.PNG](601.PNG)
+
+![602.PNG](602.PNG)
+A: VGS=VDS=0
+B: Vgs=0, VDS>0
+C: VGS>0, VDS<VOV (VOV=VGS-VTo=over drain voltage)
+D: VGS>0, VDS=VOV
+E: VGS>0, VDS>VOV
+
+![603.PNG](603.PNG)
+![604.PNG](604.PNG)
