@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>生命游戏代码开发</title>
+      <link href="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-93391bfa87e7/"/>
+      <url>/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-93391bfa87e7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>用简单逻辑模拟生命运行规律，感觉很有趣。新建文件夹开新坑防止反悔弃坑。</p><span id="more"></span><h2 id="开发思路"><a href="#开发思路" class="headerlink" title="开发思路"></a>开发思路</h2><ol><li>图形可视化开发测试，计划使用Tkinter制作网格UI</li><li>主体逻辑开发，tuple管理格子状态</li><li>UI控制界面大小，时间等状态，逻辑主体和UI控制脱离</li><li>绘制class diagram和logic diagram，方便维护</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+          <category> 生命游戏 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> python </tag>
+            
+            <tag> Conway生命游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>line profiler</title>
       <link href="/python/line-profiler-7323429fc987/"/>
       <url>/python/line-profiler-7323429fc987/</url>
