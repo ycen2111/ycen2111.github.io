@@ -19,15 +19,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="介绍测量每一行代码运行次数，时间，百分比等。通过console调用，不想记python代码效率关系就用它。">
+<meta name="description" content="介绍Python自带GUI pack，easyGUI底层pack。以python底层编写，所以无法处理复杂逻辑，但处理简单问题比QT等以C为底层pack更方便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="line profiler">
-<meta property="og:url" content="https://pipirima.top/python/line-profiler-7323429fc987/index.html">
+<meta property="og:title" content="TKinter">
+<meta property="og:url" content="https://pipirima.top/python/TKinter-71b0c27c039d/index.html">
 <meta property="og:site_name" content="朽丶">
-<meta property="og:description" content="介绍测量每一行代码运行次数，时间，百分比等。通过console调用，不想记python代码效率关系就用它。">
+<meta property="og:description" content="介绍Python自带GUI pack，easyGUI底层pack。以python底层编写，所以无法处理复杂逻辑，但处理简单问题比QT等以C为底层pack更方便。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-23T12:15:01.000Z">
-<meta property="article:modified_time" content="2022-06-23T12:30:49.018Z">
+<meta property="article:published_time" content="2022-07-24T12:36:37.000Z">
+<meta property="article:modified_time" content="2022-07-24T13:35:22.312Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -35,14 +35,14 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://pipirima.top/python/line-profiler-7323429fc987/">
+<link rel="canonical" href="https://pipirima.top/python/TKinter-71b0c27c039d/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/python/line-profiler-7323429fc987/","path":"python/line-profiler-7323429fc987/","title":"line profiler"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/python/TKinter-71b0c27c039d/","path":"python/TKinter-71b0c27c039d/","title":"TKinter"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>line profiler | 朽丶</title>
+<title>TKinter | 朽丶</title>
   
 
 
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">程序调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">事件列表</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,7 +221,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pipirima.top/python/line-profiler-7323429fc987/">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/python/TKinter-71b0c27c039d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -234,7 +234,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          line profiler
+          TKinter
         </h1>
 
         <div class="post-meta-container">
@@ -245,7 +245,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-06-23 13:15:01" itemprop="dateCreated datePublished" datetime="2022-06-23T13:15:01+01:00">2022-06-23</time>
+      <time title="创建时间：2022-07-24 13:36:37" itemprop="dateCreated datePublished" datetime="2022-07-24T13:36:37+01:00">2022-07-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,15 +267,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>测量每一行代码运行次数，时间，百分比等。通过console调用，不想记python代码效率关系就用它。</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Python自带GUI pack，easyGUI底层pack。以python底层编写，所以无法处理复杂逻辑，但处理简单问题比QT等以C为底层pack更方便。</p>
 <span id="more"></span>
 
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install line_profiler</span><br></pre></td></tr></table></figure>
+<h2 id="程序调用"><a href="#程序调用" class="headerlink" title="程序调用"></a>程序调用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">官网：(https://docs.python.org/3.7/library/tkinter.html)</span><br><span class="line">说明：(http://c.biancheng.net/tkinter/)</span><br><span class="line"></span><br><span class="line">from tkinter import *</span><br><span class="line">from tkinter import ttk</span><br><span class="line"></span><br><span class="line">root = Tk() <span class="comment">#create a root widget</span></span><br><span class="line">root.title(<span class="string">&quot;TK&quot;</span>) <span class="comment">#set title</span></span><br><span class="line">root.geometry(<span class="string">&quot;600x400+20+20&quot;</span>) <span class="comment">#set window with 600x400 pixcel, left-up corner in position (20,20)</span></span><br><span class="line">frm = ttk.Frame(root, padding=10) <span class="comment">#create a frame based on root</span></span><br><span class="line">frm.grid() <span class="comment">#easy placement based on column and row</span></span><br><span class="line"></span><br><span class="line">lb=ttk.Label(frm, text=<span class="string">&quot;Label&quot;</span>) <span class="comment">#label box</span></span><br><span class="line">lb.grid(row=0,column=0) <span class="comment">#pack label into grid</span></span><br><span class="line">quit_button=ttk.Button(frm, text=<span class="string">&quot;Quit1&quot;</span>, <span class="built_in">command</span>=root.destroy) <span class="comment">#quit button box</span></span><br><span class="line"></span><br><span class="line">Can=Canvas(frm,height=300,width=200) <span class="comment">#create a canvas</span></span><br><span class="line">cell=Canvas.create_rectangle(2, 2, 20, 20, fill = <span class="string">&quot;black&quot;</span>) <span class="comment">#a reactangle filled with black, in range (2,2) to (20,20)</span></span><br><span class="line">Can.delete(ALL) <span class="comment">#remove all copoments in canvas</span></span><br><span class="line"></span><br><span class="line">Can.bind(<span class="string">&quot;&lt;ButtonPress-1&gt;&quot;</span>,mouse_event) <span class="comment">#mouse event and commanf funciton</span></span><br><span class="line"></span><br><span class="line">def mouse_event(event):</span><br><span class="line">    lb.config(text=event) <span class="comment">#change label text</span></span><br><span class="line"></span><br><span class="line">root.mainloop() <span class="comment">#start load window</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><p>github:(<a target="_blank" rel="noopener" href="https://github.com/pyutils/line_profiler#:~:text=LineProfiler%20can%20be%20given%20functions%20to%20profile%2C%20and,every%20single%20line%20of%20code%20would%20be%20overwhelming">https://github.com/pyutils/line_profiler#:~:text=LineProfiler%20can%20be%20given%20functions%20to%20profile%2C%20and,every%20single%20line%20of%20code%20would%20be%20overwhelming</a>.)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在需要测量的def上一行标记一下</span></span><br><span class="line">@profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#在console内输入</span></span><br><span class="line">kernprof -l -v ./main.py</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">Line <span class="comment">#      #row number</span></span><br><span class="line">Hits         <span class="comment">#executed times</span></span><br><span class="line">Time        <span class="comment">#total amount of time spent executing the line in the timer&#x27;s units</span></span><br><span class="line">Per Hit     <span class="comment">#average amount of time spent executing the line</span></span><br><span class="line">% Time      <span class="comment">#percentage of time spent on that line</span></span><br><span class="line">Line Contents <span class="comment">#code content</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用@profile标记可能会报warning，不用管它直接console里运行就行。</p>
+<h2 id="事件列表"><a href="#事件列表" class="headerlink" title="事件列表"></a>事件列表</h2><p>《ButtonPress-1&gt;    单击鼠标左键，简写为<Button-1>，后面的数字可以是1/2/3，分别代表左键、中间滑轮、右键<br><ButtonRelease-1>    释放鼠标左键，后面数字可以是1/2/3，分别代表释放左键、滑轮、右键<br><B1-Motion>    按住鼠标左键移动，<B2-Motion>和<B3-Motion>分别表示按住鼠标滑轮移动、右键移动<br><MouseWheel>    转动鼠标滑轮<br><Double-Button-1>    双击鼠标左键<br><Enter>    鼠标光标进入控件实例<br><Leave>    鼠标光标离开控件实例<br><Key>    按下键盘上的任意键<br>&lt;KeyPress-字母&gt;/&lt;KeyPress-数字&gt;    按下键盘上的某一个字母或者数字键<br><KeyRelease>    释放键盘上的按键<br><Return>    回车键，其他同类型键有<Shift>/<Tab>/<Control>/<Alt><br><Space>    空格键<br><UP>/<Down>/<Left>/<Right>    方向键<br><F1>…<F12>    常用的功能键<br><Control-Alt>    组合键，再比如<Control-Shift-KeyPress-T>，表示用户同时点击 Ctrl + Shift + T<br><FocusIn>    当控件获取焦点时候触发，比如鼠标点击输入控件输入内容，可以调用 focus_set() 方法使控件获得焦点<br><FocusOut>    当控件失去焦点时激活，比如当鼠标离开输入框的时候<br><Configure>    控件的发生改变的时候触发事件，比如调整了控件的大小等<br><Deactivate>    当控件的状态从“激活”变为“未激活”时触发事件<br><Destroy>    当控件被销毁的时候触发执行事件的函数<br><Expose>    当窗口或组件的某部分不再被覆盖的时候触发事件<br><Visibility>    当应用程序至少有一部分在屏幕中是可见状态时触发事件</Visibility></Expose></Destroy></Deactivate></Configure></FocusOut></FocusIn></Control-Shift-KeyPress-T></Control-Alt></F12></F1></Right></Left></Down></UP></Space></Alt></Control></Tab></Shift></Return></KeyRelease></Key></Leave></Enter></Double-Button-1></MouseWheel></B3-Motion></B2-Motion></B1-Motion></ButtonRelease-1></Button-1></p>
+<p>widget            发生事件的是哪一个控件<br>x,y                相对于窗口的左上角而言，当前鼠标的坐标位置<br>x_root,y_root    相对于屏幕的左上角而言，当前鼠标的坐标位置<br>char            用来显示所按键相对应的字符<br>keysym            按键名，比如 Control_L 表示左边的 Ctrl 按键<br>keycode            按键码，一个按键的数字编号，比如 Delete 按键码是107<br>num                1/2/3中的一个，表示点击了鼠标的哪个按键，按键分为左、中、右<br>width,height    控件的修改后的尺寸，对应着 <Configure>事件<br>type            事件类型</Configure></p>
 
     </div>
 
@@ -294,14 +292,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/python/pyinstaller-66a8b5598800/" rel="prev" title="pyinstaller">
-                  <i class="fa fa-chevron-left"></i> pyinstaller
+                <a href="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-93391bfa87e7/" rel="prev" title="生命游戏代码开发">
+                  <i class="fa fa-chevron-left"></i> 生命游戏代码开发
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91-93391bfa87e7/" rel="next" title="生命游戏代码开发">
-                  生命游戏代码开发 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
