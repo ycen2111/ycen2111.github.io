@@ -27,7 +27,7 @@
 <meta property="og:description" content="介绍用简单逻辑模拟生命运行规律，感觉很有趣。新建文件夹开新坑防止反悔弃坑。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-23T10:08:24.000Z">
-<meta property="article:modified_time" content="2022-07-25T16:34:14.035Z">
+<meta property="article:modified_time" content="2022-07-25T18:55:10.631Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -320,7 +320,50 @@
 </tr>
 </tbody></table>
 <p>和该class 7大方法：</p>
-<p>|Name|Usage|Call for|<br>|<strong>init</strong>(self,x1,y1,x2,y2,color,Canvas)|初始化class|determine_state(),print()|<br>|switch_color(self)|转换颜色|change_color()|<br>|ShiftPosition(self,dx,dy)|改变两组(x,y)坐标平移一个cell|print()|<br>|ZoomPosition(self,dx,dy,rate)|以一定rate缩放cell，并平移dx,dy使鼠标所指点不变|print()|<br>|change_color(self,color)|使目标cell改变为输入的color|determine_state(),print()|<br>|determine_state(self)|通过cell颜色判断存活状态|None|<br>|print(self)|在Canvas上print此cell|None|</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Usage</th>
+<th align="left">Call for</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>init</strong>(self,x1,y1,x2,y2,color,Canvas)</td>
+<td align="left">初始化class</td>
+<td align="left">determine_state(),print()</td>
+</tr>
+<tr>
+<td align="left">switch_color(self)</td>
+<td align="left">转换颜色</td>
+<td align="left">change_color()</td>
+</tr>
+<tr>
+<td align="left">ShiftPosition(self,dx,dy)</td>
+<td align="left">改变两组(x,y)坐标平移一个cell</td>
+<td align="left">print()</td>
+</tr>
+<tr>
+<td align="left">ZoomPosition(self,dx,dy,rate)</td>
+<td align="left">以一定rate缩放cell，并平移dx,dy使鼠标所指点不变</td>
+<td align="left">print()</td>
+</tr>
+<tr>
+<td align="left">change_color(self,color)</td>
+<td align="left">使目标cell改变为输入的color</td>
+<td align="left">determine_state(),print()</td>
+</tr>
+<tr>
+<td align="left">determine_state(self)</td>
+<td align="left">通过cell颜色判断存活状态</td>
+<td align="left">None</td>
+</tr>
+<tr>
+<td align="left">print(self)</td>
+<td align="left">在Canvas上print此cell</td>
+<td align="left">None</td>
+</tr>
+</tbody></table>
 <p>所有cell会统一存储在global variable: cell_list[row][column]中管理</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class cell:</span><br><span class="line">    def __init__(self,x1,y1,x2,y2,color,Canvas):</span><br><span class="line">        self.x1=x1</span><br><span class="line">        self.y1=y1</span><br><span class="line">        self.x2=x2</span><br><span class="line">        self.y2=y2</span><br><span class="line">        self.color=color</span><br><span class="line">        self.Canvas=Canvas</span><br><span class="line">        self.neighbor=0</span><br><span class="line">        self.liveCell=None</span><br><span class="line">        self.determine_state()</span><br><span class="line">        self.print()</span><br><span class="line"></span><br><span class="line">    def determine_state(self):</span><br><span class="line">        <span class="keyword">if</span> self.color == <span class="string">&quot;white&quot;</span>:</span><br><span class="line">            self.liveCell=True</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.liveCell=False</span><br><span class="line">    </span><br><span class="line">    def switch_color(self):</span><br><span class="line">        <span class="keyword">if</span> not self.liveCell: <span class="comment">#not have live cell</span></span><br><span class="line">            self.change_color(<span class="string">&quot;white&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.change_color(<span class="string">&quot;grey&quot;</span>)</span><br><span class="line"></span><br><span class="line">        self.change=False</span><br><span class="line"></span><br><span class="line">    def ShiftPosition(self,dx,dy):</span><br><span class="line">        self.x1=self.x1+dx</span><br><span class="line">        self.y1=self.y1+dy</span><br><span class="line">        self.x2=self.x2+dx</span><br><span class="line">        self.y2=self.y2+dy</span><br><span class="line">        self.print()</span><br><span class="line">    </span><br><span class="line">    def ZoomPosition(self,dx,dy,rate):</span><br><span class="line">        self.x1=self.x1*rate+dx</span><br><span class="line">        self.y1=self.y1*rate+dy</span><br><span class="line">        self.x2=self.x2*rate+dx</span><br><span class="line">        self.y2=self.y2*rate+dy</span><br><span class="line">        self.print()</span><br><span class="line"></span><br><span class="line">    def change_color(self,color):</span><br><span class="line">        <span class="comment">#self.Canvas.delete(self) #reduced efficiency</span></span><br><span class="line">        self.color=color</span><br><span class="line">        self.determine_state()</span><br><span class="line">        self.print()</span><br><span class="line"></span><br><span class="line">    def <span class="built_in">print</span>(self):</span><br><span class="line">        self.Canvas.create_rectangle(int(self.x1), int(self.y1), int(self.x2), int(self.y2), fill = self.color, outline=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
 
