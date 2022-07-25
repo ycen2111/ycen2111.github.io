@@ -27,7 +27,7 @@
 <meta property="og:description" content="介绍测量每一行代码运行次数，时间，百分比等。通过console调用，不想记python代码效率关系就用它。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-23T12:15:01.000Z">
-<meta property="article:modified_time" content="2022-06-23T12:30:49.018Z">
+<meta property="article:modified_time" content="2022-07-25T17:21:24.367Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -276,6 +276,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在需要测量的def上一行标记一下</span></span><br><span class="line">@profile</span><br><span class="line"></span><br><span class="line"><span class="comment">#在console内输入</span></span><br><span class="line">kernprof -l -v ./main.py</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出</span></span><br><span class="line">Line <span class="comment">#      #row number</span></span><br><span class="line">Hits         <span class="comment">#executed times</span></span><br><span class="line">Time        <span class="comment">#total amount of time spent executing the line in the timer&#x27;s units</span></span><br><span class="line">Per Hit     <span class="comment">#average amount of time spent executing the line</span></span><br><span class="line">% Time      <span class="comment">#percentage of time spent on that line</span></span><br><span class="line">Line Contents <span class="comment">#code content</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用@profile标记可能会报warning，不用管它直接console里运行就行。</p>
+<p>计算出的time单位为1e-6s</p>
 
     </div>
 
