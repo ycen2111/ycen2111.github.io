@@ -27,7 +27,7 @@
 <meta property="og:description" content="介绍Python自带GUI pack，easyGUI底层pack。以python底层编写，所以无法处理复杂逻辑，但处理简单问题比QT等以C为底层pack更方便。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T12:36:37.000Z">
-<meta property="article:modified_time" content="2022-07-25T08:16:42.857Z">
+<meta property="article:modified_time" content="2022-07-25T19:28:48.343Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="python">
@@ -280,8 +280,9 @@
 <h3 id="Components-回调函数提前运行或不运行"><a href="#Components-回调函数提前运行或不运行" class="headerlink" title="Components 回调函数提前运行或不运行"></a>Components 回调函数提前运行或不运行</h3><p>如button等component是默认无variable交换和return的，如果有variable会在开始时运行一遍并之后不再运行。<br>解决方法是在开头加上”lambda:”，但仍然不能返回值<br>并且没有variables和return值的话最好将”()”去除，不然会有Bool cannot callback的报错</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ttk.Button(frm, text=<span class="string">&quot;Reset&quot;</span>, <span class="built_in">command</span>=reset_command(10,10,Can)) <span class="comment">#Wrong, cannot using</span></span><br><span class="line">ttk.Button(frm, text=<span class="string">&quot;Start&quot;</span>, <span class="built_in">command</span>=start_button()) <span class="comment">#Wrong, get error</span></span><br><span class="line"></span><br><span class="line">ttk.Button(frm, text=<span class="string">&quot;Reset&quot;</span>, <span class="built_in">command</span>=lambda:reset_command(10,10,Can)) <span class="comment">#Correct</span></span><br><span class="line">ttk.Button(frm, text=<span class="string">&quot;Start&quot;</span>, <span class="built_in">command</span>=start_button) <span class="comment">#Correct</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="函数循环运行"><a href="#函数循环运行" class="headerlink" title="函数循环运行"></a>函数循环运行</h3><p>不能单纯用”While(1)”进入循环，不然TK window会显示无响应并卡住不动，尽管程序是照常循行的。<br>另外如果after内的函数没有variable的话不需要”()”，不然会有递归报错。<br>like：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root.after(300,start_button()) <span class="comment">#wrong!!! recursion error might happened</span></span><br><span class="line"></span><br><span class="line">root.after(300,start_button) <span class="comment">#correct</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数循环运行"><a href="#函数循环运行" class="headerlink" title="函数循环运行"></a>函数循环运行</h3><p>不能单纯用”While(1)”进入循环，不然TK window会显示无响应并卡住不动，尽管程序是照常循行的。<br>另外如果after内的函数没有variable的话不需要”()”，不然会有递归报错。</p>
+<p>like：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root.after(300,start_button()) <span class="comment">#wrong!!! recursion error might happened</span></span><br><span class="line"></span><br><span class="line">root.after(300,start_button) <span class="comment">#correct</span></span><br><span class="line"></span><br><span class="line">root.after(300,start_button,count) <span class="comment">#can pass the variable to function start_button(count)</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
