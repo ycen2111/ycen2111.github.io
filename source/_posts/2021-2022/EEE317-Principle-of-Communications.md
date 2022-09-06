@@ -296,6 +296,8 @@ the message m(t) will first modulated with a PN code which changes much faster t
 hence usually this signal is useless unless reveicer have the same PN code to demodulate it.
 and definitely, the PN code c(t) in receiver part need to be synchronised with incoming signal to demodulate correctly.
 
+G=Tb/Tch
+
 ## search mode
 
 ![605.PNG](605.PNG)
@@ -322,7 +324,7 @@ the jamming signal can be signal with high power and narrow bandwidth. but it ca
 
 ## FHSS
 
-frequency hopping spreads the data signal on one of a series of carriers occupy a really large bandwidth.it is required the bandwidth containing carrier frequency is much larger thn data bandwidth.
+frequency hopping spreads the data signal on one of a series of carriers occupy a really large bandwidth.it is required the bandwidth containing carrier frequency is much larger than data bandwidth. (more than one hoppings in a bandwidth)
 ![609.PNG](609.PNG)
 
 final signal will be modulated for two times and its final frequency can be drawed as
@@ -334,3 +336,40 @@ G=fh*Ts
 
 slow hopping system: the duration of a message bit sorresponds to the inverse hop rate.
 fast frequency hopping: would suffer a noise or jamming signal in many parts of the bandwidth.
+
+# Week 7
+
+The filter at the receiver end plays a vital role in determining the performance of a communications link.
+good filter: 
+![701.PNG](701.PNG)
+
+for the required matched filter's impulse response h(t) can be
+![702.PNG](702.PNG)
+
+## Transversal filter
+![703.PNG](703.PNG)
+![704.PNG](704.PNG)
+![705.PNG](705.PNG)
+
+## integraie and dump matched filter
+this matched filter can only be used for binary signal
+with the previous function s(t)=1 and stop in t=T, the correlation figure can be drawn as
+![706.PNG](706.PNG)
+and note the shape of dquare wave is distorted by matched filter
+
+the duration of g(t) can roughly implemented as
+![707.PNG](707.PNG)
+the switch is open when t<T, till the sample is gotten. the circuit can then determined the capacitor voltage, output it can clean for next sample collection.
+![708.PNG](708.PNG)
+
+and we can also change previous function g(T) and implementation as
+![709.PNG](709.PNG)
+![710.PNG](710.PNG)
+
+## matched filter detedtion of PCM codewords
+it is quite same with correlation implements before but with PVM code to reject some of noise
+![711.PNG](711.PNG)
+the most significant bit will be placed in the last and other bit will be filled with PCM code word
+like if want transfer "3" in 8 bits with PCM "1101", the code will be 00 1101 11 for transfter the important message at first.
+
+# Week 8

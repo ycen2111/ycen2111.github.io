@@ -178,3 +178,48 @@ and there have two conditions the result will be 0:
 
 for function div(grad(f))=∇.(∇(f))=fxx+fyy+fzz=∇^2(f), or called Laplancian (scalar field)
 and curl(grad(f))=curl(fx,fy)=fyx-fxy=0
+
+# Week 8
+
+a vector field u will have a potential function p (which is ∇(p)=u), only when u is conservative:
+∇*u=0
+
+if E=(2x+xy,2y+xz,2z+xy)
+![801.PNG](801.PNG)
+
+# Week 9
+
+## Integration along curve
+a curve r=(x(t),y(t),z(t)) in the range of t(a<=t<=b),
+![901.PNG](901.PNG)
+
+![902.PNG](902.PNG)
+where F=∇(p)
+
+if F is a conservative vector fild, the potential function p for F is
+![903.PNG](903.PNG)
+value if a,b,c is not stable and can be choicen what ever we want. it is only valid for conservative field
+
+if we want calculate its perdicular vector n then dt, get
+![904.PNG](904.PNG)
+
+# Week 10
+
+## Surface Integrals
+
+## two-dimansional divergence theorem
+![1001.PNG](1001.PNG)
+D is region in plane which boundary is cloased curve C. dA=r*dr*dtheta
+if D is surrounding with multiple curve C, they need to be added
+
+## Green's theorem
+when dA=ndA, n is unit normal vector to D and u=(P,Q),
+![1002.PNG](1002.PNG)
+
+## three-dimansional divergence theorem
+almost same with two-dimansional divergence
+![1003.PNG](1003.PNG)
+
+## stokes' theorem
+![1004.PNG](1004.PNG)
+cause if follows function in two-dimentional theorem, the direction of vertical vector n is cant been decided. hence two choice have in this function

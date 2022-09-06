@@ -252,3 +252,185 @@ example: turn -93.625 into 32 bits
 5. it is a negative number, hence sian bit =1.
 
 therefore, get 1|1000 0101|0111 0110 1000 0000 0000 000 (23 bits)
+
+# Week 7
+
+## Memory resources
+normally instructions are stored in main memory as a program and decode them when programe is required.
+![701.PNG](701.PNG)
+the address of each lines of programe is counted by a program counter (PC) which can count and load new addresses from status flags.
+
+## MIPS processor
+MIPS is a Reduced Instructure Set Computer(RISC). it have 32 registers which have 32 bits wide for each, for byte addressing.
+
+A MIPS word is 32 bits or 4 bytes but giving 2^30 memory words.
+![702.PNG](702.PNG)
+big endian: the most byte will stored in lowest address.
+little endian: than least byte will stored in lowest address.
+
+three ways have been developed based on MIPSformat
+![703.PNG](703.PNG)
+![704.PNG](704.PNG)
+[MIPS example](https://max.cs.kzoo.edu/cs230/Resource/MIPS/MachinwXL/InstructionFormats.html)
+op: opening code
+rs: register source
+rt: register traget
+shamt: shift amount (is not applicable when is 0)
+immediate: value of offset
+
+I-type: fast way to load a register and dont need extra memory refrence to fetch operand. but only constant can be supplied and is limitied by bit numbers as well.
+example: addi $1,$2,20 : $1=$2+20
+R-type: small address field required, shorter instructions possible and have a very fast execution. useful foe frequently operations like loop. but the number and space od address have all been limited.
+example: add $3, $4, $5 : $3=$4+$5
+
+## Intel X86 Architecture
+If the sort of instructions are increasing , a BIU can greatly control them.
+![705.PNG](705.PNG)
+where EU is for executing instructions,
+BIU is for fatching instructions, reading operands and writing results
+
+however, although X86 is a 16 bit controller but have a 20 bits register.
+![706.PNG](706.PNG)
+each segment represents a 64k block of memory, which is combined with an offset address in instruction pointer(IP).
+![707.PNG](707.PNG)
+
+Pipeling instruction: the execute and next fetcj have overlapped to reduce the time used on a cycle
+Von Neumann Architecture: single interface for both data and instructions. but an instruction fetch and data opeartion can not occure at the same time cause they share a common bus
+Harvard Architecture: seperate the interface of data and instructions. the program memory accesses and data accesses can operated paralllel.
+
+# Week 8
+
+## register control
+![801.PNG](801.PNG)
+four single bit X,Y,W,Z can separately control input and output for both two registers.
+data from register B will move to register C if w=0,y=1,x=1,z=0
+
+![802.PNG](802.PNG)
+PC,R2: denotes a register
+PC(7:0),R2(1),PC(L): denote a range of register
+R1←R2, PC(L)←R0: denotes data transfer
+R3←M[PC]: specifies a memory address
+
+like  R1←R1+R2  add the results to R1 for additoin of R1 and R2
+X.K1: R1←R1+R2  if X.K1=1, R1 will be placed the value of R1+R2
+(normally, X.K1 will be the enable port in register)
+![803.PNG](803.PNG)
+
+# Week9
+
+## Stack
+the stack is allocated in main memory and operates as a last in first out block of memory
+
+the flow control istructions change the PC constant with three order：
+HALT: places the processor in an idle state
+JUMP: change the PC content to a pointed address
+CALL: like jump but CPU must remember the return point and return after finishing
+
+the LIFO stack with two operations:
+PUSH: puts value into stack
+POP: Retrieves the last value that was pushed onto the stack
+do not operate POP to a empty register or PUSH value in a full register
+
+a stack pointer register (PC) can be used to allocate the final register
+![901.PNG](901.PNG)
+
+## cache
+cache is a safe place for hiding and storing things
+
+CPU will first view cache when want read the memory. if it find the memory in cache, called cachehit, in opposite state, called cache miss and CPU will fins the memory from register and copied it into cache again
+
+Direct Mapped Chache: each block is mapped to a single cache location
+![902.PNG](902.PNG)
+it is simple and easy for implementaion but have poor performance
+
+Full Associative Cache: each block is mapped to any cache location
+![903.PNG](903.PNG)
+all memory block can be mapped but harder for implementation
+
+Set Associative Cache: each block is mapped to any block in a subset of cache location
+![904.PNG](904.PNG)
+the best way 
+
+## cache mapping
+
+![905.PNG](905.PNG)
+V: a valid bit to indicate if address contains valid data
+TAG: determines which block of memory is in cache
+INDEX: select block in cache
+OFFSET: select a byte number got multiple byte blockes
+
+for direct mapped cache: memory=TAG+INDEX
+for full sccociative cache: memory=TAG+OFFSET
+
+# Week10
+
+## Digital filters
+for transimiting and receiving analog signals, need to use ADC and DAC
+
+Finite Impulse Response (FIR) Filter
+consider a 4-point averaging window and get a stable curve results
+![1001.PNG](1001.PNG)
+
+the implmentation of builidng blocks are contained with Multiplier, Adder and Unit delay
+![1002.PNG](1002.PNG)
+
+## Algorithmic state machine chart
+
+![1003.PNG](1003.PNG)
+state box: unconditional, moorly output which only depends on current input values
+![1004.PNG](1004.PNG)
+decision box: conditoinal, mealy output which not only depends on input, but past output results
+![1005.PNG](1005.PNG)
+decision box can have multiple outputs depends on decisions made
+
+conditional box:
+![1006.PNG](1006.PNG)
+
+an ASM box must consists of a state box, decision box and conditional box
+usually start with state box and end before the next state box
+
+## implementation
+![1007.PNG](1007.PNG)
+controller logic can obtain condition box and state transition
+data procesor can contain operations described in state box and conditoin box
+
+![1008.PNG](1008.PNG)
+![1009.PNG](1009.PNG)
+
+# Topic 1
+Unit impulse: 𝛿[n]=0 (n≠0), or =1 (n=0)
+Unit step: u[n]=0 (n<0), or =1 (n≥0)
+
+for a sinusoid:
+𝑥[𝑛]=A cos(𝜔0 𝑛+𝜙)
+𝜔0:Normalised frequency
+𝜙:Phase delay
+
+Normalised frequency in radians/sample:
+𝜔0=Ω0⁄𝑓𝑠,
+where Ω0=2𝜋𝑓, is the real angular frequency, fs is sampling frequency
+
+if angular frequency=𝜋 rad/sec, frequency=𝜋/2𝜋=0.5Hz
+if a 1 Hz sine sampled by frequency of 10Hz, 1/10=0.1 cycle per sample
+angular frequency = 2𝜋*0.1 cycle per sample =0.2𝜋 radians per sample
+
+Important properties of sequences:
+Linearity: y[n]=T{x1[n]+x2[n]}=T{x1[n]}+T{x2[n]}
+Time invariance: y[n-k]=T{x[n-k]},
+![1201.PNG](1201.PNG)
+Stablility: input and output is bounded
+Causality: y[n0]=T{x[n<n0]}
+
+note: Linear and time-invariant = LTI system
+
+Linear constant coefficient difference (LCCD) equation:
+LTI systems can be described by a difference equation of the form
+![1202.PNG](1202.PNG)
+![1203.PNG](1203.PNG)
+
+impulse response (can be explained by convolution)
+
+![1204.PNG](1204.PNG)
+where n in figure is a random constant value, 
+assuming n=-1, f1[k]=[1,2,3], f2[k]=[1,0,1,2]
+![1205.PNG](1205.PNG)

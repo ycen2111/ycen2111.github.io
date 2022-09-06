@@ -258,3 +258,259 @@ E: VGS>0, VDS>VOV
 
 ![603.PNG](603.PNG)
 ![604.PNG](604.PNG)
+
+# week 7
+
+## small signal model
+![701.PNG](701.PNG)
+
+for transconductance
+![702.PNG](702.PNG)
+![703.PNG](703.PNG)
+
+## Π diagram
+![704.PNG](704.PNG)
+
+## T diagram
+![705.PNG](705.PNG)
+
+# Week 8
+
+## Common source amplifier
+a common amplifier to increase output voltage value based on a FET
+![801.PNG](801.PNG)
+the input Vg=Vsig+Vbias with relationship like follows:
+![802.PNG](802.PNG)
+the red slop have function ID=(VDD-Vd)/RD, and the x/y-axis when it cross the blue curve is seperataly the voltage output from Vout and current through transistor. the cross point need be choicen as in the saturated region and be in middle part as Vbias=2V
+
+gain of this common source amplifier is
+![803.PNG](803.PNG)
+
+## common drain amplifier
+![804.PNG](804.PNG)
+
+Vbias=VS(best bias point)+Vov+Vto
+
+for creayting small cignal circuit:
+short-circuit any DC voltage source (also change power supply into groung)
+short-circuit ant capacitors in circuit
+open-circuit any constant current cource of inductors
+replace NMOS with equivalent circuit
+
+![805.PNG](805.PNG)
+![806.PNG](806.PNG)
+
+this amplifer acts like a voltage buffer, accurancy volatge is depends on Q-point.
+
+## common gate amplifier
+
+![807.PNG](807.PNG)
+Vs=Id*Rsig
+Av=vd/vsig=gm*Rd/(gm*Rsig+1)
+
+![808.PNG](808.PNG)
+
+have low input impedance, non inverting current, unit current gain
+voltage gain is same as common source amp
+can be used as a current buffer.
+
+|type|volatage gain|
+|:----|:----|
+|common source|-RD*gm/r0|
+|common drain|gm*Rs/(1+gm*RS)|
+|common gain|gm*Rd/(gm*Rsig+1)|
+
+# Week9
+
+## voltage divider biasing
+this circuit can provide high bias stability
+![901.PNG](901.PNG)
+but the current flow through M1 will be influenced by temperature with constant VGS supply
+![902.PNG](902.PNG)
+
+by adding a feedback resistor RS can provide a slop in Id diagram, for decreasing this temperature error
+![903.PNG](903.PNG)
+![904.PNG](904.PNG)
+but this design still need large number of transistors and large Rs requires more voltage headroom to operate
+
+## current source biasing
+![905.PNG](905.PNG)
+the current source have provided a stable and constant current flow id, because the voltage error in same current is smaller than the current error produced in same voltage.
+
+but this error can still be decreased if set a FET in the source port to plot the horizontal line
+![906.PNG](906.PNG)
+![907.PNG](907.PNG)
+
+# Week 10
+
+## current mirror
+![1001.PNG](1001.PNG)
+current through M2 is basically same with current through M1
+Iout/Imaster=(W(M2)/L(M2))/(W(M1)/L(M1))
+means a constant current biasing is worked
+
+current steering
+![1002.PNG](1002.PNG)
+
+diode connected
+![1005.PNG](1005.PNG)
+FET works like a diode at this time. the transistor will always in saturated region
+
+![1006.PNG](1006.PNG)
+hence the voltage and current in M2 can both been controlled based on diode connected.
+![1007.PNG](1007.PNG)
+
+dy/dx=1/r0=lamuda*Id0
+because smaller slope is needed for smaller error, ro need be increased
+
+Wilson current mirror(advanced design)
+![1008.PNG](1008.PNG)
+Vout↓,Im3↓,Im2↓,VGSm2↑,VGSm1↑,IR↓,V1↑,Im3↑
+![1009.PNG](1009.PNG)
+![1010.PNG](1010.PNG)
+
+## Active loading
+load a resistor on drain part
+![1003.PNG](1003.PNG)
+but it can not easily increasing voltage gain course FET will into triode region
+
+can be solved by a FET
+![1004.PNG](1004.PNG)
+
+# Semiconductor
+Adachi: [https://find.shef.ac.uk/primo-explore/fulldisplay?docid=44SFD_ALMA_DS51248442680001441&context=L&vid=44SFD_VU2&lang=en_US&search_scope=SCOP_EVERYTHING&adaptor=Local%20Search%20Engine&tab=everything&query=any,contains,adachi&offset=0](https://find.shef.ac.uk/primo-explore/fulldisplay?docid=44SFD_ALMA_DS51248442680001441&context=L&vid=44SFD_VU2&lang=en_US&search_scope=SCOP_EVERYTHING&adaptor=Local%20Search%20Engine&tab=everything&query=any,contains,adachi&offset=0)
+
+formular sheet: [online formular sheet](https://vle.shef.ac.uk/bbcswebdav/pid-5365886-dt-content-rid-36603126_1/xid-36603126_1)
+# Week13
+![1301.PNG](1301.PNG)
+Bolck from left to right is Metal, Semiconductor, and Insulator
+
+|Metal|Semiconductor|Insulator|
+|:----|:----|:----|
+|Conduction band and valence band overlapped|Band gap changed from meV to 9 eV| Band gap larger than 9eV|
+|Electrons move freely|no electrons in CB at T=0, get thermal energy kT=26meV wen T=300|Negligible electron in CB|
+|good conductor|depend on number of electrons|no current conduction|
+
+The current density is influenced by both drift and diffusion seperatly with two parts:
+![1302.PNG](1302.PNG)
+where q=1.6*10^-19 as a constant
+
+Electron consentration:
+![1303.PNG](1303.PNG)
+Nc: effective density of state in conduction band
+EC: bottom of conduction band
+Ef: fermi level
+
+chemical elements table and lattice constant:
+![1304.PNG](1304.PNG)
+![1305.PNG](1305.PNG)
+more ↓ elements are, more smaller bandgap will have, much bigger the lattice constant is, higher electron mobility
+
+Direct band gap semiconductors (GaAs, InGaAs) are much more efficient emitter than indirect band gap semiconductors (Si,Ge)
+
+Semiconductors with the same lattice constant as the substrate can be grown with minimal crystal defects
+
+# week14
+Energy level on each electrons is not same with different orbital
+![1401.PNG](1401.PNG)
+and energy level will slightly decrease if more atoms are placed side by it.
+
+![1402.PNG](1402.PNG)
+If E0, or band gap(the difference between 4th and 5th band) is minimum (then Eg), the semiconductor has a direct bandgap
+If Eg is minimum (with E0), semiconductor has an indirect bandgap.
+![1403.PNG](1403.PNG)
+Adachi p.135
+
+importance of carrier mobility: High mobility increases carrier drift velocity.
+![1405.PNG](1405.PNG)
+Carrier velocity ν = μE (μ = mobility, E = electric field)
+m is effective mass
+
+Density of states N(E) is defined as the density of allowed energy states per energy range per unit volume.
+![1406.PNG](1406.PNG)
+
+Schrodinger equation:K+U=E,
+where the total energy is given by the sum of kinetic(K) energy and potential(U) energy
+
+![1404.PNG](1404.PNG)
+some mixed elements, like AlGaAs, its gap energy will change depends on different ratio the different elemrnts it has.
+like, Al0.5Ga0.5As has the middle energy between AlAs and GaAs.
+AlxGa1-xAs means it has x% AlAs and (1-x)% GaAs.
+(the emitted energy is E(eV)=hc/λ(um), h=6.62607015×10^（-34） J·s,c=3*10^(8))
+
+# Week 15
+Carrier concentration plays a critical role in determining how much current a semiconductor can conduct
+
+Ef is Fermi level corresponding to the probability of electron occupancy of 0.5 in n type semiconductor:
+![1501.PNG](1501.PNG)
+![1502.PNG](1502.PNG)
+Ec is conduction band, n is electron concentration, Nc is effictive density of states in conduction band, in room temperature kT=26meV 
+the fermi level in n-type is dependent on the electron concentration
+the interinsic carrier concentration ni^2=np
+
+Doping type depends on number of groups in elements table.
+N-type: in group V and VI
+P-type: in group II and III
+![1503.PNG](1503.PNG)
+Increasing the n-type dopants will increase the conductivity ( hence reduce the resistivity) of the n-type semiconductor.
+
+Carrier Recombination
+A: Generation-recombnation due to trap levels(SRH)
+B: Rafiative Recombination
+C: Auger Recombination
+![1504.PNG](1504.PNG)
+
+# Week 16
+The intensity of light travelling through a semiconductor is given by
+![1601.PNG](1601.PNG)
+x is position, alpha is the optical absorption coefficient
+
+![1602.PNG](1602.PNG)
+multiple materials can be used for maximum absorbe different wavelength. 
+the wave length will reduced from top to bottom, and bandgap need also reduce to absorb them
+
+dark current is the emitter that without absorbing any photon (band gap energy can only influence dark current)
+photo current is the normal light current
+the total current when the diode is illuminated (different function in formular sheet?????)
+![1603.PNG](1603.PNG)
+Is=short circuit current
+Vov=open circuit voltage
+Pm=ImVm=maximm output power
+
+![1604.PNG](1604.PNG)
+
+several ways to maximum fill factor: increase Im and Vm:
+1.Minimise reflected light at the air/semiconductor interface since ~31% of light is reflected.
+2.Maximise light absorption using a thick absorption region.
+3.Reduce carrier recombination near the surface which has high density of dangling bonds.
+4.Maximise generated photocurrent using materials with long minority carrier diffusion lengths
+5.Minimise the dark current using low defect materials. (large bandgap and low temperature also help)
+
+//
+Iph measured photocurrent
+Popt incident optical power
+η quantum efficiency
+G(x) optical generation rate
+W depletion width
+φ0 photon flux
+α absorption coefficient
+Rres Responsivity
+Iph shot noise to 
+derive the minimum optical power 
+required to produce SNR =1 
+x diffuse distance
+vs drift velocity
+tr transit time
+fRC RC time limited bandwidth
+A area
+τ Recombination lifetime
+tr Transit time
+σ conductivity of the semiconductor
+h Planck constant
+p carrier momentum
+En quantised energy level
+
+β hole ionisation coefficients
+α electron ionisation coefficients
+x carrier injection position
+F noise factor
