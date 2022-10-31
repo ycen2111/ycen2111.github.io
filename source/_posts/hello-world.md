@@ -57,4 +57,12 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 
 ``` bash
 hexo clean && hexo g && hexo d
+
+if [ $? -ne 0 ]; then
+read -n 1
+exit
+fi
+
+echo "Done"
+sleep 1
 ```

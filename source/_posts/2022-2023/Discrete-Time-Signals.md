@@ -106,3 +106,7 @@ Hence |H(ω)|^2 is the discrete-time Fourier transform of the autocorrelation of
 If we have two zeros 0 and -1, and also two poles -0.5 and 0.4, and choose the point where ω=exp(jπ/4),
 |H(ω)| is total length of these four lines =1.713
 ![405.png](405.png)
+
+# Random Signal
+![501.png](501.png)
+![502.png](502.png)
