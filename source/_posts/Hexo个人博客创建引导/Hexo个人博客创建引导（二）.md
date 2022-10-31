@@ -153,11 +153,11 @@ yourname.github.io
 
 在github项目仓库中新建branch。
 
-!(new_branch.PNG)[new_branch.PNG]
+![new_branch.PNG](new_branch.PNG)
 
 在setting中设置默认branch
 
-!(set_default.PNG)[set_default.PNG]
+![set_default.PNG](set_default.PNG)
 
 之后在本地新建一个文件夹来存放已上传的文件：
 
@@ -184,3 +184,8 @@ git push origin source
 ```
 
 可发现文件已上传。
+
+Shell 脚本：
+``` Bash
+git remote rm origin && git remote add origin https://github.com/ycen2111/ycen2111.github.io.git && git add . && git commit -m "backup" && git push origin source
+```

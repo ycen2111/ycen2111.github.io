@@ -52,3 +52,9 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+### Shell Script
+
+``` bash
+hexo clean && hexo g && hexo d
+```

@@ -28,3 +28,6 @@ Lecture Material:(https://pipirima.top/2022-2023/Discrete-Time-Signals-b5b4479f4
 
 # Week 5
 {% pdf  Week5.pdf %}
+
+# Week 6
+{% pdf  Week6.pdf %}
