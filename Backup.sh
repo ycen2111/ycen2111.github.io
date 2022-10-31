@@ -31,5 +31,4 @@ exit
 fi
 
 echo "Done"
-read -n 1
-sleep 5
+sleep 1
