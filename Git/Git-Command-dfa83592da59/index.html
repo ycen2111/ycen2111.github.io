@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pipirima.top/Git/Git-Command-dfa83592da59/001.png">
 <meta property="article:published_time" content="2022-11-04T13:52:45.000Z">
-<meta property="article:modified_time" content="2022-11-04T16:04:17.504Z">
+<meta property="article:modified_time" content="2022-11-07T12:04:30.556Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="Basic Command">
 <meta property="article:tag" content="Git">
@@ -283,6 +283,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add [ReposioryName] [url] <span class="comment">#连接本地仓库和远程仓库</span></span><br><span class="line"><span class="comment"># 如： git remote add LittlePrograme https://github.com/ycen2111/Little-Programe.git</span></span><br></pre></td></tr></table></figure>
 <p>再打开.git -&gt; config 会看见已经添加了远程仓库的信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push -u [ReposioryName] [branchName] <span class="comment">#上传到仓库的指定branch，之后再上传就不用输入-u了，已经指定该branch为默认branch了</span></span><br><span class="line">git push [ReposioryName] [branchName]</span><br><span class="line"><span class="comment">#如：git push LittlePrograme master</span></span><br></pre></td></tr></table></figure>
+
+<p>Please note: 如果单个文件过大(&gt;100M)，会被拒绝上传</p>
+
     </div>
 
     
