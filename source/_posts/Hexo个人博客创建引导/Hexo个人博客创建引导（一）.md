@@ -26,6 +26,8 @@ categories:
 
 ### 1. Git bush与Node.js安装
 
+这几步和[Git Command]()流程一样。
+
 Git可于[git官网](https://gitforwindows.org/)安装。点击download直接会开启一个下载进程，直接全程默认安装即可。这个安装包包含如下图所示三个文件：
 
 ![Git 安装后的三个文件](Git_Display.png)
