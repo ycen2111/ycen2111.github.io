@@ -61,3 +61,5 @@ git push -u [ReposioryName] [branchName] #上传到仓库的指定branch，之�
 git push [ReposioryName] [branchName]
 #如：git push LittlePrograme master
 ```
+
+Please note: 如果单个文件过大(>100M)，会被拒绝上传
