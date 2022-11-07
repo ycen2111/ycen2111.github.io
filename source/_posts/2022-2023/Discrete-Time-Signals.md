@@ -110,3 +110,18 @@ If we have two zeros 0 and -1, and also two poles -0.5 and 0.4, and choose the p
 # Random Signal
 ![501.png](501.png)
 ![502.png](502.png)
+
+# Digital Filters
+The filter requires future values of the input in order to determine the current output
+![601.png](601.png)
+A practical filter will differ from the ideal with a frequency response. It may have ripple, and may not.
+End edge of passband is the frequency drop below -3dB bandwidth frequency.
+The stopband edge is the frequency at which the response drops to the desired stopband height.
+reducing δ1, δ2 or the width of the transition band results in an increase in the other parameters
+
+Linear phase is a property of a filter where the phase response of the filter is a linear function of frequency. The result is that all frequency components of the input signal are shifted in time (usually delayed) by the same constant amount.
+The linear phase filte h(n) can be defined in pure real (evidente as left equation) and imaginary (evidente as right equation) frequency response
+![602.png](602.png)
+in real response, h(n)=h(-n), H(ω)=H(-ω)
+in imaginary reponse, h(n)=-h(-n)
+
