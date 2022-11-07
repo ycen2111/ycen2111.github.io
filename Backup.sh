@@ -1,3 +1,4 @@
+echo "----------Back Up----------"
 cd D://Blog
 
 if [ $? -ne 0 ]; then
