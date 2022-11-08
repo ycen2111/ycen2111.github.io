@@ -77,3 +77,5 @@ fi
 ```
 
 Please note: 如果单个文件过大(>100M)，会被拒绝上传
+
+如果遇到无法更新云端文件的问题(git changes not staged for commit)，可尝试将git add *改为git add ./
