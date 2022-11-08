@@ -62,20 +62,12 @@ git push [ReposioryName] [branchName]
 #如：git push origin master
 ```
 
-但为了保证每次上传都让github上文件和本地完全一样，需要先清除暂存区，因此要先解绑github后再次绑定。
-但同时意味着会完全删除原来内容然后重新上传，需谨慎
+但注意git会删除缺少的内容然后重新上传，需谨慎
 ``` Bash
-git remote rm origin #解绑
-git remote add origin https://github.com/ycen2111/Little-Programe.git #再次绑定
-#如不想完全覆盖，只想添加，就只加下面三句
 git add *
 git commit -m "#"
 git push origin master #正常上传三部曲
 
-#shell脚本
-#完全覆盖
-git remote rm origin && git remote add origin https://github.com/ycen2111/Little-Programe.git && git add * && git commit -m "#" && git push origin master
-#只添加新内容
 git add * && git commit -m "#" && git push origin master
 
 if [ $? -ne 0 ]; then

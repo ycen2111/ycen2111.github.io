@@ -163,15 +163,16 @@ yourname.github.io
 
 ``` Bash
 git clone https://github.com/yourname/yourname.github.io.git
+
+git remote rm origin
+
+git remote add origin https://github.com/yourname/yourname.github.io.git
+
 ```
 
 开启隐藏文件显示，保留.git文件之外删除其他文件，并将需要上传的文件放进来（必须保留.gitignor文件）。输入
 
 ``` Bash
-git remote rm origin
-
-git remote add origin https://github.com/yourname/yourname.github.io.git
-
 git add .
 
 git commit -m "something"
@@ -212,7 +213,7 @@ fi
 cp -a .//Hexo//themes//next//_config.yml .//source//ycen2111.github.io//themes//next
 cp -a .//Hexo//themes//next//package.json .//source//ycen2111.github.io//themes//next
 
-cd .//source//ycen2111.github.io && git remote rm origin && git remote add origin https://github.com/ycen2111/ycen2111.github.io.git && git add . && git commit -m "backup" && git push origin source
+cd .//source//ycen2111.github.io && git add . && git commit -m "backup" && git push origin source
 
 if [ $? -ne 0 ]; then
 read -n 1
