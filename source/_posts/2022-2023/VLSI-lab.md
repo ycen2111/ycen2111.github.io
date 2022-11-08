@@ -37,6 +37,7 @@ New Instance: Create -> Instance -> Browse
 |NMOS|PRIMLIB|nmosm4|
 |PMOS|PRIMLIB|pmosm4|
 |Voltage source|analogLib|vdc|
+|multi Voltage source|analogLib|vsource|
 |Current source|analogLib|idc|
 |Ground|analogLib|gnd|
 |Resistor|analogLib|res|
@@ -107,3 +108,30 @@ Start a ADE_XL: open one schmatic -> launch -> ADE_XL -> Create New View -> XXX_
 6. Output results can be checked here
 ![ADE_XL1_RESULT.png](ADE_XL1_RESULT.png)
 7. wave polt can be displayed here
+
+# symbol
+1. in target cell, create -> Cell view -> From cellview -> OK
+2. set pins
+3. change the shape
+4. new cell view have generated in library menu
+
+# Mismatch simulation
+in virtuoso window, Hit-Kit Utilities -> Simulation Utilities -> Model Manager
+1. change the "change all" into 'monte carlo'
+2. click 'Select section' making sure all parameters are end in 'mc' and click 'OK'
+3. double check all model files are end in 'mc' as well, and close window
+![Model_Manager.png](Model_Manager.png)
+
+now can open previous ADE_XL file
+and check the sections are really chnaged
+![Model_Library.png](Model_Library.png)
+
+Now can add new expressions by right clicking blank area in working place, and 'Add expression'
+if we want measure the current when Voltage in drain terminal is 2.5V, can write as:
+'value(IS("/MN0/D") 2.5)'
+
+Now can go to monte carloanalysis.
+1. change the drop down menu into conte carlo type
+2. click OK after making sure everything is OK
+3. start the simulation
+![Monte_Carlo_sampling.png](Monte_Carlo_sampling.png)
