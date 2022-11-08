@@ -198,6 +198,7 @@ fi
 cp -a .//Hexo//source .//source//ycen2111.github.io
 cp -a .//Hexo//_config.yml .//source//ycen2111.github.io
 cp -a .//Hexo//package.json .//source//ycen2111.github.io
+cp -a .//Hexo//.gitignore .//source//ycen2111.github.io
 
 if [ ! -d ".//source//ycen2111.github.io//themes//next" ]; then
 echo "Create .//source//ycen2111.github.io//themes//next"
