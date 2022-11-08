@@ -59,7 +59,29 @@ git remote add [ReposioryName] [url] #连接本地仓库和远程仓库
 ``` Bash
 git push -u [ReposioryName] [branchName] #上传到仓库的指定branch，之后再上传就不用输入-u了，已经指定该branch为默认branch了
 git push [ReposioryName] [branchName]
-#如：git push LittlePrograme master
+#如：git push origin master
+```
+
+但为了保证每次上传都让github上文件和本地完全一样，需要先清除暂存区，因此要先解绑github后再次绑定。
+但同时意味着会完全删除原来内容然后重新上传，需谨慎
+``` Bash
+git remote rm origin #解绑
+git remote add origin https://github.com/ycen2111/Little-Programe.git #再次绑定
+#如不想完全覆盖，只想添加，就只加下面三句
+git add *
+git commit -m "#"
+git push origin master #正常上传三部曲
+
+#shell脚本
+#完全覆盖
+git remote rm origin && git remote add origin https://github.com/ycen2111/Little-Programe.git && git add * && git commit -m "#" && git push origin master
+#只添加新内容
+git add * && git commit -m "#" && git push origin master
+
+if [ $? -ne 0 ]; then
+read -n 1
+exit
+fi
 ```
 
 Please note: 如果单个文件过大(>100M)，会被拒绝上传
