@@ -9,6 +9,8 @@ categories:
 password: frank
 ---
 
+slides:[https://pipirima.top/2022-2023/Analogue-IC-Design-Slides-ee210f4e9f8f/](https://pipirima.top/2022-2023/Analogue-IC-Design-Slides-ee210f4e9f8f/)
+
 # Introduction
 The previous several slide is almost same as the slids in undergraduate and been ignored.
 
