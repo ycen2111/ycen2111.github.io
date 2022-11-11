@@ -59,3 +59,10 @@ pip install -r .\requirements.txt #在新虚拟python环境中下载requirements
 ## 注意事项
 ### 修改file interpreter
 如出现下载pack但任显示找不到pack，可再次检查VScode在右下角的python版本路径，查看是否file指向了错误的地址
+
+### 更改地址
+如更改了环境地址，需进入activate更改
+``` Bash
+VIRTUAL_ENV='Your New env Root Address'
+#like: D:\GitHub_Upload\Python\Nike_Intern\OKR_env
+```

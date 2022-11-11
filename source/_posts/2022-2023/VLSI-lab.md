@@ -41,6 +41,7 @@ New Instance: Create -> Instance -> Browse
 |Current source|analogLib|idc|
 |Ground|analogLib|gnd|
 |Resistor|analogLib|res|
+|NAND|ahdlLib|nand_gate|
 
 change parameters: click instance -> press Q
 Draw line: Create -> Wire narrow
@@ -135,3 +136,15 @@ Now can go to monte carloanalysis.
 2. click OK after making sure everything is OK
 3. start the simulation
 ![Monte_Carlo_sampling.png](Monte_Carlo_sampling.png)
+
+# Set an Osillator by ring invertors
+![Ring_Ocilattor.png](Ring_Ocilattor.png)
+There have two global variables (svdd! and svss!) which also been set in invertor parameter.
+
+Please note the initial condiction must be set on one wire, or the osillator will be happened
+ADE_L -> simulation -> convergence aids -> initial condition -> set as 0 or 5V
+and its better to choose 2.5V as a supply voltage, to drive it much similar as a real pulse signal
+the little peaks which larger than supply voltage is porproated with CMOS area. less area CMOS has, lower peak the signal will have and will performed as a normal pulse signal
+1[Ring_Ocilattor1.png](Ring_Ocilattor1.png)
+
+and next can add a enable signal to control this pulse signal by NAND gate
