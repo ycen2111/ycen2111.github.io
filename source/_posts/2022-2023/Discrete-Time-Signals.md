@@ -112,6 +112,7 @@ If we have two zeros 0 and -1, and also two poles -0.5 and 0.4, and choose the p
 ![502.png](502.png)
 
 # Digital Filters
+There is a delay of an infinitelength before the output can be obtained
 The filter requires future values of the input in order to determine the current output
 ![601.png](601.png)
 A practical filter will differ from the ideal with a frequency response. It may have ripple, and may not.
@@ -122,6 +123,39 @@ reducing δ1, δ2 or the width of the transition band results in an increase in 
 Linear phase is a property of a filter where the phase response of the filter is a linear function of frequency. The result is that all frequency components of the input signal are shifted in time (usually delayed) by the same constant amount.
 The linear phase filte h(n) can be defined in pure real (evidente as left equation) and imaginary (evidente as right equation) frequency response
 ![602.png](602.png)
-in real response, h(n)=h(-n), H(ω)=H(-ω)
-in imaginary reponse, h(n)=-h(-n)
+in real response, h(n)=h(-n), H(ω)=H(-ω), filter is symmetric
+in imaginary reponse, h(n)=-h(-n), filter is anti-symmetric
 
+equation of FIR is:
+![603.png](603.png)
+where h(n) is defined as the impulse response of a causal filter, M is number of taps
+
+any zero that is real, and does not lie on z = 1 or z = −1 must have one other zero that is its reciprocal. eg. z2 and 1/z2
+complex zeros, not lying on the unit circle, occur in groups of four. eg. z1, z1*, 1/z1, 1/z1*
+![604.png](604.png)
+There have M-1 zero points for M-tap FIR filter normally.
+Hence this figure shows an odd-tap filter.
+
+If the filter is in even-tap, there must have zero equals 1 or -1 on circle. 
+depends on symmetrix or anti-symmetric
+
+for Frequency response characteristics,
+![605.png](605.png)
+
+![606.png](606.png)
+
+For design a desired filter response, HRD(ω) defines the idealised filter. The idealised filter will either be symmetric, or antisymmetric (HRD(ω) = ±HRD(−ω))
+To make the final filter of length M causal, a delay of (M−1)/2 samples is required.
+![607.png](607.png) (?)
+
+![608.png](608.png)
+For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.
+
+In low-pass filter, β=0. But if shift the phase to pi/2, in high-pass filter,  β=1
+![609.png](609.png)
+like if sampled frequency=8kHz, and 16-tap filter, the shift frequency when α=0.5 is: 8k/2*16=0.25k
+
+The transition bandwidth is: (transition_frequency/sampling_frequency)*2pi
+which can get the number of filter taps
+
+if calculated tap number is larger than designed number, then the calculated number can be seen as more complex
