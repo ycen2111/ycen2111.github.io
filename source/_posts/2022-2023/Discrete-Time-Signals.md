@@ -151,7 +151,11 @@ To make the final filter of length M causal, a delay of (M−1)/2 samples is req
 ![608.png](608.png)
 For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.
 
-In low-pass filter, β=0. But if shift the phase to pi/2, in high-pass filter,  β=1
+|filter|β|
+|:----|:----|
+|low pass|β=0|
+|high pass|β=1|
+
 ![609.png](609.png)
 like if sampled frequency=8kHz, and 16-tap filter, the shift frequency when α=0.5 is: 8k/2*16=0.25k
 
