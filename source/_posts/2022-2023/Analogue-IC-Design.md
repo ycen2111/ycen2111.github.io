@@ -68,7 +68,46 @@ and the final channel width will completely disappeared (pinch-off) when VDS>Vov
 ![212.png](212.png)
 
 The output resistence r0 for saturated transistor is inifite, but in practice, increasing VDS beyond Vov does affect the channel. As VDS is increased, the channel pinch-off point is slightly moved away from the drain towards the source. which is called “channel-length modulation”.
-the slop in channel-length modulation is = 1/r0
+the slop in channel-length modulation is = 1/r0 = (1+λVDS)/λID = 1/λID
 with “channel-length modulation” :
 ![213.png](213.png)
 ![214.png](214.png)
+
+the body effect is happened when the voltage drop on body terminal is not equals voltage on source.
+Normally will influence Vth voltage
+![215.png](215.png)
+
+# FET amplifiers (part1)
+![301.png](301.png)
+small signal can only use in AC analysis
+set all DC voltage in zero
+large capacitor becone short
+analyse using Ohm’s Law and Kirchhoff’s Laws
+get gm and rds
+![304.png](304.png)
+
+![302.png](302.png)
+this the the most useful amplifier module
+Rin is the amplifier inputimpedance (usually infinite for perfect MOS circuits)
+Rout is the amplifier output impedance
+G is the amplifier gain, usually negative
+
+the ideal transistor plot in saturation region should be a linear current mirror for both p-type and n-type transistor
+![303.png](303.png)
+this slop will be horizontal if Rout is infinite
+
+![305.png](305.png)
+![306.png](306.png)
+
+the Diode connected FET is always in saturation region
+![307.png](307.png)
+where VDS=VGS, AC resistence assumed as 1/gm
+a Diode-connected active load is:
+![308.png](308.png)
+![309.png](309.png)
+gm2Vout can be seen as a resistance g2. hence
+![310.png](310.png)
+because gm>>gds, 
+Av will just be like -gm1/gm2, and
+![311.png](311.png)
+So the gain will be very small in this amplifier. For high gain, then the device will have disproportionately wide or long transistors
