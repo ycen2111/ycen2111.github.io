@@ -144,9 +144,11 @@ for Frequency response characteristics,
 
 ![606.png](606.png)
 
+For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.
+
 For design a desired filter response, HRD(ω) defines the idealised filter. The idealised filter will either be symmetric, or antisymmetric (HRD(ω) = ±HRD(−ω))
 To make the final filter of length M causal, a delay of (M−1)/2 samples is required.
-![607.png](607.png) (?)
+![607.png](607.png)
 
 ![608.png](608.png)
 For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.
@@ -163,3 +165,15 @@ The transition bandwidth is: (transition_frequency/sampling_frequency)*2pi
 which can get the number of filter taps
 
 if calculated tap number is larger than designed number, then the calculated number can be seen as more complex
+
+For Naïve approach:
+The impulse response is based on DFT equation
+![610.png](610.png)
+![611.png](611.png)
+usually, the frequency repsonse when α = 0 has lower passband ripple but higher stopband ripple,
+the frequency response when α = 0.5 has higher passband ripple but lower stopband ripple.
+it should be careful to choose which filter is much better
+
+example:
+![612.png](612.png)
+
