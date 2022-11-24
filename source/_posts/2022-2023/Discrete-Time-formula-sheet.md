@@ -43,3 +43,15 @@ Lecture Material:(https://pipirima.top/2022-2023/Discrete-Time-Signals-b5b4479f4
 # Week 7
 (https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/Week7.pdf)
 {% pdf  Week7.pdf %}
+
+# Week 8
+(https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/Week8.pdf)
+{% pdf  Week8.pdf %}
+
+# Week 9
+(https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/Week9.pdf)
+{% pdf  Week9.pdf %}
+
+# Week 10
+(https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/Week10.pdf)
+{% pdf  Week10.pdf %}

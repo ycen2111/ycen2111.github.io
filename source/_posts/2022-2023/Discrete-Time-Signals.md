@@ -207,3 +207,6 @@ value rxx(m)=0 for all |m|>M
 First two windows have high sidelobe and narrow mainlobe
 Next two window have low sidelobe and wide mainlobe
 
+Complexity
+Techniques with a low computational complexity can be executed more quickly, and run more often, than those with a high complexity
+multiplication is generally used as the metric to gauge complexity.
