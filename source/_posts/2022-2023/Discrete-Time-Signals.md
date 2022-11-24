@@ -177,3 +177,33 @@ it should be careful to choose which filter is much better
 example:
 ![612.png](612.png)
 
+# Power spectrum
+The definition for an ergodic power signal can similarly be defined:
+![701.png](701.png)
+where N is number of samples, L is length of DFT sequence. Usually N less than L
+But it is not a good idea to calculate whole priodic, as priodogram will have big variance and easy influenced by windowing
+more detailed the sampling is, much bigger the variation is.
+
+Bartlett method is transform each small blocks, and calculate its average value
+![702.png](702.png)
+![703.png](703.png)
+block number K=N/M
+
+Welch method using more blocks with much less variation
+![704.png](704.png)
+![705.png](705.png)
+
+
+but divide block is same as add a rectangle window. Hence we can choose other window type to reduce spectrum leakage.
+Note: narrower mainlobe, higher revolution. higher sidelobe, worse spectrum leakage
+best choice is choose -30dB between mainlobe and sidelobe
+
+Blackman and Tukey
+this method will calculate correletion first and than calculate its DFT spectrum
+![706.png](706.png)
+value |m| shoud be less than M
+value rxx(m)=0 for all |m|>M
+![707.png](707.png)
+First two windows have high sidelobe and narrow mainlobe
+Next two window have low sidelobe and wide mainlobe
+
