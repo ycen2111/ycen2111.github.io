@@ -210,3 +210,7 @@ Next two window have low sidelobe and wide mainlobe
 Complexity
 Techniques with a low computational complexity can be executed more quickly, and run more often, than those with a high complexity
 multiplication is generally used as the metric to gauge complexity.
+
+# Multirate Digital Signal Processin
+multirate techniques a signal, with a new sampling rate, that represents the original signal.
+![801.png](801.png)
