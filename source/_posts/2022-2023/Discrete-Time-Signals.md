@@ -211,6 +211,13 @@ Complexity
 Techniques with a low computational complexity can be executed more quickly, and run more often, than those with a high complexity
 multiplication is generally used as the metric to gauge complexity.
 
-# Multirate Digital Signal Processin
+# Multirate Digital Signal Processing
 multirate techniques a signal, with a new sampling rate, that represents the original signal.
 ![801.png](801.png)
+The multirate structure will could obviously decrease tap number in filter design
+
+For resampling, D and I should all be integers
+D is Decimation
+I is Interpolation
+![802.png](802.png)
+
