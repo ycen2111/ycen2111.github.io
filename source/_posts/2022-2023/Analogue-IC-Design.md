@@ -79,11 +79,12 @@ Normally will influence Vth voltage
 
 # FET amplifiers (part1)
 ![301.png](301.png)
-small signal can only use in AC analysis
-set all DC voltage in zero
-large capacitor becone short
-analyse using Ohm’s Law and Kirchhoff’s Laws
-get gm and rds
+Signal analysis steps
+1. small signal can only use in AC analysis
+2. set all DC voltage in zero
+3. large capacitor becone short
+4. analyse using Ohm’s Law and Kirchhoff’s Laws
+5. get gm and rds
 ![304.png](304.png)
 
 ![302.png](302.png)
@@ -98,8 +99,9 @@ this slop will be horizontal if Rout is infinite
 
 ![305.png](305.png)
 ![306.png](306.png)
+where gm is from transistor, and gds+GD is for other resistance
 
-the Diode connected FET is always in saturation region
+the Diode connected FET is always in saturation region, which can be seen as a resistance
 ![307.png](307.png)
 where VDS=VGS, AC resistence assumed as 1/gm
 a Diode-connected active load is:
@@ -110,4 +112,30 @@ gm2Vout can be seen as a resistance g2. hence
 because gm>>gds, 
 Av will just be like -gm1/gm2, and
 ![311.png](311.png)
-So the gain will be very small in this amplifier. For high gain, then the device will have disproportionately wide or long transistors
+So the gain will be very small in this amplifier. 
+For high gain, then the device will have disproportionately wide or long transistors, which will cause limited bandwidth
+
+Which channel length modulation:
+![313.png](313.png)
+![312.png](312.png)
+
+## Key points:
+Gain=gm*Rl
+where gm converter input voltage to input current,
+and Rl converter output current into output voltage
+
+Bandwidth=1/(Rl*Cl)
+where Rl is output impedance
+Cl is output load capacitor
+
+Hence Gain-Bandwidth product (GBP)=(gm * RL ) * [1/(RL CL )] = gm /CL
+
+
+## Current Source Load
+![314.png](314.png)
+the P-mos can be seen as current source and must in saturation region
+while N-mos is best be saturation
+small signal:
+![315.png](315.png)
+![316.png](316.png)
+
