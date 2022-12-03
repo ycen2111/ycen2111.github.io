@@ -119,7 +119,7 @@ Start a ADE_XL: open one schmatic -> launch -> ADE_XL -> Create New View -> XXX_
 # Mismatch simulation
 in virtuoso window, Hit-Kit Utilities -> Simulation Utilities -> Model Manager
 1. change the "change all" into 'monte carlo'
-2. click 'Select section' making sure all parameters are end in 'mc' and click 'OK'
+2. click 'Select section' making sure all parameters are end in 'mc' and click 'Apply' and 'OK'
 3. double check all model files are end in 'mc' as well, and close window
 ![Model_Manager.png](Model_Manager.png)
 
