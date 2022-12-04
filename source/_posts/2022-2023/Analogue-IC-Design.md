@@ -101,6 +101,7 @@ this slop will be horizontal if Rout is infinite
 ![306.png](306.png)
 where gm is from transistor, and gds+GD is for other resistance
 
+## Diode connected FET
 the Diode connected FET is always in saturation region, which can be seen as a resistance
 ![307.png](307.png)
 where VDS=VGS, AC resistence assumed as 1/gm
@@ -139,3 +140,96 @@ small signal:
 ![315.png](315.png)
 ![316.png](316.png)
 
+# FET amplifiers (part2)
+
+## Two Transistor (CMOS) Amplifier
+![401.png](401.png)
+Advantage: high gain, not too many noise
+Disadvantage: hard to maintain DC bias, take lot DC current
+
+![402.png](402.png)
+The current is maximum vakue if P-mos and N-mos are saturated
+input voltage -> id current -> output voltage
+N-mos: A->C cutoff, C->E active, E->F saturated, F->K active
+Pmos: A->E Active, E->F Saturated, F->I Active, I->K cut-off
+![406.png](406.png)
+VM is voltage when Vin=Vout
+
+![403.png](403.png)
+(?)
+Note that in Cmos Amplifier, the T-rise time will be shorter than T_fall time, as resistance in P-mos is smaller than in N-mos
+
+small signal analysis
+![404.png](404.png)
+![405.png](405.png)
+
+## Source follower (common-drain circuit)
+![407.png](407.png)
+1. use N-mos
+2. SF has gain approximate as 1
+3. Can be seen as a buffer
+4. Easy to have body effect as VBS=Vout is large
+![408.png](408.png)
+![409.png](409.png)
+which gain will slightly less than 1
+So SF usually beed connect bulk and source together to limite body effect, but also will limite bandwidth
+
+## Cascode amplifier
+![410.png](410.png)
+1. R3 is a current-source load, and also can be seen as a resistance
+2. Vbias2 is constant, so VS2 is also constant
+3. So M1 has a constant current, and no λ term in M1. Hence output resistance of M1 is very high
+4. No Miller effect (?)
+
+![411.png](411.png)
+M3 has been a resistance
+![412.png](412.png)
+
+![413.png](413.png)
+the amplifier with cascode can increase its gain in factor of gm2/gDS2
+
+![414.png](414.png)
+the Vin can be ignored because only output current is interested
+![415.png](415.png)
+![416.png](416.png)
+output resistance is only related with M1 and M2
+
+Hence Cascode can increase Gain and output resistance in factor of gm2/gDS2
+
+## AC circuit analysis
+![417.png](417.png)
+the RC circuit is a low-pass filter. It has circuit bandwidth:
+![418.png](418.png)
+![419.png](419.png)
+
+So the final bandwidth is completely controlled by resistance and capacitor:
+![420.png](420.png)
+the small signal cna be chaned as:
+![421.png](421.png)
+where CM = Cgd1 + Cgd2
+according to node analysis, Rout can be changed as:
+![422.png](422.png)
+R_parallel ≈ Rin , just the original value
+R_series ≈ Rout /(G + 1), relatively small
+and the small signal can be changed as:
+![423.png](423.png)
+![424.png](424.png)
+1. two amplifiers are in cascade
+2. Cin1 and Cin2 will be increased greatly based on Miller effect
+Miller effect(?)
+
+## Body effect
+![425.png](425.png)
+Normally the bulk is connect to VDD or VSS to svoid body effect,
+But Change the voltahe drop on substract will influence threshold voltage.
+
+1. if bulk voltage drop decreased, more wider the depletion region will be
+2. wider depletion region need to charge more electrics
+3. Vt threshold voltage is related with depletion region's charge effect
+4. So bigger body effect means bigger threshold voltage
+
+![427.png](427.png)
+φf is usually 0.35V, γ is usually 0.5(V)^(1/2)
+![426.png](426.png)
+gmbs is based on body effect
+![428.png](428.png)
