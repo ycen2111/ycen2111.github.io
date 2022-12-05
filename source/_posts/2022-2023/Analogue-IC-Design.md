@@ -104,6 +104,7 @@ where gm is from transistor, and gds+GD is for other resistance
 ## Diode connected FET
 the Diode connected FET is always in saturation region, which can be seen as a resistance
 ![307.png](307.png)
+![429.png](429.png)
 where VDS=VGS, AC resistence assumed as 1/gm
 a Diode-connected active load is:
 ![308.png](308.png)
@@ -233,3 +234,71 @@ But Change the voltahe drop on substract will influence threshold voltage.
 ![426.png](426.png)
 gmbs is based on body effect
 ![428.png](428.png)
+
+# Current mirror
+Both n-type and p-type transister can be analyzed as current source
+![501.png](501.png)
+![502.png](502.png)
+a ideal current source should have vary high output impedance and very low input impedance, means gain of amplifier will be really low -> only current, but no voltage, will be changed
+
+## Basic current mirror
+![503.png](503.png)
+Rout=1/λId
+Rin≈1/gm
+
+If we assume:
+Vmin(M1)=Von+Vt, than
+Vmin(M2)=Von
+hence both transistors must in saturation region
+
+Small signal of M2:
+![504.png](504.png)
+because vin from M1 is always constant, hence Vin is a DC voltage, hence should be ignored in this case
+hence M2's small signal circuit is just a resistance
+Where rDS2 is rout
+
+1. fixed Iref and M1 makes VGS2 constant
+2. constant VGS2 and saturated M2 makes Ids2 constant
+3. But value of VDS2 is variable, so Ids2 will also varying
+So we have a small input impedance and huge output impedance (1MΩ, but still not enough to most purpose)
+
+## Wilson current mirror
+Wilson current mirror is a negative feedback system
+![505.png](505.png)
+
+1. if Iout rises, VDS2 also rises
+2. VGS1 rises, but Iref not change, hence VDS1 falls
+3. VGS3 falls, hence Iout falls again
+
+current gain of Wilson current mirror is same as basic current mirror
+
+![506.png](506.png)
+![507.png](507.png)
+(?)
+![508.png](508.png)
+So rout≈gm*rds^2
+
+Vout(min)=2Von+VT,
+as VDS2=Von+VT, VDS3=Von
+
+## Cascode current mirror
+![509.png](509.png)
+![501.png](501.png)
+(?)
+Vout(min)=2Von+VT,
+and VDS1=VDS2
+
+small signal:
+![511.png](511.png)
+VG2 and VG4 are all constant, hence VG2=VG4=0
+hence VGS2=0, M2 just has resistance
+![512.png](512.png)
+(?)
+rout≈gm*ro^2
+which is a hign output impedance
+
+therefore,
+![513.png](513.png)
+If we make W/L for M2 “n” times bigger than W/L for M1, Iout = nIref
+
+This is an important result, as we could use it to make a DAC, as different W/L ratio will result in different current output, and we could sum them together to get analodge value.
