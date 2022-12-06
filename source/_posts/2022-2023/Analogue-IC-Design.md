@@ -307,3 +307,70 @@ therefore,
 If we make W/L for M2 “n” times bigger than W/L for M1, Iout = nIref
 
 This is an important result, as we could use it to make a DAC, as different W/L ratio will result in different current output, and we could sum them together to get analodge value.
+
+# Diff amplifier
+A differential signal: Measured between two nodes that have equal and opposite signal excursions around a fixed potential. 
+![601.png](601.png)
+Note: the potential dash line in middle of borh signal is called 'Common Mode'(CM) level
+VP is VCM
+
+![602.png](602.png)
+Common-mode rejection ratio (CMRR):
+![603.png](603.png)
+AVID = differential-mode voltage gain
+AVCM = common-mode voltage gain
+VID = differential-mode voltage (with different phase)
+VIC = common-mode voltage
+
+# Large signal:
+![604.png](604.png)
+Vid=vgs1-vgs2
+Iss=iD1+iD2
+
+![605.png](605.png)
+because ISS is from current source, it cannot change. Hence iD1+iD2 is always constant
+
+![607.png](607.png)
+![606.png](606.png)
+
+for differential gain:
+![608.png](608.png)
+![609.png](609.png)
+
+for common mode gain:
+![610.png](610.png)
+so iD and vcm have no relations.
+
+# Small signal:
+![611.png](611.png)
+Small signal can only analysis half part because symmetric
+parallel 2*2RS is total in RS only, the output impedence in current source
+
+![612.png](612.png)
+(?)
+
+## Diode connect load
+![613.png](613.png)
+
+## Current mirror load
+![614.png](614.png)
+• Vin1 and Vin2 are VCM only
+• gm1 = gm2
+• gm3 = gm4
+• ro1 = ro2
+• ro3 = ro4
+• I3=I4
+
+Common mode:
+![615.png](615.png)
+![616.png](616.png)
+
+differential:
+![617.png](617.png)
+![618.png](618.png)
+only o2 is related with differential voltage
+
+![619.png](619.png)
+the current mirror amplifier is better,
+as it has almost fixed common mode gain (around 1/2)
+as big differential gain
