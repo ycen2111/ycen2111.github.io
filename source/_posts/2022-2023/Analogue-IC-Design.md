@@ -180,7 +180,7 @@ So SF usually beed connect bulk and source together to limite body effect, but a
 1. R3 is a current-source load, and also can be seen as a resistance
 2. Vbias2 is constant, so VS2 is also constant
 3. So M1 has a constant current, and no λ term in M1. Hence output resistance of M1 is very high
-4. No Miller effect (?)
+4. No Miller effect
 
 ![411.png](411.png)
 M3 has been a resistance
@@ -217,7 +217,6 @@ and the small signal can be changed as:
 ![424.png](424.png)
 1. two amplifiers are in cascade
 2. Cin1 and Cin2 will be increased greatly based on Miller effect
-Miller effect(?)
 
 ## Body effect
 ![425.png](425.png)
@@ -274,7 +273,6 @@ current gain of Wilson current mirror is same as basic current mirror
 
 ![506.png](506.png)
 ![507.png](507.png)
-(?)
 ![508.png](508.png)
 So rout≈gm*rds^2
 
@@ -283,17 +281,24 @@ as VDS2=Von+VT, VDS3=Von
 
 ## Cascode current mirror
 ![509.png](509.png)
-![501.png](501.png)
-(?)
+![510.png](510.png)
+analysis order: M1 -> M3 -> M4 -> M2
 Vout(min)=2Von+VT,
-and VDS1=VDS2
+and VDS1=VDS2, which mean no need to worry about channel length modulation
 
 small signal:
 ![511.png](511.png)
+M1 and M3 are diode connect, can directly been ignored
 VG2 and VG4 are all constant, hence VG2=VG4=0
 hence VGS2=0, M2 just has resistance
 ![512.png](512.png)
-(?)
+``` Bash
+process:
+Vo=Vds2+(Io-gm4Vgs4)*rds4
+Vo=Iords2+(Io-gm4Vgs4)*rds4
+Vo=Iords2+(Io+gm4*Iords2)*rds4
+Ro=rds2+rds4+gm4rds2rds4
+```
 rout≈gm*ro^2
 which is a hign output impedance
 
