@@ -30,15 +30,11 @@ home_invisible: True
 [https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-6.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-6.pdf)
 {% pdf  2-6.pdf %}
 
-# 2-7
-[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-7.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-7.pdf)
-{% pdf  2-7.pdf %}
-
 # 2-8
 [https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-8.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-8.pdf)
 {% pdf  2-8.pdf %}
 
-# 2-19
+# 2-9
 [https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-9.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-9.pdf)
 {% pdf  2-9.pdf %}
 
