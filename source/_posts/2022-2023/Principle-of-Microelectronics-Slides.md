@@ -9,6 +9,63 @@ categories:
 
 home_invisible: True
 ---
+Notes:(https://pipirima.top/2022-2023/Principle-of-Microelectronics-7a974485f953/#more)
+
+# 1-1
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-1.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-1.pdf)
+{% pdf  1-1.pdf %}
+
+# 1-2
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-2.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-2.pdf)
+{% pdf  1-2.pdf %}
+
+# 1-3
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-3.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-3.pdf)
+{% pdf  1-3.pdf %}
+
+# 1-4
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-4.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-4.pdf)
+{% pdf  1-4.pdf %}
+
+# 1-5
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-5.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-5.pdf)
+{% pdf  1-5.pdf %}
+
+# 1-6
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-6.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-6.pdf)
+{% pdf  1-6.pdf %}
+
+# 1-7
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-7.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-7.pdf)
+{% pdf  1-7.pdf %}
+
+# 1-8
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-8.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/1-8.pdf)
+{% pdf  1-8.pdf %}
+
+# a-1
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-1.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-1.pdf)
+{% pdf  a-1.pdf %}
+
+# a-2
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-2.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-2.pdf)
+{% pdf  a-2.pdf %}
+
+# a-3
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-3.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-3.pdf)
+{% pdf  a-3.pdf %}
+
+# a-4
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-4.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-4.pdf)
+{% pdf  a-4.pdf %}
+
+# a-5
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-5.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-5.pdf)
+{% pdf  a-5.pdf %}
+
+# a-6
+[https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-6.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/a-6.pdf)
+{% pdf  a-6.pdf %}
 
 # 2-1
 [https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-1.pdf](https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/2-1.pdf)
