@@ -166,6 +166,11 @@ Simple Bilayer OLED Device
 
 Advanced high-efficiency OLED Device
 ![2-7-4.png](2-7-4.png)
+![2-7-14.png](2-7-14.png)
+EIL(HIL): Electron (Hole) Injection layer
+EIL(HIL): Electron (Hole) transport layer
+EML: Emitter material layer
+EBL(HBL): Electron (Hole) Block layer
 
 bottom and top emitting:
 ![2-7-5.png](2-7-5.png)
@@ -183,10 +188,18 @@ HTL's thickness will influence final emitted light's efficiency.
 OLED image sticking problem: Pixels used more become dimmer sooner. life time, image will tuen yellow or grey
 
 ![2-7-9.png](2-7-9.png)
+thermionic emission and tunning are two main electron/hole injection methode.
+thermionic emission:
+J is the emission current density, 
+T is the temperature of the metal, 
+k is the Boltzmann constant, 
+and A is a parameter constant
 (?)
 
 OLED zero bias, no charge injection.A (very) small current can flow due to dissociation of photo-excited excitons.
 ![2-7-10.png](2-7-10.png)
+LEP: light-emitting polymer
+PEDOT: poly(3,4-ethylenedioxythiophene)
 threshold, OLED start to turn on, Thermionic emission allows carriers over the barriers to injection (mainly dependent on temperature)
 ![2-7-11.png](2-7-11.png)
 carrier injection, OLED under forward bias. current is limited by carrier injection and space charging
@@ -194,3 +207,135 @@ carrier injection, OLED under forward bias. current is limited by carrier inject
 
 Charge Mobility µ is very low compared to inorganic semiconductors 
 ![2-7-13.png](2-7-13.png)
+
+# OLED display
+![2-9-1.png](2-9-1.png)
+voltage-luminance relations. turn on voltage is 2.1V, luminance increases with increased voltage, but efficiency drops in hign voltage
+
+Addressing comare
+![2-9-2.png](2-9-2.png)
+
+## Passive matrix driver
+![2-9-3.png](2-9-3.png)
+Usually ITO anodes are ‘columns’ and Al cathodes are ‘rows’ due to the large peak currents the rows must cope with
+driving method is same with passitive-matrix LCD
+
+![2-9-4.png](2-9-4.png)
+
+main power consumption is baed on four parts:
+![2-9-5.png](2-9-5.png)
+that diode (between anode and cathode) is the main consumpted part
+So using more 'standby' or 'pass blanklines' can better save the power
+
+## Active matrix
+use TFT control
+![2-9-6.png](2-9-6.png)
+the active matrix has longer, less intense current pulse, which reduce power comsumption.
+
+but this AMOLED have limitaitons:
+1. OLED luminance delay and TFT aging
+2. fixed pattern noise
+3. batch variability
+
+![2-9-7.png](2-9-7.png)
+(LCD ?)
+LCD is drived by voltage, and OLED is drived by current
+
+for simple actibe-matrix OLED:
+![2-9-8.png](2-9-8.png)
+1. row line is selected first, and then column is also been selected
+2. M1 been selected, and pass
+3. M2 is selected and open, drive LED
+
+have many other sifferent designes. see them later
+
+![2-9-9.png](2-9-9.png)
+
+# Micro display
+the small display has:
+1. large image for eye
+2. lower manufactoe cost
+3. lower power consumption and battery lifetime
+4. often use AM-CMOS structure
+
+![2-10-1.png](2-10-1.png)
+
+![2-10-2.png](2-10-2.png)
+(?)
+
+different projected methode:
+![2-10-3.png](2-10-3.png)
+![2-10-4.png](2-10-4.png)
+backlight is turned on in sequence, and create a final image finally
+
+the second display method is better than first one, as scrolling methode can mix different color, but first methode is basicly has three different colors on screen.
+FSC has simplier display structure, but some scence will increase color break-up if move fast
+
+![2-10-6.png](2-10-6.png)
+left hand is transmissive LCD, right hand is reflective LCD. the Transmissive LCD has wider side barrier, while reflective LCD has more narrower side gap.
+![2-10-5.png](2-10-5.png)
+same in front/back emit OLED
+![2-10-7.png](2-10-7.png)
+
+TI DMD (Digital Micromirror Device) / DLP (Digital Light Processing)
+It works by using thousands of tiny mirrors that can be rapidly controlled to reflect light onto a screen, creating an image
+![2-10-8.png](2-10-8.png)
+
+# Virtual image displays
+the slab glass can help change light view and outputs a virtual image
+![g-1-1.png](g-1-1.png)
+the output different angle light line can help eye create a virtual object by slab. The slab is a glass with slightly emboss one side
+the angle a light line enter the salb can maintain where the seen virtual object are
+
+we can see a file if there has a projector under this slab
+![g-1-2.png](g-1-2.png)
+
+the LED need use gating ti enter the slab, to avoid diffraction due to line-width
+![g-1-3.png](g-1-3.png)
+
+so we can create a vertical line by adding another slab, and output a full screen image
+![g-1-4.png](g-1-4.png)
+
+The effect of diffraction can be shown in a semi-sphere, k1 is entered light angle, k2 is diffractive direction, and kg is projected direction that entered light been diffractived.
+![g-1-5.png](g-1-5.png)
+![g-1-6.png](g-1-6.png)
+the ray angle under 42° will not be guided, and roung 90° may not hit the gating. hence 42°-72° is a good choice (projected grey ring)
+1 -> 2 : first reflection
+2 -> 3: second reflection
+so finally ray will move to eye's center
+
+RGB virtual figure display. It needs three cameras due to different color's wavelength.
+this design will cause a really heavy device
+![g-1-7.png](g-1-7.png)
+
+# Liquid crystal photonics
+## LC lenses: Surface relief approach
+![g-2-1.png](g-2-1.png)
+
+Variable index approach
+![g-2-2.png](g-2-2.png)
+
+Modal addressing
+![g-2-3.png](g-2-3.png)
+
+## Hybrid liquid crystal lenses
+![g-2-4.png](g-2-4.png)
+birefringence len may is the LC layer. why FLC can be rotated? change the ne/no?
+
+![g-2-5.png](g-2-5.png)
+two polariser can be rotated by controller
+this device can generate a 3-D virtual image
+
+## Liquid crystal lasers
+![g-2-6.png](g-2-6.png)
+note the Resonant cavity is liquid cyrstal
+
+if the liquid crystal is in twisted, different color waveform could be seperated using different twisted angle
+![g-2-7.png](g-2-7.png)
+So a mixed-color laser can be seperated into multiple single-color laser
+![g-2-8.png](g-2-8.png)
+
+# Quantum Rods LEDs
+(?)
+
+# LIGHT FIELD AND HOLOGRAPHIC 3D DISPLAY TECHNOLOGIES
