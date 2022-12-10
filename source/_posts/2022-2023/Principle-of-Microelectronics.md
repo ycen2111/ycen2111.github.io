@@ -12,6 +12,113 @@ password: frank
 
 Formular sheets and slids: (https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/)
 
+# 1-1
+## Blackbody radiation
+Blackbody radiation is the thermal electromagnetic radiation within or emanating from a body in thermodynamic equilibrium with its environment, or emitted by a black body (an idealized physical body that absorbs all incident electromagnetic radiation) with a temperature above absolute zero. 
+![1-1-1.png](1-1-1.png)
+The higher the temperature of the body, the shorter the wavelength of the peak of the spectrum, and the higher the intensity of the radiation. the peak wavelength is in range of infra-red
+
+## Photoelectric effect
+A physical phenomenon in which electrons are emitted from the surface of a metal or other material when it is exposed to light or other electromagnetic radiation.
+![1-1-2.png](1-1-2.png)
+1. Cathode part metal contact light
+2. electrons absorb energy in one photon
+3. if energy permitted, it will emitted to anode material
+![1-1-3.png](1-1-3.png)
+the electron has a constant energy required freuqnecy f0. if incident light freuqnecy f>f0, energy from photon is bigger than required energy level in electron, hence electron can be emitted.
+the ourput current will be constant with stable light luminance. as one electron can only absorbe energy from one photon. the total current is fixed
+
+the energy which allowed an electron just been emitted is called work function = eϕ, where ϕ is in voltage
+the total kinetic energy an electron has when it is just been emitted is = photon energy – work function:
+![1-1-4.png](1-1-4.png)
+
+## Bohr atom
+Bohr atom is the atom with central nucleus with electrons travelling in a circular orbit around it
+![1-1-5.png](1-1-5.png)
+coulomb force on the electron due to the e-field of the positive nucleus is just sufficient to provide inward acceleration for circular motion at a constant radius r
+the electrons can only allowed to make a transition from one energy level to another level.
+![1-1-6.png](1-1-6.png)
+
+## Particle-wave duality
+![1-1-7.png](1-1-7.png)
+The momentum of the photons is:
+![1-1-8.png](1-1-8.png)
+where p is momentum in kg.m/s, h is constant, λ is wavelength
+
+a particle can both conatins wave and particle properties
+
+## wave-packet
+Wave-packets are useful for describing the behavior of particles because they allow us to describe the probability of finding a particle at a specific location at a specific time. 
+![1-1-9.png](1-1-9.png)
+β=2*pi/λ
+![1-1-10.png](1-1-10.png)
+vph=vλ
+vph is phase velocity, that represents the velocity of phases along propagation direction of the wave (small signal shape)
+it describes frequency and wavelength of the signal
+vph is possible to faster than light
+
+![1-1-11.png](1-1-11.png)
+group velocity is the shape of wave-packet (whole big shape). group velocity is usually less or euqal to phase velocity
+
+![1-1-12.png](1-1-12.png)
+
+# Schroedinger equation
+## 1D Schroedinger equation
+![1-2-1.png](1-2-1.png)
+![1-2-2.png](1-2-2.png)
+this equation governs the behaviour in 1D of all particles, but no proof method
+
+## 3D equation
+![1-2-3.png](1-2-3.png)
+
+this equation can be simplifier by remove time-position dependent part:
+![1-2-4.png](1-2-4.png)
+where Ψ is a function of space and time coordinates. it is one particle's position in fixed time T.
+Ψ is usually a complex number
+and |Ψ|^2 ΔV is proportional to the 
+probability that a particle will be found in the volume element ΔV
+
+like for the probaibility to find a particle in range x+dx,y+dy,z+dz:
+![1-2-5.png](1-2-5.png)
+
+## Normalization
+From previous function, it is clear that:
+![1-2-6.png](1-2-6.png)
+please note Ψ must in continious
+
+## Uncertainty principle
+the accurate position and energy value can not be measured in same time. 
+this is mainly beacuse un-accurated measure methode. the measurment from one parameter will influence measurement to another parameter.
+![1-2-7.png](1-2-7.png)
+the accurency of x increase range of f
+![1-2-8.png](1-2-8.png)
+(?)
+
+## particles in potential box
+![1-2-9.png](1-2-9.png)
+second plot is the probability where the particle is, when x axis is range form [0,d]. the sum of this wave may be the constant vlaue 1.
+![1-2-10.png](1-2-10.png)
+![1-2-11.png](1-2-11.png)
+![1-2-12.png](1-2-12.png)
+it can be simplified as:
+![1-2-13.png](1-2-13.png)
+![1-2-14.png](1-2-14.png)
+
+![1-2-15.png](1-2-15.png)
+![1-2-16.png](1-2-16.png)
+The total energy of the bound particle has only a discrete set of allowed values:
+![1-2-17.png](1-2-17.png)
+
+from page 31
+(?)
+
+# Band gap
+![1-3-1.png](1-3-1.png)
+
+
+
+
+
 # Liquid crystal display (LCD)
 ## EMR:
 Visible light is a form of Electro-Magnetic Radiation (EMR) with wavelength in the region 390 - 750 nm (790 - 400 THz).
