@@ -114,6 +114,83 @@ from page 31
 
 # Band gap
 ![1-3-1.png](1-3-1.png)
+![1-3-2.png](1-3-2.png)
+1D idealised model of an array of atoms in a solid Kronig-Penney model (square potentials)
+the level of potential energy can be seen as probability of electrons
+
+if 0 <= x <= b, V=0
+![1-3-3.png](1-3-3.png)
+![1-3-8.png](1-3-8.png)
+
+if x>b, V>E,
+![1-3-4.png](1-3-4.png)
+![1-3-5.png](1-3-5.png)
+
+Now if the w becomes vary small and L becomes infinity, wV will be constant, and equation changes as:
+![1-3-6.png](1-3-6.png)
+Uk is the Bloch function, a periodic function which varies with the same periodicity as the S equation is in periodically
+
+![1-3-7.png](1-3-7.png)
+and note E=h^2/2m^2, where E is free electron case. the electrons can move freely in solid
+
+![1-3-9.png](1-3-9.png)
+x-axis is momentum
+this figure shows all possible position that electrons will be
+
+hence, energy gap will appeared between soild material
+
+
+it will be influenced by electric field,
+![1-3-10.png](1-3-10.png)
+![1-3-11.png](1-3-11.png)
+
+![1-3-12.png](1-3-12.png)
+from a -> b, energy increased, velocity is also increase
+from c -> d, energy increased, velocity is decreased (trend <1)
+
+from page 29 (?)
+
+# Metal-semiconductor contacts
+When contact is made between two dissimilar materials, a contact potential (barrier) typically develops at the interface between the materials
+can be categorised as non-rectifying (ohmic) and rectifying (Schottky barrier type diodes)
+![1-4-1.png](1-4-1.png)
+![1-4-2.png](1-4-2.png)
+![1-4-3.png](1-4-3.png)
+
+contact:
+![1-4-4.png](1-4-4.png)
+![1-4-5.png](1-4-5.png)
+
+![1-4-6.png](1-4-6.png)
+
+Ohmic contact:
+allows current to flow in either direction with contact resistance as low as possible
+if Ψm<Ψs:
+![1-4-7.png](1-4-7.png)
+celectrons with no bias
+and because majority is electrons (n-type), hence this is ohmic contact
+
+but if Ψm>Ψs:
+the specific contact resistance Rc depends on doping
+![1-4-8.png](1-4-8.png)
+high dping it has, more narrow the barrier will be
+
+Schottky contact:
+only allows current to flow in one direction
+must be Ψm>Ψs
+
+![1-4-9.png](1-4-9.png)
+![1-4-10.png](1-4-10.png)
+
+The relationship between charge and potential in a Schottky diode is from Poisson’s equation:
+![1-4-11.png](1-4-11.png)
+V is the potential, ρ is the charge density, ε is the permittivity and r is the real space vector
+The total charge is:
+![1-4-12.png](1-4-12.png)
+where A is the diode area on the semiconductor surface
+
+![1-4-13.png](1-4-13.png)
+
 
 
 
