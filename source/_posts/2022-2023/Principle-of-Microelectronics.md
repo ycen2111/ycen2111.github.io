@@ -164,7 +164,7 @@ contact:
 ![1-4-6.png](1-4-6.png)
 
 Ohmic contact:
-allows current to flow in either direction with contact resistance as low as possible
+allows current to flow in either direction with contact resistance as low as possible (no barrier)
 if Ψm<Ψs:
 ![1-4-7.png](1-4-7.png)
 celectrons with no bias
@@ -173,7 +173,12 @@ and because majority is electrons (n-type), hence this is ohmic contact
 but if Ψm>Ψs:
 the specific contact resistance Rc depends on doping
 ![1-4-8.png](1-4-8.png)
-high dping it has, more narrow the barrier will be
+high doping it has, more narrow the barrier will be
+
+the contact resistance depends on:
+1. metal and semiconductor work functions
+2. temperature
+3. chemical reaction
 
 Schottky contact:
 only allows current to flow in one direction
@@ -190,6 +195,68 @@ The total charge is:
 where A is the diode area on the semiconductor surface
 
 ![1-4-13.png](1-4-13.png)
+
+## Anderson’s rule
+the vacuum levels of the two materials of a heterojunction should be lined up
+
+∆Ec=Ec_B – Ec_A = χA - χ B
+χ = electron affinity of the material, which is independente with Fermi level
+
+e.g. GaAs has χ = 4.07eV and Al0.3Ga0.7 As has χ = 3.74eV, predicting ∆Ec = 0.33eV
+
+## Heterjunction
+A junction between p-type and n-type layers in the same material is called a homojunction
+A junction between two different materials is called a heterojunction. they offer to manipulate the behaviour of electrons and holes through band engineering
+![1-5-1.png](1-5-1.png)
+
+High Electron Mobility Transistors (HEMT):
+Main reasons for their superior behaviour
+
+Modulation doping:
+![1-5-2.png](1-5-2.png)
+1. High mobility due to reduced scattering as partocles are all stopped in carrier channel
+2. Can control gain by optimising carrier density, space layer thickness, channel distance
+3. Can choose material with a small effective mass (hign intrinsic carrier mobility)
+
+The maximum transconductance increases, as
+1. increasing threshold voltage
+2. increasing doping of the AlGaAs layer
+3. decreasing space thickness
+
+By making T-shaped gates – decreases the RC time constant for switching
+
+# Density of state
+![1-6-1.png](1-6-1.png)
+![1-6-2.png](1-6-2.png)
+
+![1-6-3.png](1-6-3.png)
+High current appear if Epk is horizontally matched with grey area in left
+
+![1-6-4.png](1-6-4.png)
+
+# Hall effect
+If a current is passed through a semiconductor and a magnetic field B is applied at right angles to the direction of current flow, an electric field is induced in a direction mutually perpendicular to B and the direction of current flow.
+![1-7-1.png](1-7-1.png)
+
+The Hall coefficient, RH:
+![1-7-2.png](1-7-2.png)
+Hall mobility:
+![1-7-3.png](1-7-3.png)
+
+Hall bar structure:
+![1-7-4.png](1-7-4.png)
+![1-7-5.png](1-7-5.png)
+
+advantages:
+1. can combine etching and releasing together
+2. suit for batch process
+3. can be designed during MEMS design
+
+
+
+
+
+
 
 
 
