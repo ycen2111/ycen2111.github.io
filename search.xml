@@ -4,27 +4,23 @@
   
     
     <entry>
-      <title>异步通讯</title>
-      <link href="/FPGA/%E5%BC%82%E6%AD%A5%E9%80%9A%E8%AE%AF-cb23618eb877/"/>
-      <url>/FPGA/%E5%BC%82%E6%AD%A5%E9%80%9A%E8%AE%AF-cb23618eb877/</url>
+      <title>Embedded mobile and Wireless System</title>
+      <link href="/2022-2023/Embedded-mobile-and-Wireless-System-e97c63b4991e/"/>
+      <url>/2022-2023/Embedded-mobile-and-Wireless-System-e97c63b4991e/</url>
       
-        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>两种主要多bits异步信息传递方式：异步FIFO RAM，握手</p><span id="more"></span><h1 id="异步FIFO"><a href="#异步FIFO" class="headerlink" title="异步FIFO"></a>异步FIFO</h1>]]></content>
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="01994eacf1156f421d5def4a85d08e4e15988d7453430dede3e1f50e07d95fac">c9970121048dab1892173b62e4bce2896bb95d167225a7277c15f9175947a6a4cfd572366708245c43bd7a58a851b15dd3b2e9206b5c0e5c24a87f7eed076c79b5f45260efbefb3619be14909a2aaa21e400f61636cd4ef28443bdf4a3e2e3f06183ffe08e7468ccba6b617302da12415e0bda3a232cf4dc4de1886e09d8618559004606884176a036c475b8e5bd3333d881c6262445f38db1dcc95f73cfa3a4d43eee0ec383b0c229a69f17dfa08c8b2a5e9b6538adc789e787aba1e48ec58917380647dc6cc4ab22ea28093a055f66a5a6320a99da1f8ff00f74929cc86a986eebfe7100a1a11af9da0eec9dde7a39c850ff1288b6afaf5824ed842b54fbf0f5c9913f049cfeb1c577dda9f6474588b0841b8be57c923530d9a1737840b656d0206e7e82142676aa40972863ef9d4b46da3bd9f6ab1bec57276a395c211403026fd8088f2d65554cb52d85c148425de2e56b519ef2faeb5be4a7222c768f825e37bfeaae646cf2af7524b74fe3c46024088fd949d0d38e1460ae32f014234ac25661abf70e89181d213482b757af128d407cbf6843d2de26db9a757a3aa2ef72878f650c8b9e7b94a5d46d683054a456332859ff27691b26242b850c6e084257b8a991937bd029a083b5eca7b1e7ab597c2baee89642c87c4d2feeaf7f3982a0e14fddf3a3475ce242575fcd4719dffaa6ac58d0381a026b6e9dcd444c95a954fe67f8eb14b144b267805ee15dc495bca7a9f1517bd97c0929484fa08e8028ac7ec6053fb013556445e640ae81cc58bf7be5800ea1e6d5ab1f0d3e9961690e646eca9b6d62178bf3e61b2b3a506883a0d52173c7aba17eae8c37531ec00a23c2edf778ae400de2c154ac2359aab9766e9924ee5c135fe253e09239101007707ad66ae2a23258a511aeadfec4ee78a248a560573492c00950c92072244cf0f680c7d772c349a18e511128f9cb32b840da1b72a5a12faffe175dbc0a880fabbc7bbd073648893aa8009aca08a40a82d6a811bcc345a838aaff92eaa13786b93142572be73be45e261782ddd48cf26544315c63e4c577a4beacc4dcd7aace7afa0d6a8d8a8e08b5bc51c4effd9e1aa81ce6c5cee2cb6a54fa0c9f00af3b9a77802117466615054c2024decb992a25be4e431ec3cf113bfdc224d9ea7738978901dbe86cd0875f84b262ddd26c9db60693a2802c0ce8b8e65f911283c9289dfa4c00bfffd52ed01135665de5e0d726ed530f075febccc65e359386e79533c2444945f55e704d56924a1e2edee0dcbcbc179fb2eae64a29de04b5dff246ed9a9a81171acc260975556c556a9dc709b4683d17e27b1e7e041a0382a72d3819bfc269fccee31cd5f992f77a371e89a8ff413bcb5f661689ed4835df1c3788ba69efbdfa9f81a5480dfad8f3ce2f2df919b1234738c548d3d570100a9c3ad9845c609a92f31e3179e6cbbeb44d57b84764f8e96141cf1c81b632947eaf6e40ea2b79422b76dd612162f81c9589a2512efc6c66</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-up">      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-up">您好, 这里需要密码.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       
       
       <categories>
           
-          <category> FPGA </category>
+          <category> academic material </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 编程 </tag>
-            
-            <tag> FPGA </tag>
-            
-            <tag> HDL </tag>
+            <tag> 2022-2023 </tag>
             
         </tags>
       
