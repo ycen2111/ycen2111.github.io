@@ -31,6 +31,7 @@ MainActivity (logic code) and activity_main.xml (page design)
 and a "Hello Word" programe is already coded, can directly ran the programe and test the setting.
 
 # Usual parameter values
+Common parameters
 ``` Bash
 android:text="text"
 
@@ -42,6 +43,33 @@ app:layout_constraintEnd_toEndOf="parent"
 app:layout_constraintStart_toStartOf="parent"
 app:layout_constraintTop_toTopOf="parent"
 ```
+
+Special parametres
+``` Bash
+Edit Text:
+android:id="@+id/editTextTextPersonName"
+android:hint="@string/edit_message"
+
+Button:
+android:id="@+id/button"
+android:onClick="sendMessage" // behavier function name
+```
+
+# tips
+in res -> values -> strings.xml, we can set some default variable strings, in form like
+``` Bash
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+</resources>
+```
+![001.png](001.png)
+this code is like:
+``` Bash
+android:hint="@string/edit_message" // which shows "Enter a message" in layout
+```
+
 
 # Button click
 create a page which will collect string in text box. When click the button, a new page with collected string will be generated.
@@ -69,17 +97,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-activity_main.xml
-``` Bash
-Edit Text:
-android:id="@+id/editTextTextPersonName"
-android:hint="@string/edit_message"
-
-Button:
-android:id="@+id/button"
-android:onClick="sendMessage" // behavier function name
-```
-
 DisplayMessageActivity.java
 ``` Bash
 public class DisplayMessageActivity extends AppCompatActivity {
@@ -98,9 +115,23 @@ public class DisplayMessageActivity extends AppCompatActivity {
 }
 ```
 
+DisplayMessageActivity.xml
+``` Bash
+<TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hello!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+```
+
 results:
-![002.png](002.png)
-![003.png](003.png)
+![101.png](101.png)
+![102.png](102.png)
 
 # EMF sensor
 a gyroscope sensor, will display rotate angles on the screen. Based on SensorEventListener.
@@ -167,5 +198,47 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 }
 ```
 
+activity_main.xml
+``` Bash
+<LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="565dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147">
+
+        <TextView
+            android:id="@+id/emf_Xaxis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="emf_Xaxis" />
+
+        <TextView
+            android:id="@+id/emf_Yaxis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="emf_Yaxis" />
+
+        <TextView
+            android:id="@+id/emf_Zaxis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="emf_Zaxis" />
+
+        <TextView
+            android:id="@+id/emf_magnetic_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="emf_Haxis" />
+    </LinearLayout>
+```
+
 result:
-![004.png](004.png)
+![103.png](103.png)
