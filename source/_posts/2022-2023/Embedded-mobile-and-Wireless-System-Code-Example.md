@@ -226,3 +226,148 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 ## result:
 ![103.png](103.png)
+
+## extra: Accelerometer
+The accelerometer with low pass filter, and remove gravity.
+``` Bash
+        gravity[0]=alpha*gravity[0]+(1-alpha)*sensorEvent.values[0];
+        gravity[1]=alpha*gravity[1]+(1-alpha)*sensorEvent.values[1];
+        gravity[2]=alpha*gravity[2]+(1-alpha)*sensorEvent.values[2];
+
+        float linear_acceleration [] = new float[3];
+        linear_acceleration[0] = sensorEvent.values[0]-gravity[0];
+        linear_acceleration[1] = sensorEvent.values[1]-gravity[1];
+        linear_acceleration[2] = sensorEvent.values[2]-gravity[2];
+```
+
+
+# Battery Manager
+read batteyr states from 'Intent.ACTION_BATTERY_CHANGED', and print them out
+
+## MainActivity.java
+``` Bash
+package com.example.a3power_management;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    // IntentFilter is a structured description of Intent values to be matched.
+    private IntentFilter ifilter;
+    public TextView TV;
+
+    private int BatteryL; //battery level
+    private int BatteryV; //battery voltage
+    private double BatteryT; //battery temperature
+    private String BatteryTe; //battery technology
+    private String BatteryStatus;
+    private String BatteryHealth;
+    private String BatteryPlugged;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED); //ifilter have matched with a type of action
+        registerReceiver(mBatInforReceiver,ifilter); //the receiver will be called when any broadcast matches filter
+
+        TV=(TextView)findViewById(R.id.TV);
+    }
+
+    private BroadcastReceiver mBatInforReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            //Retrieve data from intent
+            if (Intent.ACTION_BATTERY_CHANGED.equals(action)){
+                BatteryL=intent.getIntExtra("level",0);
+                BatteryV=intent.getIntExtra("voltage",0);
+                BatteryT=intent.getIntExtra("temperature",0);
+                BatteryTe=intent.getStringExtra("technology");
+
+                switch (intent.getIntExtra("status", BatteryManager.BATTERY_HEALTH_UNKNOWN)){
+                    case BatteryManager.BATTERY_STATUS_CHARGING:
+                        BatteryStatus="Charging";
+                        break;
+                    case BatteryManager.BATTERY_STATUS_DISCHARGING:
+                        BatteryStatus="Discharging";
+                        break;
+                    case BatteryManager.BATTERY_STATUS_NOT_CHARGING:
+                        BatteryStatus="Not Charging";
+                        break;
+                    case BatteryManager.BATTERY_STATUS_FULL:
+                        BatteryStatus="Fully Charging";
+                        break;
+                    case BatteryManager.BATTERY_STATUS_UNKNOWN:
+                        BatteryStatus="Unknown status";
+                        break;
+                }
+
+                switch (intent.getIntExtra("health",BatteryManager.BATTERY_STATUS_UNKNOWN)){
+                    case BatteryManager.BATTERY_HEALTH_UNKNOWN:
+                        BatteryHealth="Unknown Status";
+                        break;
+                    case BatteryManager.BATTERY_HEALTH_GOOD:
+                        BatteryHealth="Good Status";
+                        break;
+                    case BatteryManager.BATTERY_HEALTH_DEAD:
+                        BatteryHealth="Dead Status";
+                        break;
+                    case BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE:
+                        BatteryHealth="Over Status";
+                        break;
+                    case BatteryManager.BATTERY_HEALTH_OVERHEAT:
+                        BatteryHealth="Overheat";
+                        break;
+                }
+
+                switch (intent.getIntExtra("plugged",0)){
+                    case BatteryManager.BATTERY_PLUGGED_AC:
+                        BatteryPlugged="Plugged to AC";
+                        break;
+                    case BatteryManager.BATTERY_PLUGGED_USB:
+                        BatteryPlugged="Plugged to USB";
+                        break;
+                    case BatteryManager.BATTERY_PLUGGED_WIRELESS:
+                        BatteryPlugged="Plugged to wireless";
+                        break;
+                    default:
+                        BatteryPlugged="------";
+                }
+
+                TV.setText("Battery level:"+BatteryL+"%"+"\n\n"+
+                        "Battery status:"+BatteryStatus+"\n\n"+
+                        "Battery Plugged:"+BatteryPlugged+"\n\n"+
+                        "Battery Health:"+BatteryHealth+"\n\n"+
+                        "Battery Voltage:"+(BatteryV/1000)+"V"+"\n\n"+
+                        "Battery Temperature:"+(BatteryT*0.1)+"℃"+"\n\n"+
+                        "Battery Techology:"+BatteryTe);
+            }
+        }
+    };
+}
+
+```
+
+## MainActivity.xdc
+``` Bash
+<TextView
+        android:id="@+id/TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="48dp" />
+```
+
+## results
+![201.png](201.png)

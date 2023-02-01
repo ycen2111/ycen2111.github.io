@@ -38,7 +38,19 @@ If dc_input is a simple number (0.4, 0.5, 0.6), B will be small number and power
 the curve will be much more smoother if dither noise gain = 0.2. And reduce average power.
 This is because dither breaks cycles, reduce peak spectrum value.
 
-
 ![107.png](107.png)
-the dead zero is the range that the output signal equals zero. the dead zone range is between -1/(2A) to +1/(2A). if gain A=50, range is -0.01 to 0.01.
+the dead zero is the range that the output signal equals zero. the dead zone range is between -1/(2A) to +1/(2A). if gain A=50, range is -0.01 to 0.01. but input and output will also match to each other
+dead zone is always existed, and will influence minimum current the sensor can be used.
 
+![108.png](108.png)
+SQNR is signal quantisized noise ratio, ENOB is effictive umber of bits.
+big SQNR wanted
+sinfreq decreased or amplitude increased, SQNR and ENOB decreased;
+
+the SQNR is calculate as:
+![109.png](109.png)
+and the figure when fre=4882.8125Hz, OSR=64, L=N=1 is:
+![110.png](110.png)
+the reason why many points on left side equal to 0 is just an awful tendency to tonal behaviour, and can be solved by adding some dither signal like:
+![111.png](111.png)
+the output signal cecomes more sommther and stable, but peak SQNR is also reduced.
