@@ -148,6 +148,31 @@ if (Intent.ACTION_BATTERY_CHANGED.equals(action)){
 |BATTERY_HEALTH_OVER_VOLTAGE|5 (0x00000005)|
 |BATTERY_HEALTH_OVERHEAT|3 (0x00000003)|
 
+## create onclick event on View
+``` Bash
+imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //your code
+            }
+        });
+```
+
+## count down timer
+``` Bash
+CountDownTimer countDownTimer = new CountDownTimer(500, 1000) {
+
+        public void onTick(long millisUntilFinished) {
+            // do something after 0.5s
+        }
+
+        public void onFinish() {
+            // do something end after 1s
+            start(); //restart the timer
+        }
+    };
+```
+
 # tips
 in res -> values -> strings.xml, we can set some default variable strings, in form like
 ``` Bash
