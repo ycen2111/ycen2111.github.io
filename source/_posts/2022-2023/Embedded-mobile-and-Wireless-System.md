@@ -33,7 +33,7 @@ MainActivity (logic code) and activity_main.xml (page design)
 and a "Hello Word" programe is already coded, can directly ran the programe and test the setting.
 
 # Usual parameter values
-Common parameters
+## Common parameters
 ``` Bash
 android:text="text"
 
@@ -46,7 +46,18 @@ app:layout_constraintStart_toStartOf="parent"
 app:layout_constraintTop_toTopOf="parent"
 ```
 
-Special parametres
+## set veiwText's value
+``` bash
+//in .java
+TextView your_view_name=findViewById(R.id.your_view_id); // find target textView
+String message=your_view_name.getText().toString(); // get written string in this EditText 
+your_view_name.setText(message); // input message to textView
+
+//in .xml
+android:id="@+id/your_view_name"
+```
+
+## Special parametres
 ``` Bash
 Edit Text:
 android:id="@+id/editTextTextPersonName"
@@ -57,27 +68,125 @@ android:id="@+id/button"
 android:onClick="sendMessage" // behavier function name
 ```
 
-Sensors
+## Sensors
 ``` Bash
-//Init
-private SensorManager mSensorManager; // access to a sensor
-private Sensor %Sensor Name%; // represent a sensor (change %Sensor Name%)
+private SensorManager sensorManager; // control all msensors
+private Sensor sensorName; // represent a sensor
+
+@Override
+//initialize
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensorName = sensorManager.getDefaultSensor(Sensor.%sensorType%);
+
+        //start listener
+        sensorManager.registerListener(this,sensorName,UI); //NORMAL:1, UI:2, GAME:3
+    }
+
+@Override
+//get value
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.%sensorType%) //target sensor type
+            sensorName = event.values;
+    }
+
+@Override
+//stop listener
+    protected void onPause() {
+        super.onPause();
+        sensormanager.unregisterListener(this);
+    }
+
+@Override
+//restart listener
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this,sensorName,UI); //NORMAL:1, UI:2, GAME:3
+    }
+```
+
+|Name|sensorType|
+|:----|:----|
+|MagneticField|Sensor.TYPE_MAGNETIC_FIELD|
+|Accelerometer|Sensor.TYPE_ACCELEROMETER|
+|Gyroscope|Sensor.TYPE_GYROSCOPE|
+|StepCounter|Sensor.TYPE_STEP_DETECTOR|
+
+## WIFI
+``` Bash
+WifiManager wifiManager;
+wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+wifiManager.setWifiEnabled(true);
+wifiManager.startScan();
+
+List<ScanResult> wifiScanList = wifiManager.getScanResults();
+```
+
+## BlueTooth
+``` Bash
+//varibale to hold BluetoothAdapter instance
+private BluetoothAdapter BA;
+//display list of paired Bluetooth device
+private Set<BluetoothDevice> pairedDevices;
+
+BA = BluetoothAdapter.getDefaultAdapter();
+
+//get list
+pairedDevices = BA.getBondedDevices();
+```
+
+## permission
+``` Bash
+//in AndroidManifest.xml, in <manifest>
+<uses-permission android:name="android.permission.XXXX" />
+
+//in main.java
+private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mSensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        %Sensor Name%=%Sensor Name%.getDefaultSensor(Sensor.%Your Sesor Terminal%); //change %Sensor Name% and %Your Sesor Terminal%
+        if (Build.VERSION.SDK_INT >= 23) {
+            //check if we have read or write permission
+            int myPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.XXXX);
+        }
+
+        if (myPermission != PackageManager.PERMISSION_GRANTED) {
+                //prompt the user if dont have permission
+                this.requestPermissions(
+                        new String[]{Manifest.permission.XXXX},
+                        REQUEST_ID_READ_WRITE_PERMISSION
+                );
+                return;
+                    }
+    }
+
+//When you have the request results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ID_READ_WRITE_PERMISSION: {
+                //(read and write and camera) permissions granted
+                if (grantResults.length > 1 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                //cancelled or denied
+                else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+        }
     }
 ```
-
-|Name|Code|
-|:----|:----|
-|MagneticField|Sensor.TYPE_MAGNETIC_FIELD|
-|Accelerometer|Sensor.TYPE_ACCELEROMETER|
-|Gyroscope|Sensor.TYPE_GYROSCOPE|
 
 # usful code group
 ## intent
@@ -91,17 +200,6 @@ startActivity (intent); // running intent
 Intent intent=getIntent();
 string message=intent.getStringExtra('extras_name');// message will get string value
 //you can use intent.getIntExtra('extras_name') to get integer value
-```
-
-## set veiwText's value
-``` bash
-//in .java
-TextView your_view_name=findViewById(R.id.your_view_id); // find target textView
-String message=your_view_name.getText().toString(); // get written string in this EditText 
-your_view_name.setText(message); // input message to textView
-
-//in .xml
-android:id="@+id/your_view_name"
 ```
 
 ## read battery states

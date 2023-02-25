@@ -371,3 +371,413 @@ public class MainActivity extends AppCompatActivity {
 
 ## results
 ![201.png](201.png)
+
+# WIFI scaner
+
+## Main.java
+``` Bash
+package com.example.a4wi_fi;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    WifiManager wifiManager;
+    String wifis[];
+    ListView lv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //ask and check permissions
+        askWiFiPermissions();
+
+        lv = (ListView) findViewById(R.id.listView);
+
+        //provide us an instance WifiManager and allow to access WiFi functionality
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        //check wifi state and turn it on when disabled
+        if (wifiManager.getWifiState() == wifiManager.WIFI_STATE_DISABLED) {
+            wifiManager.setWifiEnabled(true);
+        }
+
+        //can be seens as wifi listerner, listen WifiManager.SCAN_RESULTS_AVAILABLE_ACTION
+        registerReceiver(wifiScanReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        Log.v("wifi", "wifiManager" + String.valueOf(wifiManager));
+
+        //star wifi scans
+        wifiManager.startScan();
+        Toast.makeText(this, "Scanning WIFI ...", Toast.LENGTH_SHORT).show();
+    }
+
+    private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
+
+    private void askWiFiPermissions() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            //check if we have read or write permission
+            int wifiAccessPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_WIFI_STATE);
+            int ChangePermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.CHANGE_WIFI_STATE);
+            int findLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+            int coarseLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+
+            if (wifiAccessPermission != PackageManager.PERMISSION_GRANTED ||
+                    ChangePermission != PackageManager.PERMISSION_GRANTED ||
+                    findLocationPermission != PackageManager.PERMISSION_GRANTED ||
+                    coarseLocationPermission != PackageManager.PERMISSION_GRANTED) {
+                //prompt the user if dont have permission
+                this.requestPermissions(
+                        new String[]{Manifest.permission.ACCESS_WIFI_STATE,
+                                Manifest.permission.CHANGE_WIFI_STATE,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION},
+                        REQUEST_ID_READ_WRITE_PERMISSION
+                );
+                return;
+            }
+        }
+    }
+
+    //When you have the request results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ID_READ_WRITE_PERMISSION: {
+                //(read and write and camera) permissions granted
+                if (grantResults.length > 1 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[2] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[3] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                //cancelled or denied
+                else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+        }
+    }
+
+    BroadcastReceiver wifiScanReceiver = new BroadcastReceiver() {
+        @Override
+        //active when WifiManager.SCAN_RESULTS_AVAILABLE_ACTION enabled
+        public void onReceive(Context c, Intent intent) {
+            List<ScanResult> wifiScanList = wifiManager.getScanResults();
+            unregisterReceiver(this);
+
+            wifis=new String[wifiScanList.size()];
+            Log.e("WiFi",String.valueOf(wifiScanList.size()));
+            //SSID (name), BSSID (MAC address), level (signal strength (in dBm))
+            for(int i=0;i<wifiScanList.size();i++){
+                wifis[i]=wifiScanList.get(i).SSID+","+wifiScanList.get(i).BSSID+","+String.valueOf(wifiScanList.get(i).level);
+                Log.e("WiFi",String.valueOf(wifis[i]));
+            }
+
+            //set adapter to lv. android.R.layout.simple_list_item_1 isa sort of layout resource
+            lv.setAdapter(new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,wifis));
+        }
+    };
+
+    protected void onResume(){
+        registerReceiver(wifiScanReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        super.onResume();
+    }
+
+    protected void onPause(){
+        unregisterReceiver(wifiScanReceiver);
+        super.onPause();
+    }
+}
+```
+
+## Manifest.xml
+``` Bash
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+## layout.xml
+``` bash
+<ListView
+        android:id="@+id/listView"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints" />
+```
+
+## result
+![301.png](301.png)
+
+# BlueTooth
+## Main.java
+``` Bash
+package com.example.a5blue_tooth;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button on,off,discoverable,device;
+    ListView listView;
+
+    //varibale to hold BluetoothAdapter instance
+    private BluetoothAdapter BA;
+    //display list of paired Bluetooth device
+    private Set<BluetoothDevice> pairedDevices;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //check and ask permissions
+        askBlueToothPermissions();
+
+        on = (Button) findViewById(R.id.on);
+        off = (Button) findViewById(R.id.off);
+        discoverable = (Button) findViewById(R.id.discoverable);
+        device = (Button) findViewById(R.id.device);
+        listView = (ListView)findViewById(R.id.listView);
+
+        //Bluetooth init
+        BA = BluetoothAdapter.getDefaultAdapter();
+    }
+
+    private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
+
+    private void askBlueToothPermissions(){
+        if (Build.VERSION.SDK_INT >= 23) {
+            //check if we have read or write permission
+            int blueToothPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH);
+            int blueToothAdminPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADMIN);
+            int blueToothAdvertisePermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_ADVERTISE); //requires API level S
+            int blueToothConnectPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT);//requires API level S
+            int findLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+            int coarseLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+
+            if (blueToothPermission != PackageManager.PERMISSION_GRANTED ||
+                    blueToothAdminPermission != PackageManager.PERMISSION_GRANTED ||
+                    blueToothAdvertisePermission != PackageManager.PERMISSION_GRANTED ||
+                    blueToothConnectPermission != PackageManager.PERMISSION_GRANTED ||
+                    findLocationPermission != PackageManager.PERMISSION_GRANTED ||
+                    coarseLocationPermission != PackageManager.PERMISSION_GRANTED) {
+                //prompt the user if dont have permission
+                this.requestPermissions(
+                        new String[]{Manifest.permission.BLUETOOTH,
+                                Manifest.permission.BLUETOOTH_ADMIN,
+                                Manifest.permission.BLUETOOTH_ADVERTISE,
+                                Manifest.permission.BLUETOOTH_CONNECT,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION},
+                        REQUEST_ID_READ_WRITE_PERMISSION
+                );
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ID_READ_WRITE_PERMISSION: {
+                //(read and write and camera) permissions granted
+                if (grantResults.length > 1 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[2] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[3] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[4] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[5] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                //cancelled or denied
+                else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+        }
+    }
+
+    public void on(View v){
+        if (!BA.isEnabled()){
+            Intent turnOn = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(turnOn,0);
+            Toast.makeText(getApplicationContext(),"Turned on",Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Already on",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void off(View v){
+        BA.disable();
+        Toast.makeText(getApplicationContext(),"Turned off",Toast.LENGTH_LONG).show();
+    }
+
+    //let other device can detect phone in next several seconds
+    public void visible(View v){
+        Intent getVisible = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+        startActivityForResult(getVisible,0);
+    }
+
+    public void list(View v) {
+        //get list
+        pairedDevices = BA.getBondedDevices();
+        ArrayList list = new ArrayList();
+
+        for (BluetoothDevice bt : pairedDevices) {
+            list.add(bt.getName() + "," + bt.getAddress());
+        }
+
+        Toast.makeText(getApplicationContext(),"Showing Paired Devices",Toast.LENGTH_SHORT).show();
+
+        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
+        listView.setAdapter(adapter);
+    }
+}
+```
+
+## Manifest.xml
+``` Bash
+<uses-permission android:name="android.permission.BLUETOOTH"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+```
+
+## layout.xml
+``` Bash
+<Button
+        android:id="@+id/on"
+        android:onClick="on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:text="Turn on"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/discoverable"
+        android:onClick="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="48dp"
+        android:text="turn discoverable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/on"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/off"
+        android:onClick="off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
+        android:text="Turn off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/on" />
+
+    <Button
+        android:id="@+id/device"
+        android:onClick="list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="103dp"
+        android:text="list device"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintStart_toEndOf="@+id/off"
+        app:layout_constraintTop_toBottomOf="@+id/discoverable"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="117dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="254dp"
+        android:layout_marginBottom="32dp"
+        android:text="paired device"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/off"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="339dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+```
+
+## Result
+![302.png](302.png)
