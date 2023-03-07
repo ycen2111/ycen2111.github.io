@@ -12,17 +12,17 @@ D调乐谱
 ![MysteryOfLove.png](MysteryOfLove.png)
 
 # Scarborough
-![ScarboroughFair.jpg](ScarboroughFair.jpg)
+![ScarboroughFair.png](ScarboroughFair.png)
 
 # Spirited_Away
-![SpiritedAwat.jpg](SpiritedAwat.jpg)
+![SpiritedAwat.png](SpiritedAwat.png)
 
 # Merry_Christmas_Mr_Lawrence
-![MerryChristmasMr-1.jpg](MerryChristmasMr-1.jpg)
-![MerryChristmasMr-2.jpg](MerryChristmasMr-2.jpg)
+![MerryChristmasMr-1.png](MerryChristmasMr-1.png)
+![MerryChristmasMr-2.png](MerryChristmasMr-2.png)
 
 # Forest_Of_Ancient
-![ForestOftheAncient-1.jpg](ForestOftheAncient-1.jpg)
-![ForestOftheAncient-2.jpg](ForestOftheAncient-2.jpg)
-![ForestOftheAncient-3.jpg](ForestOftheAncient-3.jpg)
-![ForestOftheAncient-4.jpg](ForestOftheAncient-4.jpg)
+![ForestOftheAncient-1.png](ForestOftheAncient-1.png)
+![ForestOftheAncient-2.png](ForestOftheAncient-2.png)
+![ForestOftheAncient-3.png](ForestOftheAncient-3.png)
+![ForestOftheAncient-4.png](ForestOftheAncient-4.png)
