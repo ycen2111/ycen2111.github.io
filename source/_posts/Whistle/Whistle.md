@@ -9,16 +9,20 @@ D调乐谱
 
 <!-- more -->
 # Mystery_Of_Love
-![Mystery_Of_Love.png](Mystery_Of_Love.png)
+![Mystery Of Love.png](Mystery Of Love.png)
 
 # Scarborough
-![Scarborough.jpg](Scarborough.jpg)
+![Scarborough Fair.jpg](Scarborough Fair.jpg)
 
 # Spirited_Away
-![Spirited_Away.jpg](Spirited_Away.jpg)
+![Spirited Awat.jpg](Spirited Awat.jpg)
 
 # Merry_Christmas_Mr_Lawrence
-![Merry_Christmas_Mr_Lawrence.jpg](Merry_Christmas_Mr_Lawrence.jpg)
+![Merry Christmas, Mr-1.jpg](Merry Christmas, Mr-1.jpg)
+![Merry Christmas, Mr-2.jpg](Merry Christmas, Mr-2.jpg)
 
 # Forest_Of_Ancient
-![Forest_Of_Ancient.jpg](Forest_Of_Ancient.jpg)
+![Forest Of the Ancient-1.jpg](Forest Of the Ancient-1.jpg)
+![Forest Of the Ancient-2.jpg](Forest Of the Ancient-2.jpg)
+![Forest Of the Ancient-3.jpg](Forest Of the Ancient-3.jpg)
+![Forest Of the Ancient-4.jpg](Forest Of the Ancient-4.jpg)

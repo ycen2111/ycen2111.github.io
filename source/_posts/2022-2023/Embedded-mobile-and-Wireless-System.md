@@ -139,52 +139,62 @@ BA = BluetoothAdapter.getDefaultAdapter();
 pairedDevices = BA.getBondedDevices();
 ```
 
-## permission
+## Location
+note the "onLocationChanged" will not be changes swiftly
 ``` Bash
-//in AndroidManifest.xml, in <manifest>
-<uses-permission android:name="android.permission.XXXX" />
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-//in main.java
-private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
+    LocationManager locationManager;
+    LocationListener locationListener;
 
-@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    locationListener = new mylocationlistener();
+}
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            //check if we have read or write permission
-            int myPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.XXXX);
-        }
-
-        if (myPermission != PackageManager.PERMISSION_GRANTED) {
-                //prompt the user if dont have permission
-                this.requestPermissions(
-                        new String[]{Manifest.permission.XXXX},
-                        REQUEST_ID_READ_WRITE_PERMISSION
-                );
-                return;
-                    }
-    }
-
-//When you have the request results
+class mylocationlistener implements  LocationListener{
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case REQUEST_ID_READ_WRITE_PERMISSION: {
-                //(read and write and camera) permissions granted
-                if (grantResults.length > 1 &&
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
-                }
-                //cancelled or denied
-                else {
-                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
-                }
-                break;
-            }
+    // called when location  PGS changes
+    public void onLocationChanged(@NonNull Location location) {
+        if (location != null) {
+            ...
         }
+    }
+}
+```
+
+## Map Location and Mark
+``` Bash
+//be called when Map page is initialized ready
+public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng Edinburgh = new LatLng(55.953251, -3.188267);
+        //add new markers
+        mMap.addMarker(new MarkerOptions().position(Edinburgh).title("Marker in Edinburgh"));
+        //move the center of camera to marker
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Edinburgh));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        //enable the location button, move the sign to your current place
+        mMap.setMyLocationEnabled(true);
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setRotateGesturesEnabled(true);
+        mMap.getUiSettings().setScrollGesturesEnabled(true);
+        mMap.getUiSettings().setTiltGesturesEnabled(true);
     }
 ```
 
@@ -271,7 +281,57 @@ CountDownTimer countDownTimer = new CountDownTimer(500, 1000) {
     };
 ```
 
+## permission
+``` Bash
+//in AndroidManifest.xml, in <manifest>
+<uses-permission android:name="android.permission.XXXX" />
+
+//in main.java
+private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
+
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            //check if we have read or write permission
+            int myPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.XXXX);
+        }
+
+        if (myPermission != PackageManager.PERMISSION_GRANTED) {
+                //prompt the user if dont have permission
+                this.requestPermissions(
+                        new String[]{Manifest.permission.XXXX},
+                        REQUEST_ID_READ_WRITE_PERMISSION
+                );
+                return;
+                    }
+    }
+
+//When you have the request results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_ID_READ_WRITE_PERMISSION: {
+                //(read and write and camera) permissions granted
+                if (grantResults.length > 1 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                //cancelled or denied
+                else {
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+        }
+    }
+```
+
 # tips
+## linked Strings
 in res -> values -> strings.xml, we can set some default variable strings, in form like
 ``` Bash
 <resources>
@@ -284,4 +344,11 @@ in res -> values -> strings.xml, we can set some default variable strings, in fo
 this code is like:
 ``` Bash
 android:hint="@string/edit_message" // which shows "Enter a message" in layout
+```
+
+## Google Map API
+goto (https://developers.google.com/maps/documentation/android/start#get-key), get Google API
+copy API code, copy to file "res/values/google_maps_api.xml"
+``` Bash
+<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">"Copy API Here"</string>
 ```

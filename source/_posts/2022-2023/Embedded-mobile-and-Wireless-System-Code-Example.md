@@ -781,3 +781,262 @@ public class MainActivity extends AppCompatActivity {
 
 ## Result
 ![302.png](302.png)
+
+# Location and Google Map
+## MainActivity.java
+``` Bash
+package com.example.a7map;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.example.a7map.databinding.ActivityMapsBinding;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
+    private ActivityMapsBinding binding;
+
+    private static final int REQUEST_ID_LOCATION_PERMISSION = 99;
+
+    TextView textLat;
+    TextView textLong;
+    LocationManager locationManager;
+    LocationListener locationListener;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        //let us know the map is ready
+        mapFragment.getMapAsync(this);
+
+        askLocationPermission();
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new mylocationlistener();
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng Edinburgh = new LatLng(55.953251, -3.188267);
+        //add new markers
+        mMap.addMarker(new MarkerOptions().position(Edinburgh).title("Marker in Edinburgh"));
+        //move the center of camera to marker
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(Edinburgh));
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        //enable the location button
+        mMap.setMyLocationEnabled(true);
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setRotateGesturesEnabled(true);
+        mMap.getUiSettings().setScrollGesturesEnabled(true);
+        mMap.getUiSettings().setTiltGesturesEnabled(true);
+    }
+
+    private void askLocationPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= 23) {
+            //check if we have location permission
+            int CoarseLocation = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+            int FinaLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+            int internetPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
+
+            if (CoarseLocation != PackageManager.PERMISSION_GRANTED ||
+                    internetPermission != PackageManager.PERMISSION_GRANTED ||
+                    FinaLocationPermission != PackageManager.PERMISSION_GRANTED) {
+                //if dont permitted yet, prompt user
+                this.requestPermissions(
+                        new String[]{
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.INTERNET
+                        },
+                        REQUEST_ID_LOCATION_PERMISSION
+                );
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case REQUEST_ID_LOCATION_PERMISSION: {
+                //if request cancelled, result array becomes empty
+                if (grantResults.length > 1
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                //if cancelled or denied
+                else {
+                    Toast.makeText(this, "Permission denied!", Toast.LENGTH_LONG).show();
+                }
+
+                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    Toast.makeText(this, "Open GPS", Toast.LENGTH_SHORT).show();
+                }
+
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                break;
+            }
+        }
+    }
+
+    double tlat;
+    double tlong;
+    class mylocationlistener implements  LocationListener{
+        @Override
+        //called when GPS changes
+        public void onLocationChanged(@NonNull Location location) {
+            if (location != null) {
+                tlat = location.getLatitude();
+                tlong = location.getLongitude();
+                textLat.setText(Double.toString(tlat));
+                textLong.setText(Double.toString(tlong));
+                Toast.makeText(MapsActivity.this,"New Location "+String.valueOf(tlat)+" "+String.valueOf(tlong),Toast.LENGTH_LONG).show();
+                updateMap();
+            }
+        }
+    }
+
+    //add a new point marker and move camera to that place
+    private void updateMap(){
+        //Add a marker in the Edinburgh and move the camera
+        LatLng latLng = new LatLng(tlat,tlong);
+        mMap.addMarker(new MarkerOptions().position(latLng).title("New location"));
+        //Move tie map camera to the new location
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+    }
+
+    private void setUpMapIfNeeded(){
+        //null check
+        if(mMap==null){
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setUpMapIfNeeded();
+    }
+}
+```
+
+## Manifest.xml
+``` Bash
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+## layout.xml
+``` Bash
+<?xml version="1.0" encoding="utf-8"?>
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity" />
+```
+
+## google_maps_api.xml
+``` Bash
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=E0:45:B0:55:16:4B:78:90:33:A3:6E:54:2F:7A:F7:8E:E2:44:DF:DB%3Bcom.example.a7map
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.example.a7map
+
+    SHA-1 certificate fingerprint:
+    E0:45:B0:55:16:4B:78:90:33:A3:6E:54:2F:7A:F7:8E:E2:44:DF:DB
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBr7Z2f7_RceTGRvkK4XibuetGI5ScLItk</string>
+</resources>
+```
+
+## Result
+![401.png](401.png)
