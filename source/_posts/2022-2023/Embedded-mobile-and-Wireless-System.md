@@ -198,6 +198,10 @@ public void onMapReady(GoogleMap googleMap) {
     }
 ```
 
+## Camera
+the photo parameters are passed by intent
+Please move to (https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/#Camera) to check how to take and save a picture
+
 # usful code group
 ## intent
 ``` bash

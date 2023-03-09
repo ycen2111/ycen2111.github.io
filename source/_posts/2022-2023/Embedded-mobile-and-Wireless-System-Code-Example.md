@@ -1040,3 +1040,538 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 ## Result
 ![401.png](401.png)
+
+# Camera
+## MainActivity.java
+``` Bash
+package com.example.a8camera;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        askCameraPermission();
+    }
+
+    private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
+
+    private void askCameraPermission(){
+        if (Build.VERSION.SDK_INT>=23){
+            //check permissoins
+            int readPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+            int writePermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            int cameraPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+
+            if (readPermission != PackageManager.PERMISSION_GRANTED ||
+                    writePermission != PackageManager.PERMISSION_GRANTED ||
+                    cameraPermission  != PackageManager.PERMISSION_GRANTED){
+                this.requestPermissions(
+                        new String[]{
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.CAMERA},
+                        REQUEST_ID_READ_WRITE_PERMISSION
+                );
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case REQUEST_ID_READ_WRITE_PERMISSION: {
+                if (grantResults.length > 1
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(this, "Permission denied!", Toast.LENGTH_LONG).show();
+                }
+                break;
+            }
+        }
+    }
+
+    static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1;
+
+    public void takePhoto(View view){
+        //get intent if MediaStore.ACTION_IMAGE_CAPTURE active
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //create file where the photo should go
+        File photoFile = null;
+        try{
+            photoFile = createImageFile();
+            Log.e("CameraApp", photoFile.getAbsolutePath());
+        } catch (IOException ex){
+            Log.e("error:", ex.getMessage() );
+        }
+
+        //continue if the file is successfully created
+        if (photoFile != null){
+            //creates a URI object to represent the location where the photo taken by the camera will be saved
+            Uri photoURI = FileProvider.getUriForFile(getApplicationContext(),"com.example.a8camera",photoFile);
+            //sets an extra parameter on the camera intent that indicates where the resulting photo should be saved
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI);
+            //starts the camera intent, which opens the camera application and allows the user to take a picture
+            startActivityForResult(takePictureIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        }
+    }
+
+    String currentPhotoPath;
+    private File createImageFile() throws IOException{
+        //create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmms").format(new Date());
+        String imageFileName = "JPEG_"+timeStamp+"_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(imageFileName,".jpg",storageDir);
+
+        //save a file
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    @Override
+    //call this function when finishes taking the picture
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE){
+            if (resultCode == RESULT_OK){
+                Toast.makeText(this, "Image successfully saved", Toast.LENGTH_SHORT).show();
+                galleryAddPic();
+            }
+            else if (resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "Image saving is cancelled", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(this, "Image failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void galleryAddPic(){
+        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        File f = new File(currentPhotoPath);
+        Uri contentUri = Uri.fromFile(f);
+        mediaScanIntent.setData(contentUri);
+        this.sendBroadcast(mediaScanIntent);
+    }
+}
+```
+
+## Manifest.xml
+``` Bash
+<uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+//in <application>
+<provider
+            android:authorities="com.example.a8camera"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- this one is used to know where to look for the paths to use-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+```
+
+## @xml/file_paths.xml
+``` Bash
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external"
+        path="."/>
+    <external-files-path
+        name="external_files"
+        path="."/>
+    <cache-path
+        name="cache"
+        path="."/>
+    <external-cache-path
+        name="external_cache"
+        path="."/>
+    <files-path
+        name="files"
+        path="."/>
+</paths>
+```
+
+# Result
+![601.png](601.png)
+![602.png](602.png)
+
+# Build SensorInterface
+## MainActivity.java
+``` Bash
+package com.example.a9sensorandcamera;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+public class MainActivity extends AppCompatActivity implements MotionSensorManager.OnMotionSensorManagerListener {
+    //Motion sensor manager collect sensor information and gives it in a readable form
+    private MotionSensorManager mMotionSensorManager;
+
+    private TextView mag_x;
+    private TextView mag_y;
+    private TextView mag_z;
+    private TextView mag_h;
+    private TextView acc_x;
+    private TextView acc_y;
+    private TextView acc_z;
+    private TextView gyr_x;
+    private TextView gyr_y;
+    private TextView gyr_z;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //three motion detectors' manager
+        mMotionSensorManager = new MotionSensorManager(this);
+        //set listeners
+        mMotionSensorManager.setOnMotionSensorManagerListener(this);
+
+        mag_x = findViewById(R.id.mag_x);
+        mag_y = findViewById(R.id.mag_y);
+        mag_z = findViewById(R.id.mag_z);
+        mag_h = findViewById(R.id.mag_h);
+        acc_x = findViewById(R.id.acc_x);
+        acc_y = findViewById(R.id.acc_y);
+        acc_z = findViewById(R.id.acc_z);
+        gyr_x = findViewById(R.id.gyr_x);
+        gyr_y = findViewById(R.id.gyr_y);
+        gyr_z = findViewById(R.id.gyr_z);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMotionSensorManager.registerMotionSensors();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mMotionSensorManager.unregisterMotionSensors();
+    }
+
+    @Override
+    public void onAccValueUpdated(float[] acceleration) {
+        acc_x.setText("acc_Xaxis = "+acceleration[0]);
+        acc_y.setText("acc_Yaxis = "+acceleration[1]);
+        acc_z.setText("acc_Zaxis = "+acceleration[2]);
+    }
+
+    @Override
+    public void onGyoValueUpdated(float[] gyroscope) {
+        gyr_x.setText("gyr_Xaxis = "+gyroscope[0]);
+        gyr_y.setText("gyr_Yaxis = "+gyroscope[1]);
+        gyr_z.setText("gyr_Zaxis = "+gyroscope[2]);
+    }
+
+    @Override
+    public void onMagValueUpdated(float[] magneticfield) {
+        mag_x.setText("mag_Xaxis = "+magneticfield[0]);
+        mag_y.setText("mag_Yaxis = "+magneticfield[1]);
+        mag_z.setText("mag_zaxis = "+magneticfield[2]);
+        mag_h.setText("mag_Haxis = "+magneticfield[3]);
+    }
+}
+```
+
+## MotionSensorManager.java
+``` bash
+package com.example.a9sensorandcamera;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+
+public class MotionSensorManager implements SensorEventListener {
+    //Information to the activity is being passed through the listener
+    private OnMotionSensorManagerListener motionSensorManagerListerner;
+    //Sensor manager is used to get access to all sensors
+    private SensorManager sensorManager;
+    private Sensor Accelerometer;
+    private Sensor Gyroscope;
+    private Sensor mMagneticField;
+
+    //class initialize
+    public MotionSensorManager(Context context){
+        //get instance of the snesor manager and then access of the required sensors
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        mMagneticField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        Accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+    }
+
+    //link listener
+    public void setOnMotionSensorManagerListener(OnMotionSensorManagerListener motionSensorManagerListener){
+        this.motionSensorManagerListerner = motionSensorManagerListener;
+    }
+
+    public void unregisterMotionSensors(){
+        sensorManager.unregisterListener(this);
+    }
+
+    //set listener with sensor manager
+    public void registerMotionSensors(){
+        sensorManager.registerListener(this,mMagneticField, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this,Accelerometer,SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this,Gyroscope,SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    //height value
+    private double h;
+    //coefficient of low pass filter
+    final float alpha =(float) 0.8;
+    private float gravity [] = new float[3];
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        //be called when sensors are being updated
+        switch (event.sensor.getType()){
+            case Sensor.TYPE_ACCELEROMETER:
+                gravity[0] = alpha * gravity[0] + (1-alpha) * event.values[0];
+                gravity[1] = alpha * gravity[1] + (1-alpha) * event.values[1];
+                gravity[2] = alpha * gravity[2] + (1-alpha) * event.values[2];
+
+                float linear_acceleration [] = new float[3];
+                linear_acceleration[0] = event.values[0] - gravity[0];
+                linear_acceleration[1] = event.values[1] - gravity[1];
+                linear_acceleration[2] = event.values[2] - gravity[2];
+
+                //[acc_x,acc_y,acc_z]
+                motionSensorManagerListerner.onAccValueUpdated(new float[]{linear_acceleration[0],linear_acceleration[1],linear_acceleration[2]});
+                break;
+
+            case Sensor.TYPE_GYROSCOPE:
+                //[gyr_z,gyr_y,gyr_z]
+                motionSensorManagerListerner.onGyoValueUpdated(new float[]{event.values[0],event.values[1],event.values[2]});
+                break;
+
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                h = Math.sqrt(event.values[0] * event.values[0] + event.values[1] * event.values[1] + event.values[2] * event.values[2]);
+                //[mag_x,mag_y,mag_z,mag_h]
+                motionSensorManagerListerner.onMagValueUpdated(new float[]{event.values[0],event.values[1],event.values[2],(float) h});
+                break;
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    //interface the function to other class
+    public interface OnMotionSensorManagerListener {
+
+        void onAccValueUpdated(float[] acceleration);
+
+        void onGyoValueUpdated(float[] gyroscope);
+
+        void onMagValueUpdated(float[] magneticfield);
+    }
+}
+```
+
+## Result
+
+
+## activity_main.xml
+``` Bash
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="EMF"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mag_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="mag_x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/mag_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="mag_y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mag_x" />
+
+    <TextView
+        android:id="@+id/mag_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="mag_z"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mag_y" />
+
+    <TextView
+        android:id="@+id/mag_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="mag_h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mag_z" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Accelerometer"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mag_h" />
+
+    <TextView
+        android:id="@+id/acc_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="acc_x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/acc_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="acc_y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acc_x" />
+
+    <TextView
+        android:id="@+id/acc_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="acc_z"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acc_y" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Gyroscope"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acc_z" />
+
+    <TextView
+        android:id="@+id/gyr_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="gyr_x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/gyr_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="gyr_y"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gyr_x" />
+
+    <TextView
+        android:id="@+id/gyr_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="gyr_z"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gyr_y" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+## Result
+![603.png](603.png)
