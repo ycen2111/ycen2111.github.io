@@ -24,6 +24,10 @@ C
 B
 ![SpiritedAwat.png](SpiritedAwat.png)
 
+# Wolf_Walkers
+B+
+![WolfWalkers-1.png](WolfWalkers-1.png)
+
 # Merry_Christmas_Mr_Lawrence
 B+
 ![MerryChristmasMr-1.png](MerryChristmasMr-1.png)
