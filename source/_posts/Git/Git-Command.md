@@ -60,9 +60,16 @@ git remote add [ReposioryName] [url] #连接本地仓库和远程仓库
 git push -u [ReposioryName] [branchName] #上传到仓库的指定branch，之后再上传就不用输入-u了，已经指定该branch为默认branch了
 git push [ReposioryName] [branchName]
 #如：git push origin master
+
+git pull [ReposioryName] [branchName]
 ```
 
-但注意git会删除缺少的内容然后重新上传，需谨慎
+如果push显示 error: failed to push some refs，如已经设置SSH，请尝试输入
+``` Bash
+$ ssh -T git@github.com
+```
+
+注意git会删除缺少的内容然后重新上传，需谨慎
 ``` Bash
 git add *
 git commit -m "#"
