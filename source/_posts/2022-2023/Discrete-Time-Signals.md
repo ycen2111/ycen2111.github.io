@@ -5,8 +5,6 @@ tags:
  - 2022-2023
 categories: 
  - academic material
-
-password: frank
 ---
 
 Formula sheet: (https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/)

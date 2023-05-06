@@ -5,8 +5,6 @@ tags:
  - 2021-2022
 categories: 
  - academic material
-
-password: frank
 ---
 Essentially, all models are wrong, but some are useful.
 George E. P. Box

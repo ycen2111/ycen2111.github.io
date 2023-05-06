@@ -5,8 +5,6 @@ tags:
  - 2022-2023
 categories: 
  - academic material
-
-password: frank
 ---
 
 code example: (https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/)

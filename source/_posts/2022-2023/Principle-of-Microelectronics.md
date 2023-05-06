@@ -6,8 +6,6 @@ tags:
 categories: 
  - academic material
  - PDF
-
-password: frank
 ---
 
 Formular sheets and slids: (https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/)

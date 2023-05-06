@@ -5,8 +5,6 @@ tags:
  - 2022-2023
 categories: 
  - academic material
-
-password: frank
 ---
 
 slides:[https://pipirima.top/2022-2023/Analogue-IC-Design-Slides-ee210f4e9f8f/](https://pipirima.top/2022-2023/Analogue-IC-Design-Slides-ee210f4e9f8f/)

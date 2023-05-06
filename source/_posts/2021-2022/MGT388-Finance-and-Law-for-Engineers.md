@@ -5,8 +5,6 @@ tags:
  - 2021-2022
 categories: 
  - academic material
-
-password: frank
 ---
 
 # Week1

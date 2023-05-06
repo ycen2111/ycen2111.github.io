@@ -5,8 +5,6 @@ tags:
  - 2022-2023
 categories: 
  - academic material
-
-password: frank
 ---
 
 # Clock time calculation
