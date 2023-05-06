@@ -7,6 +7,8 @@ categories:
  - academic material
 ---
 
+<!-- more -->
+
 # week 1
 
 ## Trends

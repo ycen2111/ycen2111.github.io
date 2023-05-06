@@ -17,6 +17,8 @@ categories:
 6. Ok, connect
 7. quit the log in: System -> Log out
 
+<!-- more -->
+
 # Normal Start Cadence
 1. Open Terminal
 2. Type 'ssh vlx'

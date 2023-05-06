@@ -7,6 +7,8 @@ categories:
  - academic material
 ---
 
+<!-- more -->
+
 # Clock time calculation
 ![001.png](001.png)
 • Clock period (clock cycle time)

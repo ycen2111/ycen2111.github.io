@@ -9,6 +9,8 @@ categories:
 
 code example: (https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/)
 
+<!-- more -->
+
 # initialization
 APP: Android Studio v.2020.3.1.26 Patch4, published at December 8, 2021
 (https://developer.android.com/studio/archive) please note: Change to English language or may not find this version

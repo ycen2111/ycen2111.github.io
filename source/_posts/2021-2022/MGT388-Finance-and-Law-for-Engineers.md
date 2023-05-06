@@ -7,6 +7,8 @@ categories:
  - academic material
 ---
 
+<!-- more -->
+
 # Week1
 
 ## Law

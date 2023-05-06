@@ -9,6 +9,8 @@ categories:
 Essentially, all models are wrong, but some are useful.
 George E. P. Box
 
+<!-- more -->
+
 # Week1
 
 Laplace Transform

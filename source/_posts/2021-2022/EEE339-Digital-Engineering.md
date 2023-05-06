@@ -6,6 +6,9 @@ tags:
 categories: 
  - academic material
 ---
+
+<!-- more -->
+
 # week1
 
 ## Application Specific Integrated Circuits(ASICS)

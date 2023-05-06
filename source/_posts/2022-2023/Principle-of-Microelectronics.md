@@ -10,6 +10,8 @@ categories:
 
 Formular sheets and slids: (https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/)
 
+<!-- more -->
+
 # 1-1
 ## Blackbody radiation
 Blackbody radiation is the thermal electromagnetic radiation within or emanating from a body in thermodynamic equilibrium with its environment, or emitted by a black body (an idealized physical body that absorbs all incident electromagnetic radiation) with a temperature above absolute zero. 
