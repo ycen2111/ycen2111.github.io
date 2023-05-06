@@ -19,12 +19,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Clock time calculation• Clock period (clock cycle time)• Clock frequency (clock rate) &#x3D; 1&#x2F;Clock period• Clock Cycle Time &#x3D; 1&#x2F;Clock rate• CPU Time &#x3D; CPU Clock Cycles * Clock Cycle Time• Clock Cycles &#x3D;">
+<meta name="description" content="Clock time calculation• Clock period (clock cycle time)• Clock frequency (clock rate) &#x3D; 1&#x2F;Clock period• Clock Cycle Time &#x3D; 1&#x2F;Clock rate• CPU Time &#x3D; CPU Clock Cycles * Clock Cycle Time• Clock Cycles">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Digital System Design">
 <meta property="og:url" content="https://pipirima.top/2022-2023/Digital-System-Design-7de9ec85c611/index.html">
 <meta property="og:site_name" content="朽丶">
-<meta property="og:description" content="Clock time calculation• Clock period (clock cycle time)• Clock frequency (clock rate) &#x3D; 1&#x2F;Clock period• Clock Cycle Time &#x3D; 1&#x2F;Clock rate• CPU Time &#x3D; CPU Clock Cycles * Clock Cycle Time• Clock Cycles &#x3D;">
+<meta property="og:description" content="Clock time calculation• Clock period (clock cycle time)• Clock frequency (clock rate) &#x3D; 1&#x2F;Clock period• Clock Cycle Time &#x3D; 1&#x2F;Clock rate• CPU Time &#x3D; CPU Clock Cycles * Clock Cycle Time• Clock Cycles">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-7de9ec85c611/001.png">
 <meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-7de9ec85c611/002.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-7de9ec85c611/005.png">
 <meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-7de9ec85c611/006.png">
 <meta property="article:published_time" content="2023-02-13T11:35:19.000Z">
-<meta property="article:modified_time" content="2023-05-06T12:04:07.112Z">
+<meta property="article:modified_time" content="2023-05-06T13:09:05.502Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="2022-2023">
 <meta name="twitter:card" content="summary">
@@ -272,7 +272,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Clock-time-calculation"><a href="#Clock-time-calculation" class="headerlink" title="Clock time calculation"></a>Clock time calculation</h1><p><img src="/2022-2023/Digital-System-Design-7de9ec85c611/001.png" alt="001.png"><br>• Clock period (clock cycle time)<br>• Clock frequency (clock rate) = 1/Clock period<br>• Clock Cycle Time = 1/Clock rate<br>• CPU Time = CPU Clock Cycles * Clock Cycle Time<br>• Clock Cycles = Instruction Count * Cycles per Instruction (CPI)<br>note: if there have multiple IC and CPI, final clock cycles is their summ result</p>
+        <span id="more"></span>
+
+<h1 id="Clock-time-calculation"><a href="#Clock-time-calculation" class="headerlink" title="Clock time calculation"></a>Clock time calculation</h1><p><img src="/2022-2023/Digital-System-Design-7de9ec85c611/001.png" alt="001.png"><br>• Clock period (clock cycle time)<br>• Clock frequency (clock rate) = 1/Clock period<br>• Clock Cycle Time = 1/Clock rate<br>• CPU Time = CPU Clock Cycles * Clock Cycle Time<br>• Clock Cycles = Instruction Count * Cycles per Instruction (CPI)<br>note: if there have multiple IC and CPI, final clock cycles is their summ result</p>
 <h1 id="Risc-V-code"><a href="#Risc-V-code" class="headerlink" title="Risc V code"></a>Risc V code</h1><p>Risc V Green Code: <a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/</a><br><img src="/2022-2023/Digital-System-Design-7de9ec85c611/002.png" alt="002.png"></p>
 <p>opcode: operation code<br>rd: destination register number<br>funct3: 3-bit function code (additional opcode)<br>rs1: the first source register number<br>rs2: the second source register number<br>funct7: 7-bit function code (additional opcode)</p>
 <h2 id="R-type"><a href="#R-type" class="headerlink" title="R type"></a>R type</h2><p>add x9,x20,x21</p>
