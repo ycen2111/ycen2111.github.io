@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>FPGA程序复现</title>
+      <link href="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/"/>
+      <url>/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/</url>
+      
+        <content type="html"><![CDATA[<p>使用Verilog实现Conway生命游戏逻辑并使用VGA和鼠标显示并控制<br>基于BASYS3板，Vivado 2015.2版本开发<br>logbook过程记录</p><span id="more"></span><h1 id="2023-05-06"><a href="#2023-05-06" class="headerlink" title="2023/05/06"></a>2023/05/06</h1><ol><li>设计了核心逻辑Core_logic.v并配套testbench文件，可测试reset，enter，output，和正常运行功能。</li><li>已通过behavior simulation</li></ol><p>Core_logic.v：<br>BIT_NUM: 长宽值的比特数，如长宽均为4，比特数为2<br>|port name|type|bits|comment|<br>|:—-|:—-|:—-|:—-|<br>|clk|input|1|clock cycle|<br>|reset|input|1|rset signal|<br>|enter|input|1|input new board figure|<br>|board_in|input|2<strong>BIT_NUM</strong>2|new board figure|<br>|board_out|output|2<strong>BIT_NUM</strong>2|simulated board output|</p><h2 id="内部变量："><a href="#内部变量：" class="headerlink" title="内部变量："></a>内部变量：</h2><p>SIZE_SQUARE = |2<strong>BIT_NUM</strong>2<br>board[SIZE_SQUARE - 1:0] 为当前需要处理的图像，输出为board_out<br>next_board[SIZE_SQUARE - 1:0] 为board处理的下一次需要处理图像<br>past_board[SIZE_SQUARE - 1:0] 为保存的上一次图像，主要为neighbors判断下一次状态做准备<br>[3:0] neighbors [SIZE_SQUARE - 1:0] 为判断好的每个格子周围活着的cell数量，会在下一个cycle判断并存在next_board</p><h2 id="主逻辑："><a href="#主逻辑：" class="headerlink" title="主逻辑："></a>主逻辑：</h2><p>for循环遍历所有元素，判断是否为最上下左右，和四个角的位置，分9种不同的状态分析，存储在neighbors中<br>在下个个cycle根据neighbors中的值和past_board判断next_board<br>每个cycle都会将next_board赋值给board<br>如果为reset或enter，将其他值赋给board</p><p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_01.png" alt="0506_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_02.png" alt="0506_02.png"><br>注：I/O过高是因为所有board_in，board_out直接输入导致</p><h1 id="2023-05-08"><a href="#2023-05-08" class="headerlink" title="2023/05/08"></a>2023/05/08</h1><ol><li>新增分频模块</li><li>为core_logic增加pipeline分析 (core_logic_v1.v)</li></ol><h2 id="新增模块"><a href="#新增模块" class="headerlink" title="新增模块"></a>新增模块</h2><p>最普通偶分频程序，输入系统clk输出分频lk</p><h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><p>虽然可以综合16X16网格逻辑，但无法综合更大的逻辑（LUT占有率超100%）</p><h2 id="改进方法"><a href="#改进方法" class="headerlink" title="改进方法"></a>改进方法</h2><p>增加pipeline分析，每个posedge只会计算一行网格，在所有网格计算完成后输出finish信号并将next_board赋予board输出</p><h2 id="改进结果"><a href="#改进结果" class="headerlink" title="改进结果"></a>改进结果</h2><p>允许最多256X256网格分析（port最多允许10000000 bits array）并顺利综合<br>同时注意for循环不能将结束循环的值设置太大，即使像for(i=500; i=500+10; i=i+1)也会报错因为程序会认为循环数太多</p><p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_01.png" alt="0508_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_02.png" alt="0508_02.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生命游戏 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> Conway生命游戏 </tag>
+            
+            <tag> FPGA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Digital system design</title>
       <link href="/Digital-system-design-d64a7e55062a/"/>
       <url>/Digital-system-design-d64a7e55062a/</url>

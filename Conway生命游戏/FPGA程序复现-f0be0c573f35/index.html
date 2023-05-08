@@ -19,34 +19,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="介绍关于如何使用Vivado编写Verilog, 仿真，综合，上板子教程">
+<meta name="description" content="使用Verilog实现Conway生命游戏逻辑并使用VGA和鼠标显示并控制基于BASYS3板，Vivado 2015.2版本开发logbook过程记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vivado tutorial">
-<meta property="og:url" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/index.html">
+<meta property="og:title" content="FPGA程序复现">
+<meta property="og:url" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/index.html">
 <meta property="og:site_name" content="朽丶">
-<meta property="og:description" content="介绍关于如何使用Vivado编写Verilog, 仿真，综合，上板子教程">
+<meta property="og:description" content="使用Verilog实现Conway生命游戏逻辑并使用VGA和鼠标显示并控制基于BASYS3板，Vivado 2015.2版本开发logbook过程记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/001.png">
-<meta property="og:image" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/002.png">
-<meta property="og:image" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/003.png">
-<meta property="og:image" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/004.png">
-<meta property="article:published_time" content="2022-12-19T12:40:59.000Z">
-<meta property="article:modified_time" content="2022-12-19T18:14:05.016Z">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_01.png">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_02.png">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_01.png">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_02.png">
+<meta property="article:published_time" content="2023-05-08T21:01:46.000Z">
+<meta property="article:modified_time" content="2023-05-08T22:45:19.371Z">
 <meta property="article:author" content="Yang Cen">
-<meta property="article:tag" content="APP">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="Conway生命游戏">
 <meta property="article:tag" content="FPGA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/001.png">
+<meta name="twitter:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_01.png">
 
 
-<link rel="canonical" href="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/">
+<link rel="canonical" href="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/","path":"FPGA/Vivado-tutorial-1616cdeb4195/","title":"Vivado tutorial"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/","path":"Conway生命游戏/FPGA程序复现-f0be0c573f35/","title":"FPGA程序复现"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Vivado tutorial | 朽丶</title>
+<title>FPGA程序复现 | 朽丶</title>
   
 
 
@@ -157,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#start"><span class="nav-number">2.</span> <span class="nav-text">start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-files"><span class="nav-number">3.</span> <span class="nav-text">add files</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#add-testbench-and-simulation"><span class="nav-number">4.</span> <span class="nav-text">add testbench and simulation</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-06"><span class="nav-number">1.</span> <span class="nav-text">2023&#x2F;05&#x2F;06</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">内部变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">主逻辑：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-08"><span class="nav-number">2.</span> <span class="nav-text">2023&#x2F;05&#x2F;08</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">新增模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">主要问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">改进方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.4.</span> <span class="nav-text">改进结果</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +226,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pipirima.top/FPGA/Vivado-tutorial-1616cdeb4195/">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -238,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vivado tutorial
+          FPGA程序复现
         </h1>
 
         <div class="post-meta-container">
@@ -249,7 +250,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-12-19 12:40:59" itemprop="dateCreated datePublished" datetime="2022-12-19T12:40:59+00:00">2022-12-19</time>
+      <time title="创建时间：2023-05-08 22:01:46" itemprop="dateCreated datePublished" datetime="2023-05-08T22:01:46+01:00">2023-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +258,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/FPGA/" itemprop="url" rel="index"><span itemprop="name">FPGA</span></a>
+          <a href="/categories/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">生命游戏</span></a>
         </span>
     </span>
 
@@ -271,33 +272,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>关于如何使用Vivado编写Verilog, 仿真，综合，上板子教程</p>
+        <p>使用Verilog实现Conway生命游戏逻辑并使用VGA和鼠标显示并控制<br>基于BASYS3板，Vivado 2015.2版本开发<br>logbook过程记录</p>
 <span id="more"></span>
 
-<h1 id="start"><a href="#start" class="headerlink" title="start"></a>start</h1><ol>
-<li>Create new programe -&gt; Next -&gt; set project name and address</li>
-<li>select Project types: RTL Project: the most common project type, design Verilog or VHDL programe. have IP integrator, generate IP, RTL analysis, synthesis, implementation, design planning</li>
-<li>Create new source, can be ignored</li>
-<li>default</li>
-<li>Define module, click “bus” if have multi-bits data stream</li>
+<h1 id="2023-05-06"><a href="#2023-05-06" class="headerlink" title="2023/05/06"></a>2023/05/06</h1><ol>
+<li>设计了核心逻辑Core_logic.v并配套testbench文件，可测试reset，enter，output，和正常运行功能。</li>
+<li>已通过behavior simulation</li>
 </ol>
-<h1 id="add-files"><a href="#add-files" class="headerlink" title="add files"></a>add files</h1><ol>
-<li>File -&gt; add sources -&gt; add or create design source -&gt; “+” -&gt; add file -&gt; enter file name and press OK -&gt; finish<br><img src="/FPGA/Vivado-tutorial-1616cdeb4195/001.png" alt="001.png"></li>
-<li>set port names. click “Bus” is this port has multi-bits -&gt; OK</li>
-<li>new file will be generated<br><img src="/FPGA/Vivado-tutorial-1616cdeb4195/002.png" alt="002.png"></li>
+<p>Core_logic.v：<br>BIT_NUM: 长宽值的比特数，如长宽均为4，比特数为2<br>|port name|type|bits|comment|<br>|:—-|:—-|:—-|:—-|<br>|clk|input|1|clock cycle|<br>|reset|input|1|rset signal|<br>|enter|input|1|input new board figure|<br>|board_in|input|2<strong>BIT_NUM</strong>2|new board figure|<br>|board_out|output|2<strong>BIT_NUM</strong>2|simulated board output|</p>
+<h2 id="内部变量："><a href="#内部变量：" class="headerlink" title="内部变量："></a>内部变量：</h2><p>SIZE_SQUARE = |2<strong>BIT_NUM</strong>2<br>board[SIZE_SQUARE - 1:0] 为当前需要处理的图像，输出为board_out<br>next_board[SIZE_SQUARE - 1:0] 为board处理的下一次需要处理图像<br>past_board[SIZE_SQUARE - 1:0] 为保存的上一次图像，主要为neighbors判断下一次状态做准备<br>[3:0] neighbors [SIZE_SQUARE - 1:0] 为判断好的每个格子周围活着的cell数量，会在下一个cycle判断并存在next_board</p>
+<h2 id="主逻辑："><a href="#主逻辑：" class="headerlink" title="主逻辑："></a>主逻辑：</h2><p>for循环遍历所有元素，判断是否为最上下左右，和四个角的位置，分9种不同的状态分析，存储在neighbors中<br>在下个个cycle根据neighbors中的值和past_board判断next_board<br>每个cycle都会将next_board赋值给board<br>如果为reset或enter，将其他值赋给board</p>
+<p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_01.png" alt="0506_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_02.png" alt="0506_02.png"><br>注：I/O过高是因为所有board_in，board_out直接输入导致</p>
+<h1 id="2023-05-08"><a href="#2023-05-08" class="headerlink" title="2023/05/08"></a>2023/05/08</h1><ol>
+<li>新增分频模块</li>
+<li>为core_logic增加pipeline分析 (core_logic_v1.v)</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns / 1ps</span><br><span class="line"></span><br><span class="line">module <span class="built_in">test</span>(</span><br><span class="line">    input rst,</span><br><span class="line">    input clk,</span><br><span class="line">    output [3:0] cmd</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">reg [3:0] value=0;</span><br><span class="line">    </span><br><span class="line">assign cmd=value;</span><br><span class="line">    </span><br><span class="line">always@ (posedge clk or negedge rst) begin</span><br><span class="line">    <span class="keyword">if</span> (!rst) begin</span><br><span class="line">        value&lt;=0;</span><br><span class="line">    end</span><br><span class="line">    value&lt;=value+1;</span><br><span class="line">end</span><br><span class="line">    </span><br><span class="line">endmodule</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="新增模块"><a href="#新增模块" class="headerlink" title="新增模块"></a>新增模块</h2><p>最普通偶分频程序，输入系统clk输出分频lk</p>
+<h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><p>虽然可以综合16X16网格逻辑，但无法综合更大的逻辑（LUT占有率超100%）</p>
+<h2 id="改进方法"><a href="#改进方法" class="headerlink" title="改进方法"></a>改进方法</h2><p>增加pipeline分析，每个posedge只会计算一行网格，在所有网格计算完成后输出finish信号并将next_board赋予board输出</p>
+<h2 id="改进结果"><a href="#改进结果" class="headerlink" title="改进结果"></a>改进结果</h2><p>允许最多256X256网格分析（port最多允许10000000 bits array）并顺利综合<br>同时注意for循环不能将结束循环的值设置太大，即使像for(i=500; i=500+10; i=i+1)也会报错因为程序会认为循环数太多</p>
+<p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_01.png" alt="0508_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_02.png" alt="0508_02.png"></p>
 
-<h1 id="add-testbench-and-simulation"><a href="#add-testbench-and-simulation" class="headerlink" title="add testbench and simulation"></a>add testbench and simulation</h1><ol>
-<li>File -&gt; add sources -&gt; add or create simularion source -&gt; “+” -&gt; add file -&gt; enter file name and press OK -&gt; finish</li>
-<li>set reg and wire</li>
-<li>set initial</li>
-<li>import source and set all variables</li>
-<li>the imported source file will be folded under testbench.<br><img src="/FPGA/Vivado-tutorial-1616cdeb4195/003.png" alt="003.png"></li>
-<li>to set top simulation file:<br><img src="/FPGA/Vivado-tutorial-1616cdeb4195/004.png" alt="004.png"></li>
-<li>left bar, Simulation -&gt; run simulation</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">`timescale 1ns / 1ps</span><br><span class="line"></span><br><span class="line">module test_bench();</span><br><span class="line"></span><br><span class="line">reg clk;</span><br><span class="line">reg rst;</span><br><span class="line">wire [3:0] cmd;</span><br><span class="line"></span><br><span class="line">always <span class="comment">#10 clk=!clk;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span> UUT (</span><br><span class="line">    .rst(rst),</span><br><span class="line">    .clk(clk),</span><br><span class="line">    .cmd(cmd)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">initial begin</span><br><span class="line">    rst=0; clk=0;</span><br><span class="line">    <span class="comment">#40 rst=1;</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -306,7 +301,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/APP/" rel="tag"><i class="fa fa-tag"></i> APP</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/" rel="tag"><i class="fa fa-tag"></i> Conway生命游戏</a>
               <a href="/tags/FPGA/" rel="tag"><i class="fa fa-tag"></i> FPGA</a>
           </div>
 
@@ -314,14 +310,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/FPGA/FSM-%E7%8A%B6%E6%80%81%E6%9C%BA-357296d8bb97/" rel="prev" title="FSM 状态机">
-                  <i class="fa fa-chevron-left"></i> FSM 状态机
+                <a href="/Digital-system-design-d64a7e55062a/" rel="prev" title="Digital system design">
+                  <i class="fa fa-chevron-left"></i> Digital system design
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/FPGA/n%E5%88%86%E9%A2%91-5b4ca775bb5a/" rel="next" title="n分频">
-                  n分频 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
