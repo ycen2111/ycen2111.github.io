@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_01.png">
 <meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_02.png">
 <meta property="article:published_time" content="2023-05-08T21:01:46.000Z">
-<meta property="article:modified_time" content="2023-05-08T22:45:19.371Z">
+<meta property="article:modified_time" content="2023-05-08T22:54:04.539Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Conway生命游戏">
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-06"><span class="nav-number">1.</span> <span class="nav-text">2023&#x2F;05&#x2F;06</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">内部变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">主逻辑：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-08"><span class="nav-number">2.</span> <span class="nav-text">2023&#x2F;05&#x2F;08</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">新增模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">主要问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">改进方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.4.</span> <span class="nav-text">改进结果</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-06"><span class="nav-number">1.</span> <span class="nav-text">2023&#x2F;05&#x2F;06</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">内部变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">主逻辑：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-08"><span class="nav-number">2.</span> <span class="nav-text">2023&#x2F;05&#x2F;08</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">新增模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">新发现问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">改进方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.2.</span> <span class="nav-text">改进结果</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -279,7 +279,47 @@
 <li>设计了核心逻辑Core_logic.v并配套testbench文件，可测试reset，enter，output，和正常运行功能。</li>
 <li>已通过behavior simulation</li>
 </ol>
-<p>Core_logic.v：<br>BIT_NUM: 长宽值的比特数，如长宽均为4，比特数为2<br>|port name|type|bits|comment|<br>|:—-|:—-|:—-|:—-|<br>|clk|input|1|clock cycle|<br>|reset|input|1|rset signal|<br>|enter|input|1|input new board figure|<br>|board_in|input|2<strong>BIT_NUM</strong>2|new board figure|<br>|board_out|output|2<strong>BIT_NUM</strong>2|simulated board output|</p>
+<p>Core_logic.v：<br>BIT_NUM: 长宽值的比特数，如长宽均为4，比特数为2</p>
+<table>
+<thead>
+<tr>
+<th align="left">port name</th>
+<th align="left">type</th>
+<th align="left">bits</th>
+<th align="left">comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">clk</td>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">clock cycle</td>
+</tr>
+<tr>
+<td align="left">reset</td>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">rset signal</td>
+</tr>
+<tr>
+<td align="left">enter</td>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">input new board figure</td>
+</tr>
+<tr>
+<td align="left">board_in</td>
+<td align="left">input</td>
+<td align="left">2<strong>BIT_NUM</strong>2</td>
+<td align="left">new board figure</td>
+</tr>
+<tr>
+<td align="left">board_out</td>
+<td align="left">output</td>
+<td align="left">2<strong>BIT_NUM</strong>2</td>
+<td align="left">simulated board output</td>
+</tr>
+</tbody></table>
 <h2 id="内部变量："><a href="#内部变量：" class="headerlink" title="内部变量："></a>内部变量：</h2><p>SIZE_SQUARE = |2<strong>BIT_NUM</strong>2<br>board[SIZE_SQUARE - 1:0] 为当前需要处理的图像，输出为board_out<br>next_board[SIZE_SQUARE - 1:0] 为board处理的下一次需要处理图像<br>past_board[SIZE_SQUARE - 1:0] 为保存的上一次图像，主要为neighbors判断下一次状态做准备<br>[3:0] neighbors [SIZE_SQUARE - 1:0] 为判断好的每个格子周围活着的cell数量，会在下一个cycle判断并存在next_board</p>
 <h2 id="主逻辑："><a href="#主逻辑：" class="headerlink" title="主逻辑："></a>主逻辑：</h2><p>for循环遍历所有元素，判断是否为最上下左右，和四个角的位置，分9种不同的状态分析，存储在neighbors中<br>在下个个cycle根据neighbors中的值和past_board判断next_board<br>每个cycle都会将next_board赋值给board<br>如果为reset或enter，将其他值赋给board</p>
 <p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_01.png" alt="0506_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0506_02.png" alt="0506_02.png"><br>注：I/O过高是因为所有board_in，board_out直接输入导致</p>
@@ -288,9 +328,9 @@
 <li>为core_logic增加pipeline分析 (core_logic_v1.v)</li>
 </ol>
 <h2 id="新增模块"><a href="#新增模块" class="headerlink" title="新增模块"></a>新增模块</h2><p>最普通偶分频程序，输入系统clk输出分频lk</p>
-<h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><p>虽然可以综合16X16网格逻辑，但无法综合更大的逻辑（LUT占有率超100%）</p>
-<h2 id="改进方法"><a href="#改进方法" class="headerlink" title="改进方法"></a>改进方法</h2><p>增加pipeline分析，每个posedge只会计算一行网格，在所有网格计算完成后输出finish信号并将next_board赋予board输出</p>
-<h2 id="改进结果"><a href="#改进结果" class="headerlink" title="改进结果"></a>改进结果</h2><p>允许最多256X256网格分析（port最多允许10000000 bits array）并顺利综合<br>同时注意for循环不能将结束循环的值设置太大，即使像for(i=500; i=500+10; i=i+1)也会报错因为程序会认为循环数太多</p>
+<h2 id="新发现问题"><a href="#新发现问题" class="headerlink" title="新发现问题"></a>新发现问题</h2><p>虽然可以综合16X16网格逻辑，但无法综合更大的逻辑（LUT占有率超100%）</p>
+<h3 id="改进方法"><a href="#改进方法" class="headerlink" title="改进方法"></a>改进方法</h3><p>增加pipeline分析，每个posedge只会计算一行网格，在所有网格计算完成后输出finish信号并将next_board赋予board输出</p>
+<h3 id="改进结果"><a href="#改进结果" class="headerlink" title="改进结果"></a>改进结果</h3><p>允许最多256X256网格分析（port最多允许10000000 bits array）并顺利综合<br>同时注意for循环不能将结束循环的值设置太大，即使像for(i=500; i=500+10; i=i+1)也会报错因为程序会认为循环数太多</p>
 <p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_01.png" alt="0508_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0508_02.png" alt="0508_02.png"></p>
 
     </div>
