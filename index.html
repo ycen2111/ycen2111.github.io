@@ -160,7 +160,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -206,6 +206,71 @@
 
     <div class="main-inner index posts-expand">
 
+    
+      
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Digital-system-design-d64a7e55062a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Digital-system-design-d64a7e55062a/" class="post-title-link" itemprop="url">Digital system design</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-07 11:19:00" itemprop="dateCreated datePublished" datetime="2023-05-07T11:19:00+01:00">2023-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
     
       
 
@@ -416,9 +481,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-<p><a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf</a></p>
-<div class="pdf-container" data-target="riscvcard.pdf" data-height="500px"></div>
+          <p><a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022-2023/RISC-V-green-card-d1b1771d8486/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -492,233 +563,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<h1 id="Clock-time-calculation"><a href="#Clock-time-calculation" class="headerlink" title="Clock time calculation"></a>Clock time calculation</h1><p><img src="/2022-2023/Digital-System-Design-7de9ec85c611/001.png" alt="001.png"><br>• Clock period (clock cycle time)<br>• Clock frequency (clock rate) = 1/Clock period<br>• Clock Cycle Time = 1/Clock rate<br>• CPU Time = CPU Clock Cycles * Clock Cycle Time<br>• Clock Cycles = Instruction Count * Cycles per Instruction (CPI)<br>note: if there have multiple IC and CPI, final clock cycles is their summ result</p>
-<h1 id="Risc-V-code"><a href="#Risc-V-code" class="headerlink" title="Risc V code"></a>Risc V code</h1><p>Risc V Green Code: <a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/</a><br><img src="/2022-2023/Digital-System-Design-7de9ec85c611/002.png" alt="002.png"></p>
-<p>opcode: operation code<br>rd: destination register number<br>funct3: 3-bit function code (additional opcode)<br>rs1: the first source register number<br>rs2: the second source register number<br>funct7: 7-bit function code (additional opcode)</p>
-<h2 id="R-type"><a href="#R-type" class="headerlink" title="R type"></a>R type</h2><p>add x9,x20,x21</p>
-<table>
-<thead>
-<tr>
-<th align="left">funct7</th>
-<th align="left">rs2</th>
-<th align="left">rs1</th>
-<th align="left">funct3</th>
-<th align="left">rd</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">0</td>
-<td align="left">21</td>
-<td align="left">20</td>
-<td align="left">0</td>
-<td align="left">9</td>
-<td align="left">51</td>
-</tr>
-<tr>
-<td align="left">7 bit</td>
-<td align="left">5 bit</td>
-<td align="left">5 bit</td>
-<td align="left">3 bit</td>
-<td align="left">5 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">000 0000</td>
-<td align="left">1 0101</td>
-<td align="left">1 0100</td>
-<td align="left">000</td>
-<td align="left">0 1001</td>
-<td align="left">011 0011</td>
-</tr>
-</tbody></table>
-<h2 id="I-type"><a href="#I-type" class="headerlink" title="I type"></a>I type</h2><p>lw x9,32(x22) -&gt; load X9 by the data from x22[8] //32/4=8</p>
-<table>
-<thead>
-<tr>
-<th align="left">immediate</th>
-<th align="left">rs1</th>
-<th align="left">funct3</th>
-<th align="left">rd</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">32</td>
-<td align="left">22</td>
-<td align="left">2</td>
-<td align="left">9</td>
-<td align="left">3</td>
-</tr>
-<tr>
-<td align="left">12 bit</td>
-<td align="left">5 bit</td>
-<td align="left">3 bit</td>
-<td align="left">5 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">0000 0010 0000</td>
-<td align="left">1 0110</td>
-<td align="left">010</td>
-<td align="left">0 1001</td>
-<td align="left">000 0011</td>
-</tr>
-</tbody></table>
-<h2 id="S-type"><a href="#S-type" class="headerlink" title="S type"></a>S type</h2><p>sw x9,32(x22) -&gt; save x9’s data into x22[8]</p>
-<table>
-<thead>
-<tr>
-<th align="left">imm[11:5]</th>
-<th align="left">rs2</th>
-<th align="left">rs1</th>
-<th align="left">funct3</th>
-<th align="left">imm[4:0]</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td align="left">9</td>
-<td align="left">22</td>
-<td align="left">2</td>
-<td align="left">0</td>
-<td align="left">23</td>
-</tr>
-<tr>
-<td align="left">7 bit</td>
-<td align="left">5 bit</td>
-<td align="left">5 bit</td>
-<td align="left">3 bit</td>
-<td align="left">5 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">000 0001</td>
-<td align="left">0 1001</td>
-<td align="left">1 0110</td>
-<td align="left">010</td>
-<td align="left">0 0000</td>
-<td align="left">001 0111</td>
-</tr>
-</tbody></table>
-<p>imm=32=0000 0010 0000</p>
-<h2 id="U-type"><a href="#U-type" class="headerlink" title="U type"></a>U type</h2><p>lui x19, 976 </p>
-<table>
-<thead>
-<tr>
-<th align="left">Immediate [31:12]</th>
-<th align="left">rd</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">976</td>
-<td align="left">19</td>
-<td align="left">55</td>
-</tr>
-<tr>
-<td align="left">20 bit</td>
-<td align="left">5 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">0000 0000 0011 1101 0000</td>
-<td align="left">1 0011</td>
-<td align="left">011 0111</td>
-</tr>
-</tbody></table>
-<p>note: U type can read upeer 20 bits from register, if some data is in total 32 bits</p>
-<h2 id="SB-type"><a href="#SB-type" class="headerlink" title="SB type"></a>SB type</h2><p>bne x10, x11, 2000</p>
-<table>
-<thead>
-<tr>
-<th align="left">Imm [12]</th>
-<th align="left">Imm [10:5]</th>
-<th align="left">rs2</th>
-<th align="left">rs1</th>
-<th align="left">funct3</th>
-<th align="left">Imm [4:1]</th>
-<th align="left">Imm [11]</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">0</td>
-<td align="left">62</td>
-<td align="left">11</td>
-<td align="left">10</td>
-<td align="left">1</td>
-<td align="left">8</td>
-<td align="left">0</td>
-<td align="left">51</td>
-</tr>
-<tr>
-<td align="left">1 bit</td>
-<td align="left">6 bit</td>
-<td align="left">5 bit</td>
-<td align="left">5 bit</td>
-<td align="left">3 bit</td>
-<td align="left">4 bit</td>
-<td align="left">1 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">0</td>
-<td align="left">11 1110</td>
-<td align="left">0 1011</td>
-<td align="left">0 1010</td>
-<td align="left">001</td>
-<td align="left">1000</td>
-<td align="left">0</td>
-<td align="left">110 0011</td>
-</tr>
-</tbody></table>
-<p>imm=2000=0111 1101 0000</p>
-<p>Target address = PC + immediate<br>eg. if this code is in address X20, new jumped add=20+2000=x2020</p>
-<h2 id="UJ-type"><a href="#UJ-type" class="headerlink" title="UJ type"></a>UJ type</h2><p>jal x1, 2000</p>
-<table>
-<thead>
-<tr>
-<th align="left">Imm [20]</th>
-<th align="left">Imm [10:1]</th>
-<th align="left">Imm [11]</th>
-<th align="left">Imm [19:12]</th>
-<th align="left">rd</th>
-<th align="left">opcode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">0</td>
-<td align="left">62</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">111</td>
-</tr>
-<tr>
-<td align="left">1 bit</td>
-<td align="left">10 bit</td>
-<td align="left">1 bit</td>
-<td align="left">8 bit</td>
-<td align="left">4 bit</td>
-<td align="left">7 bit</td>
-</tr>
-<tr>
-<td align="left">0</td>
-<td align="left">11 1110 1000</td>
-<td align="left">0</td>
-<td align="left">0000 0000</td>
-<td align="left">0 0001</td>
-<td align="left">110 1111</td>
-</tr>
-</tbody></table>
-<p>imm=2000=0111 1101 0000</p>
-<h2 id="basic-srchitecture-structure"><a href="#basic-srchitecture-structure" class="headerlink" title="basic srchitecture structure"></a>basic srchitecture structure</h2><p><img src="/2022-2023/Digital-System-Design-7de9ec85c611/003.png" alt="003.png"><br>each operation will only part of these terminals</p>
-<p><img src="/2022-2023/Digital-System-Design-7de9ec85c611/004.png" alt="004.png"><br><img src="/2022-2023/Digital-System-Design-7de9ec85c611/005.png" alt="005.png"><br><img src="/2022-2023/Digital-System-Design-7de9ec85c611/006.png" alt="006.png"></p>
-
+          <p>RISC-V datasheet: (<a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf</a>)</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022-2023/Digital-System-Design-7de9ec85c611/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1043,92 +896,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/FPGA/FSM-%E7%8A%B6%E6%80%81%E6%9C%BA-357296d8bb97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-    
-      
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2022-2023/Principle-of-Microelectronics-7a974485f953/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yang Cen">
-      <meta itemprop="description" content="Personal Learning Technical Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="朽丶">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022-2023/Principle-of-Microelectronics-7a974485f953/" class="post-title-link" itemprop="url">Principle of Microelectronics</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-12-07 12:02:06" itemprop="dateCreated datePublished" datetime="2022-12-07T12:02:06+00:00">2022-12-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/academic-material/PDF/" itemprop="url" rel="index"><span itemprop="name">PDF</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Formular sheets and slids: (<a href="https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/">https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/</a>)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022-2023/Principle-of-Microelectronics-7a974485f953/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
