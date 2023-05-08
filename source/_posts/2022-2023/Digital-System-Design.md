@@ -7,27 +7,65 @@ categories:
  - academic material
 ---
 
+RISC-V datasheet: (https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf)
+ 
 <!-- more -->
 
+# Architecture
+Von Neumann: 
+normally programe code and memory are saved in same RAM, hence only one bus will be used and translate programe and memory together
+![Von_Neumann.png](Von_Neumann.png)
+
+Harvard:
+seperate programe and memeory apart, can use multiple bus groups
+![Harvard.png](Harvard.png)
+
+Modified harvard:
+merge two bus groups (memory and instruction) into one, but still save memory and programe into different structure
+![modified_harvard.png](modified_harvard.png)
+
 # Clock time calculation
-![001.png](001.png)
+![101.png](101.png)
 • Clock period (clock cycle time)
-• Clock frequency (clock rate) = 1/Clock period
+• Clock frequency (Clock Rate) = 1/Clock period
 • Clock Cycle Time = 1/Clock rate
-• CPU Time = CPU Clock Cycles * Clock Cycle Time
+• CPU Time = Clock Cycles * Clock Cycle Time
 • Clock Cycles = Instruction Count * Cycles per Instruction (CPI)
-note: if there have multiple IC and CPI, final clock cycles is their summ result
+note: final clock cycles is their sum result if there have multiple IC and CPI
+
+• MIPS = Clock Rate / (CPI * 10e6)
 
 # Risc V code
-Risc V Green Code: https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/
-![002.png](002.png)
+## Basic synax
+![201.png](201.png)
+![202.png](202.png)
 
-opcode: operation code
-rd: destination register number
-funct3: 3-bit function code (additional opcode)
-rs1: the first source register number
-rs2: the second source register number
-funct7: 7-bit function code (additional opcode)
+note: most of instructions are based on signed number
+
+|Name|Descripetion|
+|:----|:----|
+|opcode|operation code|
+|rd|destination register number|
+|funct3|3-bit function code (additional opcode)|
+|rs1|the first source register number|
+|rs2|the second source register number|
+|funct7|7-bit function code (additional opcode)|
+
+RISC-V (RV32) has a 32 × 32-bit register file in Little Endian
+32-bit data is called a “word” in RV32
+normally we can use temporaries registers freely
+|register|usage|
+|:----|:----|
+|x0|the constant value 0|
+|x1|return address|
+|x2|stack pointer|
+|x3|global pointer|
+|x4|thread pointer|
+|x5 – x7, x28 – x31|temporaries|
+|x8|frame pointer|
+|x9, x18 – x27|saved registers|
+|x10 – x11|function arguments/results|
+|x12 – x17|function arguments|
 
 ## R type
 add x9,x20,x21
@@ -39,7 +77,7 @@ add x9,x20,x21
 |000 0000|1 0101|1 0100|000|0 1001|011 0011|
 
 ## I type
-lw x9,32(x22) -> load X9 by the data from x22[8] //32/4=8
+lw x9,32(x22) -> load X9 by the data from x22[8] //32 byte/4 = 8 words
 
 |immediate|rs1|funct3|rd|opcode|
 |:----|:----|:----|:----|:----|
@@ -95,9 +133,13 @@ jal x1, 2000
 imm=2000=0111 1101 0000
 
 ## basic srchitecture structure
-![003.png](003.png)
+1. load data from memory to register
+2. save result from register to memory
+Registers are faster to access than memory
+
+![203.png](203.png)
 each operation will only part of these terminals
 
-![004.png](004.png)
-![005.png](005.png)
-![006.png](006.png)
+![204.png](204.png)
+![205.png](205.png)
+![206.png](206.png)

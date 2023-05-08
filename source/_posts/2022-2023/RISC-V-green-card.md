@@ -6,6 +6,9 @@ tags:
 categories: 
  - PDF
 ---
-<!-- more -->
+
 https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf
+
+<!-- more -->
+
 {% pdf  riscvcard.pdf %}
