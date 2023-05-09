@@ -139,7 +139,60 @@ Registers are faster to access than memory
 
 ![203.png](203.png)
 each operation will only part of these terminals
-
 ![204.png](204.png)
 ![205.png](205.png)
 ![206.png](206.png)
+
+![207.png](207.png)
+Zero in ALU is result of comparation
+
+|instruction|Branch|MemRead|MemtoReg|ALUOp|MemWrite|ALUSrc|RegWrite|
+|:----|:----|:----|:----|:----|:----|:----|:----|
+|R_type|0|0|0|10|0|0|1|
+|load|0|1|1|10|0|1|0|
+|save|0|0|x|00|1|1|0|
+|beq|1|0|x|01|0|0|0|
+
+## pseudoinstruction
+
+|name|format|description|used instruction|
+|:----|:----|:----|:----|
+|mv|mv rd, rs|R[rd] = R[rs]|addi|
+|li|li rd, immed|R[rd] = immed|addi|
+|la|la rd, addr|R[rd] = addr|auipc|
+|neg|neg rd,rs|R[rd]=-R[rs]|sub|
+|not|not rd, rs|R[rd]=~R[rs]|xori|
+
+## pipeline
+pipeline can increase programe ratio
+RISC-V can use upper 5 levels:
+
+|step|name|descreption|time|
+|:----|:----|:----|:----|
+|1|IF|Instruction fetch from memory|200ps|
+|2|ID|Instruction decode & register read|100ps|
+|3|EX|Execute operation or calculate address|200ps|
+|4|MEM|Access memory operand|200ps|
+|5|WB|Write result back to register|100ps|
+
+![208.png](208.png)
+![211.png](211.png)
+
+Data Harzard:
+An instruction depends on completion of data access by a previous instruction
+Load-Use Data Hazard:
+![209.png](209.png)
+
+Please note that instructions following a branch require a 1-step interval to wait for the result of the branch.
+but we can predict the result, and correct it immediate if not right
+![210.png](210.png)
+
+# CISC and RISC
+
+|RISC|CISC|
+|:----|:----|
+|Reduced Instruction Set Architecture|Complex Instruction Set Architecture|
+|low cycles per instruction|hign cycles per instruction|
+|Simpler instruction|Complex instruction|
+|Fewer Data types|More Data types|
+|Pipline canbe achieved|/|
