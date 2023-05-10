@@ -187,7 +187,7 @@ Please note that instructions following a branch require a 1-step interval to wa
 but we can predict the result, and correct it immediate if not right
 ![210.png](210.png)
 
-# CISC and RISC
+## CISC and RISC
 
 |RISC|CISC|
 |:----|:----|
@@ -196,3 +196,141 @@ but we can predict the result, and correct it immediate if not right
 |Simpler instruction|Complex instruction|
 |Fewer Data types|More Data types|
 |Pipline canbe achieved|/|
+
+
+# memory
+
+|device|response time|cost|
+|:----|:----|:----|
+|Static RAM|0.5ns – 2.5ns|$500 – $1000 per GiB|
+|Dynamic RAM (DRAM)|50ns – 70ns|$3 – $6 per GiB|
+|Flash SSD|5 µs - 50 µs|$0.06 – $0.12 per GiB|
+|Magnetic disk|5ms – 20ms|$0.20 – $2 per GiB|
+
+normally SRAM and DRAM are used in memory,
+SSD and disk are used in storage
+
+Binary Notation:
+![301.png](301.png)
+
+## Locality
+
+Temporal locality:Items accessed recently are likely to be accessed again soon
+Spatial locality: Items near those accessed recently are likely to be accessed soon
+
+result: 
+Memory hierarchy
+Store everything on disk
+Copy recently accessed (and nearby) items from disk/DRAM to smaller DRAM/more smaller DRAM memory
+
+## cache
+The level/s of the memory hierarchy closest to the CPU
+
+Direct Mapped Cache:
+![302.png](302.png)
+
+binary address = {Tag, Index}
+
+![303.png](303.png)
+if the address is already saved, Hit/Miss will be hit. otherwise will be miss
+hit will be marked only when both tag and index are fit
+
+![304.png](304.png)
+![306.png](306.png)
+index: determine which line
+Tag:   determine whether has saved
+Block offset: determine which word in this address
+![305.png](305.png)
+
+Very large blocks mean fewer blocks in cache and an increased miss rate
+Large blocks also increase the miss penalty of retrieving the block from the next level
+![307.png](307.png)
+
+![308.png](308.png)
+
+## cache performance
+![309.png](309.png)
+
+![310.png](310.png)
+
+## Average memory access time
+AMAT = Hit time + Miss rate × Miss penalty
+![311.png](311.png)
+
+## n-set Associativity
+Higher associativity reduces miss rate
+Increases complexity, cost, and access time
+### 4-block caches:
+Index = (Block address) % (number of entries)
+like: 8 % 4 = 0
+      6 % 4 = 2
+hence mem[8,0] saved in index 0,
+      mem[6] saved in index 2.
+
+read data inorder 8, 0, 8, 6, 8:
+![312.png](312.png)
+
+### 2-way set associative:
+Index = (Block address) % (number of entries)
+
+read data in order of : 8, 0, 8, 6, 8:
+![313.png](313.png)
+
+note: if a new data want be saved in a full set(like in row 4), the last-used data will be removed(mem[0] is remained)
+
+### Fully associative (8-way):
+Blocks can go anywhere
+
+read data in order of : 8, 0, 8, 6, 8:
+![314.png](314.png)
+
+## address bit allocation
+![315.png](315.png)
+Block size is defined by the offset bits
+blocks/lines is defined by index
+
+
+If we have a directly mapped cache of size 1 KiB with block size of 4 words, 32 bits address
+
+each block has 4 word * 4 bytes = 16 bytes, block offset is 4 bits
+total block number = 1kiB/16bytes = 64 blocks per set, index is 6 bits
+the tag is 32 - 4 - 6 = 22 bits
+
+if we have a 4-way set associative instruction cache, 
+total block number = 1kiB/(16bytes * 4) = 16 blocks per set, index is 4 bits
+
+Block_size = word_number * 4 bytes
+block_number = cache_size / block_size
+index_number = block_number / n_way
+
+![316.png](316.png)
+
+||miss rate|hit time|miss penalty|
+|:----|:----|:----|:----|
+|associativity of a cache is increased|Decreased|Increased|No expected change|
+|block size of a cache is decreased|Increased|No expected change|Decreased|
+
+# virtual memory
+Each gets a private virtual address space holding its frequently used code and data and Protected from other programs
+
+VM “block” is called a page
+VM translation “miss” is called a page fault
+![401.png](401.png)
+
+Translation Using a Page Table:
+![402.png](402.png)
+if valid is 1, data is saved in physical memory
+if valid is 0, data is saved in disk
+
+Translation Look-aside Buffer (TLB)
+
+# Multiple Issue
+
+Static Multiple Issue: Group of instructions that can be issued on a single cycle
+![501.png](501.png)
+One ALU/branch instruction, One load/store instruction run together
+![502.png](502.png)
+![503.png](503.png)
+
+Dynamic Multiple Issue: Allow the CPU to execute instructions out of order to avoid stalls
+![504.png](504.png)
