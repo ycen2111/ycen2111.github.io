@@ -323,8 +323,14 @@ if valid is 1, data is saved in physical memory
 if valid is 0, data is saved in disk
 
 Translation Look-aside Buffer (TLB)
+the last visited entry block will be replace with new data
 
-# Multiple Issue
+if new tag is miss in TLB: TLB MISS
+if new tag exist in page table: PT HIT
+if new tag in page table is only in disk: PAGE FAULT
+
+# parallel
+## Multiple Issue
 
 Static Multiple Issue: Group of instructions that can be issued on a single cycle
 ![501.png](501.png)
@@ -334,3 +340,54 @@ One ALU/branch instruction, One load/store instruction run together
 
 Dynamic Multiple Issue: Allow the CPU to execute instructions out of order to avoid stalls
 ![504.png](504.png)
+
+## speed up
+T1 = time to run with one worker
+TP = time to run with P workers
+T1/TP = speedup (Ideal case is linear speedup with P)
+T1/(P*TP) = efficiency (Ideal case is efficiency is 1)
+
+## Amdahl’s Law
+Tsequential + Tparallel/P ≤ TP
+![505.png](505.png)
+
+if 100 processors, 90× speedup
+![506.png](506.png)
+
+if sum of 10 scalars, and 10×10 matrix sum,
+Time = (10 + 100) × tadd
+![507.png](507.png)
+
+Strong scaling: problem size fixed
+Weak scaling: problem size proportional to number of processors
+
+If 100 processor, one processor has 2% load not 1%
+![508.png](508.png)
+
+## Shared Memory Multiprocessors
+![509.png](509.png)
+UMA (uniform) vs. NUMA (nonuniform)
+if 1 GiB total memory, 40 cycles/word
+NUMA 2 processors: 512 MiB local memory each, 20 cycles/word to local, 60 cycles/word to remote memory
+UMA 2 processors: 1 GiB shared memory, 40 cycles/word
+
+## Message Passing
+![510.png](510.png)
+
+## Multithreading
+Fine-grain multithreading: If one thread stalls, others are executed
+Coarse-grain multithreading: Only switch on long stall
+![511.png](511.png)
+
+## Flynn’s Taxonomy
+Single Instruction Single Data (SISD)
+![512.png](512.png)
+Single Instruction Multiple Data (SIMD)
+![513.png](513.png)
+Multiple Instruction Single Data (MISD)
+![514.png](514.png)
+Multiple Instruction Multiple Data (MIMD)
+![515.png](515.png)
+
+
+
