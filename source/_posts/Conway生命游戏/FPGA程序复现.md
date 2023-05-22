@@ -170,3 +170,110 @@ VGA会逐行读取，直到完成一帧
 4. 并且由于显示器最大也只有480X640像素，总画布（cell数）不可能太大，导致1-D数组也可以完美记录所有数据，所以计划还是Logic_manager内cell变换为1-D数组，这又会加快运行效率（不必考虑2-D数组复杂的赋值）
 
 总之，昨天有一部分又白写了，早知道先看这一块了 :(
+
+# 2023/05/22
+又出问题了，昨天新写的代母估计又要修改
+先说问题，大概率cell的数据需要存到memory内，否则LUT占比巨大（仅 32X32 cell 就占了57% LUT）
+
+1. 改进了原逻辑下的FSM流程
+2. 综合后分析波形并订正冲突
+3. 分析LUT占比过高原因
+4. 测试了memory和LUT记录数据后综合的结果
+
+## 原逻辑改进
+主要是更改了RUNNING_1的三步状态，删除了原记录pipline步数的变量，改为左移一个array
+如：最开始为一个2bits array：[1:0] mark, 初始化为2'b00。如果有输入find_beighbors就赋值mark[0] = 1，并在下cycle一开始左移一位
+如果mark内有位数为1则说明find_neighbors还在运算，否则说明运算完成
+
+这个方法可以稍微节省一点点资源（但可读性大大下降 （尴尬））
+
+## 综合冲突
+将RTL综合后发现输出cell为X，反推逻辑发现是赋值造成的问题。curr_cell在default内是非阻塞赋值，FSM内是阻塞赋值导致冲突。前后统一后问题解决
+此问题原因是更改逻辑时未完全更改所有变量。之后应该尝试使用search，可以此类错误出现概率会小些
+
+同时发现LUT占比更加夸张，如果还保持16X16 find_neighbors会达到256% LUT占用。
+查看schemetic发现基本LUT消耗在curr_cell上，此问题涉及数据存储的原理
+
+## 数据设置与类型
+verilog中可以用两种方法设置array：
+1. [5 : 0] array
+2. [0 : 0] array [5 : 0]
+
+以上两种存储数据大小相同，区别在1.是直接存在LUT内，2.存在memory（BRAM）内。
+1可以很方便的对所有数据统一处理，但问题在如果array巨大（如 4000+），那么会消耗海量资源（密密麻麻全是赋值比对的）。
+2可以共用一套逻辑，但问题在覆写数据麻烦，需要一个个赋值
+
+下面是分别用两种方法读取或写入数据的综合对比
+
+### [5 : 0] array
+``` bash
+module Cell_mem#(
+    parameter MAX_ROW_BITS = 5, //512
+    parameter MAX_COLUMN_BITS = 5, //512
+    parameter MAX_ROW = 2 ** MAX_ROW_BITS,
+    parameter MAX_COLUMN = 2 ** MAX_COLUMN_BITS
+    )(
+    input CLK,
+    input RESET,
+    input W_enable,
+    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_in,
+    input data_in,
+    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_out,
+    output reg data_out
+    );
+    
+    reg [MAX_ROW * MAX_COLUMN - 1 : 0] Mem_1;
+    
+    always @(posedge CLK) begin
+        if (W_enable)
+            Mem_1[address_in] <= data_in;
+    end
+    
+    always @(posedge CLK) begin
+        data_out <= Mem_1[address_out];
+    end
+    
+endmodule
+```
+![0522_03.png](0522_03.png)
+![0522_04.png](0522_04.png)
+
+### [0 : 0] array [5 : 0]
+``` bash
+odule Cell_mem#(
+    parameter MAX_ROW_BITS = 5, //512
+    parameter MAX_COLUMN_BITS = 5, //512
+    parameter MAX_ROW = 2 ** MAX_ROW_BITS,
+    parameter MAX_COLUMN = 2 ** MAX_COLUMN_BITS
+    )(
+    input CLK,
+    input RESET,
+    input W_enable,
+    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_in,
+    input data_in,
+    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_out,
+    output reg data_out
+    );
+    
+    reg [0:0] Mem [MAX_ROW * MAX_COLUMN - 1 : 0];
+    
+    always @(posedge CLK) begin
+        if (W_enable)
+            Mem[address_in] <= data_in;
+    end
+    
+    always @(posedge CLK) begin
+        data_out <= Mem[address_out];
+    end
+    
+endmodule
+```
+![0522_01.png](0522_01.png)
+![0522_02.png](0522_02.png)
+
+### 对比
+后一种占用资源明显减少，结构也更简单
+所以还是要更改find_neighbors驱动
+
+现在暂时有两个修改方案，1.是memory每一行有8个数据（2-D数组），分别是一个cell周围一圈的neighbor，方便直接计算neighbor数量，但保存的数据会巨大
+2.是保持原样每行1个数据（就是1-D数组），直接读取所有需要的cell。逻辑会更复杂，但应该更省心
