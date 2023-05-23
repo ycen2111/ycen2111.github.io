@@ -39,8 +39,10 @@
 <meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_04.png">
 <meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_01.png">
 <meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_02.png">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0523_01.png">
+<meta property="og:image" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0523_02.png">
 <meta property="article:published_time" content="2023-05-08T21:01:46.000Z">
-<meta property="article:modified_time" content="2023-05-22T21:53:32.652Z">
+<meta property="article:modified_time" content="2023-05-23T13:03:07.357Z">
 <meta property="article:author" content="Yang Cen">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="Conway生命游戏">
@@ -167,7 +169,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-06-%E8%BF%87%E6%97%B6"><span class="nav-number">1.</span> <span class="nav-text">2023&#x2F;05&#x2F;06 (过时)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">内部变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">主逻辑：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-08-%E8%BF%87%E6%97%B6"><span class="nav-number">2.</span> <span class="nav-text">2023&#x2F;05&#x2F;08 (过时)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">新增模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">新发现问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">改进方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.2.</span> <span class="nav-text">改进结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-17"><span class="nav-number">3.</span> <span class="nav-text">2023&#x2F;05&#x2F;17</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%A7%A3%E9%87%8A"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%A8%E8%BF%B9"><span class="nav-number">3.2.</span> <span class="nav-text">数据轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">3.3.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-18"><span class="nav-number">4.</span> <span class="nav-text">2023&#x2F;05&#x2F;18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91"><span class="nav-number">4.1.</span> <span class="nav-text">核心逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FSM%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">4.1.1.</span> <span class="nav-text">FSM状态：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9B%AE%E6%A0%87"><span class="nav-number">4.2.</span> <span class="nav-text">未完成目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-number">4.3.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-19"><span class="nav-number">5.</span> <span class="nav-text">2023&#x2F;05&#x2F;19</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGA%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">VGA原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E8%A7%84%E5%88%92"><span class="nav-number">5.2.</span> <span class="nav-text">传输规划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-22"><span class="nav-number">6.</span> <span class="nav-text">2023&#x2F;05&#x2F;22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E9%80%BB%E8%BE%91%E6%94%B9%E8%BF%9B"><span class="nav-number">6.1.</span> <span class="nav-text">原逻辑改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E5%86%B2%E7%AA%81"><span class="nav-number">6.2.</span> <span class="nav-text">综合冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.3.</span> <span class="nav-text">数据设置与类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-0-array"><span class="nav-number">6.3.1.</span> <span class="nav-text">[5 : 0] array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-0-array-5-0"><span class="nav-number">6.3.2.</span> <span class="nav-text">[0 : 0] array [5 : 0]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">6.3.3.</span> <span class="nav-text">对比</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-06-%E8%BF%87%E6%97%B6"><span class="nav-number">1.</span> <span class="nav-text">2023&#x2F;05&#x2F;06 (过时)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">内部变量：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%80%BB%E8%BE%91%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">主逻辑：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-08-%E8%BF%87%E6%97%B6"><span class="nav-number">2.</span> <span class="nav-text">2023&#x2F;05&#x2F;08 (过时)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%A8%A1%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text">新增模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">新发现问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">改进方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.2.</span> <span class="nav-text">改进结果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-17"><span class="nav-number">3.</span> <span class="nav-text">2023&#x2F;05&#x2F;17</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%A7%A3%E9%87%8A"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%A8%E8%BF%B9"><span class="nav-number">3.2.</span> <span class="nav-text">数据轨迹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">3.3.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-18"><span class="nav-number">4.</span> <span class="nav-text">2023&#x2F;05&#x2F;18</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91"><span class="nav-number">4.1.</span> <span class="nav-text">核心逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FSM%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">4.1.1.</span> <span class="nav-text">FSM状态：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9B%AE%E6%A0%87"><span class="nav-number">4.2.</span> <span class="nav-text">未完成目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-number">4.3.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-19"><span class="nav-number">5.</span> <span class="nav-text">2023&#x2F;05&#x2F;19</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VGA%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">VGA原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E8%BE%93%E8%A7%84%E5%88%92"><span class="nav-number">5.2.</span> <span class="nav-text">传输规划</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-22"><span class="nav-number">6.</span> <span class="nav-text">2023&#x2F;05&#x2F;22</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E9%80%BB%E8%BE%91%E6%94%B9%E8%BF%9B"><span class="nav-number">6.1.</span> <span class="nav-text">原逻辑改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E5%86%B2%E7%AA%81"><span class="nav-number">6.2.</span> <span class="nav-text">综合冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.3.</span> <span class="nav-text">数据设置与类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-0-array"><span class="nav-number">6.3.1.</span> <span class="nav-text">[5 : 0] array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-0-array-5-0"><span class="nav-number">6.3.2.</span> <span class="nav-text">[0 : 0] array [5 : 0]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.3.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2023-05-23"><span class="nav-number">7.</span> <span class="nav-text">2023&#x2F;05&#x2F;23</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#memory%E8%AF%BB%E5%86%99%E9%80%BB%E8%BE%91"><span class="nav-number">7.1.</span> <span class="nav-text">memory读写逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memory-driver%E9%80%BB%E8%BE%91"><span class="nav-number">7.2.</span> <span class="nav-text">memory driver逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E8%BD%AC%E5%8C%96"><span class="nav-number">7.2.1.</span> <span class="nav-text">坐标转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90sweep"><span class="nav-number">7.2.2.</span> <span class="nav-text">读写权限sweep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-2"><span class="nav-number">7.3.</span> <span class="nav-text">结果</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -485,8 +487,165 @@
 <p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_03.png" alt="0522_03.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_04.png" alt="0522_04.png"></p>
 <h3 id="0-0-array-5-0"><a href="#0-0-array-5-0" class="headerlink" title="[0 : 0] array [5 : 0]"></a>[0 : 0] array [5 : 0]</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">odule Cell_mem<span class="comment">#(</span></span><br><span class="line">    parameter MAX_ROW_BITS = 5, //512</span><br><span class="line">    parameter MAX_COLUMN_BITS = 5, //512</span><br><span class="line">    parameter MAX_ROW = 2 ** MAX_ROW_BITS,</span><br><span class="line">    parameter MAX_COLUMN = 2 ** MAX_COLUMN_BITS</span><br><span class="line">    )(</span><br><span class="line">    input CLK,</span><br><span class="line">    input RESET,</span><br><span class="line">    input W_enable,</span><br><span class="line">    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_in,</span><br><span class="line">    input data_in,</span><br><span class="line">    input [MAX_ROW_BITS + MAX_COLUMN_BITS - 1 : 0] address_out,</span><br><span class="line">    output reg data_out</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    reg [0:0] Mem [MAX_ROW * MAX_COLUMN - 1 : 0];</span><br><span class="line">    </span><br><span class="line">    always @(posedge CLK) begin</span><br><span class="line">        <span class="keyword">if</span> (W_enable)</span><br><span class="line">            Mem[address_in] &lt;= data_in;</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    always @(posedge CLK) begin</span><br><span class="line">        data_out &lt;= Mem[address_out];</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 <p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_01.png" alt="0522_01.png"><br><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0522_02.png" alt="0522_02.png"></p>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>后一种占用资源明显减少，结构也更简单<br>所以还是要更改find_neighbors驱动</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>后一种占用资源明显减少，结构也更简单<br>所以还是要更改find_neighbors驱动</p>
 <p>现在暂时有两个修改方案，1.是memory每一行有8个数据（2-D数组），分别是一个cell周围一圈的neighbor，方便直接计算neighbor数量，但保存的数据会巨大<br>2.是保持原样每行1个数据（就是1-D数组），直接读取所有需要的cell。逻辑会更复杂，但应该更省心</p>
+<h1 id="2023-05-23"><a href="#2023-05-23" class="headerlink" title="2023/05/23"></a>2023/05/23</h1><p>先说结构，最后打算采用16bits为一组的16列sweep读取计算方式<br>如详细编码方式之后编写数据传输时会解释，这里主要记录memory控制方法</p>
+<p>需要注意的是所有memory都会有一个备用存储空间，用来暂时记录下一步matrix会显示的数据</p>
+<ol>
+<li>编写memory读写逻辑</li>
+<li>编写memory driver控制逻辑</li>
+<li>通过testbench并成功综合</li>
+</ol>
+<h2 id="memory读写逻辑"><a href="#memory读写逻辑" class="headerlink" title="memory读写逻辑"></a>memory读写逻辑</h2><p>存储memory：<br>reg [15:0] Mem [2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0];<br>每条数据存储16位，因为16bits为memory单block可支持最大bits<br>一共有MAX_ROW*MAX_COLUMN/16条数据</p>
+<table>
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">bits</th>
+<th align="left">name</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">CLK</td>
+<td align="left">时钟</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">RESET</td>
+<td align="left">复位</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">W_enable</td>
+<td align="left">允许写入</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0]</td>
+<td align="left">data_in_add</td>
+<td align="left">写入地址</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[15 : 0]</td>
+<td align="left">data_in</td>
+<td align="left">写入数据</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0]</td>
+<td align="left">data_out_add</td>
+<td align="left">读出地址</td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">reg [15 : 0]</td>
+<td align="left">data_out</td>
+<td align="left">读出数据</td>
+</tr>
+</tbody></table>
+<p>如果RESET， Mem会将自己覆写为”Mem.txt”内数据<br>如果W_enable，Mem[data_in_add] 会覆写为 data_in<br>无论何时data_out 都为输出 Mem[data_out_add]</p>
+<h2 id="memory-driver逻辑"><a href="#memory-driver逻辑" class="headerlink" title="memory driver逻辑"></a>memory driver逻辑</h2><p>主要处理两件事，将输入的横纵坐标转化为mem的id，和控制两个memory各自读写权限</p>
+<table>
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">bits</th>
+<th align="left">name</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">CLK</td>
+<td align="left">时钟</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">RESET</td>
+<td align="left">复位</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">W_enable</td>
+<td align="left">允许写入</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">1</td>
+<td align="left">finish</td>
+<td align="left">一帧matrix计算完成</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[MAX_ROW_BITS - 1 : 0]</td>
+<td align="left">row_in</td>
+<td align="left">写入数据的行坐标</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[MAX_COLUMN_BITS - 1 : 0]</td>
+<td align="left">column_in</td>
+<td align="left">写入数据的纵坐标</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[15 : 0]</td>
+<td align="left">data_in</td>
+<td align="left">写入数据</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[MAX_ROW_BITS - 1 : 0]</td>
+<td align="left">row_out</td>
+<td align="left">输出数据的行坐标</td>
+</tr>
+<tr>
+<td align="left">input</td>
+<td align="left">[MAX_COLUMN_BITS - 1 : 0]</td>
+<td align="left">column_out</td>
+<td align="left">输出数据的纵坐标</td>
+</tr>
+<tr>
+<td align="left">output</td>
+<td align="left">[15 : 0]</td>
+<td align="left">data_out</td>
+<td align="left">读出数据</td>
+</tr>
+</tbody></table>
+<h3 id="坐标转化"><a href="#坐标转化" class="headerlink" title="坐标转化"></a>坐标转化</h3><p>row_in和column_in会转换为data_in_add传给memory，<br>data_in_add = {column_in[4 +: MAX_ROW_BITS - 4], row_in} //(column/16)*MAX_ROW+row</p>
+<p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0523_01.png" alt="0523_01.png"><br>memory id的摆列如图所示，如row=0，column=1，data_in_add就是1<br>如row=17，column=1，data_in_add就是7</p>
+<h3 id="读写权限sweep"><a href="#读写权限sweep" class="headerlink" title="读写权限sweep"></a>读写权限sweep</h3><p>考虑到每次计算完一帧matrix后需要把整个matrix从temp覆写到real matrix上，对memory来说过于复杂，<br>因此计划实例化两个memory_cell分别交替进行读写操作<br>此步骤由变量switch负责，</p>
+<table>
+<thead>
+<tr>
+<th align="left">switch</th>
+<th align="left">mem_1</th>
+<th align="left">mem_2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">write</td>
+<td align="left">read</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">read</td>
+<td align="left">write</td>
+</tr>
+</tbody></table>
+<p>switch会在检测到finish信号上升沿后变化</p>
+<h2 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h2><p><img src="/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/FPGA%E7%A8%8B%E5%BA%8F%E5%A4%8D%E7%8E%B0-f0be0c573f35/0523_02.png" alt="0523_02.png"></p>
+<p>在512X512数据下已经占用32%BRAM，考虑到需要给VGA显存保留空间，在不改变逻辑前提下最大的matrix size可能只能达到512*1024</p>
 
     </div>
 
