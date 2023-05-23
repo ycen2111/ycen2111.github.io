@@ -271,9 +271,81 @@ endmodule
 ![0522_01.png](0522_01.png)
 ![0522_02.png](0522_02.png)
 
-### 对比
+### 总结
 后一种占用资源明显减少，结构也更简单
 所以还是要更改find_neighbors驱动
 
 现在暂时有两个修改方案，1.是memory每一行有8个数据（2-D数组），分别是一个cell周围一圈的neighbor，方便直接计算neighbor数量，但保存的数据会巨大
 2.是保持原样每行1个数据（就是1-D数组），直接读取所有需要的cell。逻辑会更复杂，但应该更省心
+
+# 2023/05/23
+先说结构，最后打算采用16bits为一组的16列sweep读取计算方式
+如详细编码方式之后编写数据传输时会解释，这里主要记录memory控制方法
+
+需要注意的是所有memory都会有一个备用存储空间，用来暂时记录下一步matrix会显示的数据
+
+1. 编写memory读写逻辑
+2. 编写memory driver控制逻辑
+3. 通过testbench并成功综合
+
+## memory读写逻辑
+
+存储memory：
+reg [15:0] Mem [2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0];
+每条数据存储16位，因为16bits为memory单block可支持最大bits
+一共有MAX_ROW*MAX_COLUMN/16条数据
+
+|type|bits|name|description|
+|:----|:----|:----|:----|
+|input|1|CLK|时钟|
+|input|1|RESET|复位|
+|input|1|W_enable|允许写入|
+|input|[2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0]|data_in_add|写入地址|
+|input|[15 : 0]|data_in|写入数据|
+|input|[2 ** (MAX_ROW_BITS + MAX_COLUMN_BITS - 4) - 1 : 0]|data_out_add|读出地址|
+|output|reg [15 : 0]|data_out|读出数据|
+
+如果RESET， Mem会将自己覆写为"Mem.txt"内数据
+如果W_enable，Mem[data_in_add] 会覆写为 data_in
+无论何时data_out 都为输出 Mem[data_out_add]
+
+## memory driver逻辑
+主要处理两件事，将输入的横纵坐标转化为mem的id，和控制两个memory各自读写权限
+
+|type|bits|name|description|
+|:----|:----|:----|:----|
+|input|1|CLK|时钟|
+|input|1|RESET|复位|
+|input|1|W_enable|允许写入|
+|input|1|finish|一帧matrix计算完成|
+|input|[MAX_ROW_BITS - 1 : 0]|row_in|写入数据的行坐标|
+|input|[MAX_COLUMN_BITS - 1 : 0]|column_in|写入数据的纵坐标|
+|input|[15 : 0]|data_in|写入数据|
+|input|[MAX_ROW_BITS - 1 : 0]|row_out|输出数据的行坐标|
+|input|[MAX_COLUMN_BITS - 1 : 0]|column_out|输出数据的纵坐标|
+|output|[15 : 0]|data_out|读出数据|
+
+### 坐标转化
+row_in和column_in会转换为data_in_add传给memory，
+data_in_add = {column_in[4 +: MAX_ROW_BITS - 4], row_in} //(column/16)*MAX_ROW+row
+
+![0523_01.png](0523_01.png)
+memory id的摆列如图所示，如row=0，column=1，data_in_add就是1
+如row=17，column=1，data_in_add就是7
+
+### 读写权限sweep
+考虑到每次计算完一帧matrix后需要把整个matrix从temp覆写到real matrix上，对memory来说过于复杂，
+因此计划实例化两个memory_cell分别交替进行读写操作
+此步骤由变量switch负责，
+
+|switch|mem_1|mem_2|
+|:----|:----|:----|
+|1|write|read|
+|0|read|write|
+
+switch会在检测到finish信号上升沿后变化
+
+## 结果
+![0523_02.png](0523_02.png)
+
+在512X512数据下已经占用32%BRAM，考虑到需要给VGA显存保留空间，在不改变逻辑前提下最大的matrix size可能只能达到512*1024
