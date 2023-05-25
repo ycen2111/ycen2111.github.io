@@ -24,6 +24,10 @@ C
 B
 ![SpiritedAwat.png](SpiritedAwat.png)
 
+# O_son_doar
+B
+![Osondoar.png](Osondoar.png)
+
 # Wolf_Walkers
 B+
 ![WolfWalkers-1.png](WolfWalkers-1.png)
