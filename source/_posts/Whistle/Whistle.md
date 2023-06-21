@@ -28,6 +28,14 @@ B
 B
 ![Osondoar.png](Osondoar.png)
 
+# Cuchulainn
+B
+![Cuchulainn-1.png](Cuchulainn-1.png)
+
+# Carvan
+B
+![Caravan-1.png](Caravan-1.png)
+
 # Wolf_Walkers
 B+
 ![WolfWalkers-1.png](WolfWalkers-1.png)
