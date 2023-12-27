@@ -5,61 +5,57 @@ tags:
 - Whistle
 ---
 
-D调乐谱?
+爱尔兰哨笛曲谱，多为C调和D调，附音乐文件
 
 <!-- more -->
-# Mystery_Of_Love
-C
-![MysteryOfLove.png](MysteryOfLove.png)
-
-# Scarborough
-C
+# 入门曲
+## Scarborough Fair
+{% aplayer "Scarborough Fair" "by 孩老师" "ScarboroughFair.mp3" %}
 ![ScarboroughFair.png](ScarboroughFair.png)
 
-# Down_by_the_Sally_Garden
+## Down by the Sally Garden
+{% aplayer "Down by the Sally Garden" "by 孩老师" "DownbytheSallyGarden.mp3" %}
 ![DownbytheSallyGarden.png](DownbytheSallyGarden.png)
 
-# Level Plain
-C
-{% aplayer "Level Plain" "Magh Seola" "LevelPlain.mp3" %}
+## Level Plain
+{% aplayer "Level Plain" "by Magh Seola" "LevelPlain.mp3" %}
 ![LevelPlain.png](LevelPlain.png)
 
-# Spirited_Away
-B
-![SpiritedAwat.png](SpiritedAwat.png)
+# 动画游戏插曲
+## Spirited Away
+{% aplayer "Spirited Away" " by 熊猫哨笛馆" "SpiritedAway.mp3" %}
+![SpiritedAway.png](SpiritedAway.png)
 
-# O_son_doar
-B
-![Osondoar.png](Osondoar.png)
+## Mebh's Tune (Wolf Walkers)
+{% aplayer "Mebh's Tune" "by 熊猫哨笛馆" "MebhsTune.mp3" %}
+![MebhsTune.png](MebhsTune.png)
 
-# Cuchulainn
-B
-![Cuchulainn-1.png](Cuchulainn-1.png)
-
-# Carvan
-B
-![Caravan-1.png](Caravan-1.png)
-
-# Caravan
-B
-![Caravan-1.png](Caravan-1.png)
-
-# Wolf_Walkers
-B+
-![WolfWalkers-1.png](WolfWalkers-1.png)
-
-# Merry_Christmas_Mr_Lawrence
-B+
-![MerryChristmasMr-1.png](MerryChristmasMr-1.png)
-![MerryChristmasMr-2.png](MerryChristmasMr-2.png)
-
-# Honetown_Wind
-B+
+## Honetown Wind
+{% aplayer "Honetown Wind" "by 熊猫哨笛馆" "HometownWind.mp3" %}
 ![HometownWind-1.png](HometownWind-1.png)
 ![HometownWind-2.png](HometownWind-2.png)
 
-# Forest_Of_Ancient
-A++
+# 经典曲
+## O son doar
+{% aplayer "O son doar" "by Cynthia1844" "Osondoar.mp3" %}
+![Osondoar.png](Osondoar.png)
+
+## Merry Christmas Mr Lawrence
+{% aplayer "Merry Christmas Mr Lawrence" "by 熊猫哨笛馆" "MerryChristmasMr.mp3" %}
+![MerryChristmasMr-1.png](MerryChristmasMr-1.png)
+![MerryChristmasMr-2.png](MerryChristmasMr-2.png)
+
+# 好听
+## Cuchulainn
+{% aplayer "Cuchulainn" "by Ron Korb" "Cuchulainn.mp3" %}
+![Cuchulainn.png](Cuchulainn.png)
+
+## Caravan
+{% aplayer "Caravan" "by 熊猫哨笛馆" "Caravan.mp3" %}
+![Caravan.png](Caravan.png)
+
+## Forest Of Ancient
+{% aplayer "Forest Of Ancient" "by 熊猫哨笛馆" "ForestOftheAncient.mp3" %}
 ![ForestOftheAncient-1.png](ForestOftheAncient-1.png)
 ![ForestOftheAncient-2.png](ForestOftheAncient-2.png)
 ![ForestOftheAncient-3.png](ForestOftheAncient-3.png)

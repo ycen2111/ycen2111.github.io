@@ -127,6 +127,28 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 就可以显示图片了。
 
+## 插入本地音乐播放器
+(https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md#%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8)
+支持在Blog里放入音乐。
+
+在工程更根目录输入
+``` Bash
+npm install --save hexo-tag-aplayer
+```
+全局配置文件内修改
+``` Bash
+post_asset_folder: true
+```
+在.md文件内输入
+``` Bash
+{% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %}
+```
+例如
+``` Bash
+{% aplayer "Caffeine" "Jeff Williams" "caffeine.mp3" "picture.jpg" "lrc:caffeine.txt" %}
+```
+
+
 ## 文章密码插件
 
 如果想加密某些文件，可以添加这个插件。
