@@ -26,6 +26,10 @@ tags:
 {% aplayer "Spirited Away" " by 熊猫哨笛馆" "SpiritedAway.mp3" %}
 ![SpiritedAway.png](SpiritedAway.png)
 
+## Carrying You
+{% aplayer "Carrying You" " by 熊猫哨笛馆" "CarryingYou.mp3" %}
+![CarryingYou.png](CarryingYou.png)
+
 ## Mebh's Tune (Wolf Walkers)
 {% aplayer "Mebh's Tune" "by 熊猫哨笛馆" "MebhsTune.mp3" %}
 ![MebhsTune.png](MebhsTune.png)
