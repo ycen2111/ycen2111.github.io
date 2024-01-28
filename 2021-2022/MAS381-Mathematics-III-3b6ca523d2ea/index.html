@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="week1complex valuef(z)&#x3D;f(x+iy)&#x3D;u(x,y)+iv(x,y)Re(f)&#x3D;x&#x3D;u(x,y)Im(f)&#x3D;y&#x3D;v(x,y) harmonic function:By definition a function is called harmonic if it is at least twice differentiable and it satisfies the we">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MAS381 Mathematics III">
+<meta property="og:url" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="week1complex valuef(z)&#x3D;f(x+iy)&#x3D;u(x,y)+iv(x,y)Re(f)&#x3D;x&#x3D;u(x,y)Im(f)&#x3D;y&#x3D;v(x,y) harmonic function:By definition a function is called harmonic if it is at least twice differentiable and it satisfies the we">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/101.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/102.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/103.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/201.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/104.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/105.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/106.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/202.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/203.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/204.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/205.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/301.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/302.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/401.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/402.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/403.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/404.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/501.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/502.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/503.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/601.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/602.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/603.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/604.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/605.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/606.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/701.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/702.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/801.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/901.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/902.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/903.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/904.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1001.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1002.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1003.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1004.PNG">
+<meta property="article:published_time" content="2021-09-27T06:10:49.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:15:46.525Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2021-2022">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/101.PNG">
+
+
+<link rel="canonical" href="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/","path":"2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/","title":"MAS381 Mathematics III"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MAS381 Mathematics III | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#week1"><span class="nav-number">1.</span> <span class="nav-text">week1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#complex-value"><span class="nav-number">1.1.</span> <span class="nav-text">complex value</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#harmonic-function"><span class="nav-number">1.1.1.</span> <span class="nav-text">harmonic function:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Euler%E2%80%99s-formular"><span class="nav-number">1.1.2.</span> <span class="nav-text">Euler’s formular:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week-2"><span class="nav-number">2.</span> <span class="nav-text">week 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#complex-differentiation"><span class="nav-number">2.1.</span> <span class="nav-text">complex differentiation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cauchy-Riemann-equation"><span class="nav-number">2.1.1.</span> <span class="nav-text">Cauchy-Riemann equation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analytical-functions"><span class="nav-number">2.2.</span> <span class="nav-text">analytical functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Taylor%E2%80%99s-theorem"><span class="nav-number">2.3.</span> <span class="nav-text">Taylor’s theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week3"><span class="nav-number">3.</span> <span class="nav-text">Week3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Laurent%E2%80%99s-theorem"><span class="nav-number">3.1.</span> <span class="nav-text">Laurent’s theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week-4"><span class="nav-number">4.</span> <span class="nav-text">week 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#integration-and-Cauchy%E2%80%99s-theorem"><span class="nav-number">4.1.</span> <span class="nav-text">integration and Cauchy’s theorem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Newton-Leibnitz-formula"><span class="nav-number">4.1.1.</span> <span class="nav-text">Newton-Leibnitz formula</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#using-linear-integration"><span class="nav-number">4.1.2.</span> <span class="nav-text">using linear integration</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week5"><span class="nav-number">5.</span> <span class="nav-text">Week5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cauchy%E2%80%99s-theorem"><span class="nav-number">5.1.</span> <span class="nav-text">Cauchy’s theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week6"><span class="nav-number">6.</span> <span class="nav-text">Week6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Residue-Theorem"><span class="nav-number">6.1.</span> <span class="nav-text">Residue Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week7"><span class="nav-number">7.</span> <span class="nav-text">Week7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-calculus"><span class="nav-number">7.1.</span> <span class="nav-text">vector calculus</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-9"><span class="nav-number">9.</span> <span class="nav-text">Week 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-along-curve"><span class="nav-number">9.1.</span> <span class="nav-text">Integration along curve</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-10"><span class="nav-number">10.</span> <span class="nav-text">Week 10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-Integrals"><span class="nav-number">10.1.</span> <span class="nav-text">Surface Integrals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#two-dimansional-divergence-theorem"><span class="nav-number">10.2.</span> <span class="nav-text">two-dimansional divergence theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Green%E2%80%99s-theorem"><span class="nav-number">10.3.</span> <span class="nav-text">Green’s theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#three-dimansional-divergence-theorem"><span class="nav-number">10.4.</span> <span class="nav-text">three-dimansional divergence theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stokes%E2%80%99-theorem"><span class="nav-number">10.5.</span> <span class="nav-text">stokes’ theorem</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MAS381 Mathematics III
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-27 14:10:49" itemprop="dateCreated datePublished" datetime="2021-09-27T14:10:49+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <span id="more"></span>
+
+<h1 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h1><h2 id="complex-value"><a href="#complex-value" class="headerlink" title="complex value"></a>complex value</h2><p>f(z)=f(x+iy)=u(x,y)+iv(x,y)<br>Re(f)=x=u(x,y)<br>Im(f)=y=v(x,y)</p>
+<h3 id="harmonic-function"><a href="#harmonic-function" class="headerlink" title="harmonic function:"></a>harmonic function:</h3><p>By definition a function is called harmonic if it is at least twice differentiable and it satisfies the well-known Laplace equation.<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/101.PNG" alt="101.PNG"></p>
+<h3 id="Euler’s-formular"><a href="#Euler’s-formular" class="headerlink" title="Euler’s formular:"></a>Euler’s formular:</h3><p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/102.PNG" alt="102.PNG"><br>cause<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/103.PNG" alt="103.PNG"></p>
+<h1 id="week-2"><a href="#week-2" class="headerlink" title="week 2"></a>week 2</h1><h2 id="complex-differentiation"><a href="#complex-differentiation" class="headerlink" title="complex differentiation"></a>complex differentiation</h2><p>A complex function f(x) is differentiable at a point z if and only if the limiting ratio quotient exists.<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/201.PNG" alt="201.PNG"></p>
+<h3 id="Cauchy-Riemann-equation"><a href="#Cauchy-Riemann-equation" class="headerlink" title="Cauchy-Riemann equation:"></a>Cauchy-Riemann equation:</h3><p>a way to defferentiate a complex funtion<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/104.PNG" alt="104.PNG"><br>where u=real part and v=imagin part, and a function has a complex derivative f’(z) if and only if its real and imaginary parts are continuosly differentiable and satisfy the Cauchy-Riemann equation:<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/105.PNG" alt="105.PNG"><br>which is called the conjugate.</p>
+<p>also, Cauchy-Riemann equation can find harmonic function as:<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/106.PNG" alt="106.PNG"></p>
+<h2 id="analytical-functions"><a href="#analytical-functions" class="headerlink" title="analytical functions"></a>analytical functions</h2><p>A complex function f(z) is called analytic at a point z0 if it has a power series expansion<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/202.PNG" alt="202.PNG"></p>
+<p>we can use ratio test to find wheter a complex series is convergent or not by finding the limitation value of n-th term<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/203.PNG" alt="203.PNG"><br>if L&lt;1, convergent series<br>if L&gt;1, divergent series<br>if L=1, the test is inconclusion.</p>
+<p>for complex power series, the sequence Cn converges with a limit L. If L=0, the power series converges for all z. If L not equal 0, then<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/204.PNG" alt="204.PNG"></p>
+<p>There are four and only four possible types of singularities of a complex function:</p>
+<ol>
+<li>pole of order n. f(z)=(3z-2)/[(z-1)^2(z+1)(z-4)] has a pole of order 3 at z=1 and simple poles at z=-1 and 4</li>
+<li>branch points.f(z) = (z − 3)^1/2 has a algebraic branch point at z = 3 and f(z) = ln(z^2 + z − 2)has logarithmic branch points where z^2 + z − 2 = 0</li>
+<li>Essential singularity. the singularity is not pole or branch point.</li>
+<li>singularities at infinity</li>
+</ol>
+<h2 id="Taylor’s-theorem"><a href="#Taylor’s-theorem" class="headerlink" title="Taylor’s theorem"></a>Taylor’s theorem</h2><p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/205.PNG" alt="205.PNG"></p>
+<p>If a=0, the series can called Maclaurin series.</p>
+<h1 id="Week3"><a href="#Week3" class="headerlink" title="Week3"></a>Week3</h1><p>for the series have negative powers of (z-z0), equations can be writen like<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/301.PNG" alt="301.PNG"></p>
+<h2 id="Laurent’s-theorem"><a href="#Laurent’s-theorem" class="headerlink" title="Laurent’s theorem"></a>Laurent’s theorem</h2><p>Let function f(z) be analytical in annulus R&lt;|z-z0|&lt;ρ, it can be writen as<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/302.PNG" alt="302.PNG"><br>Where R belongs to negative part and ρ belongs to positive part.</p>
+<p>really conplex content, remember to work the tutorial out.</p>
+<h1 id="week-4"><a href="#week-4" class="headerlink" title="week 4"></a>week 4</h1><p>three most common form to write a complex function:<br>ax+by=c,<br>where a,b are real numbers and x,y are variables<br>|z-1|=|z-b|<br>where a,b are complex numbers<br>z=at+b<br>where t is real and a,b are complex quantities</p>
+<p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/401.PNG" alt="401.PNG"><br>euqation can be<br>(x-x0)^2+(y-y0)^2=R^2,<br>|z-z0|=R, z0=x0+iy0</p>
+<p>z=x+iy=(x0+Rcosφ)+i(y0+Rsinφ)=z0+Re^iφ (0&lt;=φ&lt;2Pi)</p>
+<h2 id="integration-and-Cauchy’s-theorem"><a href="#integration-and-Cauchy’s-theorem" class="headerlink" title="integration and Cauchy’s theorem"></a>integration and Cauchy’s theorem</h2><h3 id="Newton-Leibnitz-formula"><a href="#Newton-Leibnitz-formula" class="headerlink" title="Newton-Leibnitz formula"></a>Newton-Leibnitz formula</h3><p>the equation C: z=z(t), a&lt;=t&lt;=b,<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/402.PNG" alt="402.PNG"></p>
+<p>example:<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/403.PNG" alt="403.PNG"></p>
+<h3 id="using-linear-integration"><a href="#using-linear-integration" class="headerlink" title="using linear integration"></a>using linear integration</h3><p>if f(z)=u+iv=2+i, z=x+iy, than x=2t, y=t.<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/404.PNG" alt="404.PNG"></p>
+<h1 id="Week5"><a href="#Week5" class="headerlink" title="Week5"></a>Week5</h1><h2 id="Cauchy’s-theorem"><a href="#Cauchy’s-theorem" class="headerlink" title="Cauchy’s theorem"></a>Cauchy’s theorem</h2><p>for two points x1=a1+ia2, x2=b1+ib2,<br>z=(1-t)(a1+ia2)+t(b1+ib2) (0&lt;t&lt;1)<br>or for circuit center z0=z1+iz2, radius=R,<br>z=z1+iz2+R(e^iφ) (0&lt;φ&lt;2Pi)<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/501.PNG" alt="501.PNG"></p>
+<p>to Taylor series:<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/502.PNG" alt="502.PNG"><br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/503.PNG" alt="503.PNG"></p>
+<h1 id="Week6"><a href="#Week6" class="headerlink" title="Week6"></a>Week6</h1><h2 id="Residue-Theorem"><a href="#Residue-Theorem" class="headerlink" title="Residue Theorem"></a>Residue Theorem</h2><p>Let z=z0 be a singularity of the function f(z), the coefficient a is called residue of the function f(z)<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/601.PNG" alt="601.PNG"><br>the single residue (with single power) can be calculated as<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/602.PNG" alt="602.PNG"><br>but in multiple power, the function can be changed as<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/603.PNG" alt="603.PNG"></p>
+<p>for closed contour C be the boundary of domain D,<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/604.PNG" alt="604.PNG"></p>
+<p>for calculating real integrals, the contour C can be drawn as<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/605.PNG" alt="605.PNG"><br>which have ignored all results with negative imaginary.<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/606.PNG" alt="606.PNG"><br>where first interial is total contour results, second one is the real integrals and third one is the curve covered this domain(most cases equals to 0)</p>
+<h1 id="Week7"><a href="#Week7" class="headerlink" title="Week7"></a>Week7</h1><h2 id="vector-calculus"><a href="#vector-calculus" class="headerlink" title="vector calculus"></a>vector calculus</h2><p>scalar field: f=x+y+z<br>vector field: u=(p,q,r)</p>
+<p>for scalar field f, its gradient can be written as<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/701.PNG" alt="701.PNG"></p>
+<p>the functions of div and curl operators are<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/702.PNG" alt="702.PNG"></p>
+<p>grad(f)=∇(f)<br>div(f)=∇.f<br>curl(f)=∇*f</p>
+<table>
+<thead>
+<tr>
+<th align="left">initialize type</th>
+<th align="left">operator</th>
+<th align="left">result type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">scalar</td>
+<td align="left">gradient</td>
+<td align="left">vector</td>
+</tr>
+<tr>
+<td align="left">vector</td>
+<td align="left">div</td>
+<td align="left">scalar</td>
+</tr>
+<tr>
+<td align="left">vector</td>
+<td align="left">curl</td>
+<td align="left">vector</td>
+</tr>
+</tbody></table>
+<p>like the function curl(div(u)) can not be defined cause div(u) is a scalar which can be curl which.</p>
+<p>and there have two conditions the result will be 0:</p>
+<ol>
+<li>for any scalar f, curl(grad(f))=0</li>
+<li>for any vector u, div(curl(u))=0</li>
+</ol>
+<p>for function div(grad(f))=∇.(∇(f))=fxx+fyy+fzz=∇^2(f), or called Laplancian (scalar field)<br>and curl(grad(f))=curl(fx,fy)=fyx-fxy=0</p>
+<h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><p>a vector field u will have a potential function p (which is ∇(p)=u), only when u is conservative:<br>∇*u=0</p>
+<p>if E=(2x+xy,2y+xz,2z+xy)<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/801.PNG" alt="801.PNG"></p>
+<h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Integration-along-curve"><a href="#Integration-along-curve" class="headerlink" title="Integration along curve"></a>Integration along curve</h2><p>a curve r=(x(t),y(t),z(t)) in the range of t(a&lt;=t&lt;=b),<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/901.PNG" alt="901.PNG"></p>
+<p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/902.PNG" alt="902.PNG"><br>where F=∇(p)</p>
+<p>if F is a conservative vector fild, the potential function p for F is<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/903.PNG" alt="903.PNG"><br>value if a,b,c is not stable and can be choicen what ever we want. it is only valid for conservative field</p>
+<p>if we want calculate its perdicular vector n then dt, get<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/904.PNG" alt="904.PNG"></p>
+<h1 id="Week-10"><a href="#Week-10" class="headerlink" title="Week 10"></a>Week 10</h1><h2 id="Surface-Integrals"><a href="#Surface-Integrals" class="headerlink" title="Surface Integrals"></a>Surface Integrals</h2><h2 id="two-dimansional-divergence-theorem"><a href="#two-dimansional-divergence-theorem" class="headerlink" title="two-dimansional divergence theorem"></a>two-dimansional divergence theorem</h2><p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1001.PNG" alt="1001.PNG"><br>D is region in plane which boundary is cloased curve C. dA=r<em>dr</em>dtheta<br>if D is surrounding with multiple curve C, they need to be added</p>
+<h2 id="Green’s-theorem"><a href="#Green’s-theorem" class="headerlink" title="Green’s theorem"></a>Green’s theorem</h2><p>when dA=ndA, n is unit normal vector to D and u=(P,Q),<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1002.PNG" alt="1002.PNG"></p>
+<h2 id="three-dimansional-divergence-theorem"><a href="#three-dimansional-divergence-theorem" class="headerlink" title="three-dimansional divergence theorem"></a>three-dimansional divergence theorem</h2><p>almost same with two-dimansional divergence<br><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1003.PNG" alt="1003.PNG"></p>
+<h2 id="stokes’-theorem"><a href="#stokes’-theorem" class="headerlink" title="stokes’ theorem"></a>stokes’ theorem</h2><p><img src="/2021-2022/MAS381-Mathematics-III-3b6ca523d2ea/1004.PNG" alt="1004.PNG"><br>cause if follows function in two-dimentional theorem, the direction of vertical vector n is cant been decided. hence two choice have in this function</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2021-2022/" rel="tag"><i class="fa fa-tag"></i> 2021-2022</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-2022/EEE348-Electronics-and-Devices-57a66493683f/" rel="prev" title="EEE348 Electronics and Devices">
+                  <i class="fa fa-chevron-left"></i> EEE348 Electronics and Devices
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021-2022/MGT388-Finance-and-Law-for-Engineers-db6f0b5e205b/" rel="next" title="MGT388 Finance and Law for Engineers">
+                  MGT388 Finance and Law for Engineers <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

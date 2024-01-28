@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Essentially, all models are wrong, but some are useful.George E. P. Box">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACS342 Feedback systems Design">
+<meta property="og:url" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="Essentially, all models are wrong, but some are useful.George E. P. Box">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/101.jpg">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/102.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/103.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/104.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/105.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/201.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/202.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/203.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/204.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/205.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/301.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/302.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/303.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/304.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/305.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/306.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/307.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/308.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/309.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/310.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/311.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/312.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/401.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/402.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/403.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/404.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/405.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/406.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/407.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/501.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/502.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/503.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/504.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/505.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/506.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/601.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/602.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/603.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/604.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/605.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/606.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/607.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/608.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/609.PNG">
+<meta property="article:published_time" content="2021-09-27T06:08:29.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:15:12.881Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2021-2022">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/101.jpg">
+
+
+<link rel="canonical" href="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/","path":"2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/","title":"ACS342 Feedback systems Design"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ACS342 Feedback systems Design | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Week1"><span class="nav-number">1.</span> <span class="nav-text">Week1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week2"><span class="nav-number">2.</span> <span class="nav-text">Week2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week3"><span class="nav-number">3.</span> <span class="nav-text">Week3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week4"><span class="nav-number">4.</span> <span class="nav-text">Week4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-5"><span class="nav-number">5.</span> <span class="nav-text">Week 5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week6"><span class="nav-number">6.</span> <span class="nav-text">Week6</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ACS342 Feedback systems Design
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-27 14:08:29" itemprop="dateCreated datePublished" datetime="2021-09-27T14:08:29+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Essentially, all models are wrong, but some are useful.<br>George E. P. Box</p>
+<span id="more"></span>
+
+<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a>Week1</h1><p>Laplace Transform</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/101.jpg" alt="101.jpg"></p>
+<p>Static system: output is memoryless function of the input<br>Dynamic system: output is function of current and past inputs</p>
+<p>Linear functions: y(x)=x(n+1), y(x1)+y(x2)=y(x1+x2)<br>Continuous-time: y(k)=ay(k) (instead of y(k)=ay(k-1))<br>Time-invariant: shift input=shift output, y(delay)[n]=y[n-k], where y(delay)[n]=x[n+1-k], y[n-k]=x[(n-k)+1]</p>
+<p>Kirchoff’s Law<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/102.PNG" alt="102.PNG"></p>
+<p>s-domain modelling of electrical networks<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/103.PNG" alt="103.PNG"></p>
+<p>Laplace transform in differential:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/104.PNG" alt="104.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/105.PNG" alt="105.PNG"></p>
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a>Week2</h1><p>Transfer function:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/201.PNG" alt="201.PNG"><br>For a linear system with input u(t) output y(t), G(s)=Y(s)/U(s)</p>
+<p>combining blocks in series and feedback:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/202.PNG" alt="202.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/203.PNG" alt="203.PNG"><br>The signals and descriptions in system block:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/204.PNG" alt="204.PNG"></p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/205.PNG" alt="205.PNG"></p>
+<p>Impulse response is inverse transform of G(s)<br>Step response is the inverse transform of G(s)/s</p>
+<h1 id="Week3"><a href="#Week3" class="headerlink" title="Week3"></a>Week3</h1><p>how is a system:<br>Stable<br>Speed of respond<br>smooth<br>well track<br>reject noise well<br>feedback affect</p>
+<p>for system stability:<br>A system is stable if every bounded input results in a bounded output<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/301.PNG" alt="301.PNG"></p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/302.PNG" alt="302.PNG"><br>simple means only no-repeared value on one point</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/303.PNG" alt="303.PNG"><br>if all OL poles and CL poles have same signs, means it is stability</p>
+<p>and also, if d(s)=as+b, where a and b have same sign,<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/304.PNG" alt="304.PNG"><br>All stable higher-order systems have 𝑎𝑛, 𝑎𝑛−1, … , 𝑎0 same sign; but not all higher-order systems with 𝑎𝑛, 𝑎𝑛−1, … , 𝑎0 same sign are stable</p>
+<p>Routh-Hurwitz<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/305.PNG" alt="305.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/306.PNG" alt="306.PNG"><br>stable if an, an-1, bn-1….. are with same sign</p>
+<p>For System speed and smooth level:</p>
+<p>First order system:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/307.PNG" alt="307.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/308.PNG" alt="308.PNG"><br>making sure G(s) have a 1 in denominator to find time constant<br>less time constant a system has, faster it is</p>
+<p>Second order system:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/309.PNG" alt="309.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/310.PNG" alt="310.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/311.PNG" alt="311.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/312.PNG" alt="312.PNG"></p>
+<h1 id="Week4"><a href="#Week4" class="headerlink" title="Week4"></a>Week4</h1><p>track/reject distrubances/noise</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/401.PNG" alt="401.PNG"><br>with input signal r(t), and output y(t),<br>track the r(t) if yss=lim𝑡→∞ r(t)<br>reject the r(t) if yss=0<br>We typically want a system to track 𝑟(𝑡) while rejecting 𝑑(𝑡)</p>
+<p>if G(s)U(s) is stable,<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/402.PNG" alt="402.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/403.PNG" alt="403.PNG"><br>G(0) is the steady-state gain<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/404.PNG" alt="404.PNG"></p>
+<p>the steady-state error (ess) in response to a constant reference<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/405.PNG" alt="405.PNG"></p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/406.PNG" alt="406.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/407.PNG" alt="407.PNG"></p>
+<p>Good tracking if KG(0) large<br>Good rejection only if K large</p>
+<p>The closed-loop steady-state gain is T(0),<br>while open-loop steady-state gain is CG(0)=lim s→0 C(s)G(s)<br>CG(0) is sometimes called position error constant Kp.<br>If 𝐶𝐺(0) is finite, then 𝑦ss &lt; 𝑟 and 𝑒ss &gt; 0 for all 𝑟 &gt; 0</p>
+<h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><p>How does feedback affect of these things</p>
+<p>The root locus is the path (in the 𝑠-domain) traced out by the closed-loop poles as 𝐾 is varied<br>example:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/501.PNG" alt="501.PNG"></p>
+<p>for function KG(s)=K(s+z)/s(s+p1)(s+p2), (if z&gt;P1&gt;p2&gt;0)<br>a) prepare<br>open-loop gain: 0,p1,p2 (n=3)<br>open-loop zero: z (m=1)<br>root locus lies on: s0=z, s1=p1, s2=p2, s3=0<br>range: [z,P1],[P2,0] (range should be on real axes)(gain should point to zero if possible)</p>
+<p>notes: the range can be one point if have two same roots</p>
+<p>b) Asymptotes:<br>Centre of gravity and inclined angles<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/502.PNG" alt="502.PNG"><br>(please check if centre of gravity is in moving range)</p>
+<p>c) Break-away/in point:<br>two poles, then for some 𝐾 &gt; 0 the locus departs from the real axis at a break-away point<br>two zeros, then for some 𝐾 &gt; 0 the locus arrives at the real axis at a break-in point</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/503.PNG" alt="503.PNG"><br>vlaue of s is the point value on real axes.<br>some of calculated vlaue will be removed if different with center of gravity</p>
+<p>d) Departure from complex poles:<br>if has complex pole pairs,<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/504.PNG" alt="504.PNG"><br>get the initial start angle on complex poles<br>As the locus is symmetric about the real axis, it departs from the other complex pole. like if angle in p1 is 45, angle in p2 will be -45.</p>
+<p>e) Intersection with imaginary axis:<br>using formular KG(s)/1+KG(s), let its bottom part =0, get<br>s(s+p1)(s+p2)+k=0,<br>s^3+(p1+p2)s^2+p1p2s+k=0</p>
+<p>|:—-|:—-|:—-|:—-|<br>|s^3|1|p1p2|0|<br>|s^2|p1+p2|k|0|<br>|s^1|((P1+p2)p1p2-k)/(p1+p2)|0|0|<br>|s^0|k|0|0|</p>
+<p>let((P1+p2)p1p2-k)=0, get K<br>put K into (p1+p2)s^2+K=0, get value s,<br>which is the cross point on imaginary axes</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/505.PNG" alt="505.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/506.PNG" alt="506.PNG"></p>
+<h1 id="Week6"><a href="#Week6" class="headerlink" title="Week6"></a>Week6</h1><p>Start to check whether a performance specification can met<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/601.PNG" alt="601.PNG"></p>
+<p>𝜁: damping ratio<br>𝜔n: radian angle</p>
+<p>note no steady-state performance is needed if ess/r reaches requirement</p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/602.PNG" alt="602.PNG"></p>
+<p><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/603.PNG" alt="603.PNG"><br>the root locus are better go to white region to meet specification (it is not satisfact in example)</p>
+<p>the coordiantes in black block above is gaven by<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/604.PNG" alt="604.PNG"><br>locus root must pass it in satisfact method.</p>
+<p>A phase-lead compensator:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/605.PNG" alt="605.PNG"><br>find z: 𝑧 = 𝜁 ∗𝜔n<br>find p:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/606.PNG" alt="606.PNG"><br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/607.PNG" alt="607.PNG"><br>the components need multiply n in case of  in power of n in roots like s^n<br>and any angle in negative value need add 180 to fit the requirement (like if angle=-90, need be changed as (-90+180)=90)<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/608.PNG" alt="608.PNG"></p>
+<p>find k:<br><img src="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/609.PNG" alt="609.PNG"><br>find the abs value for each part (square root of saperately real and imaginary value in power of 2)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2021-2022/" rel="tag"><i class="fa fa-tag"></i> 2021-2022</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/STM32/STM32-IIC%E9%80%9A%E4%BF%A1-5d220a67daac/" rel="prev" title="STM32 IIC通信">
+                  <i class="fa fa-chevron-left"></i> STM32 IIC通信
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021-2022/EEE317-Principle-of-Communications-63039017b149/" rel="next" title="EEE317 Principle of Communications">
+                  EEE317 Principle of Communications <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

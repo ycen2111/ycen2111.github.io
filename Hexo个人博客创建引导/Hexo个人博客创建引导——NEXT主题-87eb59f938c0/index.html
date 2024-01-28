@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="主题更换在hexo官网有主题下载页面，存储有大量主题。如果需要更换就点击进入主题的github页面，按上面的说明步骤直接clone进自己的文件夹就行。下载的文件可以在根目录下的\themes里找到。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo个人博客创建引导——NEXT主题">
+<meta property="og:url" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="主题更换在hexo官网有主题下载页面，存储有大量主题。如果需要更换就点击进入主题的github页面，按上面的说明步骤直接clone进自己的文件夹就行。下载的文件可以在根目录下的\themes里找到。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/%E7%9B%AE%E5%BD%95%E5%9B%BE%E8%A1%A8.PNG">
+<meta property="article:published_time" content="2021-09-08T07:03:16.000Z">
+<meta property="article:modified_time" content="2022-09-26T08:06:02.287Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/%E7%9B%AE%E5%BD%95%E5%9B%BE%E8%A1%A8.PNG">
+
+
+<link rel="canonical" href="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/","path":"Hexo个人博客创建引导/Hexo个人博客创建引导——NEXT主题-87eb59f938c0/","title":"Hexo个人博客创建引导——NEXT主题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo个人博客创建引导——NEXT主题 | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">主题更换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">网页设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">主题设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Schemes"><span class="nav-number">3.1.</span> <span class="nav-text">Schemes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#menu"><span class="nav-number">3.2.</span> <span class="nav-text">menu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Social-Links"><span class="nav-number">3.3.</span> <span class="nav-text">Social Links</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Footer"><span class="nav-number">3.4.</span> <span class="nav-text">Footer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post-Setting"><span class="nav-number">3.5.</span> <span class="nav-text">Post Setting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout-%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">Layout 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#index-njk"><span class="nav-number">4.1.</span> <span class="nav-text">index.njk</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo个人博客创建引导——NEXT主题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-08 15:03:16" itemprop="dateCreated datePublished" datetime="2021-09-08T15:03:16+08:00">2021-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">Hexo模板</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a>主题更换</h2><p>在hexo官网有<a target="_blank" rel="noopener" href="https://hexo.io/themes/">主题下载</a>页面，存储有大量主题。如果需要更换就点击进入主题的github页面，按上面的说明步骤直接clone进自己的文件夹就行。下载的文件可以在根目录下的\themes里找到。</p>
+<span id="more"></span>
+
+<p>打开根目录的_config.yml文件，搜索Extensions</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>将最后的theme改为新主题的名字即可，本地的话刷新就更换主题了。</p>
+<p>现在网站使用的是大佬推荐的<a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">Next</a>主题，内容设置相对丰富点，页面简约动画也不突兀。由于本人next主题使用的相对多点，这篇基本就记录下next里各个configuration，如果之后使用其他主题的话会另开一篇记录。</p>
+<h2 id="网页设置"><a href="#网页设置" class="headerlink" title="网页设置"></a>网页设置</h2><p>网页设置就是在hexo根目录下的_donfig.yml里的内容，一般下载插件或者更改基础设置时会使用。详细介绍可以找<a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration">官方文档</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 朽丶 // 主标题</span><br><span class="line">subtitle: <span class="string">&#x27;个人学习记录&#x27;</span> //副标题</span><br><span class="line">description: <span class="string">&#x27;Personal Learning Technical Blog&#x27;</span> //左边拉框内介绍</span><br><span class="line">keywords:</span><br><span class="line">author: Yang Cen //作者姓名</span><br><span class="line">language: zh-CN //语言设置</span><br><span class="line">timezone: <span class="string">&#x27;&#x27;</span> </span><br></pre></td></tr></table></figure>
+
+<p>另外可以查找下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: :title-:<span class="built_in">hash</span>/</span><br></pre></td></tr></table></figure>
+
+<p>更多模板可以在<a target="_blank" rel="noopener" href="https://hexo.io/docs/permalinks">官网</a>找到。</p>
+<h2 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h2><p>打开themes文件夹里的正在使用的主题文件夹，会发现里边也有个_config.yml文件，这个就是主题的配置文件。此板块会不定期更新，用来记录下理解的模块。</p>
+<h3 id="Schemes"><a href="#Schemes" class="headerlink" title="Schemes"></a>Schemes</h3><p>Next主题有四个体系</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<p>大体是header，left-side排版的变化，推荐都试试看看那个顺眼。由于只能选择一种体系，所以更换时记得注销掉不需要的内容。</p>
+<h3 id="menu"><a href="#menu" class="headerlink" title="menu"></a>menu</h3><p>位于标题附近的小目录，使用的话直接去掉之前的“#”即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>如果全打开效果类似下图<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/%E7%9B%AE%E5%BD%95%E5%9B%BE%E8%A1%A8.PNG" alt="目录图表.PNG"></p>
+<p>如果开启新板块需要bash里输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page pat_name</span><br></pre></td></tr></table></figure>
+
+<p>然后前往\source，会发现新建了一个同名文件夹，打开里边的index.md,按这个模板配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line"><span class="built_in">type</span>: <span class="string">&quot;categories&quot;</span></span><br><span class="line">date: 2021-09-07 11:13:54</span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>完成后就可以使用这些小图标了。</p>
+<p>基本上archives,categories,tags需要用的多些，这些不用怎么管的，有文章进去自己就会变化计数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line">menu_settings:</span><br><span class="line">  icons: <span class="literal">true</span></span><br><span class="line">  badges: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>icons: 之前的小图标<br>badges：开启会在每条末尾加一个计数表，显示数量</p>
+<h3 id="Social-Links"><a href="#Social-Links" class="headerlink" title="Social Links"></a>Social Links</h3><p>在side bar增加社交app图标和连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Social Links</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon`</span></span><br><span class="line"><span class="comment"># Key is the link label showing to end users.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/ycen2111 || fab fa-github</span><br><span class="line">  E-Mail: mailto:ycen2111@gmail.com || fa fa-envelope</span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br></pre></td></tr></table></figure>
+<p>||后的是图标连接，改下前面的网址就可以导向了。</p>
+<h3 id="Footer"><a href="#Footer" class="headerlink" title="Footer"></a>Footer</h3><p>在icon内可以更改footer中间那个图标</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Icon between year and copyright info.</span></span><br><span class="line">  icon:</span><br><span class="line">    <span class="comment"># Icon name in Font Awesome. See: https://fontawesome.com/icons</span></span><br><span class="line">    name: fa fa-grip-lines-vertical</span><br><span class="line">    <span class="comment"># If you want to animate the icon, set it to true.</span></span><br><span class="line">    animated: <span class="literal">false</span></span><br><span class="line">    <span class="comment"># Change the color of icon, using Hex Code.</span></span><br><span class="line">    color: <span class="string">&quot;#999999&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>name:可以在<a target="_blank" rel="noopener" href="https://fontawesome.com/icons">fontawesome</a>内选择图标，直接替换fa后的名字即可。<br>color:控制图标颜色，必须使用<a target="_blank" rel="noopener" href="https://www.color-hex.com/">HEX</a>代码。#999999与旁边字体颜色最近。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Powered by Hexo &amp; NexT</span></span><br><span class="line">powered: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>默认为true，改为false可以把最后那个Powered by Hexo &amp; NexT取消掉。</p>
+<h3 id="Post-Setting"><a href="#Post-Setting" class="headerlink" title="Post Setting"></a>Post Setting</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Read more button</span></span><br><span class="line"><span class="comment"># If true, the read more button will be displayed in excerpt section.</span></span><br><span class="line">read_more_btn: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>主界面阅读全文按钮，可以在.md文件内写入 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<p>定位按钮位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line">post_meta:</span><br><span class="line">  item_text: <span class="literal">false</span></span><br><span class="line">  created_at: <span class="literal">true</span></span><br><span class="line">  updated_at:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">    another_day: <span class="literal">false</span></span><br><span class="line">  categories: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>文章标题下面的一些信息。<br>item_text:图标旁边是否加上文字描述<br>created_at:创建时间<br>update_at:更新时间，如果another_day为true就只显示不同日期的更改记录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use icon instead of the symbol # to indicate the tag at the bottom of the post</span></span><br><span class="line">tag_icon: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>文章最后的tags之前用小图标标记。</p>
+<p>另外关于donate和reward的内容也在此，需要的话直接修改就行。</p>
+<h2 id="Layout-设置"><a href="#Layout-设置" class="headerlink" title="Layout 设置"></a>Layout 设置</h2><p>在 .\Hexo\themes\next\layout 目录下有所有显示排版设置，可以调整实际输出的格式。</p>
+<h3 id="index-njk"><a href="#index-njk" class="headerlink" title="index.njk"></a>index.njk</h3><p>有时不想在首页显示一些日记但可以通过标签找到文章，可以增加一个判断条件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;%- <span class="keyword">for</span> post <span class="keyword">in</span> page.posts.toArray() %&#125;</span><br><span class="line">  <span class="comment">#开始判断，invisible不为true的输出显示</span></span><br><span class="line">    &#123;% <span class="keyword">if</span> post.Invisible != <span class="literal">true</span> %&#125;</span><br><span class="line">      &#123;&#123; partial(<span class="string">&#x27;_macro/post.njk&#x27;</span>, &#123;post: post, is_index: <span class="literal">true</span>&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">#停止判断</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">  &#123;%- endfor %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;%- include <span class="string">&#x27;_partials/pagination.njk&#x27;</span> -%&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在文章设置内添加Invisible就行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: </span><br><span class="line">date: 2022-09-26 08:19:31</span><br><span class="line">tags:</span><br><span class="line"></span><br><span class="line">Invisible: True</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/Blog/" rel="tag"><i class="fa fa-tag"></i> Blog</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/" rel="prev" title="Hexo个人博客创建引导（二）">
+                  <i class="fa fa-chevron-left"></i> Hexo个人博客创建引导（二）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%B8%89%EF%BC%89-a191561fb171/" rel="next" title="Hexo个人博客创建引导（三）">
+                  Hexo个人博客创建引导（三） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

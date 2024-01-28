@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="week1Si: signal inputNi: noice inputSo: signal outputNo: noice output Noise in AM systemsassuming have noise vlotage&#x2F;current ni(t) and R&#x3D;1Ω, the noice power Ni:ni(t) in terms on in-phase and out-of-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EEE317 Principle of Communications">
+<meta property="og:url" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="week1Si: signal inputNi: noice inputSo: signal outputNo: noice output Noise in AM systemsassuming have noise vlotage&#x2F;current ni(t) and R&#x3D;1Ω, the noice power Ni:ni(t) in terms on in-phase and out-of-">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/101.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/102.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/103.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/104.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/105.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/106.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/107.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/108.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/109.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/110.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/201.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/202.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/203.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/204.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/205.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/206.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/207.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/208.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/209.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/210.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/211.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/212.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/301.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/302.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/303.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/304.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/305.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/401.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/402.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/403.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/404.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/405.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/406.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/501.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/502.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/601.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/602.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/605.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/604.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/603.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/606.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/607.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/608.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/609.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/610.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/701.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/702.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/703.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/704.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/705.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/706.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/707.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/708.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/709.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/710.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/711.PNG">
+<meta property="article:published_time" content="2021-09-27T06:08:53.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:15:22.809Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2021-2022">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/101.PNG">
+
+
+<link rel="canonical" href="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/","path":"2021-2022/EEE317-Principle-of-Communications-63039017b149/","title":"EEE317 Principle of Communications"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>EEE317 Principle of Communications | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#week1"><span class="nav-number">1.</span> <span class="nav-text">week1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise-in-AM-systems"><span class="nav-number">1.1.</span> <span class="nav-text">Noise in AM systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise-performance-of-DSB-SC-using-coherent-detection"><span class="nav-number">1.2.</span> <span class="nav-text">Noise performance of DSB SC using coherent detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise-performance-of-DSB-LC-using-envelope-detection"><span class="nav-number">1.3.</span> <span class="nav-text">Noise performance of DSB LC using envelope detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noice-in-FM-signal"><span class="nav-number">1.4.</span> <span class="nav-text">Noice in FM signal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-emphasis-and-de-emphasis-FM-systems"><span class="nav-number">1.5.</span> <span class="nav-text">Pre-emphasis and de-emphasis FM systems</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week2"><span class="nav-number">2.</span> <span class="nav-text">Week2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#entropy"><span class="nav-number">2.1.</span> <span class="nav-text">entropy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Huffman-coding"><span class="nav-number">2.2.</span> <span class="nav-text">Huffman coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strcuture-sequences-and-data-compression"><span class="nav-number">2.3.</span> <span class="nav-text">Strcuture sequences and data compression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lossless-and-lossy-coding"><span class="nav-number">2.4.</span> <span class="nav-text">Lossless and lossy coding</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week-3"><span class="nav-number">3.</span> <span class="nav-text">week 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages"><span class="nav-number">3.1.</span> <span class="nav-text">Advantages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Disadvantages"><span class="nav-number">3.2.</span> <span class="nav-text">Disadvantages</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week4"><span class="nav-number">4.</span> <span class="nav-text">week4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#channel-coding"><span class="nav-number">4.1.</span> <span class="nav-text">channel coding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#random-error"><span class="nav-number">4.1.1.</span> <span class="nav-text">random error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hard-decisions-and-soft-decisions"><span class="nav-number">4.1.2.</span> <span class="nav-text">hard decisions and soft decisions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiple-random-errors"><span class="nav-number">4.1.3.</span> <span class="nav-text">multiple random errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parity-check-bits"><span class="nav-number">4.1.4.</span> <span class="nav-text">parity check bits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convolution-coding"><span class="nav-number">4.1.5.</span> <span class="nav-text">convolution coding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reed-solomon-code"><span class="nav-number">4.1.6.</span> <span class="nav-text">reed-solomon code</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week5"><span class="nav-number">5.</span> <span class="nav-text">Week5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#features-for-a-good-pseudomoise-sequence"><span class="nav-number">5.1.</span> <span class="nav-text">features for a good pseudomoise sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generation-PN-code"><span class="nav-number">5.2.</span> <span class="nav-text">generation PN code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#non-maximal-length-PN-codes"><span class="nav-number">5.3.</span> <span class="nav-text">non maximal length PN codes</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week6"><span class="nav-number">6.</span> <span class="nav-text">Week6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DSSS"><span class="nav-number">6.1.</span> <span class="nav-text">DSSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search-mode"><span class="nav-number">6.2.</span> <span class="nav-text">search mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check-mode"><span class="nav-number">6.3.</span> <span class="nav-text">check mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#noise-suppression"><span class="nav-number">6.4.</span> <span class="nav-text">noise suppression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FHSS"><span class="nav-number">6.5.</span> <span class="nav-text">FHSS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">7.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transversal-filter"><span class="nav-number">7.1.</span> <span class="nav-text">Transversal filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#integraie-and-dump-matched-filter"><span class="nav-number">7.2.</span> <span class="nav-text">integraie and dump matched filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matched-filter-detedtion-of-PCM-codewords"><span class="nav-number">7.3.</span> <span class="nav-text">matched filter detedtion of PCM codewords</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">8.</span> <span class="nav-text">Week 8</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2021-2022/EEE317-Principle-of-Communications-63039017b149/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EEE317 Principle of Communications
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-27 14:08:53" itemprop="dateCreated datePublished" datetime="2021-09-27T14:08:53+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <span id="more"></span>
+
+<h1 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h1><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/101.PNG" alt="101.PNG"><br>Si: signal input<br>Ni: noice input<br>So: signal output<br>No: noice output</p>
+<h2 id="Noise-in-AM-systems"><a href="#Noise-in-AM-systems" class="headerlink" title="Noise in AM systems"></a>Noise in AM systems</h2><p>assuming have noise vlotage/current ni(t) and R=1Ω, the noice power Ni:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/102.PNG" alt="102.PNG"><br>ni(t) in terms on in-phase and out-of-phase components in the baseband<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/103.PNG" alt="103.PNG"><br>can get:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/104.PNG" alt="104.PNG"><br>where <img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/105.PNG" alt="105.PNG"> is the average value of nc(t)^2.</p>
+<p>hence <img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/106.PNG" alt="106.PNG"></p>
+<table>
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">efficiency</th>
+<th align="left">cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DSB SC</td>
+<td align="left">High</td>
+<td align="left">Expensive</td>
+</tr>
+<tr>
+<td align="left">DSB LC</td>
+<td align="left">Low</td>
+<td align="left">Cheap</td>
+</tr>
+</tbody></table>
+<h2 id="Noise-performance-of-DSB-SC-using-coherent-detection"><a href="#Noise-performance-of-DSB-SC-using-coherent-detection" class="headerlink" title="Noise performance of DSB SC using coherent detection"></a>Noise performance of DSB SC using coherent detection</h2><p>the input ti detectoe and time average input power signal is:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/107.PNG" alt="107.PNG"><br>if the demodulator the signal using a perfectly same carrier signal, the signal outputcan be:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/108.PNG" alt="108.PNG"><br>as have defined before, the input signal can simply write as the average value of ni^2(t) and no(t)=ni(t)*cos(Wct) and<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/109.PNG" alt="109.PNG"></p>
+<p>hence the noise rations is:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/110.PNG" alt="110.PNG"></p>
+<h2 id="Noise-performance-of-DSB-LC-using-envelope-detection"><a href="#Noise-performance-of-DSB-LC-using-envelope-detection" class="headerlink" title="Noise performance of DSB LC using envelope detection"></a>Noise performance of DSB LC using envelope detection</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/201.PNG" alt="201.PNG"><br>r(t) is the output from envelope detector. If ns(t)^2 is much larger than its denominator, hence<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/202.PNG" alt="202.PNG"><br>By the same calculation, get<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/203.PNG" alt="203.PNG"></p>
+<h2 id="Noice-in-FM-signal"><a href="#Noice-in-FM-signal" class="headerlink" title="Noice in FM signal"></a>Noice in FM signal</h2><p>The FM receiver can be drawn as<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/204.PNG" alt="204.PNG"><br>Liliter here is ideal and could removes all amplitude variations.</p>
+<p>Input signal si(t) can be written as:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/205.PNG" alt="205.PNG"><br>cA: the maximum frequency deviation(same value as ∆ω)<br>α: signal amplitude<br>β: the modulation index(β=∆ω/ωm)</p>
+<p>and the time average output signal power is:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/206.PNG" alt="206.PNG"><br>K: constant associated demodulator system</p>
+<p>hence the noice output power is proportional as ω<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/207.PNG" alt="207.PNG"></p>
+<p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/208.PNG" alt="208.PNG"></p>
+<h2 id="Pre-emphasis-and-de-emphasis-FM-systems"><a href="#Pre-emphasis-and-de-emphasis-FM-systems" class="headerlink" title="Pre-emphasis and de-emphasis FM systems"></a>Pre-emphasis and de-emphasis FM systems</h2><p>from the figure above, find the noice power density is at its highest when signal strength is at its smallest.<br>hence pre increase/decrease strength before modulating singal can solve it<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/209.PNG" alt="209.PNG"></p>
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a>Week2</h1><h2 id="entropy"><a href="#entropy" class="headerlink" title="entropy"></a>entropy</h2><p>The entropy, or H, is the average information carried per message of stmbol<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/210.PNG" alt="210.PNG"><br>like if p(0)=0.2 and p(1)=0.8, H=-(p(0)log2(p(0))+p(1)log2(p(1)))</p>
+<p>the relationship between proporty and H is<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/211.PNG" alt="211.PNG"></p>
+<h2 id="Huffman-coding"><a href="#Huffman-coding" class="headerlink" title="Huffman coding"></a>Huffman coding</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/212.PNG" alt="212.PNG"><br>for different appear porporty for letter ABCDE, different combination have been used to arrange them.<br>the bigger proporty a letter has, the less diginal number will used on it.</p>
+<p>the average number per message Huffman code will sent can be calculated as<br>n’=1<em>0.74+2</em>0.12+3<em>0.07+4</em>0.06+4*0.01=1.39 bits/message<br>but if using entropy the value will changed as<br>H=-(0.74log2(0.74)+0.12log2(0.12)+…+0.01log2(0.01))=1.26 bits/message</p>
+<p>the efficiency of Huffman codeing is 1.26/1.39=91%</p>
+<h2 id="Strcuture-sequences-and-data-compression"><a href="#Strcuture-sequences-and-data-compression" class="headerlink" title="Strcuture sequences and data compression"></a>Strcuture sequences and data compression</h2><p>Compression is used to reduce the number of bits required to send a piece of information.</p>
+<p>Or can usig run-length encoding, which have combain all continous same colors into entire part(like color name + numbers) to reduce store places</p>
+<p>But Variable data rate required - the channel bandwidth will be constant, so<br>buffers are needed.<br>And A bit error can cause large areas of picture to be incorrect - a low error<br>rate is needed.  </p>
+<h2 id="Lossless-and-lossy-coding"><a href="#Lossless-and-lossy-coding" class="headerlink" title="Lossless and lossy coding"></a>Lossless and lossy coding</h2><p>run-length coding is an example of lossless coding, cause all bits and data is important in series.<br>Lossy coding can loss pieces of message and the rest of data can also been used. such as sound and pictures.</p>
+<h1 id="week-3"><a href="#week-3" class="headerlink" title="week 3"></a>week 3</h1><p>intriduction of digital communications. find the advantages and diaadvantages exsists in digital communications.</p>
+<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><p>Channel coding: the process of adding redundant code to a message in order to help the receiver correct any errors which may have occued in transit. (like 0 001 1111, which first 0 is a checking bit without any meaning)</p>
+<p>Source coding: Source coding is the process of modifying the way we send the data.</p>
+<p>Multiplexing: In transmission systems we often want to make many different signals occupy the available transmission space, this is called multiplexing. </p>
+<p>Frequency division multiple access (FDMA): different baseband range will allocated to different user in same time.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/301.PNG" alt="301.PNG"></p>
+<p>Time division multiple acces (TDMA): whole baseband will allocated to user but in part of whole times.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/302.PNG" alt="302.PNG"></p>
+<p>Code division multiple access (CDMA): both time and baseband will be divided and allocated to different users (most effieiency way, and evry secure)<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/303.PNG" alt="303.PNG"></p>
+<p>Encryption : data will be coded by a key and decoded by a same key when receive it.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/304.PNG" alt="304.PNG"></p>
+<p>Regeneration: The signal need to repeate transimited signals every regulat times and both signal and noise will strengthed and finally noise will larger than signal in analogue signal. But in channel coding every small noise will be removed while repeat the signals.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/305.PNG" alt="305.PNG"></p>
+<h2 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages"></a>Disadvantages</h2><p>Bandwidth effiency: An analogue transmission system will always occupy less bandwidth than a digital system sending the same message. For some times we can using M-Ary to ease this problem.<br>Please note: the sample frequency in ADC need larger than 2 times of original signal frequency.</p>
+<p>Whats more, digital signals need translate to analogue signals finally, and need synchronisation send and receive environment. It can be more complex to send a digital message.</p>
+<h1 id="week4"><a href="#week4" class="headerlink" title="week4"></a>week4</h1><h2 id="channel-coding"><a href="#channel-coding" class="headerlink" title="channel coding"></a>channel coding</h2><p>Probability of errors: a binary message sent with bit 0 ir 1 have a probabitity p to turn into wrong bit<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/401.PNG" alt="401.PNG"><br>Pε = P (0→1)× P (1) + P (1→0) P (0)</p>
+<h3 id="random-error"><a href="#random-error" class="headerlink" title="random error"></a>random error</h3><p>Random errors are typically caused by additive white Gaussian noise (AWGN).<br>Probability density function (PDF) is determined the magnitude for Gaussian in nature<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/402.PNG" alt="402.PNG"><br>the funtction form of PDF is<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/403.PNG" alt="403.PNG"><br>which where σ is the standard deviation and a0(1) is the mean of the distribution for logic 0 (1). </p>
+<h3 id="hard-decisions-and-soft-decisions"><a href="#hard-decisions-and-soft-decisions" class="headerlink" title="hard decisions and soft decisions"></a>hard decisions and soft decisions</h3><p>hard decision is what figure shows above. is usually sdequate for channels with small amounts of AWGN.<br>soft decision is return 1 or 0 if a is bigger or smaller than am. is usually for high AWGN noise.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/404.PNG" alt="404.PNG"></p>
+<h3 id="multiple-random-errors"><a href="#multiple-random-errors" class="headerlink" title="multiple random errors"></a>multiple random errors</h3><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/405.PNG" alt="405.PNG"></p>
+<h3 id="parity-check-bits"><a href="#parity-check-bits" class="headerlink" title="parity check bits"></a>parity check bits</h3><p>A single bit parity check code is a simple algebraic code.</p>
+<table>
+<thead>
+<tr>
+<th align="left">bit</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">odd number of bit “1”</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">even number of bit “1”</td>
+</tr>
+</tbody></table>
+<h3 id="convolution-coding"><a href="#convolution-coding" class="headerlink" title="convolution coding"></a>convolution coding</h3><p>a more powerful technical for correction random errors.<br>for example, initially loaded with 000 and subjected to input data 11011</p>
+<table>
+<thead>
+<tr>
+<th align="left">clock pulse</th>
+<th align="left">D0</th>
+<th align="left">D1</th>
+<th align="left">D2</th>
+<th align="left">u1</th>
+<th align="left">u1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<p>where u1=D0+D1+D2, u2=D0+D2<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/406.PNG" alt="406.PNG"><br>the output result will changed in a constant rules hence some small errors will be found out and perhaps been solved.</p>
+<h3 id="reed-solomon-code"><a href="#reed-solomon-code" class="headerlink" title="reed-solomon code"></a>reed-solomon code</h3><p>Reed-Solomon codes are in essence parity check codes, although the method by which the additional bits are derived is significantly more complex to enable burst errors corrections.<br>n: the final length of the code<br>k: the initial length of the code<br>t: number of symbol errors can be corrected(2t=n-k)</p>
+<h1 id="Week5"><a href="#Week5" class="headerlink" title="Week5"></a>Week5</h1><p>Pseudonoise(PN) is a noise but in completely derministic. it can presrve and srcurity signals in channel from other influences.</p>
+<h2 id="features-for-a-good-pseudomoise-sequence"><a href="#features-for-a-good-pseudomoise-sequence" class="headerlink" title="features for a good pseudomoise sequence"></a>features for a good pseudomoise sequence</h2><p>Balance: want roughly same number of 0 and 1<br>Run sequence: a sequence of consecutive bits with same value. and 1/2 of sequecy should be length of 1, 1/4 be length of 2 and 1/8 be length of 3.<br>Autocorrelation: have a low correlation with shifted copies with itself.</p>
+<p>like 15-bit sequence 100110101111000,<br>8 of “1” and 7 of “0”, achieved balance<br>4 of 1 length, 2 of 2 length, 1 of 3 length and 1 0f 4 length, roughlt achieved run sequence.<br>100110101111000<br>xor<br>010011010111100<br>=<br>110101111000100<br>autocorrelation of -1 (sane with other shift situations, fit the autocorrelation)</p>
+<p>the good autocorrelation can be used in synchronisation communications cause receiver can easily find the code word by calculating correlation function between its stored PN code and the incoming data stream.</p>
+<h2 id="generation-PN-code"><a href="#generation-PN-code" class="headerlink" title="generation PN code"></a>generation PN code</h2><p>a shift register connected in feedback via a modulo-2 adder can genarate PN code<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/501.PNG" alt="501.PNG"></p>
+<p>if n=3, and initial S1=0, S2=1, S3=1, get<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/502.PNG" alt="502.PNG"><br>repeat 7 times (for n length, the maximum number is =2^n-1, called maximal length sequency)</p>
+<table>
+<thead>
+<tr>
+<th align="left">S1</th>
+<th align="left">S2</th>
+<th align="left">S3</th>
+<th align="left">o/p</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+</tbody></table>
+<p>get output sequency 11100101.</p>
+<p>be attention: the initialize code can’t be “000” cause no “1” can be generated through “0”s</p>
+<h2 id="non-maximal-length-PN-codes"><a href="#non-maximal-length-PN-codes" class="headerlink" title="non maximal length PN codes"></a>non maximal length PN codes</h2><p>“Gold code” is designed cross-correlation properties are used<br>and “Barker codes” are sequences which only have 2-valued autocorrelation function. for example</p>
+<table>
+<thead>
+<tr>
+<th align="left">bits number</th>
+<th align="left">Barker code sequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">3</td>
+<td align="left">110</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">11101</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">1110010</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">11100010010</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">1111100110101</td>
+</tr>
+</tbody></table>
+<p>by wrapping the code with itself, get</p>
+<table>
+<thead>
+<tr>
+<th align="left">1</th>
+<th align="left">1</th>
+<th align="left">1</th>
+<th align="left">0</th>
+<th align="left">1</th>
+<th align="left">correlation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">+5</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">+1</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">+1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">+1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">+1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">+1</td>
+</tr>
+</tbody></table>
+<p>only 1 and 5 these two values.</p>
+<h1 id="Week6"><a href="#Week6" class="headerlink" title="Week6"></a>Week6</h1><p>DSSS: direct dequence S.S.<br>FHSS: frequency hopping S.S.</p>
+<p>advantage of S.S. system:<br>Low probability of interception, interference rejection, higher data rates, and multiple access</p>
+<h2 id="DSSS"><a href="#DSSS" class="headerlink" title="DSSS"></a>DSSS</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/601.PNG" alt="601.PNG"></p>
+<p>the message m(t) will first modulated with a PN code which changes much faster than original and much similar with a noise signal.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/602.PNG" alt="602.PNG"></p>
+<p>hence usually this signal is useless unless reveicer have the same PN code to demodulate it.<br>and definitely, the PN code c(t) in receiver part need to be synchronised with incoming signal to demodulate correctly.</p>
+<p>G=Tb/Tch</p>
+<h2 id="search-mode"><a href="#search-mode" class="headerlink" title="search mode"></a>search mode</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/605.PNG" alt="605.PNG"></p>
+<p>the control logic will detectwhether PN code have schieve the synchronisation type by energy. if it is not synchronised, energy during BPF(bandpass filter) will very small and then deley time td will be adjusted. but if in synchronised mode then the energy during BPF region will be strong enough to detect.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/604.PNG" alt="604.PNG"></p>
+<h2 id="check-mode"><a href="#check-mode" class="headerlink" title="check mode"></a>check mode</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/603.PNG" alt="603.PNG"></p>
+<p>the check mode will compear the signal reveiced between early and late part. the synchronisation will be achieved if these two parts have identical values.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/606.PNG" alt="606.PNG"></p>
+<p>if PN generator is early generated, the shadow area in early part will smaller than late part and VCO will changed the time sequence to adjust it.</p>
+<h2 id="noise-suppression"><a href="#noise-suppression" class="headerlink" title="noise suppression"></a>noise suppression</h2><p>the AWGN(additive Gaussian white noise) have finite power over an infinite bandwidth. the de-spearding operation for a ready-spreaded signal can increased power in signal and decrease influence from such white noise.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/607.PNG" alt="607.PNG"></p>
+<p>the jamming signal can be signal with high power and narrow bandwidth. but it can also be decreased after de-spreading.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/608.PNG" alt="608.PNG"></p>
+<h2 id="FHSS"><a href="#FHSS" class="headerlink" title="FHSS"></a>FHSS</h2><p>frequency hopping spreads the data signal on one of a series of carriers occupy a really large bandwidth.it is required the bandwidth containing carrier frequency is much larger than data bandwidth. (more than one hoppings in a bandwidth)<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/609.PNG" alt="609.PNG"></p>
+<p>final signal will be modulated for two times and its final frequency can be drawed as<br> <img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/610.PNG" alt="610.PNG"><br>final signal frequency=f(carrier)+f(offset)</p>
+<p>the processing gain for a frequency hopping system is given as<br>G=fh*Ts</p>
+<p>slow hopping system: the duration of a message bit sorresponds to the inverse hop rate.<br>fast frequency hopping: would suffer a noise or jamming signal in many parts of the bandwidth.</p>
+<h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><p>The filter at the receiver end plays a vital role in determining the performance of a communications link.<br>good filter:<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/701.PNG" alt="701.PNG"></p>
+<p>for the required matched filter’s impulse response h(t) can be<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/702.PNG" alt="702.PNG"></p>
+<h2 id="Transversal-filter"><a href="#Transversal-filter" class="headerlink" title="Transversal filter"></a>Transversal filter</h2><p><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/703.PNG" alt="703.PNG"><br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/704.PNG" alt="704.PNG"><br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/705.PNG" alt="705.PNG"></p>
+<h2 id="integraie-and-dump-matched-filter"><a href="#integraie-and-dump-matched-filter" class="headerlink" title="integraie and dump matched filter"></a>integraie and dump matched filter</h2><p>this matched filter can only be used for binary signal<br>with the previous function s(t)=1 and stop in t=T, the correlation figure can be drawn as<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/706.PNG" alt="706.PNG"><br>and note the shape of dquare wave is distorted by matched filter</p>
+<p>the duration of g(t) can roughly implemented as<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/707.PNG" alt="707.PNG"><br>the switch is open when t&lt;T, till the sample is gotten. the circuit can then determined the capacitor voltage, output it can clean for next sample collection.<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/708.PNG" alt="708.PNG"></p>
+<p>and we can also change previous function g(T) and implementation as<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/709.PNG" alt="709.PNG"><br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/710.PNG" alt="710.PNG"></p>
+<h2 id="matched-filter-detedtion-of-PCM-codewords"><a href="#matched-filter-detedtion-of-PCM-codewords" class="headerlink" title="matched filter detedtion of PCM codewords"></a>matched filter detedtion of PCM codewords</h2><p>it is quite same with correlation implements before but with PVM code to reject some of noise<br><img src="/2021-2022/EEE317-Principle-of-Communications-63039017b149/711.PNG" alt="711.PNG"><br>the most significant bit will be placed in the last and other bit will be filled with PCM code word<br>like if want transfer “3” in 8 bits with PCM “1101”, the code will be 00 1101 11 for transfter the important message at first.</p>
+<h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2021-2022/" rel="tag"><i class="fa fa-tag"></i> 2021-2022</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-2022/ACS342-Feedback-systems-Design-358d4eda2d35/" rel="prev" title="ACS342 Feedback systems Design">
+                  <i class="fa fa-chevron-left"></i> ACS342 Feedback systems Design
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/" rel="next" title="EEE339 Digital Engineering">
+                  EEE339 Digital Engineering <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

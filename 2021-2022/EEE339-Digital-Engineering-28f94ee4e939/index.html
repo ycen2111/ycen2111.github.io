@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="week1Application Specific Integrated Circuits(ASICS)ASICs are silicon chips that have been designed for a specific purpose Full Custom Design the highest performance the most expensive and time cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EEE339 Digital Engineering">
+<meta property="og:url" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="week1Application Specific Integrated Circuits(ASICS)ASICs are silicon chips that have been designed for a specific purpose Full Custom Design the highest performance the most expensive and time cons">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/101.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/102.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/103.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/104.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/201.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/301.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/302.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/303.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/304.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/305.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/306.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/307.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/308.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/401.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/402.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/403.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/404.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/405.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/406.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/601.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/602.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/603.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/604.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/605.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/701.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/702.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/703.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/704.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/705.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/706.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/707.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/801.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/802.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/803.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/901.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/902.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/903.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/904.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/905.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1001.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1002.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1003.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1004.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1005.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1006.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1007.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1008.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1009.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1201.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1202.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1203.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1204.PNG">
+<meta property="og:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1205.PNG">
+<meta property="article:published_time" content="2021-09-27T06:09:24.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:15:32.670Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2021-2022">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/101.PNG">
+
+
+<link rel="canonical" href="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/","path":"2021-2022/EEE339-Digital-Engineering-28f94ee4e939/","title":"EEE339 Digital Engineering"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>EEE339 Digital Engineering | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#week1"><span class="nav-number">1.</span> <span class="nav-text">week1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Specific-Integrated-Circuits-ASICS"><span class="nav-number">1.1.</span> <span class="nav-text">Application Specific Integrated Circuits(ASICS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-Custom-Design"><span class="nav-number">1.1.1.</span> <span class="nav-text">Full Custom Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Custom-Design"><span class="nav-number">1.1.2.</span> <span class="nav-text">Semi-Custom Design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field-Programmable-Gate-Array-FPGA"><span class="nav-number">1.1.3.</span> <span class="nav-text">Field Programmable Gate Array (FPGA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verilog"><span class="nav-number">1.2.</span> <span class="nav-text">Verilog</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-structure"><span class="nav-number">1.2.1.</span> <span class="nav-text">Basic structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Defined-Primitives-UDP"><span class="nav-number">1.2.2.</span> <span class="nav-text">User Defined Primitives (UDP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Port-mapping"><span class="nav-number">1.2.3.</span> <span class="nav-text">Port mapping</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week2"><span class="nav-number">2.</span> <span class="nav-text">Week2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#delay-module"><span class="nav-number">2.1.</span> <span class="nav-text">delay module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#four-value-logic-system"><span class="nav-number">2.2.</span> <span class="nav-text">four-value logic system</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week3"><span class="nav-number">3.</span> <span class="nav-text">Week3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Register-file"><span class="nav-number">3.1.</span> <span class="nav-text">Register file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shifter"><span class="nav-number">3.2.</span> <span class="nav-text">shifter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Logic-Unit"><span class="nav-number">3.3.</span> <span class="nav-text">Arithmetic Logic Unit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#week4"><span class="nav-number">4.</span> <span class="nav-text">week4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiplication"><span class="nav-number">4.1.</span> <span class="nav-text">multiplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardware-multiplication"><span class="nav-number">4.2.</span> <span class="nav-text">hardware multiplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#combinatorial-multiplication"><span class="nav-number">4.3.</span> <span class="nav-text">combinatorial multiplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Booth%E2%80%99s-Algorithm"><span class="nav-number">4.4.</span> <span class="nav-text">Booth’s Algorithm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week6"><span class="nav-number">5.</span> <span class="nav-text">Week6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#non-restoring-restoring-division"><span class="nav-number">5.1.</span> <span class="nav-text">non-restoring&#x2F;restoring division</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floating-point"><span class="nav-number">5.2.</span> <span class="nav-text">floating point</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-7"><span class="nav-number">6.</span> <span class="nav-text">Week 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-resources"><span class="nav-number">6.1.</span> <span class="nav-text">Memory resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS-processor"><span class="nav-number">6.2.</span> <span class="nav-text">MIPS processor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intel-X86-Architecture"><span class="nav-number">6.3.</span> <span class="nav-text">Intel X86 Architecture</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week-8"><span class="nav-number">7.</span> <span class="nav-text">Week 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#register-control"><span class="nav-number">7.1.</span> <span class="nav-text">register control</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week9"><span class="nav-number">8.</span> <span class="nav-text">Week9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">8.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache"><span class="nav-number">8.2.</span> <span class="nav-text">cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache-mapping"><span class="nav-number">8.3.</span> <span class="nav-text">cache mapping</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Week10"><span class="nav-number">9.</span> <span class="nav-text">Week10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-filters"><span class="nav-number">9.1.</span> <span class="nav-text">Digital filters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithmic-state-machine-chart"><span class="nav-number">9.2.</span> <span class="nav-text">Algorithmic state machine chart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">9.3.</span> <span class="nav-text">implementation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Topic-1"><span class="nav-number">10.</span> <span class="nav-text">Topic 1</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EEE339 Digital Engineering
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-27 14:09:24" itemprop="dateCreated datePublished" datetime="2021-09-27T14:09:24+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <span id="more"></span>
+
+<h1 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h1><h2 id="Application-Specific-Integrated-Circuits-ASICS"><a href="#Application-Specific-Integrated-Circuits-ASICS" class="headerlink" title="Application Specific Integrated Circuits(ASICS)"></a>Application Specific Integrated Circuits(ASICS)</h2><p>ASICs are silicon chips that have been designed for a specific purpose</p>
+<h3 id="Full-Custom-Design"><a href="#Full-Custom-Design" class="headerlink" title="Full Custom Design"></a>Full Custom Design</h3><ul>
+<li>the highest performance</li>
+<li>the most expensive and time consuming to produce</li>
+</ul>
+<h3 id="Semi-Custom-Design"><a href="#Semi-Custom-Design" class="headerlink" title="Semi-Custom Design"></a>Semi-Custom Design</h3><p>for Gate Array:</p>
+<ul>
+<li>predefined on silicon wafer</li>
+<li>need to define the interconnections for final device</li>
+</ul>
+<p>for Standard Cell:</p>
+<ul>
+<li>predefined functional blocks improve layout density and performance.</li>
+</ul>
+<h3 id="Field-Programmable-Gate-Array-FPGA"><a href="#Field-Programmable-Gate-Array-FPGA" class="headerlink" title="Field Programmable Gate Array (FPGA)"></a>Field Programmable Gate Array (FPGA)</h3><ul>
+<li>contain configurable logic resources and memory</li>
+<li>are most useful for prototyping and can be cost effective for low volume production runs.</li>
+</ul>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/101.PNG" alt="101.PNG"></p>
+<p>Software tools enable users to enter designs, simulate them to ensure correct functionality and then synthesize a solution for a chosen target device.</p>
+<h2 id="Verilog"><a href="#Verilog" class="headerlink" title="Verilog"></a>Verilog</h2><h3 id="Basic-structure"><a href="#Basic-structure" class="headerlink" title="Basic structure"></a>Basic structure</h3><p>The module body describes the functionality of the model and the relationship between the input and output ports.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/102.PNG" alt="102.PNG"></p>
+<p>The keyword wire is used to declare internal signals. For example:<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/103.PNG" alt="103.PNG"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module Add_full(output c_out, sum, input a, b, c_in);</span><br><span class="line">	wire w1, w2, w3;</span><br><span class="line">	Add_half M1(w2, w1, a, b);</span><br><span class="line">	Add_half M2(w3, sum, c_in, w1);</span><br><span class="line">	or (c_out, w3, w2);</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h3 id="User-Defined-Primitives-UDP"><a href="#User-Defined-Primitives-UDP" class="headerlink" title="User Defined Primitives (UDP)"></a>User Defined Primitives (UDP)</h3><p>The module descripted by truth table</p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/104.PNG" alt="104.PNG"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">primitive mux_21_udp(output f, input s, a, b);</span><br><span class="line">	table</span><br><span class="line">		// s a b : f </span><br><span class="line">		0 0 ? : 0 ; //(? means not care)</span><br><span class="line">		0 1 ? : 1 ; </span><br><span class="line">		1 ? 0 : 0 ;</span><br><span class="line">		1 ? 1 : 1 ;</span><br><span class="line">	endtable</span><br><span class="line">endprimitive</span><br></pre></td></tr></table></figure>
+
+<h3 id="Port-mapping"><a href="#Port-mapping" class="headerlink" title="Port mapping"></a>Port mapping</h3><p>Another writing format can not stricly follow the variables’ order.</p>
+<p>When the number of ports grows larger, it is easier to associate ports by their names.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add_half M1 (.b(b), .c_out(w2), .a(a), .sum(w1));</span><br></pre></td></tr></table></figure>
+
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a>Week2</h1><h2 id="delay-module"><a href="#delay-module" class="headerlink" title="delay module"></a>delay module</h2><p>Propagation delay: time from the input changing to the output responding.</p>
+<p>Inertial delay model(for components): changes to the output of ogic gates can not happen instantly due to the charging and discharging of capacitances.(6ps)<br>If the width of an input pulse is shorter than the inertial delay, the input pulse is supressed and the output will not change in response to it.</p>
+<p>Transport delay model(for wire): Time taken for a signal to propagate alonga wire.(1ps)</p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/201.PNG" alt="201.PNG"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">`timescale 10ps / 1ps //&lt;time_unit&gt;/&lt;time_precision&gt;</span><br><span class="line">module timedelay (f, a ,b);</span><br><span class="line">input a, b;</span><br><span class="line">output f;</span><br><span class="line">nand <span class="comment">#2.58 (f, a, b);</span></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+<p>#2.58=2.58*10ps=25.8ps rounded to 26ps</p>
+<h2 id="four-value-logic-system"><a href="#four-value-logic-system" class="headerlink" title="four-value logic system"></a>four-value logic system</h2><p>1 – assertion (True)<br>0 – de-assertion (False)<br>x – unknown (ambiguous)<br>z – high impedance (disconnected from driver)</p>
+<p>nets: build connections but not store values, like wire.<br>registers: store value and informations</p>
+<h1 id="Week3"><a href="#Week3" class="headerlink" title="Week3"></a>Week3</h1><h2 id="Register-file"><a href="#Register-file" class="headerlink" title="Register file"></a>Register file</h2><p>The registers in a CPU can be grouped into a register file. Two outputs are supplied in order to feed the ALU.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/301.PNG" alt="301.PNG"></p>
+<h2 id="shifter"><a href="#shifter" class="headerlink" title="shifter"></a>shifter</h2><p>standard bidirectional shift register: A multiplexer on each input gives a choice of left shift, right shift, parallel load and no-shift, by selecting the source of the D input appropriately.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/302.PNG" alt="302.PNG"></p>
+<p>Combinational Shifter: shift data using multiplexers. B1,2,3 is input and H1,2,3 is output.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/303.PNG" alt="303.PNG"></p>
+<p>Barrel Shifter: The circuit rotates its contents left from 0 to 3 positions depending on S<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/304.PNG" alt="304.PNG"></p>
+<h2 id="Arithmetic-Logic-Unit"><a href="#Arithmetic-Logic-Unit" class="headerlink" title="Arithmetic Logic Unit"></a>Arithmetic Logic Unit</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/305.PNG" alt="305.PNG"></p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/306.PNG" alt="306.PNG"></p>
+<p>the logic circuit (bitslice):<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/307.PNG" alt="307.PNG"></p>
+<table>
+<thead>
+<tr>
+<th align="left">S1</th>
+<th align="left">S0</th>
+<th align="left">Operation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">AND</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">OR</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">XOR</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">NOT</td>
+</tr>
+</tbody></table>
+<p>arithmetic unit:<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/308.PNG" alt="308.PNG"></p>
+<table>
+<thead>
+<tr>
+<th align="left">S1</th>
+<th align="left">S2</th>
+<th align="left">Y</th>
+<th align="left">Cin=0</th>
+<th align="left">Cin=1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">G=A</td>
+<td align="left">G=A+1</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">B</td>
+<td align="left">G=A+B</td>
+<td align="left">G=A+B+1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">B’</td>
+<td align="left">G=A+B’</td>
+<td align="left">G=A+B’+1</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">G=A-1</td>
+<td align="left">G=A</td>
+</tr>
+</tbody></table>
+<h1 id="week4"><a href="#week4" class="headerlink" title="week4"></a>week4</h1><p>pictorial representation of 4-bit unsigned inteder:<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/401.PNG" alt="401.PNG"></p>
+<p>2s-complement representation of 4 bits inteder:<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/402.PNG" alt="402.PNG"><br>note that h(-5)=b(1011)=-(2)^3+2^1+2^0</p>
+<p>fixed-point 2’s-complement numbers<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/403.PNG" alt="403.PNG"></p>
+<h2 id="multiplication"><a href="#multiplication" class="headerlink" title="multiplication"></a>multiplication</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/404.PNG" alt="404.PNG"></p>
+<h2 id="hardware-multiplication"><a href="#hardware-multiplication" class="headerlink" title="hardware multiplication"></a>hardware multiplication</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/405.PNG" alt="405.PNG"><br>multiplicand will delay 1 bit after each operation like 0000 1101→0001 1010<br>multiplier will shift to right after each step like 1011→101.<br>product will save results output from adder. but changing process will be cancled if the most right side digital number in multipier is “0”.</p>
+<h2 id="combinatorial-multiplication"><a href="#combinatorial-multiplication" class="headerlink" title="combinatorial multiplication"></a>combinatorial multiplication</h2><p>2-digit number A=(a10+a0) B=(b10+b0)<br>A<em>B=(a1</em>b1)00+(a1<em>b0+a0</em>b1)0+(a0*b0)</p>
+<h2 id="Booth’s-Algorithm"><a href="#Booth’s-Algorithm" class="headerlink" title="Booth’s Algorithm"></a>Booth’s Algorithm</h2><p>the equation cna be writen as<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/406.PNG" alt="406.PNG"></p>
+<p>for example the euqation 43*12 can be explained as</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   43 = 00000101011</span><br><span class="line">* 12 = 00000001100(0)</span><br><span class="line">---------------------------</span><br><span class="line">     0 = 00000000000  //multiplier bits 0(0)</span><br><span class="line">+  0 = 0000000000|0  //multiplier bits 00</span><br><span class="line">- 172=111010101|00  //multiplier bits 10</span><br><span class="line">+  0 = 00000000|000  //multiplier bits 11</span><br><span class="line">+688=0101011|0000  //multiplier bits 01</span><br><span class="line">----------------------------</span><br><span class="line">   516=01000000100</span><br></pre></td></tr></table></figure>
+<p>the relationship between multiplier and operation is</p>
+<table>
+<thead>
+<tr>
+<th align="left">bits</th>
+<th align="left">operation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10</td>
+<td align="left">subtract</td>
+</tr>
+<tr>
+<td align="left">01</td>
+<td align="left">add</td>
+</tr>
+<tr>
+<td align="left">00/11</td>
+<td align="left">nothing</td>
+</tr>
+</tbody></table>
+<h1 id="Week6"><a href="#Week6" class="headerlink" title="Week6"></a>Week6</h1><p>for A%B=C……D,<br>A is dividend<br>B is divisor<br>C is quotient<br>D is Remainder</p>
+<p>for binary division, comparetion is the only thing need to do<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/601.PNG" alt="601.PNG"></p>
+<p>and its implementation is<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/602.PNG" alt="602.PNG"></p>
+<h2 id="non-restoring-restoring-division"><a href="#non-restoring-restoring-division" class="headerlink" title="non-restoring/restoring division"></a>non-restoring/restoring division</h2><p>restoring division: the dividiend will turn into previous value if result is negative<br>non-restoring division: don’t restoring the value if result is negative</p>
+<p>the sign of operation is inversed with divided’s signal (“-“ if divident is positive and “+” if divident is negative)<br>if result if negative, ouput 0; if result is positive, output 1.</p>
+<p>example: 456/23 by non-restoring division<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/603.PNG" alt="603.PNG"></p>
+<h2 id="floating-point"><a href="#floating-point" class="headerlink" title="floating point"></a>floating point</h2><p>the value of point numbrt can be explaination as m*2^e, where m is mantissa and e is exponent</p>
+<p>The IEEE-753 floating point number can can be formulated as<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/604.PNG" alt="604.PNG"><br>with 32 bits and 64 bits these two types<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/605.PNG" alt="605.PNG"></p>
+<p>value in exponent will have a bias which bigger (127 in 32 bits and 1023 in 64 bits) than what we expected</p>
+<p>example: turn -93.625 into 32 bits</p>
+<ol>
+<li>93.625=1011 101.101 in binary</li>
+<li>it = 1.0111 0110 1 *(2^6)</li>
+<li>in 32 bits, it have 127 bias. Hence exponent=6+127=133=1000 0101</li>
+<li>remove this first “1”, get 0.0111 0110 1, hence 0111 0110 1 is fraction</li>
+<li>it is a negative number, hence sian bit =1.</li>
+</ol>
+<p>therefore, get 1|1000 0101|0111 0110 1000 0000 0000 000 (23 bits)</p>
+<h1 id="Week-7"><a href="#Week-7" class="headerlink" title="Week 7"></a>Week 7</h1><h2 id="Memory-resources"><a href="#Memory-resources" class="headerlink" title="Memory resources"></a>Memory resources</h2><p>normally instructions are stored in main memory as a program and decode them when programe is required.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/701.PNG" alt="701.PNG"><br>the address of each lines of programe is counted by a program counter (PC) which can count and load new addresses from status flags.</p>
+<h2 id="MIPS-processor"><a href="#MIPS-processor" class="headerlink" title="MIPS processor"></a>MIPS processor</h2><p>MIPS is a Reduced Instructure Set Computer(RISC). it have 32 registers which have 32 bits wide for each, for byte addressing.</p>
+<p>A MIPS word is 32 bits or 4 bytes but giving 2^30 memory words.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/702.PNG" alt="702.PNG"><br>big endian: the most byte will stored in lowest address.<br>little endian: than least byte will stored in lowest address.</p>
+<p>three ways have been developed based on MIPSformat<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/703.PNG" alt="703.PNG"><br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/704.PNG" alt="704.PNG"><br><a target="_blank" rel="noopener" href="https://max.cs.kzoo.edu/cs230/Resource/MIPS/MachinwXL/InstructionFormats.html">MIPS example</a><br>op: opening code<br>rs: register source<br>rt: register traget<br>shamt: shift amount (is not applicable when is 0)<br>immediate: value of offset</p>
+<p>I-type: fast way to load a register and dont need extra memory refrence to fetch operand. but only constant can be supplied and is limitied by bit numbers as well.<br>example: addi $1,$2,20 : $1=$2+20<br>R-type: small address field required, shorter instructions possible and have a very fast execution. useful foe frequently operations like loop. but the number and space od address have all been limited.<br>example: add $3, $4, $5 : $3=$4+$5</p>
+<h2 id="Intel-X86-Architecture"><a href="#Intel-X86-Architecture" class="headerlink" title="Intel X86 Architecture"></a>Intel X86 Architecture</h2><p>If the sort of instructions are increasing , a BIU can greatly control them.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/705.PNG" alt="705.PNG"><br>where EU is for executing instructions,<br>BIU is for fatching instructions, reading operands and writing results</p>
+<p>however, although X86 is a 16 bit controller but have a 20 bits register.<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/706.PNG" alt="706.PNG"><br>each segment represents a 64k block of memory, which is combined with an offset address in instruction pointer(IP).<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/707.PNG" alt="707.PNG"></p>
+<p>Pipeling instruction: the execute and next fetcj have overlapped to reduce the time used on a cycle<br>Von Neumann Architecture: single interface for both data and instructions. but an instruction fetch and data opeartion can not occure at the same time cause they share a common bus<br>Harvard Architecture: seperate the interface of data and instructions. the program memory accesses and data accesses can operated paralllel.</p>
+<h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="register-control"><a href="#register-control" class="headerlink" title="register control"></a>register control</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/801.PNG" alt="801.PNG"><br>four single bit X,Y,W,Z can separately control input and output for both two registers.<br>data from register B will move to register C if w=0,y=1,x=1,z=0</p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/802.PNG" alt="802.PNG"><br>PC,R2: denotes a register<br>PC(7:0),R2(1),PC(L): denote a range of register<br>R1←R2, PC(L)←R0: denotes data transfer<br>R3←M[PC]: specifies a memory address</p>
+<p>like  R1←R1+R2  add the results to R1 for additoin of R1 and R2<br>X.K1: R1←R1+R2  if X.K1=1, R1 will be placed the value of R1+R2<br>(normally, X.K1 will be the enable port in register)<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/803.PNG" alt="803.PNG"></p>
+<h1 id="Week9"><a href="#Week9" class="headerlink" title="Week9"></a>Week9</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><p>the stack is allocated in main memory and operates as a last in first out block of memory</p>
+<p>the flow control istructions change the PC constant with three order：<br>HALT: places the processor in an idle state<br>JUMP: change the PC content to a pointed address<br>CALL: like jump but CPU must remember the return point and return after finishing</p>
+<p>the LIFO stack with two operations:<br>PUSH: puts value into stack<br>POP: Retrieves the last value that was pushed onto the stack<br>do not operate POP to a empty register or PUSH value in a full register</p>
+<p>a stack pointer register (PC) can be used to allocate the final register<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/901.PNG" alt="901.PNG"></p>
+<h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><p>cache is a safe place for hiding and storing things</p>
+<p>CPU will first view cache when want read the memory. if it find the memory in cache, called cachehit, in opposite state, called cache miss and CPU will fins the memory from register and copied it into cache again</p>
+<p>Direct Mapped Chache: each block is mapped to a single cache location<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/902.PNG" alt="902.PNG"><br>it is simple and easy for implementaion but have poor performance</p>
+<p>Full Associative Cache: each block is mapped to any cache location<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/903.PNG" alt="903.PNG"><br>all memory block can be mapped but harder for implementation</p>
+<p>Set Associative Cache: each block is mapped to any block in a subset of cache location<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/904.PNG" alt="904.PNG"><br>the best way </p>
+<h2 id="cache-mapping"><a href="#cache-mapping" class="headerlink" title="cache mapping"></a>cache mapping</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/905.PNG" alt="905.PNG"><br>V: a valid bit to indicate if address contains valid data<br>TAG: determines which block of memory is in cache<br>INDEX: select block in cache<br>OFFSET: select a byte number got multiple byte blockes</p>
+<p>for direct mapped cache: memory=TAG+INDEX<br>for full sccociative cache: memory=TAG+OFFSET</p>
+<h1 id="Week10"><a href="#Week10" class="headerlink" title="Week10"></a>Week10</h1><h2 id="Digital-filters"><a href="#Digital-filters" class="headerlink" title="Digital filters"></a>Digital filters</h2><p>for transimiting and receiving analog signals, need to use ADC and DAC</p>
+<p>Finite Impulse Response (FIR) Filter<br>consider a 4-point averaging window and get a stable curve results<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1001.PNG" alt="1001.PNG"></p>
+<p>the implmentation of builidng blocks are contained with Multiplier, Adder and Unit delay<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1002.PNG" alt="1002.PNG"></p>
+<h2 id="Algorithmic-state-machine-chart"><a href="#Algorithmic-state-machine-chart" class="headerlink" title="Algorithmic state machine chart"></a>Algorithmic state machine chart</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1003.PNG" alt="1003.PNG"><br>state box: unconditional, moorly output which only depends on current input values<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1004.PNG" alt="1004.PNG"><br>decision box: conditoinal, mealy output which not only depends on input, but past output results<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1005.PNG" alt="1005.PNG"><br>decision box can have multiple outputs depends on decisions made</p>
+<p>conditional box:<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1006.PNG" alt="1006.PNG"></p>
+<p>an ASM box must consists of a state box, decision box and conditional box<br>usually start with state box and end before the next state box</p>
+<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1007.PNG" alt="1007.PNG"><br>controller logic can obtain condition box and state transition<br>data procesor can contain operations described in state box and conditoin box</p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1008.PNG" alt="1008.PNG"><br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1009.PNG" alt="1009.PNG"></p>
+<h1 id="Topic-1"><a href="#Topic-1" class="headerlink" title="Topic 1"></a>Topic 1</h1><p>Unit impulse: 𝛿[n]=0 (n≠0), or =1 (n=0)<br>Unit step: u[n]=0 (n&lt;0), or =1 (n≥0)</p>
+<p>for a sinusoid:<br>𝑥[𝑛]=A cos(𝜔0 𝑛+𝜙)<br>𝜔0:Normalised frequency<br>𝜙:Phase delay</p>
+<p>Normalised frequency in radians/sample:<br>𝜔0=Ω0⁄𝑓𝑠,<br>where Ω0=2𝜋𝑓, is the real angular frequency, fs is sampling frequency</p>
+<p>if angular frequency=𝜋 rad/sec, frequency=𝜋/2𝜋=0.5Hz<br>if a 1 Hz sine sampled by frequency of 10Hz, 1/10=0.1 cycle per sample<br>angular frequency = 2𝜋*0.1 cycle per sample =0.2𝜋 radians per sample</p>
+<p>Important properties of sequences:<br>Linearity: y[n]=T{x1[n]+x2[n]}=T{x1[n]}+T{x2[n]}<br>Time invariance: y[n-k]=T{x[n-k]},<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1201.PNG" alt="1201.PNG"><br>Stablility: input and output is bounded<br>Causality: y[n0]=T{x[n&lt;n0]}</p>
+<p>note: Linear and time-invariant = LTI system</p>
+<p>Linear constant coefficient difference (LCCD) equation:<br>LTI systems can be described by a difference equation of the form<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1202.PNG" alt="1202.PNG"><br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1203.PNG" alt="1203.PNG"></p>
+<p>impulse response (can be explained by convolution)</p>
+<p><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1204.PNG" alt="1204.PNG"><br>where n in figure is a random constant value,<br>assuming n=-1, f1[k]=[1,2,3], f2[k]=[1,0,1,2]<br><img src="/2021-2022/EEE339-Digital-Engineering-28f94ee4e939/1205.PNG" alt="1205.PNG"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2021-2022/" rel="tag"><i class="fa fa-tag"></i> 2021-2022</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-2022/EEE317-Principle-of-Communications-63039017b149/" rel="prev" title="EEE317 Principle of Communications">
+                  <i class="fa fa-chevron-left"></i> EEE317 Principle of Communications
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021-2022/EEE348-Electronics-and-Devices-57a66493683f/" rel="next" title="EEE348 Electronics and Devices">
+                  EEE348 Electronics and Devices <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

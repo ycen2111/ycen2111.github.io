@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Linux系统基础命令行指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Command">
+<meta property="og:url" content="https://pipirima.top/Linux/Linux-Command-76c8862f5502/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="Linux系统基础命令行指令">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-06T03:30:38.000Z">
+<meta property="article:modified_time" content="2022-09-12T19:23:00.389Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="Basic Command">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://pipirima.top/Linux/Linux-Command-76c8862f5502/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/Linux/Linux-Command-76c8862f5502/","path":"Linux/Linux-Command-76c8862f5502/","title":"Linux Command"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux Command | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Command-list"><span class="nav-number">1.</span> <span class="nav-text">Command list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cd"><span class="nav-number">2.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ls"><span class="nav-number">3.</span> <span class="nav-text">ls</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mkdir"><span class="nav-number">4.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#touch"><span class="nav-number">5.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cp"><span class="nav-number">6.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm"><span class="nav-number">7.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mv"><span class="nav-number">8.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar"><span class="nav-number">9.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zip"><span class="nav-number">10.</span> <span class="nav-text">zip</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Linux/Linux-Command-76c8862f5502/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux Command
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-06 11:30:38" itemprop="dateCreated datePublished" datetime="2022-09-06T11:30:38+08:00">2022-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Linux系统基础命令行指令</p>
+<span id="more"></span>
+<h1 id="Command-list"><a href="#Command-list" class="headerlink" title="Command list"></a>Command list</h1><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/linux_tutorial/">http://c.biancheng.net/linux_tutorial/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//基本命令行格式，<span class="comment">#为超级管理者，$为普通管理者</span></span><br><span class="line"><span class="comment"># 命令[选项][参数]</span></span><br></pre></td></tr></table></figure>
+
+<p>命令分为系统内部命令和外部命令，可以用 type 查询，如：type pwd<br>内部命令会显示为 “shell buildin”<br>外部命令会直接返回命令在内存中的地址<br>通常来说内部命令执行速度快于外部命令</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cd</td>
+<td align="left">打开文件夹</td>
+</tr>
+<tr>
+<td align="left">ls</td>
+<td align="left">list 显示当前目录所有文件</td>
+</tr>
+<tr>
+<td align="left">pwd</td>
+<td align="left">Print Working Directory 打印工作目录</td>
+</tr>
+<tr>
+<td align="left">mkdir</td>
+<td align="left">创建文件夹</td>
+</tr>
+<tr>
+<td align="left">rmdir</td>
+<td align="left">删除文件夹(一般不用，直接rm -r同时删除文件夹)</td>
+</tr>
+<tr>
+<td align="left">touch</td>
+<td align="left">创建文件</td>
+</tr>
+<tr>
+<td align="left">in</td>
+<td align="left">给文件创建链接</td>
+</tr>
+<tr>
+<td align="left">cp</td>
+<td align="left">复制文件夹和文件</td>
+</tr>
+<tr>
+<td align="left">rm</td>
+<td align="left">删除文件</td>
+</tr>
+<tr>
+<td align="left">mv</td>
+<td align="left">移动文件,如果移动到源文件夹则可以改名</td>
+</tr>
+<tr>
+<td align="left">env</td>
+<td align="left">显示环境变量</td>
+</tr>
+<tr>
+<td align="left">tar</td>
+<td align="left">文件打包到一个.tar结尾的文件，并可以继续压缩成gz或bz2</td>
+</tr>
+<tr>
+<td align="left">zip</td>
+<td align="left">压缩成zip格式</td>
+</tr>
+</tbody></table>
+<h1 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.</td>
+<td align="left">当前目录</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">当前目录的上一层目录，父目录</td>
+</tr>
+<tr>
+<td align="left">~</td>
+<td align="left">主目录</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">之前打开的目录</td>
+</tr>
+</tbody></table>
+<h1 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-a</td>
+<td align="left">全部包含隐藏的文件</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">long list，长格式</td>
+</tr>
+<tr>
+<td align="left">-R</td>
+<td align="left">连同子目录内容一起列出来，等于将该目录下的所有文件都显示出来</td>
+</tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">以时间排序</td>
+</tr>
+<tr>
+<td align="left">–full-time</td>
+<td align="left">和时间一起输出</td>
+</tr>
+</tbody></table>
+<h1 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-m</td>
+<td align="left">改动配置所创建目录的权限</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">统一建立目录上所有未建立文件夹</td>
+</tr>
+</tbody></table>
+<h1 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h1><p>可以直接创建文件，或者修改文件时间(WTF?)<br>如果文件不存在就创建，存在的话只会修改时间</p>
+<p>Linux 系统中，每个文件主要拥有 3 个时间参数（通过 stat 命令进行查看），分别是文件的访问时间、数据修改时间以及状态修改时间：<br>访问时间（Access Time，简称 atime）：只要文件的内容被读取，访问时间就会更新。例如，使用 cat 命令可以查看文件的内容，此时文件的访问时间就会发生改变。<br>数据修改时间（Modify Time，简称 mtime）：当文件的内容数据发生改变，此文件的数据修改时间就会跟着相应改变。<br>状态修改时间（Change Time，简称 ctime）：当文件的状态发生变化，就会相应改变这个时间。比如说，如果文件的权限或者属性发生改变，此时间就会相应改变。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-a</td>
+<td align="left">修改文件的访问时间</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td align="left">修改文件的时间参数（3 个时间参数都改变），如果文件不存在也不会建立新文件</td>
+</tr>
+<tr>
+<td align="left">-m</td>
+<td align="left">修改文件的数据修改时间</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">后面可以跟任何日期，而不用当前的日期</td>
+</tr>
+</tbody></table>
+<p>如 touch -d “2017-05-04 15:44” bols</p>
+<h1 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h1><p>硬文件是文件副本<br>软文件是文件链接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp [选项] 源文件 目标文件</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-d</td>
+<td align="left">如果源文件为软链接（对硬链接无效），则复制出的目标文件也为软链接</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">复制后目标文件保留源文件的属性(时间，所有人等)</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">同时创建复制目录</td>
+</tr>
+<tr>
+<td align="left">-a</td>
+<td align="left">-d -p -r的集合</td>
+</tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">创建源文件的硬文件</td>
+</tr>
+<tr>
+<td align="left">-s</td>
+<td align="left">创建源文件的软文件</td>
+</tr>
+</tbody></table>
+<h1 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-f</td>
+<td align="left">不询问直接删除</td>
+</tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">删除指定文件夹下所有子文件夹和文件</td>
+</tr>
+</tbody></table>
+<h1 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-f</td>
+<td align="left">强制覆盖</td>
+</tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">不会覆盖重复文件</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示移动过程</td>
+</tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">如果源文件更新就覆盖</td>
+</tr>
+</tbody></table>
+<h1 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h1><p>在Linux上通常使用gz和bz2格式进行压缩。bz2压缩效果更好，但压缩时间指数型变长。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-c</td>
+<td align="left">多个文件或目录打包</td>
+</tr>
+<tr>
+<td align="left">-x</td>
+<td align="left">解压打包文件</td>
+</tr>
+<tr>
+<td align="left">-A</td>
+<td align="left">添加新内容到.tar内</td>
+</tr>
+<tr>
+<td align="left">-f PackName</td>
+<td align="left">指定打包名</td>
+</tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">指定解压包名</td>
+</tr>
+<tr>
+<td align="left">-C AddName</td>
+<td align="left">解压/拆包到指定的地址</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示过程</td>
+</tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">压缩/解压.gz格式</td>
+</tr>
+<tr>
+<td align="left">-j</td>
+<td align="left">压缩/解压.bz2格式</td>
+</tr>
+</tbody></table>
+<p>打包文件夹./test到test.tar<br>tar -cfv test.tar ./test<br>注意要设置文件名为.tar</p>
+<p>拆包test.tar到当前文件夹下<br>tar -xfv ./test.tar</p>
+<p>打包并压缩文件夹./test到test.tar.gz<br>tar -zcfv test.tar.gz ./test</p>
+<p>解压文件夹./test.tar.gz到当前文件夹下<br>tar -zxfv test.tar.gz ./test</p>
+<p>打包并压缩文件夹./test到test.tar.bz2<br>tar -jcfv test.tar.bz2 ./test</p>
+<h1 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h1><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-r</td>
+<td align="left">递归压缩目录</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">显示过程</td>
+</tr>
+<tr>
+<td align="left">-压缩级别</td>
+<td align="left">压缩级别是从 1~9 的数字，-1 代表压缩速度更快，-9 代表压缩效果更好</td>
+</tr>
+<tr>
+<td align="left">-m</td>
+<td align="left">删除原始文件</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Basic-Command/" rel="tag"><i class="fa fa-tag"></i> Basic Command</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/HardWare/CPU-Architecture-a110da164ae1/" rel="prev" title="CPU Architecture">
+                  <i class="fa fa-chevron-left"></i> CPU Architecture
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%9E%8E%E8%AE%B0%E8%AE%B0/COVID%E7%97%87%E7%8A%B6-e93fc3359962/" rel="next" title="COVID症状">
+                  COVID症状 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

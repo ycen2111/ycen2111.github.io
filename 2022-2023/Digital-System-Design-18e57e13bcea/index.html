@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="RISC-V datasheet: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;RISC-V-green-card-d1b1771d8486&#x2F;riscvcard.pdf)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Digital System Design">
+<meta property="og:url" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="RISC-V datasheet: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;RISC-V-green-card-d1b1771d8486&#x2F;riscvcard.pdf)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/Von_Neumann.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/Harvard.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/modified_harvard.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/101.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/201.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/202.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/203.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/204.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/205.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/206.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/207.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/208.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/211.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/209.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/210.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/301.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/302.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/303.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/304.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/306.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/305.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/307.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/308.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/309.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/310.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/311.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/312.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/313.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/314.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/315.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/316.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/401.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/402.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/501.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/502.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/503.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/504.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/505.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/506.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/507.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/508.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/509.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/510.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/511.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/512.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/513.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/514.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/515.png">
+<meta property="article:published_time" content="2023-02-13T03:35:19.000Z">
+<meta property="article:modified_time" content="2023-05-12T10:44:06.111Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2022-2023">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/Von_Neumann.png">
+
+
+<link rel="canonical" href="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/","path":"2022-2023/Digital-System-Design-18e57e13bcea/","title":"Digital System Design"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Digital System Design | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">1.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clock-time-calculation"><span class="nav-number">2.</span> <span class="nav-text">Clock time calculation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Risc-V-code"><span class="nav-number">3.</span> <span class="nav-text">Risc V code</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-synax"><span class="nav-number">3.1.</span> <span class="nav-text">Basic synax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-type"><span class="nav-number">3.2.</span> <span class="nav-text">R type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-type"><span class="nav-number">3.3.</span> <span class="nav-text">I type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S-type"><span class="nav-number">3.4.</span> <span class="nav-text">S type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-type"><span class="nav-number">3.5.</span> <span class="nav-text">U type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SB-type"><span class="nav-number">3.6.</span> <span class="nav-text">SB type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UJ-type"><span class="nav-number">3.7.</span> <span class="nav-text">UJ type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-srchitecture-structure"><span class="nav-number">3.8.</span> <span class="nav-text">basic srchitecture structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pseudoinstruction"><span class="nav-number">3.9.</span> <span class="nav-text">pseudoinstruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipeline"><span class="nav-number">3.10.</span> <span class="nav-text">pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CISC-and-RISC"><span class="nav-number">3.11.</span> <span class="nav-text">CISC and RISC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#memory"><span class="nav-number">4.</span> <span class="nav-text">memory</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Locality"><span class="nav-number">4.1.</span> <span class="nav-text">Locality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache"><span class="nav-number">4.2.</span> <span class="nav-text">cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cache-performance"><span class="nav-number">4.3.</span> <span class="nav-text">cache performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Average-memory-access-time"><span class="nav-number">4.4.</span> <span class="nav-text">Average memory access time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#n-set-Associativity"><span class="nav-number">4.5.</span> <span class="nav-text">n-set Associativity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-block-caches"><span class="nav-number">4.5.1.</span> <span class="nav-text">4-block caches:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-way-set-associative"><span class="nav-number">4.5.2.</span> <span class="nav-text">2-way set associative:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fully-associative-8-way"><span class="nav-number">4.5.3.</span> <span class="nav-text">Fully associative (8-way):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#address-bit-allocation"><span class="nav-number">4.6.</span> <span class="nav-text">address bit allocation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#virtual-memory"><span class="nav-number">5.</span> <span class="nav-text">virtual memory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#parallel"><span class="nav-number">6.</span> <span class="nav-text">parallel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiple-Issue"><span class="nav-number">6.1.</span> <span class="nav-text">Multiple Issue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speed-up"><span class="nav-number">6.2.</span> <span class="nav-text">speed up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amdahl%E2%80%99s-Law"><span class="nav-number">6.3.</span> <span class="nav-text">Amdahl’s Law</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shared-Memory-Multiprocessors"><span class="nav-number">6.4.</span> <span class="nav-text">Shared Memory Multiprocessors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Message-Passing"><span class="nav-number">6.5.</span> <span class="nav-text">Message Passing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multithreading"><span class="nav-number">6.6.</span> <span class="nav-text">Multithreading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flynn%E2%80%99s-Taxonomy"><span class="nav-number">6.7.</span> <span class="nav-text">Flynn’s Taxonomy</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2022-2023/Digital-System-Design-18e57e13bcea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Digital System Design
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-13 11:35:19" itemprop="dateCreated datePublished" datetime="2023-02-13T11:35:19+08:00">2023-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>RISC-V datasheet: (<a href="https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf">https://pipirima.top/2022-2023/RISC-V-green-card-d1b1771d8486/riscvcard.pdf</a>)</p>
+<span id="more"></span>
+
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p>Von Neumann:<br>normally programe code and memory are saved in same RAM, hence only one bus will be used and translate programe and memory together<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/Von_Neumann.png" alt="Von_Neumann.png"></p>
+<p>Harvard:<br>seperate programe and memeory apart, can use multiple bus groups<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/Harvard.png" alt="Harvard.png"></p>
+<p>Modified harvard:<br>merge two bus groups (memory and instruction) into one, but still save memory and programe into different structure<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/modified_harvard.png" alt="modified_harvard.png"></p>
+<h1 id="Clock-time-calculation"><a href="#Clock-time-calculation" class="headerlink" title="Clock time calculation"></a>Clock time calculation</h1><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/101.png" alt="101.png"><br>• Clock period (clock cycle time)<br>• Clock frequency (Clock Rate) = 1/Clock period<br>• Clock Cycle Time = 1/Clock rate<br>• CPU Time = Clock Cycles * Clock Cycle Time<br>• Clock Cycles = Instruction Count * Cycles per Instruction (CPI)<br>note: final clock cycles is their sum result if there have multiple IC and CPI</p>
+<p>• MIPS = Clock Rate / (CPI * 10e6)</p>
+<h1 id="Risc-V-code"><a href="#Risc-V-code" class="headerlink" title="Risc V code"></a>Risc V code</h1><h2 id="Basic-synax"><a href="#Basic-synax" class="headerlink" title="Basic synax"></a>Basic synax</h2><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/201.png" alt="201.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/202.png" alt="202.png"></p>
+<p>note: most of instructions are based on signed number</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Descripetion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">opcode</td>
+<td align="left">operation code</td>
+</tr>
+<tr>
+<td align="left">rd</td>
+<td align="left">destination register number</td>
+</tr>
+<tr>
+<td align="left">funct3</td>
+<td align="left">3-bit function code (additional opcode)</td>
+</tr>
+<tr>
+<td align="left">rs1</td>
+<td align="left">the first source register number</td>
+</tr>
+<tr>
+<td align="left">rs2</td>
+<td align="left">the second source register number</td>
+</tr>
+<tr>
+<td align="left">funct7</td>
+<td align="left">7-bit function code (additional opcode)</td>
+</tr>
+</tbody></table>
+<p>RISC-V (RV32) has a 32 × 32-bit register file in Little Endian<br>32-bit data is called a “word” in RV32<br>normally we can use temporaries registers freely<br>|register|usage|<br>|:—-|:—-|<br>|x0|the constant value 0|<br>|x1|return address|<br>|x2|stack pointer|<br>|x3|global pointer|<br>|x4|thread pointer|<br>|x5 – x7, x28 – x31|temporaries|<br>|x8|frame pointer|<br>|x9, x18 – x27|saved registers|<br>|x10 – x11|function arguments/results|<br>|x12 – x17|function arguments|</p>
+<h2 id="R-type"><a href="#R-type" class="headerlink" title="R type"></a>R type</h2><p>add x9,x20,x21</p>
+<table>
+<thead>
+<tr>
+<th align="left">funct7</th>
+<th align="left">rs2</th>
+<th align="left">rs1</th>
+<th align="left">funct3</th>
+<th align="left">rd</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">21</td>
+<td align="left">20</td>
+<td align="left">0</td>
+<td align="left">9</td>
+<td align="left">51</td>
+</tr>
+<tr>
+<td align="left">7 bit</td>
+<td align="left">5 bit</td>
+<td align="left">5 bit</td>
+<td align="left">3 bit</td>
+<td align="left">5 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">000 0000</td>
+<td align="left">1 0101</td>
+<td align="left">1 0100</td>
+<td align="left">000</td>
+<td align="left">0 1001</td>
+<td align="left">011 0011</td>
+</tr>
+</tbody></table>
+<h2 id="I-type"><a href="#I-type" class="headerlink" title="I type"></a>I type</h2><p>lw x9,32(x22) -&gt; load X9 by the data from x22[8] //32 byte/4 = 8 words</p>
+<table>
+<thead>
+<tr>
+<th align="left">immediate</th>
+<th align="left">rs1</th>
+<th align="left">funct3</th>
+<th align="left">rd</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">32</td>
+<td align="left">22</td>
+<td align="left">2</td>
+<td align="left">9</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">12 bit</td>
+<td align="left">5 bit</td>
+<td align="left">3 bit</td>
+<td align="left">5 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">0000 0010 0000</td>
+<td align="left">1 0110</td>
+<td align="left">010</td>
+<td align="left">0 1001</td>
+<td align="left">000 0011</td>
+</tr>
+</tbody></table>
+<h2 id="S-type"><a href="#S-type" class="headerlink" title="S type"></a>S type</h2><p>sw x9,32(x22) -&gt; save x9’s data into x22[8]</p>
+<table>
+<thead>
+<tr>
+<th align="left">imm[11:5]</th>
+<th align="left">rs2</th>
+<th align="left">rs1</th>
+<th align="left">funct3</th>
+<th align="left">imm[4:0]</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">9</td>
+<td align="left">22</td>
+<td align="left">2</td>
+<td align="left">0</td>
+<td align="left">23</td>
+</tr>
+<tr>
+<td align="left">7 bit</td>
+<td align="left">5 bit</td>
+<td align="left">5 bit</td>
+<td align="left">3 bit</td>
+<td align="left">5 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">000 0001</td>
+<td align="left">0 1001</td>
+<td align="left">1 0110</td>
+<td align="left">010</td>
+<td align="left">0 0000</td>
+<td align="left">001 0111</td>
+</tr>
+</tbody></table>
+<p>imm=32=0000 0010 0000</p>
+<h2 id="U-type"><a href="#U-type" class="headerlink" title="U type"></a>U type</h2><p>lui x19, 976 </p>
+<table>
+<thead>
+<tr>
+<th align="left">Immediate [31:12]</th>
+<th align="left">rd</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">976</td>
+<td align="left">19</td>
+<td align="left">55</td>
+</tr>
+<tr>
+<td align="left">20 bit</td>
+<td align="left">5 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">0000 0000 0011 1101 0000</td>
+<td align="left">1 0011</td>
+<td align="left">011 0111</td>
+</tr>
+</tbody></table>
+<p>note: U type can read upeer 20 bits from register, if some data is in total 32 bits</p>
+<h2 id="SB-type"><a href="#SB-type" class="headerlink" title="SB type"></a>SB type</h2><p>bne x10, x11, 2000</p>
+<table>
+<thead>
+<tr>
+<th align="left">Imm [12]</th>
+<th align="left">Imm [10:5]</th>
+<th align="left">rs2</th>
+<th align="left">rs1</th>
+<th align="left">funct3</th>
+<th align="left">Imm [4:1]</th>
+<th align="left">Imm [11]</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">62</td>
+<td align="left">11</td>
+<td align="left">10</td>
+<td align="left">1</td>
+<td align="left">8</td>
+<td align="left">0</td>
+<td align="left">51</td>
+</tr>
+<tr>
+<td align="left">1 bit</td>
+<td align="left">6 bit</td>
+<td align="left">5 bit</td>
+<td align="left">5 bit</td>
+<td align="left">3 bit</td>
+<td align="left">4 bit</td>
+<td align="left">1 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">11 1110</td>
+<td align="left">0 1011</td>
+<td align="left">0 1010</td>
+<td align="left">001</td>
+<td align="left">1000</td>
+<td align="left">0</td>
+<td align="left">110 0011</td>
+</tr>
+</tbody></table>
+<p>imm=2000=0111 1101 0000</p>
+<p>Target address = PC + immediate<br>eg. if this code is in address X20, new jumped add=20+2000=x2020</p>
+<h2 id="UJ-type"><a href="#UJ-type" class="headerlink" title="UJ type"></a>UJ type</h2><p>jal x1, 2000</p>
+<table>
+<thead>
+<tr>
+<th align="left">Imm [20]</th>
+<th align="left">Imm [10:1]</th>
+<th align="left">Imm [11]</th>
+<th align="left">Imm [19:12]</th>
+<th align="left">rd</th>
+<th align="left">opcode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td align="left">62</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">111</td>
+</tr>
+<tr>
+<td align="left">1 bit</td>
+<td align="left">10 bit</td>
+<td align="left">1 bit</td>
+<td align="left">8 bit</td>
+<td align="left">4 bit</td>
+<td align="left">7 bit</td>
+</tr>
+<tr>
+<td align="left">0</td>
+<td align="left">11 1110 1000</td>
+<td align="left">0</td>
+<td align="left">0000 0000</td>
+<td align="left">0 0001</td>
+<td align="left">110 1111</td>
+</tr>
+</tbody></table>
+<p>imm=2000=0111 1101 0000</p>
+<h2 id="basic-srchitecture-structure"><a href="#basic-srchitecture-structure" class="headerlink" title="basic srchitecture structure"></a>basic srchitecture structure</h2><ol>
+<li>load data from memory to register</li>
+<li>save result from register to memory<br>Registers are faster to access than memory</li>
+</ol>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/203.png" alt="203.png"><br>each operation will only part of these terminals<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/204.png" alt="204.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/205.png" alt="205.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/206.png" alt="206.png"></p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/207.png" alt="207.png"><br>Zero in ALU is result of comparation</p>
+<table>
+<thead>
+<tr>
+<th align="left">instruction</th>
+<th align="left">Branch</th>
+<th align="left">MemRead</th>
+<th align="left">MemtoReg</th>
+<th align="left">ALUOp</th>
+<th align="left">MemWrite</th>
+<th align="left">ALUSrc</th>
+<th align="left">RegWrite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">R_type</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">10</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+<tr>
+<td align="left">load</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">10</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">save</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">x</td>
+<td align="left">00</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">beq</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">x</td>
+<td align="left">01</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody></table>
+<h2 id="pseudoinstruction"><a href="#pseudoinstruction" class="headerlink" title="pseudoinstruction"></a>pseudoinstruction</h2><table>
+<thead>
+<tr>
+<th align="left">name</th>
+<th align="left">format</th>
+<th align="left">description</th>
+<th align="left">used instruction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">mv</td>
+<td align="left">mv rd, rs</td>
+<td align="left">R[rd] = R[rs]</td>
+<td align="left">addi</td>
+</tr>
+<tr>
+<td align="left">li</td>
+<td align="left">li rd, immed</td>
+<td align="left">R[rd] = immed</td>
+<td align="left">addi</td>
+</tr>
+<tr>
+<td align="left">la</td>
+<td align="left">la rd, addr</td>
+<td align="left">R[rd] = addr</td>
+<td align="left">auipc</td>
+</tr>
+<tr>
+<td align="left">neg</td>
+<td align="left">neg rd,rs</td>
+<td align="left">R[rd]=-R[rs]</td>
+<td align="left">sub</td>
+</tr>
+<tr>
+<td align="left">not</td>
+<td align="left">not rd, rs</td>
+<td align="left">R[rd]=~R[rs]</td>
+<td align="left">xori</td>
+</tr>
+</tbody></table>
+<h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><p>pipeline can increase programe ratio<br>RISC-V can use upper 5 levels:</p>
+<table>
+<thead>
+<tr>
+<th align="left">step</th>
+<th align="left">name</th>
+<th align="left">descreption</th>
+<th align="left">time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">IF</td>
+<td align="left">Instruction fetch from memory</td>
+<td align="left">200ps</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">ID</td>
+<td align="left">Instruction decode &amp; register read</td>
+<td align="left">100ps</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">EX</td>
+<td align="left">Execute operation or calculate address</td>
+<td align="left">200ps</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">MEM</td>
+<td align="left">Access memory operand</td>
+<td align="left">200ps</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">WB</td>
+<td align="left">Write result back to register</td>
+<td align="left">100ps</td>
+</tr>
+</tbody></table>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/208.png" alt="208.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/211.png" alt="211.png"></p>
+<p>Data Harzard:<br>An instruction depends on completion of data access by a previous instruction<br>Load-Use Data Hazard:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/209.png" alt="209.png"></p>
+<p>Please note that instructions following a branch require a 1-step interval to wait for the result of the branch.<br>but we can predict the result, and correct it immediate if not right<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/210.png" alt="210.png"></p>
+<h2 id="CISC-and-RISC"><a href="#CISC-and-RISC" class="headerlink" title="CISC and RISC"></a>CISC and RISC</h2><table>
+<thead>
+<tr>
+<th align="left">RISC</th>
+<th align="left">CISC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Reduced Instruction Set Architecture</td>
+<td align="left">Complex Instruction Set Architecture</td>
+</tr>
+<tr>
+<td align="left">low cycles per instruction</td>
+<td align="left">hign cycles per instruction</td>
+</tr>
+<tr>
+<td align="left">Simpler instruction</td>
+<td align="left">Complex instruction</td>
+</tr>
+<tr>
+<td align="left">Fewer Data types</td>
+<td align="left">More Data types</td>
+</tr>
+<tr>
+<td align="left">Pipline canbe achieved</td>
+<td align="left">/</td>
+</tr>
+</tbody></table>
+<h1 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h1><table>
+<thead>
+<tr>
+<th align="left">device</th>
+<th align="left">response time</th>
+<th align="left">cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Static RAM</td>
+<td align="left">0.5ns – 2.5ns</td>
+<td align="left">$500 – $1000 per GiB</td>
+</tr>
+<tr>
+<td align="left">Dynamic RAM (DRAM)</td>
+<td align="left">50ns – 70ns</td>
+<td align="left">$3 – $6 per GiB</td>
+</tr>
+<tr>
+<td align="left">Flash SSD</td>
+<td align="left">5 µs - 50 µs</td>
+<td align="left">$0.06 – $0.12 per GiB</td>
+</tr>
+<tr>
+<td align="left">Magnetic disk</td>
+<td align="left">5ms – 20ms</td>
+<td align="left">$0.20 – $2 per GiB</td>
+</tr>
+</tbody></table>
+<p>normally SRAM and DRAM are used in memory,<br>SSD and disk are used in storage</p>
+<p>Binary Notation:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/301.png" alt="301.png"></p>
+<h2 id="Locality"><a href="#Locality" class="headerlink" title="Locality"></a>Locality</h2><p>Temporal locality:Items accessed recently are likely to be accessed again soon<br>Spatial locality: Items near those accessed recently are likely to be accessed soon</p>
+<p>result:<br>Memory hierarchy<br>Store everything on disk<br>Copy recently accessed (and nearby) items from disk/DRAM to smaller DRAM/more smaller DRAM memory</p>
+<h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><p>The level/s of the memory hierarchy closest to the CPU</p>
+<p>Direct Mapped Cache:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/302.png" alt="302.png"></p>
+<p>binary address = {Tag, Index}</p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/303.png" alt="303.png"><br>if the address is already saved, Hit/Miss will be hit. otherwise will be miss<br>hit will be marked only when both tag and index are fit</p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/304.png" alt="304.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/306.png" alt="306.png"><br>index: determine which line<br>Tag:   determine whether has saved<br>Block offset: determine which word in this address<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/305.png" alt="305.png"></p>
+<p>Very large blocks mean fewer blocks in cache and an increased miss rate<br>Large blocks also increase the miss penalty of retrieving the block from the next level<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/307.png" alt="307.png"></p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/308.png" alt="308.png"></p>
+<h2 id="cache-performance"><a href="#cache-performance" class="headerlink" title="cache performance"></a>cache performance</h2><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/309.png" alt="309.png"></p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/310.png" alt="310.png"></p>
+<h2 id="Average-memory-access-time"><a href="#Average-memory-access-time" class="headerlink" title="Average memory access time"></a>Average memory access time</h2><p>AMAT = Hit time + Miss rate × Miss penalty<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/311.png" alt="311.png"></p>
+<h2 id="n-set-Associativity"><a href="#n-set-Associativity" class="headerlink" title="n-set Associativity"></a>n-set Associativity</h2><p>Higher associativity reduces miss rate<br>Increases complexity, cost, and access time</p>
+<h3 id="4-block-caches"><a href="#4-block-caches" class="headerlink" title="4-block caches:"></a>4-block caches:</h3><p>Index = (Block address) % (number of entries)<br>like: 8 % 4 = 0<br>      6 % 4 = 2<br>hence mem[8,0] saved in index 0,<br>      mem[6] saved in index 2.</p>
+<p>read data inorder 8, 0, 8, 6, 8:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/312.png" alt="312.png"></p>
+<h3 id="2-way-set-associative"><a href="#2-way-set-associative" class="headerlink" title="2-way set associative:"></a>2-way set associative:</h3><p>Index = (Block address) % (number of entries)</p>
+<p>read data in order of : 8, 0, 8, 6, 8:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/313.png" alt="313.png"></p>
+<p>note: if a new data want be saved in a full set(like in row 4), the last-used data will be removed(mem[0] is remained)</p>
+<h3 id="Fully-associative-8-way"><a href="#Fully-associative-8-way" class="headerlink" title="Fully associative (8-way):"></a>Fully associative (8-way):</h3><p>Blocks can go anywhere</p>
+<p>read data in order of : 8, 0, 8, 6, 8:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/314.png" alt="314.png"></p>
+<h2 id="address-bit-allocation"><a href="#address-bit-allocation" class="headerlink" title="address bit allocation"></a>address bit allocation</h2><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/315.png" alt="315.png"><br>Block size is defined by the offset bits<br>blocks/lines is defined by index</p>
+<p>If we have a directly mapped cache of size 1 KiB with block size of 4 words, 32 bits address</p>
+<p>each block has 4 word * 4 bytes = 16 bytes, block offset is 4 bits<br>total block number = 1kiB/16bytes = 64 blocks per set, index is 6 bits<br>the tag is 32 - 4 - 6 = 22 bits</p>
+<p>if we have a 4-way set associative instruction cache,<br>total block number = 1kiB/(16bytes * 4) = 16 blocks per set, index is 4 bits</p>
+<p>Block_size = word_number * 4 bytes<br>block_number = cache_size / block_size<br>index_number = block_number / n_way</p>
+<p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/316.png" alt="316.png"></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">miss rate</th>
+<th align="left">hit time</th>
+<th align="left">miss penalty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">associativity of a cache is increased</td>
+<td align="left">Decreased</td>
+<td align="left">Increased</td>
+<td align="left">No expected change</td>
+</tr>
+<tr>
+<td align="left">block size of a cache is decreased</td>
+<td align="left">Increased</td>
+<td align="left">No expected change</td>
+<td align="left">Decreased</td>
+</tr>
+</tbody></table>
+<h1 id="virtual-memory"><a href="#virtual-memory" class="headerlink" title="virtual memory"></a>virtual memory</h1><p>Each gets a private virtual address space holding its frequently used code and data and Protected from other programs</p>
+<p>VM “block” is called a page<br>VM translation “miss” is called a page fault<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/401.png" alt="401.png"></p>
+<p>Translation Using a Page Table:<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/402.png" alt="402.png"><br>if valid is 1, data is saved in physical memory<br>if valid is 0, data is saved in disk</p>
+<p>Translation Look-aside Buffer (TLB)<br>the last visited entry block will be replace with new data</p>
+<p>if new tag is miss in TLB: TLB MISS<br>if new tag exist in page table: PT HIT<br>if new tag in page table is only in disk: PAGE FAULT</p>
+<h1 id="parallel"><a href="#parallel" class="headerlink" title="parallel"></a>parallel</h1><h2 id="Multiple-Issue"><a href="#Multiple-Issue" class="headerlink" title="Multiple Issue"></a>Multiple Issue</h2><p>Static Multiple Issue: Group of instructions that can be issued on a single cycle<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/501.png" alt="501.png"><br>One ALU/branch instruction, One load/store instruction run together<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/502.png" alt="502.png"><br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/503.png" alt="503.png"></p>
+<p>Dynamic Multiple Issue: Allow the CPU to execute instructions out of order to avoid stalls<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/504.png" alt="504.png"></p>
+<h2 id="speed-up"><a href="#speed-up" class="headerlink" title="speed up"></a>speed up</h2><p>T1 = time to run with one worker<br>TP = time to run with P workers<br>T1/TP = speedup (Ideal case is linear speedup with P)<br>T1/(P*TP) = efficiency (Ideal case is efficiency is 1)</p>
+<h2 id="Amdahl’s-Law"><a href="#Amdahl’s-Law" class="headerlink" title="Amdahl’s Law"></a>Amdahl’s Law</h2><p>Tsequential + Tparallel/P ≤ TP<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/505.png" alt="505.png"></p>
+<p>if 100 processors, 90× speedup<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/506.png" alt="506.png"></p>
+<p>if sum of 10 scalars, and 10×10 matrix sum,<br>Time = (10 + 100) × tadd<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/507.png" alt="507.png"></p>
+<p>Strong scaling: problem size fixed<br>Weak scaling: problem size proportional to number of processors</p>
+<p>If 100 processor, one processor has 2% load not 1%<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/508.png" alt="508.png"></p>
+<h2 id="Shared-Memory-Multiprocessors"><a href="#Shared-Memory-Multiprocessors" class="headerlink" title="Shared Memory Multiprocessors"></a>Shared Memory Multiprocessors</h2><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/509.png" alt="509.png"><br>UMA (uniform) vs. NUMA (nonuniform)<br>if 1 GiB total memory, 40 cycles/word<br>NUMA 2 processors: 512 MiB local memory each, 20 cycles/word to local, 60 cycles/word to remote memory<br>UMA 2 processors: 1 GiB shared memory, 40 cycles/word</p>
+<h2 id="Message-Passing"><a href="#Message-Passing" class="headerlink" title="Message Passing"></a>Message Passing</h2><p><img src="/2022-2023/Digital-System-Design-18e57e13bcea/510.png" alt="510.png"></p>
+<h2 id="Multithreading"><a href="#Multithreading" class="headerlink" title="Multithreading"></a>Multithreading</h2><p>Fine-grain multithreading: If one thread stalls, others are executed<br>Coarse-grain multithreading: Only switch on long stall<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/511.png" alt="511.png"></p>
+<h2 id="Flynn’s-Taxonomy"><a href="#Flynn’s-Taxonomy" class="headerlink" title="Flynn’s Taxonomy"></a>Flynn’s Taxonomy</h2><p>Single Instruction Single Data (SISD)<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/512.png" alt="512.png"><br>Single Instruction Multiple Data (SIMD)<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/513.png" alt="513.png"><br>Multiple Instruction Single Data (MISD)<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/514.png" alt="514.png"><br>Multiple Instruction Multiple Data (MIMD)<br><img src="/2022-2023/Digital-System-Design-18e57e13bcea/515.png" alt="515.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2022-2023/" rel="tag"><i class="fa fa-tag"></i> 2022-2023</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-3965576cc57b/" rel="prev" title="Embedded mobile and Wireless System Code Example">
+                  <i class="fa fa-chevron-left"></i> Embedded mobile and Wireless System Code Example
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022-2023/RISC-V-green-card-4f2d7d03dc08/" rel="next" title="RISC V green card">
+                  RISC V green card <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

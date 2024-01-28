@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="介绍游戏规则：  如果一个cell周围(以它为中心3x3)有2或3个其他cell则存活，否则死亡 如果一个无cell的方格周围有3个cell，则在此生长出一个cell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏主程序分析">
+<meta property="og:url" content="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90-b02f79fd67f6/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="介绍游戏规则：  如果一个cell周围(以它为中心3x3)有2或3个其他cell则存活，否则死亡 如果一个无cell的方格周围有3个cell，则在此生长出一个cell">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-25T09:18:38.000Z">
+<meta property="article:modified_time" content="2022-08-01T12:06:57.294Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="Conway生命游戏">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90-b02f79fd67f6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90-b02f79fd67f6/","path":"Conway生命游戏/游戏主程序分析-b02f79fd67f6/","title":"游戏主程序分析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>游戏主程序分析 | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-0"><span class="nav-number">2.</span> <span class="nav-text">Version 0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="nav-number">2.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E7%8E%87"><span class="nav-number">2.3.</span> <span class="nav-text">效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-1"><span class="nav-number">3.</span> <span class="nav-text">Version 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81-1"><span class="nav-number">3.2.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E7%8E%87-1"><span class="nav-number">3.3.</span> <span class="nav-text">效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Version-2"><span class="nav-number">4.</span> <span class="nav-text">Version 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D-3"><span class="nav-number">4.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81-2"><span class="nav-number">4.2.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E7%8E%87-2"><span class="nav-number">4.3.</span> <span class="nav-text">效率</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/%E6%B8%B8%E6%88%8F%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%88%86%E6%9E%90-b02f79fd67f6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          游戏主程序分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-25 17:18:38" itemprop="dateCreated datePublished" datetime="2022-07-25T17:18:38+08:00">2022-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">生命游戏</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>游戏规则：</p>
+<ol>
+<li>如果一个cell周围(以它为中心3x3)有2或3个其他cell则存活，否则死亡</li>
+<li>如果一个无cell的方格周围有3个cell，则在此生长出一个cell</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="Version-0"><a href="#Version-0" class="headerlink" title="Version 0"></a>Version 0</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><ol>
+<li>以cell list为基础遍历整个2-D list，计算每个rectangle周围cell数量并判断是否需要change color，如是则cell.change标记true</li>
+<li>再次遍历list，switch cell.change为true的rectangle</li>
+</ol>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#check cell&#x27;s next state by its neighbors (3 neighbors born, 2 and 3 neighbors survival)</span></span><br><span class="line">def check_state(cell,row,column):</span><br><span class="line">    global cell_list</span><br><span class="line">    global row_max</span><br><span class="line">    global column_max</span><br><span class="line">    cell_num=0</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(-1,2):</span><br><span class="line">        <span class="keyword">if</span> row+i&lt;0 or row+i&gt;row_max-1: <span class="comment">#out of range</span></span><br><span class="line">            <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(-1,2):</span><br><span class="line">                <span class="keyword">if</span> column+j&lt;0 or column+j&gt;column_max-1: <span class="comment">#out of range</span></span><br><span class="line">                    <span class="built_in">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> cell_list[row+i][column+j].liveCell: <span class="comment">#live cell</span></span><br><span class="line">                        cell_num=cell_num+1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> cell.liveCell: <span class="comment">#live cell</span></span><br><span class="line">        cell_num=cell_num-1 <span class="comment">#remove itself</span></span><br><span class="line">        <span class="keyword">if</span> cell_num==2 or cell_num==3: <span class="comment">#survive</span></span><br><span class="line">            pass</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cell.change=True</span><br><span class="line">            <span class="comment">#print(&quot;change &quot;+str(row)+&quot; &quot;+str(column)+str(cell_num))</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#no cell</span></span><br><span class="line">        <span class="keyword">if</span> cell_num==3: <span class="comment">#new cell</span></span><br><span class="line">            cell.change=True</span><br><span class="line">            <span class="comment">#print(&quot;change &quot;+str(row)+&quot; &quot;+str(column))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#command of start button, start the game in each 1s</span></span><br><span class="line">def start_game(count):</span><br><span class="line">    global beginning</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> beginning: <span class="comment">#start sign</span></span><br><span class="line">        global cell_list</span><br><span class="line">        global row_max</span><br><span class="line">        global column_max</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> range(row_max):</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> range(column_max):</span><br><span class="line">                check_state(cell_list[row][column],row,column)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> range(row_max):</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> range(column_max):</span><br><span class="line">                <span class="keyword">if</span> cell_list[row][column].change: <span class="comment">#need be changed</span></span><br><span class="line">                    cell_list[row][column].switch_color()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> count==0:</span><br><span class="line">            root.destroy()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#run start_button again after 100ms</span></span><br><span class="line">        root.after(100,start_game,count) <span class="comment">#caution: start_button has no returns hence no () in needed here (or recursion error happens)</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#get stop sign</span></span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+
+<h3 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h3><p>@profile start_game(count)<br>Total time: 8.20841 s</p>
+<table>
+<thead>
+<tr>
+<th align="left">Hits</th>
+<th align="left">Time</th>
+<th align="left">Per Hit</th>
+<th align="left">% Time</th>
+<th align="left">Line Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">101</td>
+<td align="left">593.8</td>
+<td align="left">5.9</td>
+<td align="left">0.0</td>
+<td align="left">if beginning: #start sign</td>
+</tr>
+<tr>
+<td align="left">5252</td>
+<td align="left">2155.9</td>
+<td align="left">0.4</td>
+<td align="left">0.0</td>
+<td align="left">for row in range(row_max):</td>
+</tr>
+<tr>
+<td align="left">597516</td>
+<td align="left">187218.2</td>
+<td align="left">0.3</td>
+<td align="left">2.3</td>
+<td align="left">for column in range(column_max):</td>
+</tr>
+<tr>
+<td align="left">592365</td>
+<td align="left">7321122.0</td>
+<td align="left">12.4</td>
+<td align="left">89.2</td>
+<td align="left">check_state(cell_list[row][column],row,column)</td>
+</tr>
+<tr>
+<td align="left">5252</td>
+<td align="left">1487.2</td>
+<td align="left">0.3</td>
+<td align="left">0.0</td>
+<td align="left">for row in range(row_max):</td>
+</tr>
+<tr>
+<td align="left">597516</td>
+<td align="left">176765.3</td>
+<td align="left">0.3</td>
+<td align="left">2.2</td>
+<td align="left">for column in range(column_max):</td>
+</tr>
+<tr>
+<td align="left">592365</td>
+<td align="left">266698.4</td>
+<td align="left">0.5</td>
+<td align="left">3.2</td>
+<td align="left">if cell_list[row][column].change: #need be changed</td>
+</tr>
+<tr>
+<td align="left">12985</td>
+<td align="left">238116.0</td>
+<td align="left">18.3</td>
+<td align="left">2.9</td>
+<td align="left">cell_list[row][column].switch_color()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">39.1</td>
+<td align="left">0.4</td>
+<td align="left">0.0</td>
+<td align="left">if count==0:</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">10066.3</td>
+<td align="left">10066.3</td>
+<td align="left">0.1</td>
+<td align="left">root.destroy()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">4152.7</td>
+<td align="left">41.1</td>
+<td align="left">0.1</td>
+<td align="left">root.after(100,start_game,count-1) #caution: start_button has no returns hence no () in needed here (or recursion error happens)</td>
+</tr>
+</tbody></table>
+<p>查找neighbors占总时间89.2%感觉可以优化，有太多无效查找。</p>
+<h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><ol>
+<li>基于cell_list遍历list，找出所有cell.liveCell为True的cell并使它周围rectangle的cell.neighbor +1</li>
+<li>再次遍历，找出需要change的cell并直接调用cell.switch()覆盖改变</li>
+</ol>
+<h3 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mark cell&#x27;s neighbor numbers</span></span><br><span class="line">def find_neighbor(cell,row,column):</span><br><span class="line">    <span class="keyword">if</span> cell.liveCell: <span class="comment">#live cell</span></span><br><span class="line">        global cell_list</span><br><span class="line">        global row_max</span><br><span class="line">        global column_max</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(-1,2):</span><br><span class="line">            <span class="keyword">if</span> row+i&lt;0 or row+i&gt;row_max-1: <span class="comment">#out of range</span></span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(-1,2):</span><br><span class="line">                    <span class="keyword">if</span> column+j&lt;0 or column+j&gt;column_max-1: <span class="comment">#out of range</span></span><br><span class="line">                        <span class="built_in">continue</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                       cell_list[row+i][column+j].neighbor+=1</span><br><span class="line">        </span><br><span class="line">        cell.neighbor-=1 <span class="comment">#multi added</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#no cell</span></span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line"><span class="comment">#check cell state. 3 neighbors born, 2 and 3 neighbors survival</span></span><br><span class="line">def check_state(cell):</span><br><span class="line">    neighbors=cell.neighbor <span class="comment">#get neighbor number</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> cell.liveCell:</span><br><span class="line">        <span class="keyword">if</span> neighbors !=2 and neighbors !=3: <span class="comment">#dead</span></span><br><span class="line">            cell.switch_color()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> neighbors == 3: <span class="comment">#born</span></span><br><span class="line">            cell.switch_color()</span><br><span class="line"></span><br><span class="line">    cell.neighbor=0 <span class="comment">#init</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#command of start button, start the game in each 1s</span></span><br><span class="line">def start_game(count):</span><br><span class="line">    global beginning</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> beginning: <span class="comment">#start sign</span></span><br><span class="line">        global cell_list</span><br><span class="line">        global row_max</span><br><span class="line">        global column_max</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> range(row_max):</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> range(column_max):</span><br><span class="line">                find_neighbor(cell_list[row][column],row,column)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> range(row_max):</span><br><span class="line">            <span class="keyword">for</span> column <span class="keyword">in</span> range(column_max):</span><br><span class="line">                check_state(cell_list[row][column])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> count==0:</span><br><span class="line">            root.destroy()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#run start_button again after 100ms</span></span><br><span class="line">        root.after(100,start_game,count) <span class="comment">#caution: start_button has no returns hence no () in needed here (or recursion error happens)</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#get stop sign</span></span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+
+<h3 id="效率-1"><a href="#效率-1" class="headerlink" title="效率"></a>效率</h3><p>@profile start_game(count)<br>Total time: 2.48149 s</p>
+<table>
+<thead>
+<tr>
+<th align="left">Hits</th>
+<th align="left">Time</th>
+<th align="left">Per Hit</th>
+<th align="left">% Time</th>
+<th align="left">Line Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">101</td>
+<td align="left">551.8</td>
+<td align="left">5.5</td>
+<td align="left">0.0</td>
+<td align="left">if beginning: #start sign</td>
+</tr>
+<tr>
+<td align="left">5252</td>
+<td align="left">2651.8</td>
+<td align="left">0.5</td>
+<td align="left">0.1</td>
+<td align="left">for row in range(row_max):</td>
+</tr>
+<tr>
+<td align="left">597516</td>
+<td align="left">242416.2</td>
+<td align="left">0.4</td>
+<td align="left">9.8</td>
+<td align="left">for column in range(column_max):</td>
+</tr>
+<tr>
+<td align="left">592365</td>
+<td align="left">1028903.5</td>
+<td align="left">1.7</td>
+<td align="left">41.5</td>
+<td align="left">find_neighbor(cell_list[row][column],row,column)</td>
+</tr>
+<tr>
+<td align="left">5252</td>
+<td align="left">1716.3</td>
+<td align="left">0.3</td>
+<td align="left">0.1</td>
+<td align="left">for row in range(row_max):</td>
+</tr>
+<tr>
+<td align="left">597516</td>
+<td align="left">196414.3</td>
+<td align="left">0.3</td>
+<td align="left">7.9</td>
+<td align="left">for column in range(column_max):</td>
+</tr>
+<tr>
+<td align="left">592365</td>
+<td align="left">993903.4</td>
+<td align="left">1.7</td>
+<td align="left">40.1</td>
+<td align="left">check_state(cell_list[row][column])</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">41.0</td>
+<td align="left">0.4</td>
+<td align="left">0.0</td>
+<td align="left">if count==0:</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">10520.8</td>
+<td align="left">10520.8</td>
+<td align="left">0.4</td>
+<td align="left">root.destroy()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">4375.6</td>
+<td align="left">43.3</td>
+<td align="left">0.2</td>
+<td align="left">root.after(100,start_game,count-1) #caution: start_button has no returns hence no () in needed here (or recursion error happens)</td>
+</tr>
+</tbody></table>
+<p>时间缩短70%，优化成功。之后尝试缩短check_state里查找目标cell用时，如建立一个list储存neighbors为3的rectangle，和liveCell的坐标以减小无效查找。</p>
+<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><h3 id="介绍-3"><a href="#介绍-3" class="headerlink" title="介绍"></a>介绍</h3><ol start="0">
+<li>在left click operation时更新liveCell_list，start loop</li>
+<li>根据liveCell_list精准找到live cell并使周围cell.neighbor+1，记录cell.neighbor=3的无生命cell到newBorn_list</li>
+<li>分析liveCell_list里cell的cell.neighbor，去除neighbor不为2和3的cell，更新cell state</li>
+<li>记录更新newBorn_list的cell state</li>
+<li>合并liveCell_list和newBorn_list，清空newBorn_list和cell.neighbor</li>
+</ol>
+<h3 id="源码-2"><a href="#源码-2" class="headerlink" title="源码"></a>源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mark cell&#x27;s neighbor numbers by liveCell_list, and build newBorn_list</span></span><br><span class="line">def find_neighbor():</span><br><span class="line">    global cell_list</span><br><span class="line">    global newBorn_list</span><br><span class="line">    global liveCell_list</span><br><span class="line"></span><br><span class="line">    global row_max</span><br><span class="line">    global column_max</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> [row,column] <span class="keyword">in</span> liveCell_list:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(-1,2):</span><br><span class="line">            <span class="keyword">if</span> row+i&lt;0 or row+i&gt;row_max-1: <span class="comment">#out of range</span></span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(-1,2):</span><br><span class="line">                    <span class="keyword">if</span> column+j&lt;0 or column+j&gt;column_max-1: <span class="comment">#out of range</span></span><br><span class="line">                        <span class="built_in">continue</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        n_row=row+i</span><br><span class="line">                        n_column=column+j</span><br><span class="line">                        cell_list[n_row][n_column].neighbor+=1</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> not cell_list[n_row][n_column].liveCell: <span class="comment">#newBorn_list only reocrd coord where have no life</span></span><br><span class="line">                            <span class="keyword">if</span> cell_list[n_row][n_column].neighbor==3:</span><br><span class="line">                                newBorn_list.append([n_row,n_column])</span><br><span class="line">                            <span class="keyword">elif</span> cell_list[n_row][n_column].neighbor==4:</span><br><span class="line">                                newBorn_list.remove([n_row,n_column])</span><br><span class="line">            </span><br><span class="line">        cell_list[row][column].neighbor-=1 <span class="comment">#multi added</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#check live cell state, remove dead cell out of liveCell_list. 2 and 3 neighbors survival</span></span><br><span class="line">def check_liveCell_state():</span><br><span class="line">    global cell_list</span><br><span class="line">    global liveCell_list</span><br><span class="line">    new_liveCell_list=[]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> [row,column] <span class="keyword">in</span> liveCell_list:</span><br><span class="line">        neighbors=cell_list[row][column].neighbor <span class="comment">#get neighbor number</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> neighbors !=2 and neighbors !=3: <span class="comment">#dead</span></span><br><span class="line">            cell_list[row][column].switch_state()</span><br><span class="line">        <span class="keyword">else</span>: <span class="comment">#survive</span></span><br><span class="line">            new_liveCell_list.append([row,column])</span><br><span class="line"></span><br><span class="line">    liveCell_list=new_liveCell_list</span><br><span class="line"></span><br><span class="line"><span class="comment">#operate nre born cell in newBorn_list</span></span><br><span class="line">def new_born_cell():</span><br><span class="line">    global newBorn_list</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> [row,column] <span class="keyword">in</span> newBorn_list:</span><br><span class="line">        cell_list[row][column].switch_state()</span><br><span class="line"></span><br><span class="line"><span class="comment">#combine liveCell_list and newBorn_list together, clear cell.neighbors and newBorn_list</span></span><br><span class="line">def pre_nextLoop():</span><br><span class="line">    global cell_list</span><br><span class="line">    global liveCell_list</span><br><span class="line">    global newBorn_list</span><br><span class="line"></span><br><span class="line">    liveCell_list=liveCell_list+newBorn_list</span><br><span class="line">    newBorn_list.clear()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> list <span class="keyword">in</span> cell_list:</span><br><span class="line">        <span class="keyword">for</span> cell <span class="keyword">in</span> list:</span><br><span class="line">            cell.neighbor=0</span><br><span class="line"></span><br><span class="line"><span class="comment">#command of start button, start the game in each 1s</span></span><br><span class="line">def start_game(count):</span><br><span class="line">    global beginning</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> beginning: <span class="comment">#start sign</span></span><br><span class="line">        find_neighbor()</span><br><span class="line">        check_liveCell_state()</span><br><span class="line">        new_born_cell()</span><br><span class="line">        pre_nextLoop()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> count==0:</span><br><span class="line">            root.destroy()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#run start_button again after 100ms</span></span><br><span class="line">        root.after(100,start_game,count-1) <span class="comment">#caution: start_button has no returns hence no () in needed here (or recursion error happens)</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#get stop sign</span></span><br><span class="line">        pass</span><br></pre></td></tr></table></figure>
+
+<h3 id="效率-2"><a href="#效率-2" class="headerlink" title="效率"></a>效率</h3><p>@profile start_game(count)<br>Total time: 0.963228 s</p>
+<table>
+<thead>
+<tr>
+<th align="left">Hits</th>
+<th align="left">Time</th>
+<th align="left">Per Hit</th>
+<th align="left">% Time</th>
+<th align="left">Line Contents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">101</td>
+<td align="left">461.4</td>
+<td align="left">4.6</td>
+<td align="left">0.0</td>
+<td align="left">if beginning: #start sign</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">492614.4</td>
+<td align="left">4877.4</td>
+<td align="left">51.1</td>
+<td align="left">find_neighbor()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">144015.7</td>
+<td align="left">1425.9</td>
+<td align="left">15.0</td>
+<td align="left">check_liveCell_state()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">121916.5</td>
+<td align="left">1207.1</td>
+<td align="left">12.7</td>
+<td align="left">new_born_cell()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">190508.8</td>
+<td align="left">1886.2</td>
+<td align="left">19.8</td>
+<td align="left">pre_nextLoop()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">83.5</td>
+<td align="left">0.8</td>
+<td align="left">0.0</td>
+<td align="left">if count==0:</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">9204.7</td>
+<td align="left">9204.7</td>
+<td align="left">1.0</td>
+<td align="left">root.destroy()</td>
+</tr>
+<tr>
+<td align="left">101</td>
+<td align="left">4422.6</td>
+<td align="left">43.8</td>
+<td align="left">0.5</td>
+<td align="left">root.after(100,start_game,count-1) #caution: start_button has no returns hence no () in needed here (or recursion error happens)</td>
+</tr>
+</tbody></table>
+<p>时间消耗减少63%，对待大canvas，少live cell有巨大优势。但list处理中newBorn_list.remove()比想象中更花时间，如有大量cell交互改变可能会有较大问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/Conway%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/" rel="tag"><i class="fa fa-tag"></i> Conway生命游戏</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/python/TKinter-109fb60e9a66/" rel="prev" title="TKinter">
+                  <i class="fa fa-chevron-left"></i> TKinter
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/python/PDFplumber-76226f5ee993/" rel="next" title="PDFplumber">
+                  PDFplumber <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

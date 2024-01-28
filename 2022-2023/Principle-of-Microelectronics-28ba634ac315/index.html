@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Formular sheets and slids: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Principle-of-Microelectronics-Slides-4dd36568acfc&#x2F;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Principle of Microelectronics">
+<meta property="og:url" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="Formular sheets and slids: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Principle-of-Microelectronics-Slides-4dd36568acfc&#x2F;)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-13.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-14.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-15.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-16.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-17.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-13.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-5-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-5-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-13.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-14.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-15.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-16.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-17.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-18.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-6-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-6-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-14.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-10.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-11.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-12.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-13.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-9.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-8.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-1.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-2.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-3.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-4.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-5.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-6.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-7.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-8.png">
+<meta property="article:published_time" content="2022-12-07T04:02:06.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:14:04.320Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2022-2023">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-1.png">
+
+
+<link rel="canonical" href="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/","path":"2022-2023/Principle-of-Microelectronics-28ba634ac315/","title":"Principle of Microelectronics"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Principle of Microelectronics | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1"><span class="nav-number">1.</span> <span class="nav-text">1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blackbody-radiation"><span class="nav-number">1.1.</span> <span class="nav-text">Blackbody radiation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Photoelectric-effect"><span class="nav-number">1.2.</span> <span class="nav-text">Photoelectric effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bohr-atom"><span class="nav-number">1.3.</span> <span class="nav-text">Bohr atom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Particle-wave-duality"><span class="nav-number">1.4.</span> <span class="nav-text">Particle-wave duality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wave-packet"><span class="nav-number">1.5.</span> <span class="nav-text">wave-packet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Schroedinger-equation"><span class="nav-number">2.</span> <span class="nav-text">Schroedinger equation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1D-Schroedinger-equation"><span class="nav-number">2.1.</span> <span class="nav-text">1D Schroedinger equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-equation"><span class="nav-number">2.2.</span> <span class="nav-text">3D equation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Normalization"><span class="nav-number">2.3.</span> <span class="nav-text">Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uncertainty-principle"><span class="nav-number">2.4.</span> <span class="nav-text">Uncertainty principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#particles-in-potential-box"><span class="nav-number">2.5.</span> <span class="nav-text">particles in potential box</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Band-gap"><span class="nav-number">3.</span> <span class="nav-text">Band gap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Metal-semiconductor-contacts"><span class="nav-number">4.</span> <span class="nav-text">Metal-semiconductor contacts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anderson%E2%80%99s-rule"><span class="nav-number">4.1.</span> <span class="nav-text">Anderson’s rule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heterjunction"><span class="nav-number">4.2.</span> <span class="nav-text">Heterjunction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Density-of-state"><span class="nav-number">5.</span> <span class="nav-text">Density of state</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hall-effect"><span class="nav-number">6.</span> <span class="nav-text">Hall effect</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Liquid-crystal-display-LCD"><span class="nav-number">7.</span> <span class="nav-text">Liquid crystal display (LCD)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EMR"><span class="nav-number">7.1.</span> <span class="nav-text">EMR:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#liquid-crystal"><span class="nav-number">7.2.</span> <span class="nav-text">liquid crystal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Twisted-Nematic-TN-Effect"><span class="nav-number">7.3.</span> <span class="nav-text">Twisted Nematic (TN) Effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertically-Aligned-VA-LC"><span class="nav-number">7.4.</span> <span class="nav-text">Vertically Aligned (VA) LC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Plane-Switching-IPS-LC"><span class="nav-number">7.5.</span> <span class="nav-text">In-Plane Switching (IPS) LC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LCD-passive-matrix-addressing"><span class="nav-number">8.</span> <span class="nav-text">LCD passive matrix addressing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LCD-active-matrix"><span class="nav-number">9.</span> <span class="nav-text">LCD active matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Active-matrix-tech"><span class="nav-number">10.</span> <span class="nav-text">Active matrix tech</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OLED-structure"><span class="nav-number">11.</span> <span class="nav-text">OLED structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OLED-display"><span class="nav-number">12.</span> <span class="nav-text">OLED display</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Passive-matrix-driver"><span class="nav-number">12.1.</span> <span class="nav-text">Passive matrix driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Active-matrix"><span class="nav-number">12.2.</span> <span class="nav-text">Active matrix</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Micro-display"><span class="nav-number">13.</span> <span class="nav-text">Micro display</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Virtual-image-displays"><span class="nav-number">14.</span> <span class="nav-text">Virtual image displays</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Liquid-crystal-photonics"><span class="nav-number">15.</span> <span class="nav-text">Liquid crystal photonics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LC-lenses-Surface-relief-approach"><span class="nav-number">15.1.</span> <span class="nav-text">LC lenses: Surface relief approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hybrid-liquid-crystal-lenses"><span class="nav-number">15.2.</span> <span class="nav-text">Hybrid liquid crystal lenses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Liquid-crystal-lasers"><span class="nav-number">15.3.</span> <span class="nav-text">Liquid crystal lasers</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quantum-Rods-LEDs"><span class="nav-number">16.</span> <span class="nav-text">Quantum Rods LEDs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LIGHT-FIELD-AND-HOLOGRAPHIC-3D-DISPLAY-TECHNOLOGIES"><span class="nav-number">17.</span> <span class="nav-text">LIGHT FIELD AND HOLOGRAPHIC 3D DISPLAY TECHNOLOGIES</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2022-2023/Principle-of-Microelectronics-28ba634ac315/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Principle of Microelectronics
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-07 12:02:06" itemprop="dateCreated datePublished" datetime="2022-12-07T12:02:06+08:00">2022-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/PDF/" itemprop="url" rel="index"><span itemprop="name">PDF</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Formular sheets and slids: (<a href="https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/">https://pipirima.top/2022-2023/Principle-of-Microelectronics-Slides-4dd36568acfc/</a>)</p>
+<span id="more"></span>
+
+<h1 id="1-1"><a href="#1-1" class="headerlink" title="1-1"></a>1-1</h1><h2 id="Blackbody-radiation"><a href="#Blackbody-radiation" class="headerlink" title="Blackbody radiation"></a>Blackbody radiation</h2><p>Blackbody radiation is the thermal electromagnetic radiation within or emanating from a body in thermodynamic equilibrium with its environment, or emitted by a black body (an idealized physical body that absorbs all incident electromagnetic radiation) with a temperature above absolute zero.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-1.png" alt="1-1-1.png"><br>The higher the temperature of the body, the shorter the wavelength of the peak of the spectrum, and the higher the intensity of the radiation. the peak wavelength is in range of infra-red</p>
+<h2 id="Photoelectric-effect"><a href="#Photoelectric-effect" class="headerlink" title="Photoelectric effect"></a>Photoelectric effect</h2><p>A physical phenomenon in which electrons are emitted from the surface of a metal or other material when it is exposed to light or other electromagnetic radiation.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-2.png" alt="1-1-2.png"></p>
+<ol>
+<li>Cathode part metal contact light</li>
+<li>electrons absorb energy in one photon</li>
+<li>if energy permitted, it will emitted to anode material<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-3.png" alt="1-1-3.png"><br>the electron has a constant energy required freuqnecy f0. if incident light freuqnecy f&gt;f0, energy from photon is bigger than required energy level in electron, hence electron can be emitted.<br>the ourput current will be constant with stable light luminance. as one electron can only absorbe energy from one photon. the total current is fixed</li>
+</ol>
+<p>the energy which allowed an electron just been emitted is called work function = eϕ, where ϕ is in voltage<br>the total kinetic energy an electron has when it is just been emitted is = photon energy – work function:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-4.png" alt="1-1-4.png"></p>
+<h2 id="Bohr-atom"><a href="#Bohr-atom" class="headerlink" title="Bohr atom"></a>Bohr atom</h2><p>Bohr atom is the atom with central nucleus with electrons travelling in a circular orbit around it<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-5.png" alt="1-1-5.png"><br>coulomb force on the electron due to the e-field of the positive nucleus is just sufficient to provide inward acceleration for circular motion at a constant radius r<br>the electrons can only allowed to make a transition from one energy level to another level.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-6.png" alt="1-1-6.png"></p>
+<h2 id="Particle-wave-duality"><a href="#Particle-wave-duality" class="headerlink" title="Particle-wave duality"></a>Particle-wave duality</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-7.png" alt="1-1-7.png"><br>The momentum of the photons is:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-8.png" alt="1-1-8.png"><br>where p is momentum in kg.m/s, h is constant, λ is wavelength</p>
+<p>a particle can both conatins wave and particle properties</p>
+<h2 id="wave-packet"><a href="#wave-packet" class="headerlink" title="wave-packet"></a>wave-packet</h2><p>Wave-packets are useful for describing the behavior of particles because they allow us to describe the probability of finding a particle at a specific location at a specific time.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-9.png" alt="1-1-9.png"><br>β=2*pi/λ<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-10.png" alt="1-1-10.png"><br>vph=vλ<br>vph is phase velocity, that represents the velocity of phases along propagation direction of the wave (small signal shape)<br>it describes frequency and wavelength of the signal<br>vph is possible to faster than light</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-11.png" alt="1-1-11.png"><br>group velocity is the shape of wave-packet (whole big shape). group velocity is usually less or euqal to phase velocity</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-1-12.png" alt="1-1-12.png"></p>
+<h1 id="Schroedinger-equation"><a href="#Schroedinger-equation" class="headerlink" title="Schroedinger equation"></a>Schroedinger equation</h1><h2 id="1D-Schroedinger-equation"><a href="#1D-Schroedinger-equation" class="headerlink" title="1D Schroedinger equation"></a>1D Schroedinger equation</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-1.png" alt="1-2-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-2.png" alt="1-2-2.png"><br>this equation governs the behaviour in 1D of all particles, but no proof method</p>
+<h2 id="3D-equation"><a href="#3D-equation" class="headerlink" title="3D equation"></a>3D equation</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-3.png" alt="1-2-3.png"></p>
+<p>this equation can be simplifier by remove time-position dependent part:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-4.png" alt="1-2-4.png"><br>where Ψ is a function of space and time coordinates. it is one particle’s position in fixed time T.<br>Ψ is usually a complex number<br>and |Ψ|^2 ΔV is proportional to the<br>probability that a particle will be found in the volume element ΔV</p>
+<p>like for the probaibility to find a particle in range x+dx,y+dy,z+dz:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-5.png" alt="1-2-5.png"></p>
+<h2 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h2><p>From previous function, it is clear that:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-6.png" alt="1-2-6.png"><br>please note Ψ must in continious</p>
+<h2 id="Uncertainty-principle"><a href="#Uncertainty-principle" class="headerlink" title="Uncertainty principle"></a>Uncertainty principle</h2><p>the accurate position and energy value can not be measured in same time.<br>this is mainly beacuse un-accurated measure methode. the measurment from one parameter will influence measurement to another parameter.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-7.png" alt="1-2-7.png"><br>the accurency of x increase range of f<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-8.png" alt="1-2-8.png"><br>(?)</p>
+<h2 id="particles-in-potential-box"><a href="#particles-in-potential-box" class="headerlink" title="particles in potential box"></a>particles in potential box</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-9.png" alt="1-2-9.png"><br>second plot is the probability where the particle is, when x axis is range form [0,d]. the sum of this wave may be the constant vlaue 1.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-10.png" alt="1-2-10.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-11.png" alt="1-2-11.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-12.png" alt="1-2-12.png"><br>it can be simplified as:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-13.png" alt="1-2-13.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-14.png" alt="1-2-14.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-15.png" alt="1-2-15.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-16.png" alt="1-2-16.png"><br>The total energy of the bound particle has only a discrete set of allowed values:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-2-17.png" alt="1-2-17.png"></p>
+<p>from page 31<br>(?)</p>
+<h1 id="Band-gap"><a href="#Band-gap" class="headerlink" title="Band gap"></a>Band gap</h1><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-1.png" alt="1-3-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-2.png" alt="1-3-2.png"><br>1D idealised model of an array of atoms in a solid Kronig-Penney model (square potentials)<br>the level of potential energy can be seen as probability of electrons</p>
+<p>if 0 &lt;= x &lt;= b, V=0<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-3.png" alt="1-3-3.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-8.png" alt="1-3-8.png"></p>
+<p>if x&gt;b, V&gt;E,<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-4.png" alt="1-3-4.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-5.png" alt="1-3-5.png"></p>
+<p>Now if the w becomes vary small and L becomes infinity, wV will be constant, and equation changes as:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-6.png" alt="1-3-6.png"><br>Uk is the Bloch function, a periodic function which varies with the same periodicity as the S equation is in periodically</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-7.png" alt="1-3-7.png"><br>and note E=h^2/2m^2, where E is free electron case. the electrons can move freely in solid</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-9.png" alt="1-3-9.png"><br>x-axis is momentum<br>this figure shows all possible position that electrons will be</p>
+<p>hence, energy gap will appeared between soild material</p>
+<p>it will be influenced by electric field,<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-10.png" alt="1-3-10.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-11.png" alt="1-3-11.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-3-12.png" alt="1-3-12.png"><br>from a -&gt; b, energy increased, velocity is also increase<br>from c -&gt; d, energy increased, velocity is decreased (trend &lt;1)</p>
+<p>from page 29 (?)</p>
+<h1 id="Metal-semiconductor-contacts"><a href="#Metal-semiconductor-contacts" class="headerlink" title="Metal-semiconductor contacts"></a>Metal-semiconductor contacts</h1><p>When contact is made between two dissimilar materials, a contact potential (barrier) typically develops at the interface between the materials<br>can be categorised as non-rectifying (ohmic) and rectifying (Schottky barrier type diodes)<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-1.png" alt="1-4-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-2.png" alt="1-4-2.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-3.png" alt="1-4-3.png"></p>
+<p>contact:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-4.png" alt="1-4-4.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-5.png" alt="1-4-5.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-6.png" alt="1-4-6.png"></p>
+<p>Ohmic contact:<br>allows current to flow in either direction with contact resistance as low as possible (no barrier)<br>if Ψm&lt;Ψs:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-7.png" alt="1-4-7.png"><br>celectrons with no bias<br>and because majority is electrons (n-type), hence this is ohmic contact</p>
+<p>but if Ψm&gt;Ψs:<br>the specific contact resistance Rc depends on doping<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-8.png" alt="1-4-8.png"><br>high doping it has, more narrow the barrier will be</p>
+<p>the contact resistance depends on:</p>
+<ol>
+<li>metal and semiconductor work functions</li>
+<li>temperature</li>
+<li>chemical reaction</li>
+</ol>
+<p>Schottky contact:<br>only allows current to flow in one direction<br>must be Ψm&gt;Ψs</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-9.png" alt="1-4-9.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-10.png" alt="1-4-10.png"></p>
+<p>The relationship between charge and potential in a Schottky diode is from Poisson’s equation:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-11.png" alt="1-4-11.png"><br>V is the potential, ρ is the charge density, ε is the permittivity and r is the real space vector<br>The total charge is:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-12.png" alt="1-4-12.png"><br>where A is the diode area on the semiconductor surface</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-4-13.png" alt="1-4-13.png"></p>
+<h2 id="Anderson’s-rule"><a href="#Anderson’s-rule" class="headerlink" title="Anderson’s rule"></a>Anderson’s rule</h2><p>the vacuum levels of the two materials of a heterojunction should be lined up</p>
+<p>∆Ec=Ec_B – Ec_A = χA - χ B<br>χ = electron affinity of the material, which is independente with Fermi level</p>
+<p>e.g. GaAs has χ = 4.07eV and Al0.3Ga0.7 As has χ = 3.74eV, predicting ∆Ec = 0.33eV</p>
+<h2 id="Heterjunction"><a href="#Heterjunction" class="headerlink" title="Heterjunction"></a>Heterjunction</h2><p>A junction between p-type and n-type layers in the same material is called a homojunction<br>A junction between two different materials is called a heterojunction. they offer to manipulate the behaviour of electrons and holes through band engineering<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-5-1.png" alt="1-5-1.png"></p>
+<p>High Electron Mobility Transistors (HEMT):<br>Main reasons for their superior behaviour</p>
+<p>Modulation doping:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-5-2.png" alt="1-5-2.png"></p>
+<ol>
+<li>High mobility due to reduced scattering as partocles are all stopped in carrier channel</li>
+<li>Can control gain by optimising carrier density, space layer thickness, channel distance</li>
+<li>Can choose material with a small effective mass (hign intrinsic carrier mobility)</li>
+</ol>
+<p>The maximum transconductance increases, as</p>
+<ol>
+<li>increasing threshold voltage</li>
+<li>increasing doping of the AlGaAs layer</li>
+<li>decreasing space thickness</li>
+</ol>
+<p>By making T-shaped gates – decreases the RC time constant for switching</p>
+<h1 id="Density-of-state"><a href="#Density-of-state" class="headerlink" title="Density of state"></a>Density of state</h1><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-1.png" alt="1-6-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-2.png" alt="1-6-2.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-3.png" alt="1-6-3.png"><br>High current appear if Epk is horizontally matched with grey area in left</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-6-4.png" alt="1-6-4.png"></p>
+<h1 id="Hall-effect"><a href="#Hall-effect" class="headerlink" title="Hall effect"></a>Hall effect</h1><p>If a current is passed through a semiconductor and a magnetic field B is applied at right angles to the direction of current flow, an electric field is induced in a direction mutually perpendicular to B and the direction of current flow.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-1.png" alt="1-7-1.png"></p>
+<p>The Hall coefficient, RH:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-2.png" alt="1-7-2.png"><br>Hall mobility:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-3.png" alt="1-7-3.png"></p>
+<p>Hall bar structure:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-4.png" alt="1-7-4.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/1-7-5.png" alt="1-7-5.png"></p>
+<p>advantages:</p>
+<ol>
+<li>can combine etching and releasing together</li>
+<li>suit for batch process</li>
+<li>can be designed during MEMS design</li>
+</ol>
+<h1 id="Liquid-crystal-display-LCD"><a href="#Liquid-crystal-display-LCD" class="headerlink" title="Liquid crystal display (LCD)"></a>Liquid crystal display (LCD)</h1><h2 id="EMR"><a href="#EMR" class="headerlink" title="EMR:"></a>EMR:</h2><p>Visible light is a form of Electro-Magnetic Radiation (EMR) with wavelength in the region 390 - 750 nm (790 - 400 THz).<br>EMR have both electric and magnetic field components. the normal propagating traced as an ellips, but some special cases will include a circle (circularly polarized) or a straight line (linearly polarized)<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-1.png" alt="2-2-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-2.png" alt="2-2-2.png"></p>
+<h2 id="liquid-crystal"><a href="#liquid-crystal" class="headerlink" title="liquid crystal"></a>liquid crystal</h2><p>“liquid crystal” describes a group of meso-phases between solid crystal and isotropic liquid that exist for a number of organic molecular materials.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-3.png" alt="2-2-3.png"><br>liquid crystal is a state between liquid and solid. It can bound some moleculars, but can also rotate.</p>
+<p>the LC moleculars are normally in two shaps: rod-like (used in LCD) and disk-like (in other applications)<br>The LC particles can usually be aligned by some ‘surface force’ when placing between two plates. We can also control their direction by electric field.Use electric force.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-4.png" alt="2-2-4.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-5.png" alt="2-2-5.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-6.png" alt="2-2-6.png"><br>S is an order parameter that shows how well the eceltric field control LC’s direction. bigger S is, more LC moleculars will face the correct direction</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-7.png" alt="2-2-7.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-8.png" alt="2-2-8.png"><br>the dielectric permittivity  ε is a physical quantity describes how LC molecular will be effected by electric filed.<br>dielectric anisotropy is: Δε = εII - ε⊥<br>if Δε&gt;0, LC molecular will be parallel with electric field,<br>if Δε&lt;0, it will be perpendicular with electric field.</p>
+<p>many LC material configurations exhibit switchable birefringence, where birefringence material is one in which the refractive index alongone axis (extra-ordinary) is different to that along the other two (ordinary) perpendicular axesl that outputs two different polarized light waves, like rambow-colored plastic.</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-12.png" alt="2-2-12.png"><br>(a)Splay shape, k11<br>(b)Twist shape, k22<br>(c) Bend shape, k33<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-13.png" alt="2-2-13.png"></p>
+<p>this is a basic LCD structure<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-9.png" alt="2-2-9.png"></p>
+<ol>
+<li>Analyzer and Polarizer are all polarized board.</li>
+<li>Indium Tin Oxide (ITO) electrode is a transparent conductive material,</li>
+<li>Align layer can align LC particles into twisted or other shapes whenthere have no electric field</li>
+<li>LC layer &lt;1 to several µm thick</li>
+<li>Modern LCD has many other structures</li>
+</ol>
+<h2 id="Twisted-Nematic-TN-Effect"><a href="#Twisted-Nematic-TN-Effect" class="headerlink" title="Twisted Nematic (TN) Effect"></a>Twisted Nematic (TN) Effect</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-10.png" alt="2-2-10.png"><br>left part can pass the light, but right part will block the light.<br>the twisted LC psrticles are influenced by align layer, while straight LC particles are forced by electric field</p>
+<p>the Active-matrix liquid-crystal display (AMLCD) strcture:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-11.png" alt="2-2-11.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-14.png" alt="2-2-14.png"><br>Vth is the point when LC particles start to move based on electric field, which is called Freedericksz Transition<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-15.png" alt="2-2-15.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-16.png" alt="2-2-16.png"></p>
+<h2 id="Vertically-Aligned-VA-LC"><a href="#Vertically-Aligned-VA-LC" class="headerlink" title="Vertically Aligned (VA) LC"></a>Vertically Aligned (VA) LC</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-17.png" alt="2-2-17.png"><br>VALCD use negative dielectric anisotropy which are aligned perpendicular to the electric field</p>
+<h2 id="In-Plane-Switching-IPS-LC"><a href="#In-Plane-Switching-IPS-LC" class="headerlink" title="In-Plane Switching (IPS) LC"></a>In-Plane Switching (IPS) LC</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-2-18.png" alt="2-2-18.png"><br>use positive dielectric anisotropy, and creates much lower viewing angle dependence than in TN and VA displays</p>
+<h1 id="LCD-passive-matrix-addressing"><a href="#LCD-passive-matrix-addressing" class="headerlink" title="LCD passive matrix addressing"></a>LCD passive matrix addressing</h1><p>LCD can be drived by active-matrix driver or passitive-matrix driver.<br>we want fast in active matrix, but slow in passitive matrix<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-1.png" alt="2-4-1.png"></p>
+<p>the passive matrix:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-2.png" alt="2-4-2.png"><br>• Back electrode is vertical columns<br>• Front electrode is horizontal rows (?)<br>• M*N pixels requires only M+N drivers</p>
+<p>working process:</p>
+<ol>
+<li>select first row</li>
+<li>drive some column lines, so some pixcels on first row will turn on</li>
+<li>select seond rwo, and go on</li>
+</ol>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-9.png" alt="2-4-9.png"></p>
+<p>the real waveform of passive matrix, assume Vth=1.7V, is like:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-3.png" alt="2-4-3.png"><br>where 3-1=2, Voff=((2^2+3)/4)^0.5=1.3<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-4.png" alt="2-4-4.png"><br>3-(-1)=4, Von=((4^2+3)/4)^0.5=2.2<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-5.png" alt="2-4-5.png"></p>
+<p>foe example, in following figure, only point D2S2, D2S3 will turn on<br>S1,2,3,4 are turned one by one,<br>but D1234 are turned (on or off) in same time<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-6.png" alt="2-4-6.png"></p>
+<p>discrimination ratio:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-7.png" alt="2-4-7.png"><br>this will decrease rapidly with increasing number of rows N</p>
+<p>in inverse, maximum number N ca be computed as:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-4-8.png" alt="2-4-8.png"><br>smaller Von/Voff has, more number N can be contained in design</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">advantage</th>
+<th align="left">disadvantage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">passive-matrix</td>
+<td align="left">more lines than segmented</td>
+<td align="left">lines limited by design</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">cost↓</td>
+<td align="left">when lines ↑, Limited contrast, pixcel Crosstalk, More driver requirements, more requirements for LC material</td>
+</tr>
+</tbody></table>
+<h1 id="LCD-active-matrix"><a href="#LCD-active-matrix" class="headerlink" title="LCD active matrix"></a>LCD active matrix</h1><p>the active matrix can:</p>
+<ol>
+<li>increase duty cycle</li>
+<li>reduce cross-talk</li>
+<li>simplify addressing waveform</li>
+</ol>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-1.png" alt="2-5-1.png"><br>each group is combined with 1 TFT transistor, and 1 storage cup (pixcel electrods)<br>Other driver process is same with passive-matrix</p>
+<ol>
+<li>sweep column lines, and select row lines</li>
+<li>if pixel is selected, TFT will turn on</li>
+<li>storage cup charged</li>
+<li>liquid cyrstal open</li>
+</ol>
+<p>row:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-2.png" alt="2-5-2.png"><br>column:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-3.png" alt="2-5-3.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-5-4.png" alt="2-5-4.png"><br>(?)</p>
+<p>kickback(?)</p>
+<h1 id="Active-matrix-tech"><a href="#Active-matrix-tech" class="headerlink" title="Active matrix tech"></a>Active matrix tech</h1><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-6-1.png" alt="2-6-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-6-2.png" alt="2-6-2.png"><br>(?)</p>
+<h1 id="OLED-structure"><a href="#OLED-structure" class="headerlink" title="OLED structure"></a>OLED structure</h1><p>OLED is quite similar with LED principle, but change those structures into orginac materials</p>
+<p>simple OLED<br>this is structure of simple OLED<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-1.png" alt="2-7-1.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-2.png" alt="2-7-2.png"><br>• LUMO is like valance band, HOMO is like conduction band<br>• Cathode assist electron injection<br>• Anode assist hole injection<br>• High mobility to reduce voltage and increase recombination probability<br>• emitted color is depended on energy gap</p>
+<p>Simple Bilayer OLED Device<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-3.png" alt="2-7-3.png"></p>
+<p>Advanced high-efficiency OLED Device<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-4.png" alt="2-7-4.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-14.png" alt="2-7-14.png"><br>EIL(HIL): Electron (Hole) Injection layer<br>EIL(HIL): Electron (Hole) transport layer<br>EML: Emitter material layer<br>EBL(HBL): Electron (Hole) Block layer</p>
+<p>bottom and top emitting:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-5.png" alt="2-7-5.png"><br>top emitter have a reflactive anode and transparent cathode<br>bottom emitter has a transparent anode and reflective cathode</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-6.png" alt="2-7-6.png"><br>Luminance proportional to current density over many decades of dynamic range</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-7.png" alt="2-7-7.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-8.png" alt="2-7-8.png"><br>HTL’s thickness will influence final emitted light’s efficiency.</p>
+<p>OLED image sticking problem: Pixels used more become dimmer sooner. life time, image will tuen yellow or grey</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-9.png" alt="2-7-9.png"><br>thermionic emission and tunning are two main electron/hole injection methode.<br>thermionic emission:<br>J is the emission current density,<br>T is the temperature of the metal,<br>k is the Boltzmann constant,<br>and A is a parameter constant<br>(?)</p>
+<p>OLED zero bias, no charge injection.A (very) small current can flow due to dissociation of photo-excited excitons.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-10.png" alt="2-7-10.png"><br>LEP: light-emitting polymer<br>PEDOT: poly(3,4-ethylenedioxythiophene)<br>threshold, OLED start to turn on, Thermionic emission allows carriers over the barriers to injection (mainly dependent on temperature)<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-11.png" alt="2-7-11.png"><br>carrier injection, OLED under forward bias. current is limited by carrier injection and space charging<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-12.png" alt="2-7-12.png"></p>
+<p>Charge Mobility µ is very low compared to inorganic semiconductors<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-7-13.png" alt="2-7-13.png"></p>
+<h1 id="OLED-display"><a href="#OLED-display" class="headerlink" title="OLED display"></a>OLED display</h1><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-1.png" alt="2-9-1.png"><br>voltage-luminance relations. turn on voltage is 2.1V, luminance increases with increased voltage, but efficiency drops in hign voltage</p>
+<p>Addressing comare<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-2.png" alt="2-9-2.png"></p>
+<h2 id="Passive-matrix-driver"><a href="#Passive-matrix-driver" class="headerlink" title="Passive matrix driver"></a>Passive matrix driver</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-3.png" alt="2-9-3.png"><br>Usually ITO anodes are ‘columns’ and Al cathodes are ‘rows’ due to the large peak currents the rows must cope with<br>driving method is same with passitive-matrix LCD</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-4.png" alt="2-9-4.png"></p>
+<p>main power consumption is baed on four parts:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-5.png" alt="2-9-5.png"><br>that diode (between anode and cathode) is the main consumpted part<br>So using more ‘standby’ or ‘pass blanklines’ can better save the power</p>
+<h2 id="Active-matrix"><a href="#Active-matrix" class="headerlink" title="Active matrix"></a>Active matrix</h2><p>use TFT control<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-6.png" alt="2-9-6.png"><br>the active matrix has longer, less intense current pulse, which reduce power comsumption.</p>
+<p>but this AMOLED have limitaitons:</p>
+<ol>
+<li>OLED luminance delay and TFT aging</li>
+<li>fixed pattern noise</li>
+<li>batch variability</li>
+</ol>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-7.png" alt="2-9-7.png"><br>(LCD ?)<br>LCD is drived by voltage, and OLED is drived by current</p>
+<p>for simple actibe-matrix OLED:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-8.png" alt="2-9-8.png"></p>
+<ol>
+<li>row line is selected first, and then column is also been selected</li>
+<li>M1 been selected, and pass</li>
+<li>M2 is selected and open, drive LED</li>
+</ol>
+<p>have many other sifferent designes. see them later</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-9-9.png" alt="2-9-9.png"></p>
+<h1 id="Micro-display"><a href="#Micro-display" class="headerlink" title="Micro display"></a>Micro display</h1><p>the small display has:</p>
+<ol>
+<li>large image for eye</li>
+<li>lower manufactoe cost</li>
+<li>lower power consumption and battery lifetime</li>
+<li>often use AM-CMOS structure</li>
+</ol>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-1.png" alt="2-10-1.png"></p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-2.png" alt="2-10-2.png"><br>(?)</p>
+<p>different projected methode:<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-3.png" alt="2-10-3.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-4.png" alt="2-10-4.png"><br>backlight is turned on in sequence, and create a final image finally</p>
+<p>the second display method is better than first one, as scrolling methode can mix different color, but first methode is basicly has three different colors on screen.<br>FSC has simplier display structure, but some scence will increase color break-up if move fast</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-6.png" alt="2-10-6.png"><br>left hand is transmissive LCD, right hand is reflective LCD. the Transmissive LCD has wider side barrier, while reflective LCD has more narrower side gap.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-5.png" alt="2-10-5.png"><br>same in front/back emit OLED<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-7.png" alt="2-10-7.png"></p>
+<p>TI DMD (Digital Micromirror Device) / DLP (Digital Light Processing)<br>It works by using thousands of tiny mirrors that can be rapidly controlled to reflect light onto a screen, creating an image<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/2-10-8.png" alt="2-10-8.png"></p>
+<h1 id="Virtual-image-displays"><a href="#Virtual-image-displays" class="headerlink" title="Virtual image displays"></a>Virtual image displays</h1><p>the slab glass can help change light view and outputs a virtual image<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-1.png" alt="g-1-1.png"><br>the output different angle light line can help eye create a virtual object by slab. The slab is a glass with slightly emboss one side<br>the angle a light line enter the salb can maintain where the seen virtual object are</p>
+<p>we can see a file if there has a projector under this slab<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-2.png" alt="g-1-2.png"></p>
+<p>the LED need use gating ti enter the slab, to avoid diffraction due to line-width<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-3.png" alt="g-1-3.png"></p>
+<p>so we can create a vertical line by adding another slab, and output a full screen image<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-4.png" alt="g-1-4.png"></p>
+<p>The effect of diffraction can be shown in a semi-sphere, k1 is entered light angle, k2 is diffractive direction, and kg is projected direction that entered light been diffractived.<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-5.png" alt="g-1-5.png"><br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-6.png" alt="g-1-6.png"><br>the ray angle under 42° will not be guided, and roung 90° may not hit the gating. hence 42°-72° is a good choice (projected grey ring)<br>1 -&gt; 2 : first reflection<br>2 -&gt; 3: second reflection<br>so finally ray will move to eye’s center</p>
+<p>RGB virtual figure display. It needs three cameras due to different color’s wavelength.<br>this design will cause a really heavy device<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-1-7.png" alt="g-1-7.png"></p>
+<h1 id="Liquid-crystal-photonics"><a href="#Liquid-crystal-photonics" class="headerlink" title="Liquid crystal photonics"></a>Liquid crystal photonics</h1><h2 id="LC-lenses-Surface-relief-approach"><a href="#LC-lenses-Surface-relief-approach" class="headerlink" title="LC lenses: Surface relief approach"></a>LC lenses: Surface relief approach</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-1.png" alt="g-2-1.png"></p>
+<p>Variable index approach<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-2.png" alt="g-2-2.png"></p>
+<p>Modal addressing<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-3.png" alt="g-2-3.png"></p>
+<h2 id="Hybrid-liquid-crystal-lenses"><a href="#Hybrid-liquid-crystal-lenses" class="headerlink" title="Hybrid liquid crystal lenses"></a>Hybrid liquid crystal lenses</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-4.png" alt="g-2-4.png"><br>birefringence len may is the LC layer. why FLC can be rotated? change the ne/no?</p>
+<p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-5.png" alt="g-2-5.png"><br>two polariser can be rotated by controller<br>this device can generate a 3-D virtual image</p>
+<h2 id="Liquid-crystal-lasers"><a href="#Liquid-crystal-lasers" class="headerlink" title="Liquid crystal lasers"></a>Liquid crystal lasers</h2><p><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-6.png" alt="g-2-6.png"><br>note the Resonant cavity is liquid cyrstal</p>
+<p>if the liquid crystal is in twisted, different color waveform could be seperated using different twisted angle<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-7.png" alt="g-2-7.png"><br>So a mixed-color laser can be seperated into multiple single-color laser<br><img src="/2022-2023/Principle-of-Microelectronics-28ba634ac315/g-2-8.png" alt="g-2-8.png"></p>
+<h1 id="Quantum-Rods-LEDs"><a href="#Quantum-Rods-LEDs" class="headerlink" title="Quantum Rods LEDs"></a>Quantum Rods LEDs</h1><p>(?)</p>
+<h1 id="LIGHT-FIELD-AND-HOLOGRAPHIC-3D-DISPLAY-TECHNOLOGIES"><a href="#LIGHT-FIELD-AND-HOLOGRAPHIC-3D-DISPLAY-TECHNOLOGIES" class="headerlink" title="LIGHT FIELD AND HOLOGRAPHIC 3D DISPLAY TECHNOLOGIES"></a>LIGHT FIELD AND HOLOGRAPHIC 3D DISPLAY TECHNOLOGIES</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2022-2023/" rel="tag"><i class="fa fa-tag"></i> 2022-2023</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022-2023/Analogue-IC-Design-Slides-d19af0cb183f/" rel="prev" title="Analogue IC Design Slides">
+                  <i class="fa fa-chevron-left"></i> Analogue IC Design Slides
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/FPGA/FSM-%E7%8A%B6%E6%80%81%E6%9C%BA-8849c5655785/" rel="next" title="FSM 状态机">
+                  FSM 状态机 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

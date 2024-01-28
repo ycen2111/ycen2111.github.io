@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="code example: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d&#x2F;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Embedded mobile and Wireless System">
+<meta property="og:url" content="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="code example: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d&#x2F;)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/000.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/001.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/001.png">
+<meta property="article:published_time" content="2023-01-20T06:48:35.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:10:48.706Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2022-2023">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/000.png">
+
+
+<link rel="canonical" href="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/","path":"2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/","title":"Embedded mobile and Wireless System"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Embedded mobile and Wireless System | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#initialization"><span class="nav-number">1.</span> <span class="nav-text">initialization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Usual-parameter-values"><span class="nav-number">2.</span> <span class="nav-text">Usual parameter values</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-parameters"><span class="nav-number">2.1.</span> <span class="nav-text">Common parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-veiwText%E2%80%99s-value"><span class="nav-number">2.2.</span> <span class="nav-text">set veiwText’s value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-parametres"><span class="nav-number">2.3.</span> <span class="nav-text">Special parametres</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sensors"><span class="nav-number">2.4.</span> <span class="nav-text">Sensors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WIFI"><span class="nav-number">2.5.</span> <span class="nav-text">WIFI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BlueTooth"><span class="nav-number">2.6.</span> <span class="nav-text">BlueTooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location"><span class="nav-number">2.7.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-Location-and-Mark"><span class="nav-number">2.8.</span> <span class="nav-text">Map Location and Mark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camera"><span class="nav-number">2.9.</span> <span class="nav-text">Camera</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#usful-code-group"><span class="nav-number">3.</span> <span class="nav-text">usful code group</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#intent"><span class="nav-number">3.1.</span> <span class="nav-text">intent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#read-battery-states"><span class="nav-number">3.2.</span> <span class="nav-text">read battery states</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-onclick-event-on-View"><span class="nav-number">3.3.</span> <span class="nav-text">create onclick event on View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-down-timer"><span class="nav-number">3.4.</span> <span class="nav-text">count down timer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#permission"><span class="nav-number">3.5.</span> <span class="nav-text">permission</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tips"><span class="nav-number">4.</span> <span class="nav-text">tips</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linked-Strings"><span class="nav-number">4.1.</span> <span class="nav-text">linked Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Map-API"><span class="nav-number">4.2.</span> <span class="nav-text">Google Map API</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Embedded mobile and Wireless System
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-20 14:48:35" itemprop="dateCreated datePublished" datetime="2023-01-20T14:48:35+08:00">2023-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>code example: (<a href="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/">https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/</a>)</p>
+<span id="more"></span>
+
+<h1 id="initialization"><a href="#initialization" class="headerlink" title="initialization"></a>initialization</h1><p>APP: Android Studio v.2020.3.1.26 Patch4, published at December 8, 2021<br>(<a target="_blank" rel="noopener" href="https://developer.android.com/studio/archive">https://developer.android.com/studio/archive</a>) please note: Change to English language or may not find this version<br>language: JAVA<br>Minimum SDK platform: Android 9 (pie)</p>
+<p>tools -&gt; SDK manger<br>SDK tools: Android SDK build, Android Emulator, Android SDK platform (tool), (optional) HAXM installer</p>
+<p>tools -&gt; AVD manager<br>Harware: Phone-Pixle 2<br>the emulator can be actived after build. If terminated, please check device’s virtual device support.</p>
+<p><img src="/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/000.png" alt="000.png"></p>
+<p>one group of xml page have sutomatically initialized when creating a new project.<br>MainActivity (logic code) and activity_main.xml (page design)<br><img src="/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/001.png" alt="001.png"></p>
+<p>and a “Hello Word” programe is already coded, can directly ran the programe and test the setting.</p>
+<h1 id="Usual-parameter-values"><a href="#Usual-parameter-values" class="headerlink" title="Usual parameter values"></a>Usual parameter values</h1><h2 id="Common-parameters"><a href="#Common-parameters" class="headerlink" title="Common parameters"></a>Common parameters</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">android:text=<span class="string">&quot;text&quot;</span></span><br><span class="line"></span><br><span class="line">android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line"></span><br><span class="line">app:layout_constraintBottom_toBottomOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">app:layout_constraintEnd_toEndOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">app:layout_constraintStart_toStartOf=<span class="string">&quot;parent&quot;</span></span><br><span class="line">app:layout_constraintTop_toTopOf=<span class="string">&quot;parent&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="set-veiwText’s-value"><a href="#set-veiwText’s-value" class="headerlink" title="set veiwText’s value"></a>set veiwText’s value</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//<span class="keyword">in</span> .java</span><br><span class="line">TextView your_view_name=findViewById(R.id.your_view_id); // find target textView</span><br><span class="line">String message=your_view_name.getText().toString(); // get written string <span class="keyword">in</span> this EditText </span><br><span class="line">your_view_name.setText(message); // input message to textView</span><br><span class="line"></span><br><span class="line">//<span class="keyword">in</span> .xml</span><br><span class="line">android:id=<span class="string">&quot;@+id/your_view_name&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Special-parametres"><a href="#Special-parametres" class="headerlink" title="Special parametres"></a>Special parametres</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Edit Text:</span><br><span class="line">android:id=<span class="string">&quot;@+id/editTextTextPersonName&quot;</span></span><br><span class="line">android:hint=<span class="string">&quot;@string/edit_message&quot;</span></span><br><span class="line"></span><br><span class="line">Button:</span><br><span class="line">android:id=<span class="string">&quot;@+id/button&quot;</span></span><br><span class="line">android:onClick=<span class="string">&quot;sendMessage&quot;</span> // behavier <span class="keyword">function</span> name</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sensors"><a href="#Sensors" class="headerlink" title="Sensors"></a>Sensors</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">private SensorManager sensorManager; // control all msensors</span><br><span class="line">private Sensor sensorName; // represent a sensor</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">//initialize</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);</span><br><span class="line">        sensorName = sensorManager.getDefaultSensor(Sensor.%sensorType%);</span><br><span class="line"></span><br><span class="line">        //start listener</span><br><span class="line">        sensorManager.registerListener(this,sensorName,UI); //NORMAL:1, UI:2, GAME:3</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">//get value</span><br><span class="line">    public void onSensorChanged(SensorEvent event) &#123;</span><br><span class="line">        <span class="keyword">if</span> (event.sensor.getType() == Sensor.%sensorType%) //target sensor <span class="built_in">type</span></span><br><span class="line">            sensorName = event.values;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">//stop listener</span><br><span class="line">    protected void <span class="function"><span class="title">onPause</span></span>() &#123;</span><br><span class="line">        super.onPause();</span><br><span class="line">        sensormanager.unregisterListener(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">//restart listener</span><br><span class="line">    protected void <span class="function"><span class="title">onResume</span></span>() &#123;</span><br><span class="line">        super.onResume();</span><br><span class="line">        sensorManager.registerListener(this,sensorName,UI); //NORMAL:1, UI:2, GAME:3</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">sensorType</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">MagneticField</td>
+<td align="left">Sensor.TYPE_MAGNETIC_FIELD</td>
+</tr>
+<tr>
+<td align="left">Accelerometer</td>
+<td align="left">Sensor.TYPE_ACCELEROMETER</td>
+</tr>
+<tr>
+<td align="left">Gyroscope</td>
+<td align="left">Sensor.TYPE_GYROSCOPE</td>
+</tr>
+<tr>
+<td align="left">StepCounter</td>
+<td align="left">Sensor.TYPE_STEP_DETECTOR</td>
+</tr>
+</tbody></table>
+<h2 id="WIFI"><a href="#WIFI" class="headerlink" title="WIFI"></a>WIFI</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">WifiManager wifiManager;</span><br><span class="line">wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);</span><br><span class="line"></span><br><span class="line">wifiManager.setWifiEnabled(<span class="literal">true</span>);</span><br><span class="line">wifiManager.startScan();</span><br><span class="line"></span><br><span class="line">List&lt;ScanResult&gt; wifiScanList = wifiManager.getScanResults();</span><br></pre></td></tr></table></figure>
+
+<h2 id="BlueTooth"><a href="#BlueTooth" class="headerlink" title="BlueTooth"></a>BlueTooth</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//varibale to hold BluetoothAdapter instance</span><br><span class="line">private BluetoothAdapter BA;</span><br><span class="line">//display list of paired Bluetooth device</span><br><span class="line">private Set&lt;BluetoothDevice&gt; pairedDevices;</span><br><span class="line"></span><br><span class="line">BA = BluetoothAdapter.getDefaultAdapter();</span><br><span class="line"></span><br><span class="line">//get list</span><br><span class="line">pairedDevices = BA.getBondedDevices();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h2><p>note the “onLocationChanged” will not be changes swiftly</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    LocationManager locationManager;</span><br><span class="line">    LocationListener locationListener;</span><br><span class="line"></span><br><span class="line">    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);</span><br><span class="line">    locationListener = new mylocationlistener();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class mylocationlistener implements  LocationListener&#123;</span><br><span class="line">    @Override</span><br><span class="line">    // called when location  PGS changes</span><br><span class="line">    public void onLocationChanged(@NonNull Location location) &#123;</span><br><span class="line">        <span class="keyword">if</span> (location != null) &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Map-Location-and-Mark"><a href="#Map-Location-and-Mark" class="headerlink" title="Map Location and Mark"></a>Map Location and Mark</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//be called when Map page is initialized ready</span><br><span class="line">public void onMapReady(GoogleMap googleMap) &#123;</span><br><span class="line">        mMap = googleMap;</span><br><span class="line"></span><br><span class="line">        // Add a marker <span class="keyword">in</span> Sydney and move the camera</span><br><span class="line">        LatLng Edinburgh = new LatLng(55.953251, -3.188267);</span><br><span class="line">        //add new markers</span><br><span class="line">        mMap.addMarker(new MarkerOptions().position(Edinburgh).title(<span class="string">&quot;Marker in Edinburgh&quot;</span>));</span><br><span class="line">        //move the center of camera to marker</span><br><span class="line">        mMap.moveCamera(CameraUpdateFactory.newLatLng(Edinburgh));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &amp;&amp; ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">            // TODO: Consider calling</span><br><span class="line">            //    ActivityCompat<span class="comment">#requestPermissions</span></span><br><span class="line">            // here to request the missing permissions, and <span class="keyword">then</span> overriding</span><br><span class="line">            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,</span><br><span class="line">            //                                          int[] grantResults)</span><br><span class="line">            // to handle the <span class="keyword">case</span> <span class="built_in">where</span> the user grants the permission. See the documentation</span><br><span class="line">            // <span class="keyword">for</span> ActivityCompat<span class="comment">#requestPermissions for more details.</span></span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        //<span class="built_in">enable</span> the location button, move the sign to your current place</span><br><span class="line">        mMap.setMyLocationEnabled(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);</span><br><span class="line">        mMap.getUiSettings().setCompassEnabled(<span class="literal">true</span>);</span><br><span class="line">        mMap.getUiSettings().setRotateGesturesEnabled(<span class="literal">true</span>);</span><br><span class="line">        mMap.getUiSettings().setScrollGesturesEnabled(<span class="literal">true</span>);</span><br><span class="line">        mMap.getUiSettings().setTiltGesturesEnabled(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Camera"><a href="#Camera" class="headerlink" title="Camera"></a>Camera</h2><p>the photo parameters are passed by intent<br>Please move to (<a href="https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/#Camera">https://pipirima.top/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-7273817ad39d/#Camera</a>) to check how to take and save a picture</p>
+<h1 id="usful-code-group"><a href="#usful-code-group" class="headerlink" title="usful code group"></a>usful code group</h1><h2 id="intent"><a href="#intent" class="headerlink" title="intent"></a>intent</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//<span class="keyword">in</span> main class</span><br><span class="line">intent intent=new Intent(this,New_class.class); // create an intent class <span class="built_in">which</span> will communicated with new class</span><br><span class="line">intent.putExtra(<span class="string">&#x27;extras_name&#x27;</span>, <span class="string">&#x27;your_message&#x27;</span>); // put the string into EXTRA_MESSAGE.</span><br><span class="line">startActivity (intent); // running intent</span><br><span class="line"></span><br><span class="line">//<span class="keyword">in</span> new class</span><br><span class="line">Intent intent=getIntent();</span><br><span class="line">string message=intent.getStringExtra(<span class="string">&#x27;extras_name&#x27;</span>);// message will get string value</span><br><span class="line">//you can use intent.getIntExtra(<span class="string">&#x27;extras_name&#x27;</span>) to get <span class="built_in">integer</span> value</span><br></pre></td></tr></table></figure>
+
+<h2 id="read-battery-states"><a href="#read-battery-states" class="headerlink" title="read battery states"></a>read battery states</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private IntentFilter ifilter;</span><br><span class="line">//<span class="keyword">in</span> OnCreate</span><br><span class="line">ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED); //ifilter have matched with a <span class="built_in">type</span> of action</span><br><span class="line">registerReceiver(mBatInforReceiver,ifilter); //the receiver will be called when any broadcast matches filter</span><br><span class="line"></span><br><span class="line">//<span class="keyword">in</span> mBatInforReceiver</span><br><span class="line">String action = intent.getAction();</span><br><span class="line"><span class="keyword">if</span> (Intent.ACTION_BATTERY_CHANGED.equals(action))&#123;</span><br><span class="line">    BatteryL=intent.getIntExtra(<span class="string">&quot;level&quot;</span>,0);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">String</th>
+<th align="left">Constant Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">EXTRA_LEVEL</td>
+<td align="left">level</td>
+</tr>
+<tr>
+<td align="left">EXTRA_VOLTAGE</td>
+<td align="left">voltage</td>
+</tr>
+<tr>
+<td align="left">EXTRA_TEMPERATURE</td>
+<td align="left">temperature</td>
+</tr>
+<tr>
+<td align="left">EXTRA_TECHNOLOGY</td>
+<td align="left">technology</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">EXTRA_STATUS</th>
+<th align="left">status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">BATTERY_STATUS_CHARGING</td>
+<td align="left">2 (0x00000002)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_STATUS_DISCHARGING</td>
+<td align="left">3 (0x00000003)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_STATUS_NOT_CHARGING</td>
+<td align="left">4 (0x00000004)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_STATUS_FULL</td>
+<td align="left">5 (0x00000005)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_STATUS_UNKNOWN</td>
+<td align="left">1 (0x00000001)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">EXTRA_PLUGGED</th>
+<th align="left">plugged</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">BATTERY_PLUGGED_AC</td>
+<td align="left">1 (0x00000001)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_PLUGGED_USB</td>
+<td align="left">2 (0x00000002)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_PLUGGED_WIRELESS</td>
+<td align="left">4 (0x00000004)</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">EXTRA_HEALTH</th>
+<th align="left">health</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">BATTERY_HEALTH_UNKNOWN</td>
+<td align="left">1 (0x00000001)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_HEALTH_GOOD</td>
+<td align="left">2 (0x00000002)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_HEALTH_DEAD</td>
+<td align="left">4 (0x00000004)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_HEALTH_OVER_VOLTAGE</td>
+<td align="left">5 (0x00000005)</td>
+</tr>
+<tr>
+<td align="left">BATTERY_HEALTH_OVERHEAT</td>
+<td align="left">3 (0x00000003)</td>
+</tr>
+</tbody></table>
+<h2 id="create-onclick-event-on-View"><a href="#create-onclick-event-on-View" class="headerlink" title="create onclick event on View"></a>create onclick event on View</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">imageView.setOnClickListener(new View.<span class="function"><span class="title">OnClickListener</span></span>() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                //your code</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="count-down-timer"><a href="#count-down-timer" class="headerlink" title="count down timer"></a>count down timer</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CountDownTimer countDownTimer = new CountDownTimer(500, 1000) &#123;</span><br><span class="line"></span><br><span class="line">        public void onTick(long millisUntilFinished) &#123;</span><br><span class="line">            // <span class="keyword">do</span> something after 0.5s</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void <span class="function"><span class="title">onFinish</span></span>() &#123;</span><br><span class="line">            // <span class="keyword">do</span> something end after 1s</span><br><span class="line">            start(); //restart the timer</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="permission"><a href="#permission" class="headerlink" title="permission"></a>permission</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">//<span class="keyword">in</span> AndroidManifest.xml, <span class="keyword">in</span> &lt;manifest&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.XXXX&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line">//<span class="keyword">in</span> main.java</span><br><span class="line">private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= 23) &#123;</span><br><span class="line">            //check <span class="keyword">if</span> we have <span class="built_in">read</span> or write permission</span><br><span class="line">            int myPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.XXXX);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (myPermission != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">                //prompt the user <span class="keyword">if</span> dont have permission</span><br><span class="line">                this.requestPermissions(</span><br><span class="line">                        new String[]&#123;Manifest.permission.XXXX&#125;,</span><br><span class="line">                        REQUEST_ID_READ_WRITE_PERMISSION</span><br><span class="line">                );</span><br><span class="line">                <span class="built_in">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//When you have the request results</span><br><span class="line">    @Override</span><br><span class="line">    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) &#123;</span><br><span class="line">        super.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">        switch (requestCode) &#123;</span><br><span class="line">            <span class="keyword">case</span> REQUEST_ID_READ_WRITE_PERMISSION: &#123;</span><br><span class="line">                //(<span class="built_in">read</span> and write and camera) permissions granted</span><br><span class="line">                <span class="keyword">if</span> (grantResults.length &gt; 1 &amp;&amp;</span><br><span class="line">                        grantResults[0] == PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">                    Toast.makeText(this, <span class="string">&quot;Permission granted!&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">                &#125;</span><br><span class="line">                //cancelled or denied</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    Toast.makeText(this, <span class="string">&quot;Permission denied&quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h1><h2 id="linked-Strings"><a href="#linked-Strings" class="headerlink" title="linked Strings"></a>linked Strings</h2><p>in res -&gt; values -&gt; strings.xml, we can set some default variable strings, in form like</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;string name=<span class="string">&quot;app_name&quot;</span>&gt;My Application&lt;/string&gt;</span><br><span class="line">    &lt;string name=<span class="string">&quot;edit_message&quot;</span>&gt;Enter a message&lt;/string&gt;</span><br><span class="line">    &lt;string name=<span class="string">&quot;button_send&quot;</span>&gt;Send&lt;/string&gt;</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/2022-2023/Embedded-mobile-and-Wireless-System-2077c61453e9/001.png" alt="001.png"><br>this code is like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:hint=<span class="string">&quot;@string/edit_message&quot;</span> // <span class="built_in">which</span> shows <span class="string">&quot;Enter a message&quot;</span> <span class="keyword">in</span> layout</span><br></pre></td></tr></table></figure>
+
+<h2 id="Google-Map-API"><a href="#Google-Map-API" class="headerlink" title="Google Map API"></a>Google Map API</h2><p>goto (<a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/android/start#get-key">https://developers.google.com/maps/documentation/android/start#get-key</a>), get Google API<br>copy API code, copy to file “res/values/google_maps_api.xml”</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;string name=<span class="string">&quot;google_maps_key&quot;</span> templateMergeStrategy=<span class="string">&quot;preserve&quot;</span> translatable=<span class="string">&quot;false&quot;</span>&gt;<span class="string">&quot;Copy API Here&quot;</span>&lt;/string&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2022-2023/" rel="tag"><i class="fa fa-tag"></i> 2022-2023</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/FPGA/n%E5%88%86%E9%A2%91-0130bf339b1f/" rel="prev" title="n分频">
+                  <i class="fa fa-chevron-left"></i> n分频
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022-2023/Embedded-mobile-and-Wireless-System-Code-Example-3965576cc57b/" rel="next" title="Embedded mobile and Wireless System Code Example">
+                  Embedded mobile and Wireless System Code Example <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

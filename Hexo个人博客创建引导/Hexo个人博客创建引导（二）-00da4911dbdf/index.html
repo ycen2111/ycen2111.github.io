@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="申请域名虽然github可以免费生成一个”.github.io”结尾的域名，但通常情况下大多数人还是愿意申请一个更适合的域名并重定向过去。由于域名申请审核需要一定时间，这里先介绍域名申请的流程及注意事项，如不打算自己申请可以先跳过这节。 此文会讲解在阿里云平台申请域名。优点在于阿里云可以直接解析域名，减少工作量，相对方便。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo个人博客创建引导（二）">
+<meta property="og:url" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="申请域名虽然github可以免费生成一个”.github.io”结尾的域名，但通常情况下大多数人还是愿意申请一个更适合的域名并重定向过去。由于域名申请审核需要一定时间，这里先介绍域名申请的流程及注意事项，如不打算自己申请可以先跳过这节。 此文会讲解在阿里云平台申请域名。优点在于阿里云可以直接解析域名，减少工作量，相对方便。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E5%9B%BE%E7%89%87.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%9F%9F%E5%90%8D%E5%88%97%E8%A1%A8.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/github%E4%BB%93%E5%BA%93.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%88%9B%E9%80%A0%E5%AE%8C%E6%88%90.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/SSH.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/github_ssh.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E6%A3%80%E6%9F%A5ssh.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E8%A7%A3%E6%9E%90%E8%AE%BE%E7%BD%AE.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/git_ip%E6%9F%A5%E8%AF%A2.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/customer_domain.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/new_branch.PNG">
+<meta property="og:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/set_default.PNG">
+<meta property="article:published_time" content="2021-09-08T00:43:54.000Z">
+<meta property="article:modified_time" content="2022-11-08T21:58:52.487Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="图文教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E5%9B%BE%E7%89%87.PNG">
+
+
+<link rel="canonical" href="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/","path":"Hexo个人博客创建引导/Hexo个人博客创建引导（二）-00da4911dbdf/","title":"Hexo个人博客创建引导（二）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo个人博客创建引导（二） | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7%E5%9F%9F%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">申请域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E5%88%9B%E9%80%A0%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">github创造仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH"><span class="nav-number">3.</span> <span class="nav-text">生成SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%85%B3%E8%81%94github"><span class="nav-number">4.</span> <span class="nav-text">hexo关联github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D"><span class="nav-number">5.</span> <span class="nav-text">解析域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AECNAME"><span class="nav-number">6.</span> <span class="nav-text">配置CNAME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BDHEXO%E6%96%87%E4%BB%B6"><span class="nav-number">7.</span> <span class="nav-text">备份HEXO文件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo个人博客创建引导（二）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-08 08:43:54" itemprop="dateCreated datePublished" datetime="2021-09-08T08:43:54+08:00">2021-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">Hexo模板</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h2><p>虽然github可以免费生成一个”.github.io”结尾的域名，但通常情况下大多数人还是愿意申请一个更适合的域名并重定向过去。由于域名申请审核需要一定时间，这里先介绍域名申请的流程及注意事项，如不打算自己申请可以先跳过这节。</p>
+<p>此文会讲解在<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain?utm_content=se_1008364728">阿里云平台</a>申请域名。优点在于阿里云可以直接解析域名，减少工作量，相对方便。</p>
+<span id="more"></span>
+
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E5%9B%BE%E7%89%87.PNG" alt="阿里云域名图片"></p>
+<p>个人认为.top结尾的域名便宜又好使，完全可以个人使用，如果可以接受稍微贵点的话.com结尾也比较大气。不同域名价格相差极大，个别热门名字价格可能会到几万，需要多找找。（像此网站域名pipirima.top，就是天蝎座μ2的英文，尾宿增二，3.57等星，双星系统）</p>
+<p>找到合适的就直接加入列表购买就行。已购买的可以在域名控制台，域名列表里找到<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%9F%9F%E5%90%8D%E5%88%97%E8%A1%A8.PNG" alt="域名列表"></p>
+<p>一开始购买的域名需要实名认证下，会有提示的，进去后把名字和身份证传下就行。人工审核大概需要半天的样子，完成后会发过来一封信息提醒的，耐心等待即可。审核完成后需要解析下，点击上图蓝色的”解析“即可,这个后面会说。</p>
+<h2 id="github创造仓库"><a href="#github创造仓库" class="headerlink" title="github创造仓库"></a>github创造仓库</h2><p>接下来的内容是假设可以登录github并有账号的情况，如果还未注册请先进行注册并完成基础操作。</p>
+<p>首先打开仓库<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/github%E4%BB%93%E5%BA%93.PNG" alt="github仓库.PNG"></p>
+<p>在右上角点击绿色的”new“，开始创建。<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.PNG" alt="创建仓库.PNG"></p>
+<p>（懒得涂名字了，反正都能看到的，算了）</p>
+<p>老样子，将yourname改为自己的名字，选择public，直接创建。完成的话像这个样子<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E5%88%9B%E9%80%A0%E5%AE%8C%E6%88%90.PNG" alt="创造完成.PNG"></p>
+<h2 id="生成SSH"><a href="#生成SSH" class="headerlink" title="生成SSH"></a>生成SSH</h2><p>利用bash直接生成密钥，然后把公共密钥给github，就不用每次都属用户名密码了（没试过需要输入的情况，这么说总是方便吧）</p>
+<p>如果bash是第一次使用的话先设置一次账号密码。打开bash后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;yourname&quot;</span></span><br><span class="line">git config --global user.emil <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>记得替换好名字和邮箱</p>
+<p>然后就生成SSH</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;youremail&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>全程回车确认，最后会提示生成完毕，并给一个地址。基本会在 C:\User.ssh 里找到一个id_rsa.pub<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/SSH.PNG" alt="SSH.PNG"></p>
+<p>用记事本打开，复制内容后回github黏贴<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/github_ssh.PNG" alt="github_ssh.PNG"></p>
+<p>点击new ssh key黏贴密钥。</p>
+<p>完成后在Bash里输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E6%A3%80%E6%9F%A5ssh.PNG" alt="检查ssh.PNG"></p>
+<p>本人是这个结果，如果出现的话基本就没事了。</p>
+<h2 id="hexo关联github"><a href="#hexo关联github" class="headerlink" title="hexo关联github"></a>hexo关联github</h2><p>说是关联，其实也只是将.git等一部分文件上传关联，没有全部发送备份。本文最后有将整个项目上传过程。</p>
+<p>打开项目根目录，打开 _config.yml 配置文件直接拖到最后，改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>改为自己名字后保存退出，打开bash安装hexo的部署功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>之后我们就可以使用 hexo d 这个命令了。</p>
+<p>连续输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d//上传部署</span><br></pre></td></tr></table></figure>
+
+<p>hexo d部署估计是由于墙的问题，很容易失败，多试几次发现没提示error就说明成功了。<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.PNG" alt="部署成功.PNG"></p>
+<p>稍微过会儿进入<a target="_blank" rel="noopener" href="http://yourname.github.io就可以看到上传的页面了./">http://yourname.github.io就可以看到上传的页面了。</a></p>
+<h2 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h2><p>之前申请的域名审核通过就可以解析了，不需要认证。</p>
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/%E8%A7%A3%E6%9E%90%E8%AE%BE%E7%BD%AE.PNG" alt="解析设置.PNG"></p>
+<p>（注意！！！）解析设置必须在完成github配置后再进行。</p>
+<p>先说主机记录这块，”@“意思是无前缀，直接输入域名就行，如直接pipirima.top就可以访问此网站。”WWW“就是前缀加上，如 <a target="_blank" rel="noopener" href="http://www.pipirima.top/">www.pipirima.top</a> ,两个都设置的话两个写法都可以访问此网站。</p>
+<p>记录类型一般有两个选择，”A“或者”CNAME“。如果选择”A“就需要在记录值这里填写.github.io对应的ip地址。打开windows自带cmd，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping yourname.github.io</span><br></pre></td></tr></table></figure>
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/git_ip%E6%9F%A5%E8%AF%A2.PNG" alt="git_ip查询.PNG"></p>
+<p>yourname改为自己的github姓名。在记录值里输入ip即可。</p>
+<p>但github方面更推荐使用”CNAME“，如果用”A“在最后github设置customer domain时会有个warning，看着难受。所以一般都是推荐使用”CNAME“。这种情况下直接在记录值输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourname.github.io</span><br></pre></td></tr></table></figure>
+
+<p>即可，同样记得自己改下名字。</p>
+<p>解析线路选择默认，TTL选10分钟即可（更新时间间隔）。点击确认。</p>
+<h2 id="配置CNAME"><a href="#配置CNAME" class="headerlink" title="配置CNAME"></a>配置CNAME</h2><p>最后，再告诉github和hexo新域名</p>
+<p>进入仓库中的setting，在page页面内找到customer domain选项<br><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/customer_domain.PNG" alt="customer_domain.PNG"></p>
+<p>直接输入域名，不用任何前缀。推荐点上下边的enforce https，更安全一点。点击save，等旁边出现一个绿勾就完成了。</p>
+<p>虽然现在就能进入新域名了，但每次部署后都需要从新输入customer domain。解决办法是在本地hexo，source文件夹里新建一个文件，去除后缀（所有格式形式），输入新域名（同样只输入域名进行），重新hexo clean，g，d，部署后就每次可以不用再次输入了。</p>
+<p>同样，上传部署后需要等待一会儿，不会马上更新的。</p>
+<p>现在可以访问新域名，进行后续的theme选择和内容书写了。</p>
+<h2 id="备份HEXO文件"><a href="#备份HEXO文件" class="headerlink" title="备份HEXO文件"></a>备份HEXO文件</h2><p>为了防止工程文件随本地文件消失而损失，可在仓库中另建一个branch来存放文件。</p>
+<p>在github项目仓库中新建branch。</p>
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/new_branch.PNG" alt="new_branch.PNG"></p>
+<p>在setting中设置默认branch</p>
+<p><img src="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%BA%8C%EF%BC%89-00da4911dbdf/set_default.PNG" alt="set_default.PNG"></p>
+<p>之后在本地新建一个文件夹来存放已上传的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/yourname/yourname.github.io.git</span><br><span class="line"></span><br><span class="line">git remote rm origin</span><br><span class="line"></span><br><span class="line">git remote add origin https://github.com/yourname/yourname.github.io.git</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>开启隐藏文件显示，保留.git文件之外删除其他文件，并将需要上传的文件放进来（必须保留.gitignor文件）。输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;something&quot;</span></span><br><span class="line"></span><br><span class="line">git push origin branchName</span><br><span class="line">//<span class="keyword">if</span> fail</span><br><span class="line">git pull origin branchName</span><br><span class="line">//and follow</span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+
+<p>可发现文件已上传。</p>
+<p>Shell 脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D://Blog</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">read</span> -n 1</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">cp -a .//Hexo//<span class="built_in">source</span> .//<span class="built_in">source</span>//ycen2111.github.io</span><br><span class="line">cp -a .//Hexo//_config.yml .//<span class="built_in">source</span>//ycen2111.github.io</span><br><span class="line">cp -a .//Hexo//package.json .//<span class="built_in">source</span>//ycen2111.github.io</span><br><span class="line">cp -a .//Hexo//.gitignore .//<span class="built_in">source</span>//ycen2111.github.io</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="string">&quot;.//source//ycen2111.github.io//themes//next&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Create .//source//ycen2111.github.io//themes//next&quot;</span></span><br><span class="line">mkdir -p .//<span class="built_in">source</span>//ycen2111.github.io//themes//next</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">read</span> -n 1</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">cp -a .//Hexo//themes//next//_config.yml .//<span class="built_in">source</span>//ycen2111.github.io//themes//next</span><br><span class="line">cp -a .//Hexo//themes//next//package.json .//<span class="built_in">source</span>//ycen2111.github.io//themes//next</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> .//<span class="built_in">source</span>//ycen2111.github.io &amp;&amp; git add . &amp;&amp; git commit -m <span class="string">&quot;backup&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">read</span> -n 1</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/Blog/" rel="tag"><i class="fa fa-tag"></i> Blog</a>
+              <a href="/tags/%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 图文教程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%EF%BC%88%E4%B8%80%EF%BC%89-f5df35482bba/" rel="prev" title="Hexo个人博客创建引导（一）">
+                  <i class="fa fa-chevron-left"></i> Hexo个人博客创建引导（一）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%E5%BC%95%E5%AF%BC%E2%80%94%E2%80%94NEXT%E4%B8%BB%E9%A2%98-87eb59f938c0/" rel="next" title="Hexo个人博客创建引导——NEXT主题">
+                  Hexo个人博客创建引导——NEXT主题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

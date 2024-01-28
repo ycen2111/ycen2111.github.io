@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"pipirima.top","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Formula sheet: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Discrete-Time-formula-sheet-4d6b2d11b3d4&#x2F;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Discrete-Time Signals">
+<meta property="og:url" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/index.html">
+<meta property="og:site_name" content="朽丶">
+<meta property="og:description" content="Formula sheet: (https:&#x2F;&#x2F;pipirima.top&#x2F;2022-2023&#x2F;Discrete-Time-formula-sheet-4d6b2d11b3d4&#x2F;)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/101.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/102.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/105.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/103.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/104.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/201.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/202.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/203.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/204.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/205.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/206.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/207.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/208.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/209.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/301.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/302.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/303.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/401.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/402.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/403.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/404.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/405.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/501.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/502.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/601.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/602.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/603.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/604.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/605.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/606.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/607.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/608.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/609.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/610.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/611.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/612.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/701.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/702.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/703.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/704.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/705.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/706.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/707.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/801.png">
+<meta property="og:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/802.png">
+<meta property="article:published_time" content="2022-10-10T06:02:05.000Z">
+<meta property="article:modified_time" content="2023-05-06T13:10:40.509Z">
+<meta property="article:author" content="Yang Cen">
+<meta property="article:tag" content="2022-2023">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/101.png">
+
+
+<link rel="canonical" href="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/","path":"2022-2023/Discrete-Time-Signals-65e13740ec10/","title":"Discrete-Time Signals"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Discrete-Time Signals | 朽丶</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">朽丶</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人学习记录</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <!-- start visitor record -->
+    <!-- script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MCOdC2sxpObNFWyUa6W3SZHU1OtUvJ_iIXyaftHjDig&cl=ffffff&w=a" --></script>
+    <!-- end visitor record -->
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Frequency-Analysis-of-Signals"><span class="nav-number">1.</span> <span class="nav-text">Frequency Analysis of Signals</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Discrete-Fourier-Transform"><span class="nav-number">2.</span> <span class="nav-text">The Discrete Fourier Transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Correlation"><span class="nav-number">3.</span> <span class="nav-text">Correlation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transform-of-a-Linear-Time-Invariant-LTI-system"><span class="nav-number">4.</span> <span class="nav-text">Transform of a Linear Time Invariant (LTI) system</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Random-Signal"><span class="nav-number">5.</span> <span class="nav-text">Random Signal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Digital-Filters"><span class="nav-number">6.</span> <span class="nav-text">Digital Filters</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Power-spectrum"><span class="nav-number">7.</span> <span class="nav-text">Power spectrum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Multirate-Digital-Signal-Processing"><span class="nav-number">8.</span> <span class="nav-text">Multirate Digital Signal Processing</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Cen</p>
+  <div class="site-description" itemprop="description">Personal Learning Technical Blog</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:ycen2111@gmail.com" title="E-Mail → mailto:ycen2111@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pipirima.top/2022-2023/Discrete-Time-Signals-65e13740ec10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yang Cen">
+      <meta itemprop="description" content="Personal Learning Technical Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="朽丶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Discrete-Time Signals
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-10 14:02:05" itemprop="dateCreated datePublished" datetime="2022-10-10T14:02:05+08:00">2022-10-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/academic-material/" itemprop="url" rel="index"><span itemprop="name">academic material</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Formula sheet: (<a href="https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/">https://pipirima.top/2022-2023/Discrete-Time-formula-sheet-4d6b2d11b3d4/</a>)</p>
+<span id="more"></span>
+
+<h1 id="Frequency-Analysis-of-Signals"><a href="#Frequency-Analysis-of-Signals" class="headerlink" title="Frequency Analysis of Signals"></a>Frequency Analysis of Signals</h1><p>Fourier transform usually used in aperiodic and continuous signals turning from time domain to frequency domain as:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/101.png" alt="101.png"></p>
+<p>The complex exponential can be explained as sine and cosn format:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/102.png" alt="102.png"><br>Hence cos(x) only has real part and sin(x) only contains imagine part</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">Continuous</th>
+<th align="left">Discrete</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Periodic</td>
+<td align="left">Fourier series</td>
+<td align="left">Discrete-time Fourier series</td>
+</tr>
+<tr>
+<td align="left">Aperiodic</td>
+<td align="left">Fourier transform</td>
+<td align="left">Discrete-time Fourier transform</td>
+</tr>
+</tbody></table>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/105.png" alt="105.png"></p>
+<p>PDS(Power Density Spectra) of DTFS is:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/103.png" alt="103.png"></p>
+<p>PDS(Power Density Spectra) of DTFT is:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/104.png" alt="104.png"></p>
+<h1 id="The-Discrete-Fourier-Transform"><a href="#The-Discrete-Fourier-Transform" class="headerlink" title="The Discrete Fourier Transform"></a>The Discrete Fourier Transform</h1><p>DFT(Discrete Fourier Transform) is usually sampled by a finite period of DTFT(Discrete-time Fourier transform) signal, as it is easy to represented indigital system.<br>Like N is number of samples taken in one period, fs = sampled frequency, ∆t = sampled spacing time<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/201.png" alt="201.png"><br>If N&gt;L, rest of N will be separated by zero points with no alising (or leakage?).<br>But if N &lt; L, severial original descrete points will be ignored and deal with alising.<br>Hence normally N shold be &gt; or = to L.</p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/202.png" alt="202.png"><br>For real valued inputs, Re(x(n)) = x(n),<br>the transform is complex conjugate symmetric: X(k) = X*(-k) = X*(N - k),</p>
+<p>Like X(1)=1+j=X*(-1) = X*(5 - 1)=X*(4)<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/203.png" alt="203.png"></p>
+<p>FFT(fast Fourier transform) is a fast computer calculation mathod for Fourier transform. N for FFT should be a number with power of 2 (eg. 2,4,8,16,32,…). So if L of original signal is 30, its sampled number N will increased to 32 with 2 zero-padding points.</p>
+<p>for signal cos(nπ/32), angular frequency ω=π/32, frequency f=2π/(π/32)=64Hz. And N=L=128, ∆t=2π/128=π/64. So there have 2 peaks seperatly on π/32 and -π/32 on frequency domain.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/204.png" alt="204.png"></p>
+<p>However, if peak frequency f not reaches intager times of ∆t, multiple non-zero samples will appeared which called the leakage.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/205.png" alt="205.png"><br>Which only two non-zero points should be sampled.</p>
+<p>There have two methods to reduce the leakge. Sampling in frequency (zero padding and add more input samples) and Windowing.<br>With window method, the result signal will have a wider mainlobe nearing target frequency, and lower value away from peaklobes<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/206.png" alt="206.png"><br>The zero padding and add more input samples can be used after windowing. by increasing both N and L to 4 times bigger than before, the peaklobe will be 4 times narrow than origin plot.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/207.png" alt="207.png"></p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/208.png" alt="208.png"><br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/209.png" alt="209.png"><br>Peak sidelob level can also called as dynamic range of transform</p>
+<h1 id="Correlation"><a href="#Correlation" class="headerlink" title="Correlation"></a>Correlation</h1><p>Correlation is a technique that determines the relationship between two signals, allowing for a displacement in time.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/301.png" alt="301.png"><br>Where the similarity of f(x) anf f(y) is large, rxy(l) will also be large<br>Where the similarity of f(x) anf f(y) is samll, rxy(l) will also be tiny<br>The correlation sequence rxy(l) is not symetric, as rxy(l)=ryx(-l)<br>Hence rxx(l)=rxx(-l), autocorrelation is symmetric.</p>
+<p>rxx(0) = Ex is the energy of the sequence, if x(n) is a finite sequence.</p>
+<p>The normalised correlations is defined to detect the strong level of a correlation system<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/302.png" alt="302.png"><br>When ρ is close to |1|, means the correlation is strong (fit with energy sequence).</p>
+<p>For signal y(x) with finite sampling number M,<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/303.png" alt="303.png"></p>
+<h1 id="Transform-of-a-Linear-Time-Invariant-LTI-system"><a href="#Transform-of-a-Linear-Time-Invariant-LTI-system" class="headerlink" title="Transform of a Linear Time Invariant (LTI) system"></a>Transform of a Linear Time Invariant (LTI) system</h1><p>The z-transform is a frequency representation of a signal, or system.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/401.png" alt="401.png"><br>note z=exp(jω)</p>
+<p>For causal systems to be stable, they must have all poles within the unit circle, although zeros are allowed at any location in the z-plane.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/402.png" alt="402.png"><br>B(z) determines pole points, A(z) determines zero points</p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/403.png" alt="403.png"><br>Sxx(ω) is the density spectrum of the system input, Syy(ω) is the density spectrum of the system output.</p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/404.png" alt="404.png"><br>Hence |H(ω)|^2 is the discrete-time Fourier transform of the autocorrelation of the impulse response h(m)</p>
+<p>|H(ω)| can be seen as the sum of dictence from a point which is on unit circle to all poles and zeros in this unit circle.<br>If we have two zeros 0 and -1, and also two poles -0.5 and 0.4, and choose the point where ω=exp(jπ/4),<br>|H(ω)| is total length of these four lines =1.713<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/405.png" alt="405.png"></p>
+<h1 id="Random-Signal"><a href="#Random-Signal" class="headerlink" title="Random Signal"></a>Random Signal</h1><p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/501.png" alt="501.png"><br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/502.png" alt="502.png"></p>
+<h1 id="Digital-Filters"><a href="#Digital-Filters" class="headerlink" title="Digital Filters"></a>Digital Filters</h1><p>There is a delay of an infinitelength before the output can be obtained<br>The filter requires future values of the input in order to determine the current output<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/601.png" alt="601.png"><br>A practical filter will differ from the ideal with a frequency response. It may have ripple, and may not.<br>End edge of passband is the frequency drop below -3dB bandwidth frequency.<br>The stopband edge is the frequency at which the response drops to the desired stopband height.<br>reducing δ1, δ2 or the width of the transition band results in an increase in the other parameters</p>
+<p>Linear phase is a property of a filter where the phase response of the filter is a linear function of frequency. The result is that all frequency components of the input signal are shifted in time (usually delayed) by the same constant amount.<br>The linear phase filte h(n) can be defined in pure real (evidente as left equation) and imaginary (evidente as right equation) frequency response<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/602.png" alt="602.png"><br>in real response, h(n)=h(-n), H(ω)=H(-ω), filter is symmetric<br>in imaginary reponse, h(n)=-h(-n), filter is anti-symmetric</p>
+<p>equation of FIR is:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/603.png" alt="603.png"><br>where h(n) is defined as the impulse response of a causal filter, M is number of taps</p>
+<p>any zero that is real, and does not lie on z = 1 or z = −1 must have one other zero that is its reciprocal. eg. z2 and 1/z2<br>complex zeros, not lying on the unit circle, occur in groups of four. eg. z1, z1*, 1/z1, 1/z1*<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/604.png" alt="604.png"><br>There have M-1 zero points for M-tap FIR filter normally.<br>Hence this figure shows an odd-tap filter.</p>
+<p>If the filter is in even-tap, there must have zero equals 1 or -1 on circle.<br>depends on symmetrix or anti-symmetric</p>
+<p>for Frequency response characteristics,<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/605.png" alt="605.png"></p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/606.png" alt="606.png"></p>
+<p>For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.</p>
+<p>For design a desired filter response, HRD(ω) defines the idealised filter. The idealised filter will either be symmetric, or antisymmetric (HRD(ω) = ±HRD(−ω))<br>To make the final filter of length M causal, a delay of (M−1)/2 samples is required.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/607.png" alt="607.png"></p>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/608.png" alt="608.png"><br>For a low-pass filter design, a symmetric response is required as an anti-symmetric filter places a zero at z = 1. For a high-pass design, a symmetric or an antisymmetric impulse response can be used provided that M is chosen such that a zero is not placed at z = −1.</p>
+<table>
+<thead>
+<tr>
+<th align="left">filter</th>
+<th align="left">β</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">low pass</td>
+<td align="left">β=0</td>
+</tr>
+<tr>
+<td align="left">high pass</td>
+<td align="left">β=1</td>
+</tr>
+</tbody></table>
+<p><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/609.png" alt="609.png"><br>like if sampled frequency=8kHz, and 16-tap filter, the shift frequency when α=0.5 is: 8k/2*16=0.25k</p>
+<p>The transition bandwidth is: (transition_frequency/sampling_frequency)*2pi<br>which can get the number of filter taps</p>
+<p>if calculated tap number is larger than designed number, then the calculated number can be seen as more complex</p>
+<p>For Naïve approach:<br>The impulse response is based on DFT equation<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/610.png" alt="610.png"><br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/611.png" alt="611.png"><br>usually, the frequency repsonse when α = 0 has lower passband ripple but higher stopband ripple,<br>the frequency response when α = 0.5 has higher passband ripple but lower stopband ripple.<br>it should be careful to choose which filter is much better</p>
+<p>example:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/612.png" alt="612.png"></p>
+<h1 id="Power-spectrum"><a href="#Power-spectrum" class="headerlink" title="Power spectrum"></a>Power spectrum</h1><p>The definition for an ergodic power signal can similarly be defined:<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/701.png" alt="701.png"><br>where N is number of samples, L is length of DFT sequence. Usually N less than L<br>But it is not a good idea to calculate whole priodic, as priodogram will have big variance and easy influenced by windowing<br>more detailed the sampling is, much bigger the variation is.</p>
+<p>Bartlett method is transform each small blocks, and calculate its average value<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/702.png" alt="702.png"><br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/703.png" alt="703.png"><br>block number K=N/M</p>
+<p>Welch method using more blocks with much less variation<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/704.png" alt="704.png"><br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/705.png" alt="705.png"></p>
+<p>but divide block is same as add a rectangle window. Hence we can choose other window type to reduce spectrum leakage.<br>Note: narrower mainlobe, higher revolution. higher sidelobe, worse spectrum leakage<br>best choice is choose -30dB between mainlobe and sidelobe</p>
+<p>Blackman and Tukey<br>this method will calculate correletion first and than calculate its DFT spectrum<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/706.png" alt="706.png"><br>value |m| shoud be less than M<br>value rxx(m)=0 for all |m|&gt;M<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/707.png" alt="707.png"><br>First two windows have high sidelobe and narrow mainlobe<br>Next two window have low sidelobe and wide mainlobe</p>
+<p>Complexity<br>Techniques with a low computational complexity can be executed more quickly, and run more often, than those with a high complexity<br>multiplication is generally used as the metric to gauge complexity.</p>
+<h1 id="Multirate-Digital-Signal-Processing"><a href="#Multirate-Digital-Signal-Processing" class="headerlink" title="Multirate Digital Signal Processing"></a>Multirate Digital Signal Processing</h1><p>multirate techniques a signal, with a new sampling rate, that represents the original signal.<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/801.png" alt="801.png"><br>The multirate structure will could obviously decrease tap number in filter design</p>
+<p>For resampling, D and I should all be integers<br>D is Decimation<br>I is Interpolation<br><img src="/2022-2023/Discrete-Time-Signals-65e13740ec10/802.png" alt="802.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2022-2023/" rel="tag"><i class="fa fa-tag"></i> 2022-2023</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022-2023/VLSI-lab-d6c00e717a8f/" rel="prev" title="VLSI lab">
+                  <i class="fa fa-chevron-left"></i> VLSI lab
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022-2023/Discrete-Time-formula-sheet-eefdbc1ab2bc/" rel="next" title="Discrete-Time formula sheet">
+                  Discrete-Time formula sheet <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-grip-lines-vertical"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang Cen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
