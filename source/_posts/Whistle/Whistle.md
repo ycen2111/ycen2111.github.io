@@ -69,3 +69,8 @@ tags:
 ![ForestOftheAncient-2.png](ForestOftheAncient-2.png)
 ![ForestOftheAncient-3.png](ForestOftheAncient-3.png)
 ![ForestOftheAncient-4.png](ForestOftheAncient-4.png)
+
+## Zoltraak
+{% aplayer "Zoltraak" "from FRIENREN" "Zoltraak.mp3" %}
+![Zoltraak-1.png](Zoltraak-1.png)
+![Zoltraak-2.png](Zoltraak-2.png)
