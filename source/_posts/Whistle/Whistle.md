@@ -40,6 +40,11 @@ tags:
 ![HometownWind-1.png](HometownWind-1.png)
 ![HometownWind-2.png](HometownWind-2.png)
 
+## Zoltraak
+{% aplayer "Zoltraak" "from FRIENREN" "Zoltraak.mp3" %}
+![Zoltraak-1.png](Zoltraak-1.png)
+![Zoltraak-2.png](Zoltraak-2.png)
+
 # 经典曲
 ## O son doar
 {% aplayer "O son doar" "by Cynthia1844" "Osondoar.mp3" %}
@@ -69,8 +74,3 @@ tags:
 ![ForestOftheAncient-2.png](ForestOftheAncient-2.png)
 ![ForestOftheAncient-3.png](ForestOftheAncient-3.png)
 ![ForestOftheAncient-4.png](ForestOftheAncient-4.png)
-
-## Zoltraak
-{% aplayer "Zoltraak" "from FRIENREN" "Zoltraak.mp3" %}
-![Zoltraak-1.png](Zoltraak-1.png)
-![Zoltraak-2.png](Zoltraak-2.png)
